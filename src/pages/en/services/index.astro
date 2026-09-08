@@ -1,0 +1,140 @@
+---
+const servicesData = getServicesData(Astro.url.pathname);
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../../components/ui/Breadcrumbs.astro';
+import ServiceCard from '../../../components/cards/ServiceCard.astro';
+import SectionHeading from '../../../components/ui/SectionHeading.astro';
+import Button from '../../../components/ui/Button.astro';
+import { getServicesData } from "../../../data/services";
+---
+<BaseLayout 
+  title="Integrated Engineering Services | Novand"
+  description="Explore our core engineering services: smart home automation, passive & active networking, enterprise IT and VoIP, systems administration & virtualization, physical security, audio systems, and hardware maintenance."
+>
+  <!-- Breadcrumbs -->
+  <div class="bg-[#141210] border-b border-[#15120e] py-3">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <Breadcrumbs items={[{ label: 'Services' }]} />
+    </div>
+  </div>
+
+  <!-- Page Header / Hero -->
+  <section class="bg-[#141210] text-[#f4f2f1] py-16 sm:py-24 border-b border-[#15120e] bg-grid-subtle">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl">
+        <div class="inline-flex items-center gap-3 px-3.5 py-1 bg-[#0d1417] border border-[#15120e] text-[#f6f2ee] text-[10px] font-mono uppercase tracking-[0.25em] mb-4">
+          <span class="w-1.5 h-1.5 bg-[#f4f2f1]"></span>
+          Integrated Practice Catalog
+        </div>
+        <h1 class="text-3xl sm:text-5xl font-light tracking-tight leading-tight text-[#f4f2f1] mb-6">
+          Technology Systems Engineered to Operate as One
+        </h1>
+        <p class="text-base sm:text-lg text-[#f4f2f1]/70 leading-relaxed font-light">
+          We maintain deep in-house engineering expertise across seven core physical and logical domains. Rather than hiring multiple disparate contractors, our clients receive a unified, standards-compliant technology infrastructure.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- All 7 Services Catalog -->
+  <section class="bg-[#0d1417] text-[#f4f2f1] py-16 sm:py-24 border-b border-[#15120e]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {servicesData.map((service, index) => (
+          <ServiceCard service={service} index={index} />
+        ))}
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Technical Standards & Verification Matrix -->
+  <section class="bg-[#141210] text-[#f4f2f1] py-16 sm:py-24 border-b border-[#15120e]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <SectionHeading 
+        eyebrow="Verification Baseline"
+        title="Engineering Standards Across All Disciplines"
+        description="Every installation is bound to industry specifications and verified with dedicated test instrumentation before client handover."
+        theme="dark"
+        class="mb-8"
+      />
+
+      <div class="overflow-x-auto">
+        <table class="w-full text-left text-xs font-mono border border-[#15120e]">
+          <thead class="bg-[#0d1417] text-[#f6f2ee] text-[10px] uppercase tracking-wider border-b border-[#15120e]">
+            <tr>
+              <th class="p-4">Discipline</th>
+              <th class="p-4">Primary Standards</th>
+              <th class="p-4">Verification Tools</th>
+              <th class="p-4">Delivery Artifact</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-[#15120e] text-[#f4f2f1]/70 font-light">
+            <tr class="hover:bg-[#15120e]/60 transition-colors">
+              <td class="p-4 font-normal text-[#f4f2f1]">Smart Homes & Buildings</td>
+              <td class="p-4">Mobile IoT, DALI-2, BACnet, KNX, HDMI/HDBaseT</td>
+              <td class="p-4">Logic bus monitors, environmental sensors, lux meters</td>
+              <td class="p-4 text-[#f6f2ee] opacity-80">Appliance Profiles & Classroom Runbooks</td>
+            </tr>
+            <tr class="hover:bg-[#15120e]/60 transition-colors">
+              <td class="p-4 font-normal text-[#f4f2f1]">Network Infrastructure</td>
+              <td class="p-4">CCNA & Network+, ANSI/TIA-568-D, FTTH</td>
+              <td class="p-4">Fluke DSX-8000, OTDR Optical Loss, RF spectrum</td>
+              <td class="p-4 text-[#f6f2ee] opacity-80">Certified Test Reports & Port Maps</td>
+            </tr>
+            <tr class="hover:bg-[#15120e]/60 transition-colors">
+              <td class="p-4 font-normal text-[#f4f2f1]">Enterprise IT & Application Services</td>
+              <td class="p-4">SIP / H.323, Microsoft AD, Citrix / VMware VDI</td>
+              <td class="p-4">VoIP jitter analyzers, packet inspection probes</td>
+              <td class="p-4 text-[#f6f2ee] opacity-80">Dialplans, OTT Portals & Directory Matrix</td>
+            </tr>
+            <tr class="hover:bg-[#15120e]/60 transition-colors">
+              <td class="p-4 font-normal text-[#f4f2f1]">Systems Administration & Virtualization</td>
+              <td class="p-4">RedHat RHEL, Ubuntu Server, Docker, VMware ESXi</td>
+              <td class="p-4">HP iLO, memtest86+, SMARTctl, IOzone, FIO</td>
+              <td class="p-4 text-[#f6f2ee] opacity-80">Cluster Health Runbooks & Backup Restore Drills</td>
+            </tr>
+            <tr class="hover:bg-[#15120e]/60 transition-colors">
+              <td class="p-4 font-normal text-[#f4f2f1]">Smart Automation & Security</td>
+              <td class="p-4">NDAA Compliant, IP/WiFi/Analog CCTV, OSDP v2</td>
+              <td class="p-4">Bandwidth calculators, FoV plotters, door safety sensors</td>
+              <td class="p-4 text-[#f6f2ee] opacity-80">Camera Layout Schematics & Alarm Zone Maps</td>
+            </tr>
+            <tr class="hover:bg-[#15120e]/60 transition-colors">
+              <td class="p-4 font-normal text-[#f4f2f1]">Audio Systems & Critical Power</td>
+              <td class="p-4">AES67, Dante IP, IEEE 519 Online Double-Conversion</td>
+              <td class="p-4">Acoustic SPL meters, PDU telemetry, True RMS DMM</td>
+              <td class="p-4 text-[#f6f2ee] opacity-80">Runtime Sizing Sheet & Zone Routing Matrix</td>
+            </tr>
+            <tr class="hover:bg-[#15120e]/60 transition-colors">
+              <td class="p-4 font-normal text-[#f4f2f1]">Hardware Maintenance & Procurement</td>
+              <td class="p-4">ESD-safe diagnostics, SATA/NVMe recovery, PBX/Intercom</td>
+              <td class="p-4">FLIR Thermal Cameras, hardware diagnostic analyzers</td>
+              <td class="p-4 text-[#f6f2ee] opacity-80">Diagnostic Work Orders & Procurement Quotes</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="bg-[#0d1417] text-[#f4f2f1] py-16 sm:py-24 border-b border-[#15120e]">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6">
+      <h2 class="text-2xl sm:text-3xl font-light tracking-tight text-[#f4f2f1]">
+        Ready to Scope a Multi-Discipline System?
+      </h2>
+      <p class="text-base text-[#f4f2f1]/70 font-light max-w-2xl mx-auto">
+        Speak directly with engineering staff to review architectural drawings and establish requirements.
+      </p>
+      <div class="pt-2">
+        <Button href="/en/contact#consultation" variant="primary" size="lg">
+          Request a Consultation
+        </Button>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>

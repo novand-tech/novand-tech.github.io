@@ -1,0 +1,174 @@
+---
+const companyData = getCompanyData(Astro.url.pathname);
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/ui/Breadcrumbs.astro';
+import SectionHeading from '../../components/ui/SectionHeading.astro';
+import Button from '../../components/ui/Button.astro';
+import { getCompanyData } from "../../data/company";
+---
+<BaseLayout 
+  title="About Us & Engineering Philosophy | Novand"
+  description="Learn about Novand, an integrated technology provider covering networking, enterprise infrastructure, security, automation, and critical facility systems."
+>
+  <!-- Breadcrumbs -->
+  <div class="bg-[#141210] border-b border-[#15120e] py-3">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <Breadcrumbs items={[{ label: 'About' }]} />
+    </div>
+  </div>
+
+  <!-- Page Hero -->
+  <section class="bg-[#141210] text-[#f4f2f1] py-16 sm:py-24 border-b border-[#15120e] bg-grid-subtle">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl">
+        <div class="inline-flex items-center gap-3 px-3.5 py-1 bg-[#0d1417] border border-[#15120e] text-[#f6f2ee] text-[10px] font-mono uppercase tracking-[0.25em] mb-4">
+          <span class="w-1.5 h-1.5 bg-[#f4f2f1]"></span>
+          Engineering Identity
+        </div>
+        <h1 class="text-3xl sm:text-5xl font-light tracking-tight leading-tight text-[#f4f2f1] mb-6">
+          Technology Systems Designed to Work Together
+        </h1>
+        <p class="text-base sm:text-lg text-[#f4f2f1]/70 leading-relaxed font-light">
+          {companyData.heroCopy}
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Editorial Positioning Narrative -->
+  <section class="bg-[#0d1417] text-[#f4f2f1] py-16 sm:py-24 border-b border-[#15120e]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+        
+        <div class="lg:col-span-5">
+          <SectionHeading 
+            eyebrow="The Integration Dilemma"
+            title="The Problem with Fragmented Subcontractors"
+            theme="dark"
+            class="mb-6"
+          />
+          <div class="p-6 bg-[#15120e] border border-[#15120e] text-xs font-mono text-[#f4f2f1] space-y-3">
+            <span class="font-medium uppercase tracking-wider block text-[#f6f2ee] text-[11px]">
+              The Accountability Void
+            </span>
+            <p class="leading-relaxed text-[#f4f2f1]/70 font-sans font-light">
+              When an organization contracts separate vendors for low-voltage cabling, corporate firewalls, IP cameras, audio, and HVAC automation, intermittent failures are met with blame-shifting.
+            </p>
+          </div>
+        </div>
+
+        <div class="lg:col-span-7 space-y-6 text-base sm:text-lg leading-relaxed text-[#f4f2f1]/75 font-light">
+          <p>
+            Modern technology environments are inherently interconnected. An IP security camera does not operate in isolation; it depends on certified Category 6A copper drops, precise Power-over-Ethernet (PoE) power budgets, isolated Layer 2 VLAN tagging, adequate network video recorder storage throughput, and clean uninterrupted power.
+          </p>
+          <p>
+            {companyData.name} was established to solve this fragmentation. By uniting physical cabling, network switching, Linux and virtualization systems, automation buses, physical access control, and audio systems under a single disciplined engineering methodology, we deliver systems that operate predictably from day one.
+          </p>
+          <p>
+            We do not sell consumer gadgets, run generic helpdesks, or push recurring proprietary cloud subscriptions. We engineer permanent, deterministic physical and logical infrastructure tailored to the architectural characteristics of your facility.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Our Delivery Methodology -->
+  <section id="approach" class="bg-[#141210] text-[#f4f2f1] py-16 sm:py-24 border-b border-[#15120e]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <SectionHeading 
+        eyebrow="Delivery Protocol"
+        title="Our Four-Stage Engineering Methodology"
+        description="Every facility project proceeds through an established, documented sequence to eliminate surprises and guarantee operational handover."
+        theme="dark"
+        align="center"
+      />
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-12">
+        {companyData.processSteps.map((step) => (
+          <div class="bg-[#0d1417] border border-[#15120e] p-6 flex flex-col justify-between hover:border-[#f4f2f1]/30 transition-colors">
+            <div>
+              <div class="flex items-center justify-between border-b border-[#15120e] pb-3 mb-4">
+                <span class="text-2xl font-mono font-light text-[#f6f2ee]">{step.number}</span>
+                <span class="text-[9px] uppercase font-mono tracking-widest text-[#f4f2f1]/40">PHASE // {step.number}</span>
+              </div>
+              <h3 class="text-xl font-light text-[#f4f2f1] mb-2">{step.title}</h3>
+              <p class="text-xs text-[#f4f2f1]/65 font-light leading-relaxed mb-6">{step.description}</p>
+            </div>
+            <div class="pt-4 border-t border-[#15120e] text-xs font-mono text-[#f4f2f1]/60">
+              <span class="text-[#f6f2ee] font-medium block mb-1 text-[10px] uppercase tracking-wider">Key Deliverables:</span>
+              <ul class="space-y-1">
+                {step.deliverables.map((d) => (
+                  <li class="flex items-center gap-1.5">
+                    <span class="text-[#f4f2f1] opacity-60">•</span>
+                    <span>{d}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Principles of Engineering Craft -->
+  <section class="bg-[#0d1417] text-[#f4f2f1] py-16 sm:py-24 border-b border-[#15120e]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <SectionHeading 
+        eyebrow="Operating Standards"
+        title="The Engineering Principles We Uphold"
+        description="These standards guide every architectural schematic, cable pull, switch configuration, and server deployment."
+        theme="dark"
+      />
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-sm mt-8">
+        <div class="bg-[#15120e] border border-[#15120e] p-6">
+          <span class="text-[10px] font-mono uppercase text-[#f6f2ee] opacity-70 tracking-widest block mb-2">Principle 01</span>
+          <h3 class="text-lg font-light text-[#f4f2f1] mb-3">Deterministic Engineering Over Hope</h3>
+          <p class="text-[#f4f2f1]/65 font-light leading-relaxed text-xs">
+            We never guess bandwidth, thermal, or optical loss margins. Every copper link is certified with calibrated cable analyzers, every optical run is OTDR tested, and every server cluster is subjected to IO stress tests before production traffic is introduced.
+          </p>
+        </div>
+
+        <div class="bg-[#15120e] border border-[#15120e] p-6">
+          <span class="text-[10px] font-mono uppercase text-[#f6f2ee] opacity-70 tracking-widest block mb-2">Principle 02</span>
+          <h3 class="text-lg font-light text-[#f4f2f1] mb-3">Zero Artificial Vendor Lock-In</h3>
+          <p class="text-[#f4f2f1]/65 font-light leading-relaxed text-xs">
+            We favor open standards—SIP, BACnet, DALI-2, 802.1Q, Linux POSIX, and NDAA compliant protocols—over closed, proprietary ecosystems that trap building owners into mandatory recurring per-seat licensing fees.
+          </p>
+        </div>
+
+        <div class="bg-[#15120e] border border-[#15120e] p-6">
+          <span class="text-[10px] font-mono uppercase text-[#f6f2ee] opacity-70 tracking-widest block mb-2">Principle 03</span>
+          <h3 class="text-lg font-light text-[#f4f2f1] mb-3">Complete Transparency & Ownership</h3>
+          <p class="text-[#f4f2f1]/65 font-light leading-relaxed text-xs">
+            Our clients own their infrastructure. Upon completion, we provide all root credentials, labeled as-built wiring diagrams, switch port allocation matrices, and configuration backups. You will never be held hostage by our team.
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="bg-[#141210] text-[#f4f2f1] py-16 sm:py-24 border-b border-[#15120e]">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6">
+      <h2 class="text-2xl sm:text-3xl font-light tracking-tight text-[#f4f2f1]">
+        Engage an Infrastructure Engineering Partner
+      </h2>
+      <p class="text-base text-[#f4f2f1]/70 font-light max-w-2xl mx-auto leading-relaxed">
+        Let us review your technology blueprints, survey your physical site, and provide actionable technical recommendations.
+      </p>
+      <div class="pt-2 flex flex-col sm:flex-row items-center justify-center gap-4">
+        <Button href="/en/contact#consultation" variant="primary" size="lg">
+          Request a Consultation
+        </Button>
+        <Button href="/en/services" variant="outline" size="lg">
+          Explore Our Disciplines
+        </Button>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>

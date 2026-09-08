@@ -1,0 +1,73 @@
+---
+import type { ProjectDetail } from '../../data/projects';
+
+interface Props {
+  project: ProjectDetail;
+}
+
+const { project } = Astro.props;
+const isEn = Astro.url.pathname.startsWith("/en");
+---
+<article class="group relative bg-[#0d1417] border border-[#15120e] hover:border-[#f4f2f1]/30 transition-all duration-300 flex flex-col overflow-hidden">
+  
+  <!-- Architectural Image / Technical Framing -->
+  <div class="relative h-48 sm:h-56 bg-[#141210] overflow-hidden border-b border-[#15120e]">
+    <img 
+      src={project.featuredImage} 
+      alt={`${project.title} installation architecture`} 
+      loading="lazy"
+      class="w-full h-full object-cover grayscale contrast-125 opacity-70 group-hover:scale-105 group-hover:opacity-85 transition-all duration-500"
+    />
+    <div class="absolute inset-0 bg-gradient-to-t from-[#0d1417] via-[#0d1417]/40 to-transparent"></div>
+    
+    <!-- Badges -->
+    <div class="absolute top-3 left-3 right-3 flex items-center justify-between text-[10px] font-mono">
+      <span class="px-2 py-0.5 bg-[#141210]/90 border border-[#15120e] text-[#f4f2f1]/80 backdrop-blur-xs uppercase tracking-wider">
+        {project.category}
+      </span>
+      <span class="px-2 py-0.5 bg-[#15120e]/95 border border-[#15120e] text-[#f6f2ee] uppercase tracking-wider">
+        {project.status}
+      </span>
+    </div>
+
+    <!-- Archetype Environment Tag -->
+    <div class="absolute bottom-3 left-3 right-3 text-xs font-mono text-[#f4f2f1]/80">
+      <span class="text-[#f4f2f1]/50">{isEn ? "Environment:" : "محیط:"}</span> {project.environment}
+    </div>
+  </div>
+
+  <!-- Content Body -->
+  <div class="p-6 sm:p-7 flex-grow flex flex-col justify-between">
+    <div>
+      <h3 class="text-lg sm:text-xl font-light text-[#f4f2f1] group-hover:text-white tracking-tight mb-2.5">
+        <a href={`/projects#${project.slug}`} class="focus-visible:outline-none focus-visible:underline">
+          <span class="absolute inset-0" aria-hidden="true"></span>
+          {project.title}
+        </a>
+      </h3>
+
+      <p class="text-xs sm:text-sm text-[#f4f2f1]/65 font-light leading-relaxed mb-5">
+        {project.summary}
+      </p>
+
+      <!-- Technology Chips -->
+      <div class="flex flex-wrap gap-1.5 mb-6">
+        {(project.technologies || []).slice(0, 4).map((tech) => (
+          <span class="px-2 py-0.5 text-[10px] font-mono bg-[#141210] border border-[#15120e] text-[#f4f2f1]/70">
+            {tech}
+          </span>
+        ))}
+      </div>
+    </div>
+
+    <!-- Bottom Metadata -->
+    <div class="pt-4 border-t border-[#15120e] flex items-center justify-between text-[10px] font-mono text-[#f4f2f1]/50">
+      <span>{project.date}</span>
+      <span class="text-[#f4f2f1] group-hover:translate-x-1 transition-transform flex items-center gap-1">
+        <span>{isEn ? "Review Case Model" : "بررسی نمونه پروپوزال"}</span>
+        <span>→</span>
+      </span>
+    </div>
+  </div>
+
+</article>

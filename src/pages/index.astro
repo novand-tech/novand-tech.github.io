@@ -1,0 +1,49 @@
+---
+const companyData = getCompanyData(Astro.url.pathname);
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/sections/Hero.astro';
+import CapabilityStrip from '../components/sections/CapabilityStrip.astro';
+import AboutPositioning from '../components/sections/AboutPositioning.astro';
+import CoreServicesSection from '../components/sections/CoreServicesSection.astro';
+import SolutionsSection from '../components/sections/SolutionsSection.astro';
+import ProcessSection from '../components/sections/ProcessSection.astro';
+import WhyUsSection from '../components/sections/WhyUsSection.astro';
+import ProjectsSection from '../components/sections/ProjectsSection.astro';
+import ConsultingTeaser from '../components/sections/ConsultingTeaser.astro';
+import CtaSection from '../components/sections/CtaSection.astro';
+import { getCompanyData } from "../data/company";
+---
+<BaseLayout 
+  title={`${companyData.headline} | ${companyData.shortName}`}
+  description={companyData.heroCopy}
+>
+  <!-- 1. Dark Hero -->
+  <Hero />
+
+  <!-- 2. Dark Capability Strip -->
+  <CapabilityStrip />
+
+  <!-- 3. Warm About -->
+  <AboutPositioning />
+
+  <!-- 4. Dark Services -->
+  <CoreServicesSection />
+
+  <!-- 5. Light Solutions -->
+  <SolutionsSection />
+
+  <!-- 6. Dark Process -->
+  <ProcessSection />
+
+  <!-- 7. Warm Why Us -->
+  <WhyUsSection />
+
+  <!-- 8. Dark Projects -->
+  <ProjectsSection />
+
+  <!-- 9. Light Consulting -->
+  <ConsultingTeaser />
+
+  <!-- 10. Dark Final CTA -->
+  <CtaSection />
+</BaseLayout>

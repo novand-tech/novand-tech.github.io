@@ -1,0 +1,18 @@
+---
+import SolutionLayout from '../../../layouts/SolutionLayout.astro';
+import { solutionsDataEn as solutionsData, type SolutionDetail } from '../../../data/solutions';
+
+export function getStaticPaths() {
+  return solutionsData.map((solution) => ({
+    params: { slug: solution.slug },
+    props: { solution }
+  }));
+}
+
+interface Props {
+  solution: SolutionDetail;
+}
+
+const { solution } = Astro.props;
+---
+<SolutionLayout solution={solution} />

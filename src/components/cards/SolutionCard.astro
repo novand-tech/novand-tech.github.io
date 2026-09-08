@@ -1,0 +1,61 @@
+---
+import type { SolutionDetail } from '../../data/solutions';
+
+interface Props {
+  solution: SolutionDetail;
+  theme?: 'dark' | 'light';
+}
+
+const { solution } = Astro.props;
+const isEn = Astro.url.pathname.startsWith("/en");
+
+const cardBg = 'bg-[#15120e] border-[#15120e] text-[#f4f2f1] hover:border-[#f4f2f1]/30';
+const titleColor = 'text-[#f4f2f1] group-hover:text-white';
+const descColor = 'text-[#f4f2f1]/65 font-light';
+const dividerColor = 'border-[#15120e]';
+const eyebrowColor = 'text-[#f6f2ee] opacity-70';
+---
+<article class={`group relative border transition-all duration-300 flex flex-col justify-between p-6 sm:p-8 ${cardBg}`}>
+  <div>
+    <!-- Eyebrow -->
+    <div class={`flex items-center justify-between border-b ${dividerColor} pb-3 mb-4`}>
+      <span class={`text-[10px] font-mono uppercase tracking-[0.2em] ${eyebrowColor}`}>
+        {solution.eyebrow}
+      </span>
+      <span class="text-[10px] font-mono opacity-40 text-[#f4f2f1]">{isEn ? "ENV // ARCH" : "محیط // معماری"}</span>
+    </div>
+
+    <!-- Title -->
+    <h3 class={`text-xl font-light tracking-tight mb-3 ${titleColor}`}>
+      <a href={isEn ? `/en/solutions/${solution.slug}` : `/solutions/${solution.slug}`} class="focus-visible:outline-none focus-visible:underline">
+        <span class="absolute inset-0" aria-hidden="true"></span>
+        {solution.title}
+      </a>
+    </h3>
+
+    <!-- Summary -->
+    <p class={`text-xs sm:text-sm leading-relaxed mb-6 ${descColor}`}>
+      {solution.summary}
+    </p>
+
+    <!-- Core Pillars Preview -->
+    <div class={`space-y-3 pt-4 border-t ${dividerColor} mb-6`}>
+      {(solution.corePillars || []).slice(0, 2).map((pillar) => (
+        <div>
+          <h4 class="text-xs font-semibold uppercase tracking-wider font-mono text-[#f4f2f1]/90 mb-1">
+            {pillar.title}
+          </h4>
+          <p class={`text-xs line-clamp-2 leading-relaxed ${descColor}`}>
+            {pillar.description}
+          </p>
+        </div>
+      ))}
+    </div>
+  </div>
+
+  <!-- Footer Indicator -->
+  <div class={`pt-4 border-t ${dividerColor} flex items-center justify-between text-[10px] font-mono uppercase tracking-widest text-[#f4f2f1]/50 group-hover:text-[#f4f2f1] transition-colors`}>
+    <span class="tracking-wider">{isEn ? "Explore Environment" : "بررسی این محیط"}</span>
+    <span class="text-[#f4f2f1] group-hover:translate-x-1 transition-transform" aria-hidden="true">→</span>
+  </div>
+</article>

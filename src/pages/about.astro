@@ -1,0 +1,174 @@
+---
+const companyData = getCompanyData(Astro.url.pathname);
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Breadcrumbs from '../components/ui/Breadcrumbs.astro';
+import SectionHeading from '../components/ui/SectionHeading.astro';
+import Button from '../components/ui/Button.astro';
+import { getCompanyData } from "../data/company";
+---
+<BaseLayout 
+  title="درباره ما و فلسفه مهندسی | نُوَند"
+  description="درباره نُوَند، یک ارائه‌دهنده فناوری یکپارچه شامل شبکه، زیرساخت سازمانی، امنیت، اتوماسیون و سیستم‌های تاسیسات حیاتی بیشتر بدانید."
+>
+  <!-- Breadcrumbs -->
+  <div class="bg-[#141210] border-b border-[#15120e] py-3">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <Breadcrumbs items={[{ label: 'درباره ما' }]} />
+    </div>
+  </div>
+
+  <!-- Page Hero -->
+  <section class="bg-[#141210] text-[#f4f2f1] py-16 sm:py-24 border-b border-[#15120e] bg-grid-subtle">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl">
+        <div class="inline-flex items-center gap-3 px-3.5 py-1 bg-[#0d1417] border border-[#15120e] text-[#f6f2ee] text-[10px] font-mono uppercase tracking-[0.25em] mb-4">
+          <span class="w-1.5 h-1.5 bg-[#f4f2f1]"></span>
+          هویت مهندسی
+        </div>
+        <h1 class="text-3xl sm:text-5xl font-light tracking-tight leading-tight text-[#f4f2f1] mb-6">
+          سیستم‌های فناوری طراحی شده برای کار یکپارچه
+        </h1>
+        <p class="text-base sm:text-lg text-[#f4f2f1]/70 leading-relaxed font-light">
+          {companyData.heroCopy}
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Editorial Positioning Narrative -->
+  <section class="bg-[#0d1417] text-[#f4f2f1] py-16 sm:py-24 border-b border-[#15120e]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+        
+        <div class="lg:col-span-5">
+          <SectionHeading 
+            eyebrow="چالش یکپارچه‌سازی"
+            title="مشکل پیمانکاران پراکنده"
+            theme="dark"
+            class="mb-6"
+          />
+          <div class="p-6 bg-[#15120e] border border-[#15120e] text-xs font-mono text-[#f4f2f1] space-y-3">
+            <span class="font-medium uppercase tracking-wider block text-[#f6f2ee] text-[11px]">
+              خلأ پاسخگویی
+            </span>
+            <p class="leading-relaxed text-[#f4f2f1]/70 font-sans font-light">
+              وقتی سازمانی پیمانکاران جداگانه‌ای برای کابل‌کشی، فایروال‌ها، دوربین‌های IP، صدا و اتوماسیون HVAC استخدام می‌کند، خرابی‌های متناوب با شانه خالی کردن از مسئولیت مواجه می‌شوند.
+            </p>
+          </div>
+        </div>
+
+        <div class="lg:col-span-7 space-y-6 text-base sm:text-lg leading-relaxed text-[#f4f2f1]/75 font-light">
+          <p>
+            محیط‌های فناوری مدرن ذاتاً به هم پیوسته‌اند. یک دوربین امنیتی IP به تنهایی کار نمی‌کند؛ بلکه به کابل‌کشی تایید شده Cat 6A، بودجه توان دقیق PoE، تگ‌گذاری ایزوله VLAN لایه ۲، توان عملیاتی کافی ذخیره‌سازی NVR و برق بدون وقفه بستگی دارد.
+          </p>
+          <p>
+            {companyData.name} برای حل این پراکندگی تاسیس شد. با یکپارچه کردن کابل‌کشی فیزیکی، سوئیچینگ شبکه، سیستم‌های لینوکس و مجازی‌سازی، گذرگاه‌های اتوماسیون، کنترل تردد و سیستم‌های صوتی تحت یک متدولوژی مهندسی واحد، ما سیستم‌هایی ارائه می‌دهیم که از روز اول به صورت پیش‌بینی‌شده کار می‌کنند.
+          </p>
+          <p>
+            ما گجت‌های مصرفی نمی‌فروشیم، مرکز پشتیبانی عمومی نداریم و اشتراک‌های ابری انحصاری را تحمیل نمی‌کنیم. ما زیرساخت‌های فیزیکی و منطقی پایدار و قطعی را متناسب با ویژگی‌های معماری تاسیسات شما مهندسی می‌کنیم.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Our Delivery Methodology -->
+  <section id="approach" class="bg-[#141210] text-[#f4f2f1] py-16 sm:py-24 border-b border-[#15120e]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <SectionHeading 
+        eyebrow="پروتکل تحویل"
+        title="متدولوژی مهندسی چهار مرحله‌ای ما"
+        description="هر پروژه تاسیساتی از طریق یک توالی مشخص و مستند پیش می‌رود تا از غافلگیری جلوگیری شده و تحویل عملیاتی تضمین شود."
+        theme="dark"
+        align="center"
+      />
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-12">
+        {companyData.processSteps.map((step) => (
+          <div class="bg-[#0d1417] border border-[#15120e] p-6 flex flex-col justify-between hover:border-[#f4f2f1]/30 transition-colors">
+            <div>
+              <div class="flex items-center justify-between border-b border-[#15120e] pb-3 mb-4">
+                <span class="text-2xl font-mono font-light text-[#f6f2ee]">{step.number}</span>
+                <span class="text-[9px] uppercase font-mono tracking-widest text-[#f4f2f1]/40">فاز // {step.number}</span>
+              </div>
+              <h3 class="text-xl font-light text-[#f4f2f1] mb-2">{step.title}</h3>
+              <p class="text-xs text-[#f4f2f1]/65 font-light leading-relaxed mb-6">{step.description}</p>
+            </div>
+            <div class="pt-4 border-t border-[#15120e] text-xs font-mono text-[#f4f2f1]/60">
+              <span class="text-[#f6f2ee] font-medium block mb-1 text-[10px] uppercase tracking-wider">خروجی‌های کلیدی:</span>
+              <ul class="space-y-1">
+                {step.deliverables.map((d) => (
+                  <li class="flex items-center gap-1.5">
+                    <span class="text-[#f4f2f1] opacity-60">•</span>
+                    <span>{d}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Principles of Engineering Craft -->
+  <section class="bg-[#0d1417] text-[#f4f2f1] py-16 sm:py-24 border-b border-[#15120e]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <SectionHeading 
+        eyebrow="استانداردهای عملیاتی"
+        title="اصول مهندسی که به آن‌ها پایبندیم"
+        description="این استانداردها هدایت‌گر هر نقشه معماری، کابل‌کشی، پیکربندی سوئیچ و استقرار سرور هستند."
+        theme="dark"
+      />
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-sm mt-8">
+        <div class="bg-[#15120e] border border-[#15120e] p-6">
+          <span class="text-[10px] font-mono uppercase text-[#f6f2ee] opacity-70 tracking-widest block mb-2">اصل ۰۱</span>
+          <h3 class="text-lg font-light text-[#f4f2f1] mb-3">مهندسی قطعی به جای امید و حدس</h3>
+          <p class="text-[#f4f2f1]/65 font-light leading-relaxed text-xs">
+            ما هرگز پهنای باند، حرارت یا افت نوری را حدس نمی‌زنیم. تمام کابل‌های مسی با آنالایزرهای کالیبره تایید می‌شوند، مسیرهای نوری با OTDR تست می‌شوند و کلاسترهای سرور پیش از زیر بار رفتن تحت تست‌های استرس IO قرار می‌گیرند.
+          </p>
+        </div>
+
+        <div class="bg-[#15120e] border border-[#15120e] p-6">
+          <span class="text-[10px] font-mono uppercase text-[#f6f2ee] opacity-70 tracking-widest block mb-2">اصل ۰۲</span>
+          <h3 class="text-lg font-light text-[#f4f2f1] mb-3">صفر وابستگی مصنوعی به برند</h3>
+          <p class="text-[#f4f2f1]/65 font-light leading-relaxed text-xs">
+            ما استانداردهای باز (مانند SIP، BACnet، DALI-2، 802.1Q و لینوکس POSIX) را به اکوسیستم‌های بسته و انحصاری که مالکان ساختمان را درگیر هزینه‌های اجباری لایسنس می‌کنند، ترجیح می‌دهیم.
+          </p>
+        </div>
+
+        <div class="bg-[#15120e] border border-[#15120e] p-6">
+          <span class="text-[10px] font-mono uppercase text-[#f6f2ee] opacity-70 tracking-widest block mb-2">اصل ۰۳</span>
+          <h3 class="text-lg font-light text-[#f4f2f1] mb-3">شفافیت و مالکیت کامل</h3>
+          <p class="text-[#f4f2f1]/65 font-light leading-relaxed text-xs">
+            مشتریان ما مالک زیرساخت خود هستند. پس از اتمام کار، تمامی گذرواژه‌های اصلی، نقشه‌های دقیق از-بیلت، جدول تخصیص پورت‌ها و فایل‌های پشتیبان تنظیمات را ارائه می‌دهیم. شما هرگز گروگان تیم ما نخواهید بود.
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="bg-[#141210] text-[#f4f2f1] py-16 sm:py-24 border-b border-[#15120e]">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6">
+      <h2 class="text-2xl sm:text-3xl font-light tracking-tight text-[#f4f2f1]">
+        با یک شریک مهندسی زیرساخت همکاری کنید
+      </h2>
+      <p class="text-base text-[#f4f2f1]/70 font-light max-w-2xl mx-auto leading-relaxed">
+        اجازه دهید نقشه‌های فناوری شما را بررسی کنیم، سایت شما را ارزیابی کرده و توصیه‌های فنی عملی ارائه دهیم.
+      </p>
+      <div class="pt-2 flex flex-col sm:flex-row items-center justify-center gap-4">
+        <Button href="/contact#consultation" variant="primary" size="lg">
+          درخواست مشاوره
+        </Button>
+        <Button href="/services" variant="outline" size="lg">
+          بررسی تخصص‌های ما
+        </Button>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>

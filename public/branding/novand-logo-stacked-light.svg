@@ -1,0 +1,29 @@
+<svg width="600" height="600" viewBox="0 0 600 600" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="circ-grad-stack-light" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00a896" />
+      <stop offset="100%" stop-color="#059669" />
+    </linearGradient>
+  </defs>
+  <rect width="600" height="600" rx="24" fill="#ffffff" stroke="#e2e8f0" stroke-width="1.5" />
+  
+  <!-- Emblem Centered at cx=300, cy=240, scale 3.2 -->
+  <g transform="translate(136.8, 67.2) scale(3.2)">
+    <path d="M50 18 L22 38 V68 H48" stroke="#0d1417" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" />
+    <path d="M50 18 L84 42" stroke="#0d1417" stroke-width="5" stroke-linecap="round" />
+    <rect x="46" y="39" width="6" height="6" fill="#0d1417" rx="0.5" />
+    <rect x="54" y="39" width="6" height="6" fill="#0d1417" rx="0.5" />
+    <rect x="46" y="47" width="6" height="6" fill="#0d1417" rx="0.5" />
+    <rect x="54" y="47" width="6" height="6" fill="#0d1417" rx="0.5" />
+    <path d="M30 76 H54 L76 54" stroke="url(#circ-grad-stack-light)" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round" />
+    <circle cx="80" cy="50" r="4.5" stroke="url(#circ-grad-stack-light)" stroke-width="3.5" fill="#ffffff" />
+    <path d="M45 84 H60 L76 68" stroke="url(#circ-grad-stack-light)" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round" />
+    <circle cx="80" cy="64" r="4.5" stroke="url(#circ-grad-stack-light)" stroke-width="3.5" fill="#ffffff" />
+    <path d="M61 90 H70 L77 83" stroke="url(#circ-grad-stack-light)" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round" />
+    <circle cx="80" cy="80" r="4.5" stroke="url(#circ-grad-stack-light)" stroke-width="3.5" fill="#ffffff" />
+  </g>
+
+  <!-- Centered Typography -->
+  <text x="300" y="450" fill="#0d1417" font-family="'Space Grotesk', -apple-system, sans-serif" font-size="44" font-weight="700" letter-spacing="2" text-anchor="middle">NOVAND</text>
+  <text x="300" y="492" fill="#008f7a" font-family="'Space Grotesk', monospace, sans-serif" font-size="16" font-weight="600" letter-spacing="4" text-anchor="middle">INTEGRATED TECH &amp; INFRASTRUCTURE</text>
+</svg>

@@ -1,0 +1,35 @@
+---
+const isEn = Astro.url.pathname.startsWith("/en");
+const solutionsData = getSolutionsData(Astro.url.pathname);
+import SectionHeading from '../ui/SectionHeading.astro';
+import SolutionCard from '../cards/SolutionCard.astro';
+import Button from '../ui/Button.astro';
+import { getSolutionsData } from "../../data/solutions";
+---
+<section class="bg-[#0d1417] text-[#f4f2f1] py-20 sm:py-28 border-b border-[#15120e]">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    
+    <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 sm:mb-16">
+      <SectionHeading 
+        eyebrow={isEn ? 'Target Environments' : 'محیط‌های هدف'}
+        title={isEn ? 'Solutions Tailored to Operating Realities' : 'راهکارهای متناسب با واقعیت‌های عملیاتی'}
+        description={isEn ? 'Every facility imposes distinct acoustic, RF, physical, and regulatory constraints. We adapt our engineering standards directly to your operational environment.' : 'هر محیط، محدودیت‌های آکوستیک، فرکانسی، فیزیکی و قانونی خاص خود را دارد. ما استانداردهای مهندسی خود را به طور مستقیم با محیط عملیاتی شما تطبیق می‌دهیم.'}
+        theme="dark"
+        class="mb-0 max-w-2xl"
+      />
+      <div class="mt-6 md:mt-0">
+        <Button href={isEn ? "/en/solutions" : "/solutions"} variant="outline" size="md">
+          {isEn ? 'Explore All Environments →' : 'بررسی همه محیط‌ها ←'}
+        </Button>
+      </div>
+    </div>
+
+    <!-- 5 Solutions Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+      {solutionsData.map((solution) => (
+        <SolutionCard solution={solution} theme="dark" />
+      ))}
+    </div>
+
+  </div>
+</section>

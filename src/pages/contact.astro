@@ -1,0 +1,295 @@
+---
+const companyData = getCompanyData(Astro.url.pathname);
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Breadcrumbs from '../components/ui/Breadcrumbs.astro';
+import Button from '../components/ui/Button.astro';
+import { getCompanyData } from "../data/company";
+---
+<BaseLayout 
+  title="تماس و مشاوره فنی | نُوَند"
+  description="برای درخواست مهندسی، بررسی سایت تاسیسات، مشاوره تجهیزات و تعریف پروژه زیرساخت یکپارچه با نُوَند تماس بگیرید."
+>
+  <!-- Breadcrumbs -->
+  <div class="bg-[#141210] border-b border-[#15120e] py-3">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <Breadcrumbs items={[{ label: 'تماس و عملیات' }]} />
+    </div>
+  </div>
+
+  <!-- Page Hero -->
+  <section class="bg-[#141210] text-[#f4f2f1] py-16 sm:py-24 border-b border-[#15120e] bg-grid-subtle">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl">
+        <div class="inline-flex items-center gap-3 px-3.5 py-1 bg-[#0d1417] border border-[#15120e] text-[#f6f2ee] text-[10px] font-mono uppercase tracking-[0.25em] mb-4">
+          <span class="w-1.5 h-1.5 bg-[#f4f2f1]"></span>
+          دسترسی مستقیم مهندسی
+        </div>
+        <h1 class="text-3xl sm:text-5xl font-light tracking-tight leading-tight text-[#f4f2f1] mb-6">
+          درخواست مشاوره زیرساخت
+        </h1>
+        <p class="text-base sm:text-lg text-[#f4f2f1]/70 leading-relaxed font-light">
+          چه در حال ارزیابی گزینه‌های کابل‌کشی جریان ضعیف باشید، چه برنامه‌ریزی برای کلاستر هایپروایزر محلی، یا یکپارچه‌سازی سیستم کنترل تردد تجاری، مهندسان ما راهنمایی‌های فنی صریح و کاربردی ارائه می‌دهند.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Grid: Left Form, Right Contact Info & Operations -->
+  <section id="consultation" class="bg-[#0d1417] text-[#f4f2f1] py-16 sm:py-24 border-b border-[#15120e]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
+        
+        <!-- Left: Consultation Form (7 Cols) -->
+        <div class="lg:col-span-7 bg-[#141210] border border-[#15120e] p-6 sm:p-10 shadow-2xl">
+          <div class="border-b border-[#15120e] pb-4 mb-6">
+            <h2 class="text-xl font-light text-[#f4f2f1]">
+              فرم درخواست فنی و تعریف محدوده پروژه
+            </h2>
+            <p class="text-xs text-[#f4f2f1]/60 font-mono mt-1">
+              تمامی درخواست‌ها مستقیماً توسط مهندسان سیستم شاغل بررسی می‌شوند.
+            </p>
+          </div>
+
+          <!-- Form Element with Success State Container -->
+          <form id="contact-form" class="space-y-6" novalidate>
+            
+            <div id="form-error" data-fs-error class="hidden p-4 bg-red-950/40 border border-red-800 text-xs font-mono text-red-300" role="alert">
+              <strong>توجه:</strong> لطفاً تمامی فیلدهای الزامی که با ستاره (*) مشخص شده‌اند را تکمیل کنید.
+            </div>
+
+            <div id="form-feedback" data-fs-success class="hidden p-4 bg-[#15120e] border border-[#f4f2f1]/30 text-xs font-mono text-[#f4f2f1]" role="alert">
+              <strong>درخواست دریافت شد:</strong> جزئیات پروژه شما در صف ارجاع مهندسی ما ثبت شد. یک مهندس سیستم ظرف یک روز کاری با شما تماس خواهد گرفت.
+            </div>
+
+            <!-- Name and Organization -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+              <div>
+                <label for="contact-name" class="block text-[10px] font-mono uppercase tracking-wider text-[#f6f2ee] opacity-80 mb-2">
+                  نام کامل <span class="text-[#f4f2f1]">*</span>
+                </label>
+                <input 
+                  type="text" 
+                  id="contact-name" 
+                  name="name" 
+                  required 
+                  class="w-full bg-[#0d1417] border border-[#15120e] px-3.5 py-2.5 text-sm text-[#f4f2f1] placeholder-[#f4f2f1]/30 focus:border-[#f4f2f1]/50 focus:outline-none transition-colors"
+                  placeholder="مثلاً علی کریمی، مهندس شبکه"
+                 data-fs-field />
+                <span data-fs-error="name" class="text-xs text-red-400 font-mono mt-1 block empty:hidden"></span>
+              </div>
+
+              <div>
+                <label for="contact-org" class="block text-[10px] font-mono uppercase tracking-wider text-[#f6f2ee] opacity-80 mb-2">
+                  سازمان / تاسیسات <span class="text-[#f4f2f1]">*</span>
+                </label>
+                <input 
+                  type="text" 
+                  id="contact-org" 
+                  name="organization" 
+                  required 
+                  class="w-full bg-[#0d1417] border border-[#15120e] px-3.5 py-2.5 text-sm text-[#f4f2f1] placeholder-[#f4f2f1]/30 focus:border-[#f4f2f1]/50 focus:outline-none transition-colors"
+                  placeholder="مثلاً مرکز داده پارس"
+                 data-fs-field />
+                <span data-fs-error="organization" class="text-xs text-red-400 font-mono mt-1 block empty:hidden"></span>
+              </div>
+            </div>
+
+            <!-- Email and Phone -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+              <div>
+                <label for="contact-email" class="block text-[10px] font-mono uppercase tracking-wider text-[#f6f2ee] opacity-80 mb-2">
+                  ایمیل کاری <span class="text-[#f4f2f1]">*</span>
+                </label>
+                <input 
+                  type="email" 
+                  id="contact-email" 
+                  name="email" 
+                  required 
+                  class="w-full bg-[#0d1417] border border-[#15120e] px-3.5 py-2.5 text-sm text-[#f4f2f1] placeholder-[#f4f2f1]/30 focus:border-[#f4f2f1]/50 focus:outline-none transition-colors"
+                  placeholder="info@example.com"
+                 data-fs-field />
+                <span data-fs-error="email" class="text-xs text-red-400 font-mono mt-1 block empty:hidden"></span>
+              </div>
+
+              <div>
+                <label for="contact-phone" class="block text-[10px] font-mono uppercase tracking-wider text-[#f6f2ee] opacity-80 mb-2">
+                  تلفن <span class="text-[#f4f2f1]">*</span>
+                </label>
+                <input 
+                  type="tel" 
+                  id="contact-phone" 
+                  name="phone" 
+                  required 
+                  class="w-full bg-[#0d1417] border border-[#15120e] px-3.5 py-2.5 text-sm text-[#f4f2f1] placeholder-[#f4f2f1]/30 focus:border-[#f4f2f1]/50 focus:outline-none transition-colors"
+                  placeholder="۰۲۱-۱۲۳۴۵۶۷۸"
+                 data-fs-field />
+                <span data-fs-error="phone" class="text-xs text-red-400 font-mono mt-1 block empty:hidden"></span>
+              </div>
+            </div>
+
+            <!-- Primary Project Type & محیط تاسیسات -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+              <div>
+                <label for="project-discipline" class="block text-[10px] font-mono uppercase tracking-wider text-[#f6f2ee] opacity-80 mb-2">
+                  حوزه اصلی مورد نیاز <span class="text-[#f4f2f1]">*</span>
+                </label>
+                <select 
+                  id="project-discipline" 
+                  name="discipline" 
+                  class="w-full bg-[#0d1417] border border-[#15120e] px-3.5 py-2.5 text-sm text-[#f4f2f1] focus:border-[#f4f2f1]/50 focus:outline-none transition-colors"
+                 data-fs-field>
+
+                  <option value="multi-discipline">زیرساخت جامع</option>
+                  <option value="network-cabling">کابل‌کشی ساختاریافته و فیبر</option>
+                  <option value="enterprise-routing">مسیریابی و سوئیچینگ سازمانی</option>
+                  <option value="linux-virtualization">لینوکس، ذخیره‌سازی و مجازی‌سازی</option>
+                  <option value="smart-automation">اتوماسیون هوشمند و DALI-2</option>
+                  <option value="security-cctv">امنیت فیزیکی، دوربین مداربسته و کنترل تردد</option>
+                  <option value="audio-power">توزیع صدا و برق اضطراری UPS</option>
+                  <option value="equipment-advisory">انتخاب تجهیزات / مشاوره</option>
+                </select>
+                <span data-fs-error="discipline" class="text-xs text-red-400 font-mono mt-1 block empty:hidden"></span>
+              </div>
+
+              <div>
+                <label for="facility-environment" class="block text-[10px] font-mono uppercase tracking-wider text-[#f6f2ee] opacity-80 mb-2">
+                  محیط تاسیسات <span class="text-[#f4f2f1]">*</span>
+                </label>
+                <select 
+                  id="facility-environment" 
+                  name="environment" 
+                  class="w-full bg-[#0d1417] border border-[#15120e] px-3.5 py-2.5 text-sm text-[#f4f2f1] focus:border-[#f4f2f1]/50 focus:outline-none transition-colors"
+                 data-fs-field>
+
+                  <option value="corporate">دفتر مرکزی و تجاری</option>
+                  <option value="education">پردیس آموزشی و سازمانی</option>
+                  <option value="residential">مسکونی خصوصی و چند واحدی</option>
+                  <option value="healthcare">مراکز درمانی و کلینیک‌ها</option>
+                  <option value="hospitality">هتل‌ها و اماکن</option>
+                  <option value="industrial">انبار، لجستیک و تاسیسات خاص</option>
+                </select>
+                <span data-fs-error="environment" class="text-xs text-red-400 font-mono mt-1 block empty:hidden"></span>
+              </div>
+            </div>
+
+            <!-- Target Timeline -->
+            <div>
+              <label for="timeline" class="block text-[10px] font-mono uppercase tracking-wider text-[#f6f2ee] opacity-80 mb-2">
+                مرحله پروژه / زمان‌بندی
+              </label>
+              <select 
+                id="timeline" 
+                name="timeline" 
+                class="w-full bg-[#0d1417] border border-[#15120e] px-3.5 py-2.5 text-sm text-[#f4f2f1] focus:border-[#f4f2f1]/50 focus:outline-none transition-colors"
+               data-fs-field>
+
+                <option value="immediate">نیاز فوری / اضطراری (۰ تا ۳۰ روز)</option>
+                <option value="planning">برنامه‌ریزی فعال معماری (۱ تا ۳ ماه)</option>
+                <option value="feasibility">امکان‌سنجی و برآورد بودجه (۳ تا ۶ ماه)</option>
+                <option value="advisory">بررسی قیمت تامین‌کنندگان / مشاوره</option>
+              </select>
+                <span data-fs-error="timeline" class="text-xs text-red-400 font-mono mt-1 block empty:hidden"></span>
+            </div>
+
+            <!-- Project Scope / Description -->
+            <div>
+              <label for="project-scope" class="block text-[10px] font-mono uppercase tracking-wider text-[#f6f2ee] opacity-80 mb-2">
+                محدوده پروژه و پارامترهای فیزیکی <span class="text-[#f4f2f1]">*</span>
+              </label>
+              <textarea 
+                id="project-scope" 
+                name="scope" 
+                rows="4" 
+                required 
+                class="w-full bg-[#0d1417] border border-[#15120e] p-3.5 text-sm text-[#f4f2f1] placeholder-[#f4f2f1]/30 focus:border-[#f4f2f1]/50 focus:outline-none transition-colors"
+                placeholder="متراژ، تعداد نودها/دوربین‌ها، گلوگاه‌های فعلی شبکه یا نیازهای تجهیزات خاص را توضیح دهید..."
+               data-fs-field></textarea>
+                <span data-fs-error="scope" class="text-xs text-red-400 font-mono mt-1 block empty:hidden"></span>
+            </div>
+
+            <!-- Architectural Drawing Notice / Drag-and-drop placeholder -->
+            <div class="p-4 border border-dashed border-[#15120e] bg-[#0d1417] text-center space-y-1">
+              <span class="text-[10px] font-mono text-[#f6f2ee] opacity-80 uppercase tracking-wider block">
+                آپلود نقشه‌های معماری / درخواست پیشنهاد (RFP)
+              </span>
+              <p class="text-xs text-[#f4f2f1]/50 font-light">
+                می‌توانید فایل‌های CAD، نقشه‌های طبقات یا لیست تجهیزات را در مکاتبات ایمیلی بعدی ضمیمه کنید یا مستقیماً به ایمیل زیر ارسال نمایید <span class="text-[#f4f2f1]">{companyData.contactInfo.email}</span>.
+              </p>
+            </div>
+
+            <!-- Submit Button -->
+            <div>
+              <Button type="submit" variant="primary" size="lg" class="w-full" id="submit-btn" data-fs-submit-btn>
+                ثبت درخواست مشاوره فنی
+              </Button>
+            </div>
+
+          </form>
+        </div>
+
+        <!-- Right: Operations Information (5 Cols) -->
+        <div class="lg:col-span-5 space-y-8">
+          
+          <div class="bg-[#141210] border border-[#15120e] p-6 sm:p-8 space-y-6 shadow-2xl">
+            <h3 class="text-lg font-light text-[#f4f2f1] border-b border-[#15120e] pb-3">
+              دفتر مستقیم مهندسی
+            </h3>
+
+            <div class="space-y-4 text-xs font-mono">
+              <div>
+                <span class="text-[10px] uppercase font-mono text-[#f6f2ee] opacity-70 block mb-1">تلفن</span>
+                <a href={`tel:${companyData.contactInfo.phone.replace(/[^0-9+]/g, '')}`} class="text-sm text-[#f4f2f1] hover:underline font-light">
+                  {companyData.contactInfo.phone}
+                </a>
+                <span class="text-[#f4f2f1]/40 block mt-0.5 text-[11px]">[خط ویژه تاسیسات]</span>
+              </div>
+
+              <div>
+                <span class="text-[10px] uppercase font-mono text-[#f6f2ee] opacity-70 block mb-1">ایمیل مهندسی</span>
+                <a href={`mailto:${companyData.contactInfo.email}`} class="text-sm text-[#f4f2f1] hover:underline font-light">
+                  {companyData.contactInfo.email}
+                </a>
+                <span class="text-[#f4f2f1]/40 block mt-0.5 text-[11px]">[نظارت توسط مهندسان ارشد]</span>
+              </div>
+
+              <div>
+                <span class="text-[10px] uppercase font-mono text-[#f6f2ee] opacity-70 block mb-1">آدرس تاسیسات و آزمایشگاه</span>
+                <p class="text-sm text-[#f4f2f1] font-light leading-relaxed">
+                  {companyData.contactInfo.address}
+                </p>
+                <span class="text-[#f4f2f1]/40 block mt-0.5 text-[11px]">[محل تست و آماده‌سازی]</span>
+              </div>
+
+              <div>
+                <span class="text-[10px] uppercase font-mono text-[#f6f2ee] opacity-70 block mb-1">ساعات کاری</span>
+                <p class="text-sm text-[#f4f2f1] font-light">
+                  {companyData.contactInfo.hours}
+                </p>
+                <span class="text-[#f4f2f1]/40 block mt-0.5 text-[11px]">قراردادهای پشتیبانی اضطراری به صورت ۲۴ ساعته در ۷ روز هفته اعتبار دارند</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Technical SLA / Response Commitment -->
+          <div class="bg-[#141210] border border-[#15120e] p-6 space-y-3 shadow-xl">
+            <span class="text-[10px] font-mono uppercase tracking-widest text-[#f6f2ee] opacity-70 block">
+              پروتکل مشاوره
+            </span>
+            <p class="text-xs text-[#f4f2f1]/65 font-light leading-relaxed">
+              ما درخواست‌ها را از طریق مراکز تماس شخص ثالث هدایت نمی‌کنیم. تماس‌های اولیه توسط معماران سیستم باتجربه انجام می‌شود که نیازهای شما را بررسی کرده، امکان‌سنجی فیزیکی را تعیین می‌کنند و لیست اولیه تجهیزات را آماده می‌سازند.
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>
+
+<script is:inline>
+  window.formspree = window.formspree || function () { (formspree.q = formspree.q || []).push(arguments); };
+  formspree('initForm', { formElement: '#contact-form', formId: 'xgaenjbn' });
+</script>
+<script src="https://unpkg.com/@formspree/ajax@1" defer is:inline></script>

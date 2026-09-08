@@ -1,0 +1,1581 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import NovandLogo from '@/components/ui/NovandLogo.astro';
+---
+<BaseLayout
+  title="Brand & Identity System | Novand"
+  description="The official brand identity, logomarks, typography, color tokens, and asset guidelines for Novand — integrated technology and engineering infrastructure."
+>
+  <!-- Sticky Quick Sub-Navigation for Brand System -->
+  <div class="sticky top-20 z-40 bg-[#090e10]/90 backdrop-blur-md border-b border-[#15120e] hidden md:block">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-12 text-xs font-mono">
+      <div class="flex items-center gap-6">
+        <a href="#overview" class="text-[#f4f2f1]/70 hover:text-[#00d2b5] transition-colors uppercase tracking-wider">مروری بر برند</a>
+        <a href="#anatomy" class="text-[#f4f2f1]/70 hover:text-[#00d2b5] transition-colors uppercase tracking-wider">ساختار</a>
+        <a href="#logos" class="text-[#f4f2f1]/70 hover:text-[#00d2b5] transition-colors uppercase tracking-wider">نشان‌واره‌ها و ترکیب‌بندی‌ها</a>
+        <a href="#colors" class="text-[#f4f2f1]/70 hover:text-[#00d2b5] transition-colors uppercase tracking-wider">متغیرهای رنگی</a>
+        <a href="#typography" class="text-[#f4f2f1]/70 hover:text-[#00d2b5] transition-colors uppercase tracking-wider">تایپوگرافی</a>
+        <a href="#standards" class="text-[#f4f2f1]/70 hover:text-[#00d2b5] transition-colors uppercase tracking-wider">قوانین و اندازه‌ها</a>
+      </div>
+      <a 
+        href="/branding/novand-brand-assets.zip" 
+        download 
+        class="inline-flex items-center gap-2 text-[#00d2b5] hover:text-[#10b981] font-semibold transition-colors"
+      >
+        <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+          <polyline points="7 10 12 15 17 10"></polyline>
+          <line x1="12" y1="15" x2="12" y2="3"></line>
+        </svg>
+        دانلود فایل‌های برند (.ZIP 1.2 MB)
+      </a>
+    </div>
+  </div>
+
+  <!-- Hero Section -->
+  <section id="overview" class="py-16 sm:py-24 bg-[#0d1417] text-[#f4f2f1] border-b border-[#15120e] relative overflow-hidden">
+    <div class="absolute inset-0 bg-[linear-gradient(to_right,#141b1f_1px,transparent_1px),linear-gradient(to_bottom,#141b1f_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] opacity-30 pointer-events-none"></div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        
+        <!-- Left: Copy & Callouts -->
+        <div class="lg:col-span-7 space-y-6">
+          <div class="inline-flex items-center gap-2 px-3 py-1 bg-[#141b1f] border border-[#1a2327] text-xs font-mono tracking-widest uppercase text-[#f4f2f1]/80 rounded-sm">
+            <span class="w-2 h-2 rounded-full bg-[#00d2b5] animate-pulse"></span>
+            سیستم طراحی · دستورالعمل‌های برند · کیت اصلی نسخه ۲.۴
+          </div>
+
+          <h1 class="text-3xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-white leading-tight font-sans">
+            دقت معماری.<br />
+            <span class="text-transparent bg-clip-text bg-gradient-to-r from-[#00d2b5] to-[#10b981]">
+              جریان دیجیتال همگرا.
+            </span>
+          </h1>
+
+          <p class="text-base sm:text-lg text-[#f4f2f1]/70 leading-relaxed font-light max-w-2xl">
+            هویت بصری نُوَند پل ارتباطی است میان استحکام ساختاری تاسیسات مدرن و جریان پویای مسیریابی نوری با سرعت بالا و اتوماسیون هوشمند. این کیت رسمی، شامل استانداردهای جامع، مشخصات هندسی، متغیرهای رنگی، و نشان‌واره‌های چندمنظوره برای استفاده در رسانه‌ها، نقشه‌های معماری، محصولات دیجیتال، و سخت‌افزارهای فیزیکی می‌باشد.
+          </p>
+
+          <!-- Action buttons -->
+          <div class="pt-4 flex flex-wrap items-center gap-4">
+            <a 
+              href="/branding/novand-brand-assets.zip" 
+              download
+              class="inline-flex items-center justify-center gap-2.5 px-6 py-3.5 bg-[#00d2b5] hover:bg-[#00e5c5] text-[#0d1417] font-semibold text-sm tracking-wide rounded-sm transition-all shadow-[0_0_20px_rgba(0,210,181,0.25)] hover:shadow-[0_0_30px_rgba(0,210,181,0.4)]"
+            >
+              <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                <polyline points="7 10 12 15 17 10"></polyline>
+                <line x1="12" y1="15" x2="12" y2="3"></line>
+              </svg>
+              دانلود بسته کامل برند (.ZIP)
+            </a>
+
+            <a 
+              href="#logos" 
+              class="inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-[#141b1f] hover:bg-[#1a2327] text-[#f4f2f1] font-medium text-sm tracking-wide border border-[#1a2327] rounded-sm transition-colors"
+            >
+              بررسی دارایی‌های لوگو
+              <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </a>
+          </div>
+
+          <!-- Quick Metrics Bar -->
+          <div class="pt-6 grid grid-cols-3 gap-4 border-t border-[#15120e] max-w-lg">
+            <div>
+              <div class="text-[10px] font-mono text-[#f4f2f1]/50 uppercase">نشان وکتور</div>
+              <div class="text-sm font-mono text-white font-semibold mt-0.5">W3C SVG 1.1</div>
+            </div>
+            <div>
+              <div class="text-[10px] font-mono text-[#f4f2f1]/50 uppercase">طیف رنگی</div>
+              <div class="text-sm font-mono text-[#00d2b5] font-semibold mt-0.5">گذرگاه فیروزه‌ای-زمردی</div>
+            </div>
+            <div>
+              <div class="text-[10px] font-mono text-[#f4f2f1]/50 uppercase">دوزبانه</div>
+              <div class="text-sm font-mono text-white font-semibold mt-0.5">EN + FA وزیرمتن</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Grand Emblem Showcase Canvas -->
+        <div class="lg:col-span-5">
+          <div class="bg-[#141b1f] border border-[#1a2327] p-8 sm:p-10 rounded-sm relative group overflow-hidden shadow-2xl">
+            <div class="absolute -right-20 -top-20 w-64 h-64 bg-[#00d2b5]/10 rounded-full blur-3xl pointer-events-none"></div>
+            
+            <!-- Logo Stage -->
+            <div class="aspect-square w-full max-w-[340px] mx-auto flex items-center justify-center p-8 bg-[#090e10] border border-[#15120e] rounded-sm relative">
+              <!-- Background Circuit Guides -->
+              <div class="absolute inset-0 bg-[radial-gradient(#1a2327_1px,transparent_1px)] [background-size:16px_16px] opacity-40"></div>
+              
+              <div class="w-44 h-44 sm:w-56 sm:h-56 text-white relative z-10 transition-transform duration-500 group-hover:scale-105 drop-shadow-[0_12px_40px_rgba(0,210,181,0.18)]">
+                <NovandLogo />
+              </div>
+
+              <!-- Live Coordinate Badge -->
+              <div class="absolute bottom-2.5 left-2.5 px-2 py-0.5 bg-[#0d1417]/80 border border-[#1a2327] rounded text-[9px] font-mono text-[#00d2b5]">
+                مقیاس: 1:1 مرجع
+              </div>
+            </div>
+
+            <!-- Signature Card Footer -->
+            <div class="mt-6 flex items-center justify-between text-xs border-t border-[#15120e] pt-4">
+              <div>
+                <div class="font-bold text-white font-sans uppercase tracking-wider">Novand Monogram</div>
+                <div class="text-[10px] font-mono text-[#f4f2f1]/60">زیرساخت فیزیکی و مسیرهای دینامیک</div>
+              </div>
+              <a 
+                href="/branding/novand-logo-vector.svg" 
+                download="novand-logo-master.svg" 
+                class="px-2.5 py-1 bg-[#090e10] hover:bg-[#00d2b5]/20 hover:text-[#00d2b5] border border-[#1a2327] text-[10px] font-mono rounded transition-colors text-[#f4f2f1]/80"
+              >
+                دانلود SVG
+              </a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Section: ساختار & Geometric Construction -->
+  <section id="anatomy" class="py-20 bg-[#090e10] text-[#f4f2f1] border-b border-[#15120e]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="max-w-3xl mb-14">
+        <span class="text-xs font-mono uppercase tracking-[0.2em] text-[#00d2b5] block mb-2">Geometric Blueprint</span>
+        <h2 class="text-2xl sm:text-4xl font-bold text-white tracking-tight">
+          ساختار مونوگرام
+        </h2>
+        <p class="text-sm sm:text-base text-[#f4f2f1]/70 leading-relaxed font-light mt-2">
+          هر خط و گره وکتور معادل یکی از حوزه‌های مهندسی در سبد قابلیت‌های نُوَند است که در امتداد مجراهای ایزومتریک دقیق با زاویه ۴۵ درجه محاسبه شده‌اند.
+        </p>
+      </div>
+
+      <!-- Interactive ساختار Grid -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+        
+        <!-- Left: Exploded Schematic Visual -->
+        <div class="lg:col-span-6 bg-[#0d1417] border border-[#1a2327] p-8 sm:p-12 rounded-sm relative">
+          <div class="text-center mb-6">
+            <span class="text-[10px] font-mono uppercase tracking-widest text-[#f4f2f1]/40">شماتیک وکتور CAD · شبکه 1080x1080</span>
+          </div>
+
+          <div class="relative max-w-[340px] mx-auto aspect-square flex items-center justify-center p-6 bg-[#090e10] border border-[#15120e] rounded">
+            <!-- Grid Lines -->
+            <svg class="absolute inset-0 w-full h-full pointer-events-none opacity-25" viewBox="0 0 100 100">
+              <line x1="0" y1="50" x2="100" y2="50" stroke="#00d2b5" stroke-dasharray="2 2" stroke-width="0.5" />
+              <line x1="50" y1="0" x2="50" y2="100" stroke="#00d2b5" stroke-dasharray="2 2" stroke-width="0.5" />
+              <circle cx="50" cy="50" r="45" fill="none" stroke="#f4f2f1" stroke-dasharray="1 3" stroke-width="0.5" />
+            </svg>
+
+            <!-- Scaled Emblem with Callout markers -->
+            <div class="w-56 h-56 text-white relative">
+              <NovandLogo />
+
+              <!-- Overlay Callout 1: Roofline -->
+              <div class="absolute -top-2 left-6 bg-[#0d1417] border border-[#00d2b5] text-[#00d2b5] w-5 h-5 rounded-full flex items-center justify-center text-[10px] font-mono font-bold shadow-lg">1</div>
+              <!-- Overlay Callout 2: Windows -->
+              <div class="absolute top-[42%] left-[48%] bg-[#0d1417] border border-[#00d2b5] text-[#00d2b5] w-5 h-5 rounded-full flex items-center justify-center text-[10px] font-mono font-bold shadow-lg">2</div>
+              <!-- Overlay Callout 3: Circuit Traces -->
+              <div class="absolute bottom-8 left-12 bg-[#0d1417] border border-[#00d2b5] text-[#00d2b5] w-5 h-5 rounded-full flex items-center justify-center text-[10px] font-mono font-bold shadow-lg">3</div>
+              <!-- Overlay Callout 4: Terminal Nodes -->
+              <div class="absolute top-1/2 right-0 bg-[#0d1417] border border-[#10b981] text-[#10b981] w-5 h-5 rounded-full flex items-center justify-center text-[10px] font-mono font-bold shadow-lg">4</div>
+            </div>
+          </div>
+
+          <div class="mt-6 flex justify-between text-[11px] font-mono text-[#f4f2f1]/50 border-t border-[#15120e] pt-4">
+            <span>ضخامت خط اصلی: 5.0pt</span>
+            <span>مجراهای مسیر: 4.5pt</span>
+            <span>پایانه‌ها: 3.5pt / 4.5r</span>
+          </div>
+        </div>
+
+        <!-- Right: Rationale Cards -->
+        <div class="lg:col-span-6 space-y-4">
+          
+          <div class="p-5 bg-[#141b1f] border border-[#1a2327] rounded-sm hover:border-[#00d2b5]/40 transition-colors">
+            <div class="flex items-start gap-4">
+              <div class="w-7 h-7 rounded-sm bg-[#090e10] border border-[#00d2b5]/50 text-[#00d2b5] flex items-center justify-center text-xs font-mono font-bold shrink-0">
+                1
+              </div>
+              <div>
+                <h3 class="text-base font-bold text-white font-sans">سقف معماری و پوشش</h3>
+                <p class="text-xs text-[#f4f2f1]/70 leading-relaxed font-light mt-1">
+                  خط سقف ضخیم و سفید نشان‌دهنده حضور فیزیکی، ماندگاری تاسیسات و پناهگاه ساختاری است. این عنصر نمایانگر ساختمان‌های دیتاسنتر، دفاتر هوشمند شرکتی، و زیرساخت‌های پردیس‌ها می‌باشد.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="p-5 bg-[#141b1f] border border-[#1a2327] rounded-sm hover:border-[#00d2b5]/40 transition-colors">
+            <div class="flex items-start gap-4">
+              <div class="w-7 h-7 rounded-sm bg-[#090e10] border border-[#00d2b5]/50 text-[#00d2b5] flex items-center justify-center text-xs font-mono font-bold shrink-0">
+                2
+              </div>
+              <div>
+                <h3 class="text-base font-bold text-white font-sans">آرایه چهارپنجره‌ای</h3>
+                <p class="text-xs text-[#f4f2f1]/70 leading-relaxed font-light mt-1">
+                  یک شبکه کالیبره‌شده ۲×۲ که نشان‌دهنده فضاهای ساخت‌یافته، شاسی رک‌های سرور، و نظم سازمانی است. این بخش، نشان را به معماری واقعی سازمانی و عملیات فضای کاری پیوند می‌دهد.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="p-5 bg-[#141b1f] border border-[#1a2327] rounded-sm hover:border-[#00d2b5]/40 transition-colors">
+            <div class="flex items-start gap-4">
+              <div class="w-7 h-7 rounded-sm bg-[#090e10] border border-[#00d2b5]/50 text-[#00d2b5] flex items-center justify-center text-xs font-mono font-bold shrink-0">
+                3
+              </div>
+              <div>
+                <h3 class="text-base font-bold text-white font-sans">مسیرهای مداری همگرا با زاویه ۴۵ درجه</h3>
+                <p class="text-xs text-[#f4f2f1]/70 leading-relaxed font-light mt-1">
+                  مسیرهای مورب و پله‌ای نمادی از خطوط فیبر نوری FTTH، کابل‌کشی مسی با فرکانس بالا، و مجراهای مسیریابی فعال هستند که ترافیک چند-گیگابیتی را در سراسر تاسیسات انتقال می‌دهند.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="p-5 bg-[#141b1f] border border-[#1a2327] rounded-sm hover:border-[#10b981]/40 transition-colors">
+            <div class="flex items-start gap-4">
+              <div class="w-7 h-7 rounded-sm bg-[#090e10] border border-[#10b981]/50 text-[#10b981] flex items-center justify-center text-xs font-mono font-bold shrink-0">
+                4
+              </div>
+              <div>
+                <h3 class="text-base font-bold text-white font-sans">نقطه‌های پایانی گره (Terminal)</h3>
+                <p class="text-xs text-[#f4f2f1]/70 leading-relaxed font-light mt-1">
+                  سه نقطه پایانی دایره‌ای مشخص نشان‌دهنده کلاینت‌های متصل هستند: سنسورهای اتوماسیون ساختمان IoT، دوربین‌های مداربسته و کنترلرهای دسترسی امنیتی، و کلاسترهای سرور با عملکرد بالا.
+                </p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Section: Extended Multi-Purpose Logo Collection -->
+  <section id="logos" class="py-20 bg-[#0d1417] text-[#f4f2f1] border-b border-[#15120e]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Section Header -->
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
+        <div class="max-w-2xl">
+          <span class="text-xs font-mono uppercase tracking-[0.2em] text-[#00d2b5] block mb-2">ماتریس دارایی‌ها</span>
+          <h2 class="text-2xl sm:text-4xl font-bold text-white tracking-tight">
+            نشان‌واره‌ها و ترکیب‌های بسط‌یافته
+          </h2>
+          <p class="text-sm sm:text-base text-[#f4f2f1]/70 leading-relaxed font-light mt-2">
+            فرمت‌های لوگوی کالیبره‌شده برای هر سطح فیزیکی و دیجیتال — از ناوبری وب و رابط‌های نرم‌افزاری گرفته تا حکاکی لیزری روی شاسی‌های فلزی فیزیکی و قراردادهای چاپی.
+          </p>
+        </div>
+
+        <!-- Filter Buttons -->
+        <div class="flex flex-wrap gap-2 text-xs font-mono" id="logo-filter-bar">
+          <button 
+            type="button" 
+            data-filter="all" 
+            class="filter-btn px-3 py-1.5 bg-[#00d2b5] text-[#0d1417] font-bold rounded-sm cursor-pointer transition-all"
+          >
+            همه فرمت‌ها
+          </button>
+          <button 
+            type="button" 
+            data-filter="lockup" 
+            class="filter-btn px-3 py-1.5 bg-[#141b1f] hover:bg-[#1a2327] text-[#f4f2f1]/80 rounded-sm border border-[#1a2327] cursor-pointer transition-all"
+          >
+            نشان‌واره‌ها و ترکیب‌بندی‌ها
+          </button>
+          <button 
+            type="button" 
+            data-filter="badge" 
+            class="filter-btn px-3 py-1.5 bg-[#141b1f] hover:bg-[#1a2327] text-[#f4f2f1]/80 rounded-sm border border-[#1a2327] cursor-pointer transition-all"
+          >
+            مونو-مارک‌ها و نشان‌ها
+          </button>
+          <button 
+            type="button" 
+            data-filter="mono" 
+            class="filter-btn px-3 py-1.5 bg-[#141b1f] hover:bg-[#1a2327] text-[#f4f2f1]/80 rounded-sm border border-[#1a2327] cursor-pointer transition-all"
+          >
+            تک‌رنگ و چاپ
+          </button>
+          <button 
+            type="button" 
+            data-filter="social" 
+            class="filter-btn px-3 py-1.5 bg-[#141b1f] hover:bg-[#1a2327] text-[#f4f2f1]/80 rounded-sm border border-[#1a2327] cursor-pointer transition-all"
+          >
+            شبکه‌های اجتماعی و رسانه‌ها
+          </button>
+          <button 
+            type="button" 
+            data-filter="persian" 
+            class="filter-btn px-3 py-1.5 bg-[#141b1f] hover:bg-[#1a2327] text-[#f4f2f1]/80 rounded-sm border border-[#1a2327] cursor-pointer transition-all"
+          >
+            نسخه فارسی
+          </button>
+        </div>
+      </div>
+
+      <!-- Assets Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="assets-container">
+
+        <!-- Asset 1: نشانواره افقی (Dark) -->
+        <div class="asset-card group bg-[#141b1f] border border-[#1a2327] rounded-sm overflow-hidden flex flex-col justify-between" data-category="lockup">
+          <div>
+            <!-- Preview Stage (Dark) -->
+            <div class="h-52 bg-[#090e10] p-6 flex items-center justify-center border-b border-[#15120e] relative">
+              <img 
+                src="/branding/novand-logo-horizontal-dark.svg" 
+                alt="Novand Horizontal Logo Dark" 
+                class="max-h-24 max-w-[85%] object-contain transition-transform duration-300 group-hover:scale-105"
+                loading="lazy"
+              />
+              <span class="absolute top-2.5 right-2.5 px-2 py-0.5 bg-[#0d1417] text-[10px] font-mono text-[#00d2b5] border border-[#1a2327] rounded">
+                حالت تیره
+              </span>
+            </div>
+            <!-- Meta Details -->
+            <div class="p-5">
+              <div class="flex items-center justify-between mb-2">
+                <h3 class="text-sm font-bold text-white font-sans uppercase">نشانواره افقی · تیره</h3>
+                <span class="text-[10px] font-mono text-[#f4f2f1]/50">1000×280</span>
+              </div>
+              <p class="text-xs text-[#f4f2f1]/70 leading-relaxed font-light mb-4">
+                هویت سازمانی اصلی برای سرصفحه‌های وب‌سایت، داشبوردهای نرم‌افزاری، ارائه‌های تیره و پانویس‌های ارائه‌های شرکای تجاری.
+              </p>
+              <div class="flex items-center gap-2 text-[10px] font-mono text-[#00d2b5]">
+                <span>Vector SVG</span> • <span>Lossless PNG</span>
+              </div>
+            </div>
+          </div>
+          <!-- Download Actions -->
+          <div class="p-4 bg-[#0d1417] border-t border-[#15120e] flex items-center gap-2">
+            <a 
+              href="/branding/novand-logo-horizontal-dark.svg" 
+              download 
+              class="flex-1 text-center py-2 bg-[#141b1f] hover:bg-[#00d2b5] hover:text-[#0d1417] text-[#f4f2f1] text-xs font-mono font-medium rounded-sm border border-[#1a2327] transition-all"
+            >
+              SVG (وکتور)
+            </a>
+            <a 
+              href="/branding/novand-logo-horizontal-dark.png" 
+              download 
+              class="flex-1 text-center py-2 bg-[#141b1f] hover:bg-[#1a2327] text-[#f4f2f1]/80 hover:text-white text-xs font-mono font-medium rounded-sm border border-[#1a2327] transition-all"
+            >
+              PNG (رستر)
+            </a>
+          </div>
+        </div>
+
+        <!-- Asset 2: نشانواره افقی (Light) -->
+        <div class="asset-card group bg-[#141b1f] border border-[#1a2327] rounded-sm overflow-hidden flex flex-col justify-between" data-category="lockup">
+          <div>
+            <!-- Preview Stage (Light Canvas) -->
+            <div class="h-52 bg-[#f8fafc] p-6 flex items-center justify-center border-b border-[#e2e8f0] relative">
+              <img 
+                src="/branding/novand-logo-horizontal-light.svg" 
+                alt="Novand Horizontal Logo Light" 
+                class="max-h-24 max-w-[85%] object-contain transition-transform duration-300 group-hover:scale-105"
+                loading="lazy"
+              />
+              <span class="absolute top-2.5 right-2.5 px-2 py-0.5 bg-white text-[10px] font-mono text-[#008f7a] border border-[#cbd5e1] rounded">
+                حالت روشن
+              </span>
+            </div>
+            <!-- Meta Details -->
+            <div class="p-5">
+              <div class="flex items-center justify-between mb-2">
+                <h3 class="text-sm font-bold text-white font-sans uppercase">نشانواره افقی · روشن</h3>
+                <span class="text-[10px] font-mono text-[#f4f2f1]/50">1000×280</span>
+              </div>
+              <p class="text-xs text-[#f4f2f1]/70 leading-relaxed font-light mb-4">
+                طراحی‌شده برای پس‌زمینه‌های سفید، فاکتورهای کاغذی، پروپوزال‌های مهندسی، قراردادهای مشتریان و اسلایدهای ارائه‌های روشن.
+              </p>
+              <div class="flex items-center gap-2 text-[10px] font-mono text-[#00d2b5]">
+                <span>Vector SVG</span> • <span>Lossless PNG</span>
+              </div>
+            </div>
+          </div>
+          <!-- Download Actions -->
+          <div class="p-4 bg-[#0d1417] border-t border-[#15120e] flex items-center gap-2">
+            <a 
+              href="/branding/novand-logo-horizontal-light.svg" 
+              download 
+              class="flex-1 text-center py-2 bg-[#141b1f] hover:bg-[#00d2b5] hover:text-[#0d1417] text-[#f4f2f1] text-xs font-mono font-medium rounded-sm border border-[#1a2327] transition-all"
+            >
+              SVG (وکتور)
+            </a>
+            <a 
+              href="/branding/novand-logo-horizontal-light.png" 
+              download 
+              class="flex-1 text-center py-2 bg-[#141b1f] hover:bg-[#1a2327] text-[#f4f2f1]/80 hover:text-white text-xs font-mono font-medium rounded-sm border border-[#1a2327] transition-all"
+            >
+              PNG (رستر)
+            </a>
+          </div>
+        </div>
+
+        <!-- Asset 3: نشانواره افقی (Persian) -->
+        <div class="asset-card group bg-[#141b1f] border border-[#1a2327] rounded-sm overflow-hidden flex flex-col justify-between" data-category="lockup persian">
+          <div>
+            <!-- Preview Stage -->
+            <div class="h-52 bg-[#090e10] p-6 flex items-center justify-center border-b border-[#15120e] relative">
+              <img 
+                src="/branding/novand-logo-horizontal-persian.svg" 
+                alt="لوگو افقی نُوَند فارسی" 
+                class="max-h-24 max-w-[90%] object-contain transition-transform duration-300 group-hover:scale-105"
+                loading="lazy"
+              />
+              <span class="absolute top-2.5 right-2.5 px-2 py-0.5 bg-[#0d1417] text-[10px] font-mono text-[#00d2b5] border border-[#1a2327] rounded">
+                فارسی RTL
+              </span>
+            </div>
+            <!-- Meta Details -->
+            <div class="p-5">
+              <div class="flex items-center justify-between mb-2">
+                <h3 class="text-sm font-bold text-white font-sans uppercase">لوگوتایپ افقی فارسی · نُوَند</h3>
+                <span class="text-[10px] font-mono text-[#f4f2f1]/50">1000×280</span>
+              </div>
+              <p class="text-xs text-[#f4f2f1]/70 leading-relaxed font-light mb-4 font-vazirmatn" dir="rtl">
+                ترکیب نشان رسمی و تایپوگرافی وزیرمتن به همراه شعار «راهکارهای یکپارچه فناوری و مهندسی زیرساخت» ویژه سربرگ‌ها و مکاتبات رسمی.
+              </p>
+              <div class="flex items-center gap-2 text-[10px] font-mono text-[#00d2b5]">
+                <span>Vector SVG</span> • <span>Lossless PNG</span>
+              </div>
+            </div>
+          </div>
+          <!-- Download Actions -->
+          <div class="p-4 bg-[#0d1417] border-t border-[#15120e] flex items-center gap-2">
+            <a 
+              href="/branding/novand-logo-horizontal-persian.svg" 
+              download 
+              class="flex-1 text-center py-2 bg-[#141b1f] hover:bg-[#00d2b5] hover:text-[#0d1417] text-[#f4f2f1] text-xs font-mono font-medium rounded-sm border border-[#1a2327] transition-all"
+            >
+              SVG (وکتور)
+            </a>
+            <a 
+              href="/branding/novand-logo-horizontal-persian.png" 
+              download 
+              class="flex-1 text-center py-2 bg-[#141b1f] hover:bg-[#1a2327] text-[#f4f2f1]/80 hover:text-white text-xs font-mono font-medium rounded-sm border border-[#1a2327] transition-all"
+            >
+              PNG (رستر)
+            </a>
+          </div>
+        </div>
+
+        <!-- Asset 4: Stacked Lockup (Dark) -->
+        <div class="asset-card group bg-[#141b1f] border border-[#1a2327] rounded-sm overflow-hidden flex flex-col justify-between" data-category="lockup">
+          <div>
+            <!-- Preview Stage -->
+            <div class="h-52 bg-[#090e10] p-6 flex items-center justify-center border-b border-[#15120e] relative">
+              <img 
+                src="/branding/novand-logo-stacked-dark.svg" 
+                alt="Novand Stacked Logo Dark" 
+                class="max-h-36 max-w-[65%] object-contain transition-transform duration-300 group-hover:scale-105"
+                loading="lazy"
+              />
+              <span class="absolute top-2.5 right-2.5 px-2 py-0.5 bg-[#0d1417] text-[10px] font-mono text-[#00d2b5] border border-[#1a2327] rounded">
+                مرکزی 1:1
+              </span>
+            </div>
+            <!-- Meta Details -->
+            <div class="p-5">
+              <div class="flex items-center justify-between mb-2">
+                <h3 class="text-sm font-bold text-white font-sans uppercase">ترکیب مرکزی · تیره</h3>
+                <span class="text-[10px] font-mono text-[#f4f2f1]/50">600×600</span>
+              </div>
+              <p class="text-xs text-[#f4f2f1]/70 leading-relaxed font-light mb-4">
+                توازن عمودی مناسب برای رول‌آپ‌های صحنه کنفرانس، بردهای ورودی نمایشگاه‌ها، رویه مستندات مربعی، و صفحات شروع برنامه‌های موبایل.
+              </p>
+              <div class="flex items-center gap-2 text-[10px] font-mono text-[#00d2b5]">
+                <span>Vector SVG</span> • <span>Lossless PNG</span>
+              </div>
+            </div>
+          </div>
+          <!-- Download Actions -->
+          <div class="p-4 bg-[#0d1417] border-t border-[#15120e] flex items-center gap-2">
+            <a 
+              href="/branding/novand-logo-stacked-dark.svg" 
+              download 
+              class="flex-1 text-center py-2 bg-[#141b1f] hover:bg-[#00d2b5] hover:text-[#0d1417] text-[#f4f2f1] text-xs font-mono font-medium rounded-sm border border-[#1a2327] transition-all"
+            >
+              SVG (وکتور)
+            </a>
+            <a 
+              href="/branding/novand-logo-stacked-dark.png" 
+              download 
+              class="flex-1 text-center py-2 bg-[#141b1f] hover:bg-[#1a2327] text-[#f4f2f1]/80 hover:text-white text-xs font-mono font-medium rounded-sm border border-[#1a2327] transition-all"
+            >
+              PNG (رستر)
+            </a>
+          </div>
+        </div>
+
+        <!-- Asset 5: Stacked Lockup (Light) -->
+        <div class="asset-card group bg-[#141b1f] border border-[#1a2327] rounded-sm overflow-hidden flex flex-col justify-between" data-category="lockup">
+          <div>
+            <!-- Preview Stage (Light Canvas) -->
+            <div class="h-52 bg-[#f8fafc] p-6 flex items-center justify-center border-b border-[#e2e8f0] relative">
+              <img 
+                src="/branding/novand-logo-stacked-light.svg" 
+                alt="Novand Stacked Logo Light" 
+                class="max-h-36 max-w-[65%] object-contain transition-transform duration-300 group-hover:scale-105"
+                loading="lazy"
+              />
+              <span class="absolute top-2.5 right-2.5 px-2 py-0.5 bg-white text-[10px] font-mono text-[#008f7a] border border-[#cbd5e1] rounded">
+                مرکزی روشن
+              </span>
+            </div>
+            <!-- Meta Details -->
+            <div class="p-5">
+              <div class="flex items-center justify-between mb-2">
+                <h3 class="text-sm font-bold text-white font-sans uppercase">ترکیب مرکزی · روشن</h3>
+                <span class="text-[10px] font-mono text-[#f4f2f1]/50">600×600</span>
+              </div>
+              <p class="text-xs text-[#f4f2f1]/70 leading-relaxed font-light mb-4">
+                ترکیب عمودی متمرکز روی پس‌زمینه کاملاً سفید، ایده‌آل برای گواهی‌های تطابق تجهیزات، جعبه‌های محصول و دفترچه‌های راهنمای چاپی.
+              </p>
+              <div class="flex items-center gap-2 text-[10px] font-mono text-[#00d2b5]">
+                <span>Vector SVG</span> • <span>Lossless PNG</span>
+              </div>
+            </div>
+          </div>
+          <!-- Download Actions -->
+          <div class="p-4 bg-[#0d1417] border-t border-[#15120e] flex items-center gap-2">
+            <a 
+              href="/branding/novand-logo-stacked-light.svg" 
+              download 
+              class="flex-1 text-center py-2 bg-[#141b1f] hover:bg-[#00d2b5] hover:text-[#0d1417] text-[#f4f2f1] text-xs font-mono font-medium rounded-sm border border-[#1a2327] transition-all"
+            >
+              SVG (وکتور)
+            </a>
+            <a 
+              href="/branding/novand-logo-stacked-light.png" 
+              download 
+              class="flex-1 text-center py-2 bg-[#141b1f] hover:bg-[#1a2327] text-[#f4f2f1]/80 hover:text-white text-xs font-mono font-medium rounded-sm border border-[#1a2327] transition-all"
+            >
+              PNG (رستر)
+            </a>
+          </div>
+        </div>
+
+        <!-- Asset 6: Master Monomark (شفاف Vector) -->
+        <div class="asset-card group bg-[#141b1f] border border-[#1a2327] rounded-sm overflow-hidden flex flex-col justify-between" data-category="badge">
+          <div>
+            <!-- Preview Stage (Checkerboard شفاف) -->
+            <div class="h-52 bg-[#090e10] p-6 flex items-center justify-center border-b border-[#15120e] relative">
+              <div class="w-28 h-28 text-white transition-transform duration-300 group-hover:scale-105 drop-shadow-[0_8px_25px_rgba(0,210,181,0.2)]">
+                <NovandLogo />
+              </div>
+              <span class="absolute top-2.5 right-2.5 px-2 py-0.5 bg-[#0d1417] text-[10px] font-mono text-[#00d2b5] border border-[#1a2327] rounded">
+                شفاف
+              </span>
+            </div>
+            <!-- Meta Details -->
+            <div class="p-5">
+              <div class="flex items-center justify-between mb-2">
+                <h3 class="text-sm font-bold text-white font-sans uppercase">مونو-مارک اصلی (وکتور)</h3>
+                <span class="text-[10px] font-mono text-[#f4f2f1]/50">Scalable</span>
+              </div>
+              <p class="text-xs text-[#f4f2f1]/70 leading-relaxed font-light mb-4">
+                نشان مستقل با پس‌زمینه شفاف و مجراهای نورانی فیروزه‌ای-زمردی. مناسب برای آیکون‌های رابط کاربری، ناوبری وب و چیدمان‌های سفارشی.
+              </p>
+              <div class="flex items-center gap-2 text-[10px] font-mono text-[#00d2b5]">
+                <span>Vector SVG</span> • <span>1080×1080 PNG</span>
+              </div>
+            </div>
+          </div>
+          <!-- Download Actions -->
+          <div class="p-4 bg-[#0d1417] border-t border-[#15120e] flex items-center gap-2">
+            <a 
+              href="/branding/novand-logo-vector.svg" 
+              download 
+              class="flex-1 text-center py-2 bg-[#141b1f] hover:bg-[#00d2b5] hover:text-[#0d1417] text-[#f4f2f1] text-xs font-mono font-medium rounded-sm border border-[#1a2327] transition-all"
+            >
+              SVG (وکتور)
+            </a>
+            <a 
+              href="/branding/novand-logo-transparent-1080x1080.png" 
+              download 
+              class="flex-1 text-center py-2 bg-[#141b1f] hover:bg-[#1a2327] text-[#f4f2f1]/80 hover:text-white text-xs font-mono font-medium rounded-sm border border-[#1a2327] transition-all"
+            >
+              PNG (رستر)
+            </a>
+          </div>
+        </div>
+
+        <!-- Asset 7: بج شاسی ابسیدین (تیره) (1:1) -->
+        <div class="asset-card group bg-[#141b1f] border border-[#1a2327] rounded-sm overflow-hidden flex flex-col justify-between" data-category="badge social">
+          <div>
+            <!-- Preview Stage -->
+            <div class="h-52 bg-[#090e10] p-6 flex items-center justify-center border-b border-[#15120e] relative">
+              <img 
+                src="/branding/novand-logo-square-dark.svg" 
+                alt="Novand مربع تیره Badge" 
+                class="max-h-36 max-w-[65%] object-contain rounded-md transition-transform duration-300 group-hover:scale-105"
+                loading="lazy"
+              />
+              <span class="absolute top-2.5 right-2.5 px-2 py-0.5 bg-[#0d1417] text-[10px] font-mono text-[#00d2b5] border border-[#1a2327] rounded">
+                مربع تیره
+              </span>
+            </div>
+            <!-- Meta Details -->
+            <div class="p-5">
+              <div class="flex items-center justify-between mb-2">
+                <h3 class="text-sm font-bold text-white font-sans uppercase">بج شاسی ابسیدین (تیره)</h3>
+                <span class="text-[10px] font-mono text-[#f4f2f1]/50">1080×1080</span>
+              </div>
+              <p class="text-xs text-[#f4f2f1]/70 leading-relaxed font-light mb-4">
+                محصور در یک پایه دایره‌ای با پس‌زمینه ظریف شبکه CAD. آواتار استاندارد برای لینکدین، گیت‌هاب، یوتیوب و آیکون‌های برنامه‌ها.
+              </p>
+              <div class="flex items-center gap-2 text-[10px] font-mono text-[#00d2b5]">
+                <span>Vector SVG</span> • <span>PNG</span> • <span>JPG</span>
+              </div>
+            </div>
+          </div>
+          <!-- Download Actions -->
+          <div class="p-4 bg-[#0d1417] border-t border-[#15120e] flex items-center gap-2">
+            <a 
+              href="/branding/novand-logo-square-dark.svg" 
+              download 
+              class="flex-1 text-center py-2 bg-[#141b1f] hover:bg-[#00d2b5] hover:text-[#0d1417] text-[#f4f2f1] text-xs font-mono font-medium rounded-sm border border-[#1a2327] transition-all"
+            >
+              SVG
+            </a>
+            <a 
+              href="/branding/novand-logo-instagram-1080x1080.png" 
+              download 
+              class="flex-1 text-center py-2 bg-[#141b1f] hover:bg-[#1a2327] text-[#f4f2f1]/80 hover:text-white text-xs font-mono font-medium rounded-sm border border-[#1a2327] transition-all"
+            >
+              PNG
+            </a>
+            <a 
+              href="/branding/novand-logo-instagram-1080x1080.jpg" 
+              download 
+              class="flex-1 text-center py-2 bg-[#141b1f] hover:bg-[#1a2327] text-[#f4f2f1]/80 hover:text-white text-xs font-mono font-medium rounded-sm border border-[#1a2327] transition-all"
+            >
+              JPG
+            </a>
+          </div>
+        </div>
+
+        <!-- Asset 8: Pure بج شاسی روشن (1:1) -->
+        <div class="asset-card group bg-[#141b1f] border border-[#1a2327] rounded-sm overflow-hidden flex flex-col justify-between" data-category="badge">
+          <div>
+            <!-- Preview Stage -->
+            <div class="h-52 bg-[#f8fafc] p-6 flex items-center justify-center border-b border-[#e2e8f0] relative">
+              <img 
+                src="/branding/novand-logo-square-light.svg" 
+                alt="Novand مربع روشن Badge" 
+                class="max-h-36 max-w-[65%] object-contain rounded-md transition-transform duration-300 group-hover:scale-105"
+                loading="lazy"
+              />
+              <span class="absolute top-2.5 right-2.5 px-2 py-0.5 bg-white text-[10px] font-mono text-[#008f7a] border border-[#cbd5e1] rounded">
+                مربع روشن
+              </span>
+            </div>
+            <!-- Meta Details -->
+            <div class="p-5">
+              <div class="flex items-center justify-between mb-2">
+                <h3 class="text-sm font-bold text-white font-sans uppercase">بج شاسی روشن</h3>
+                <span class="text-[10px] font-mono text-[#f4f2f1]/50">1080×1080</span>
+              </div>
+              <p class="text-xs text-[#f4f2f1]/70 leading-relaxed font-light mb-4">
+                پایه کاملا سفید با خطوط معماری با کنتراست بالا. بهینه‌شده برای بوک‌مارک‌های صفحه اصلی موبایل در حالت روشن و بسته‌بندی محصولات.
+              </p>
+              <div class="flex items-center gap-2 text-[10px] font-mono text-[#00d2b5]">
+                <span>Vector SVG</span> • <span>1080×1080 PNG</span>
+              </div>
+            </div>
+          </div>
+          <!-- Download Actions -->
+          <div class="p-4 bg-[#0d1417] border-t border-[#15120e] flex items-center gap-2">
+            <a 
+              href="/branding/novand-logo-square-light.svg" 
+              download 
+              class="flex-1 text-center py-2 bg-[#141b1f] hover:bg-[#00d2b5] hover:text-[#0d1417] text-[#f4f2f1] text-xs font-mono font-medium rounded-sm border border-[#1a2327] transition-all"
+            >
+              SVG (وکتور)
+            </a>
+            <a 
+              href="/branding/novand-logo-square-light.png" 
+              download 
+              class="flex-1 text-center py-2 bg-[#141b1f] hover:bg-[#1a2327] text-[#f4f2f1]/80 hover:text-white text-xs font-mono font-medium rounded-sm border border-[#1a2327] transition-all"
+            >
+              PNG (رستر)
+            </a>
+          </div>
+        </div>
+
+        <!-- Asset 9: Persian Captioned Seal (1080x1080) -->
+        <div class="asset-card group bg-[#141b1f] border border-[#1a2327] rounded-sm overflow-hidden flex flex-col justify-between" data-category="badge persian">
+          <div>
+            <!-- Preview Stage -->
+            <div class="h-52 bg-[#090e10] p-4 flex items-center justify-center border-b border-[#15120e] relative">
+              <img 
+                src="/branding/novand-logo-persian-captioned.svg" 
+                alt="لوگو رسمی دارای نام نُوَند" 
+                class="max-h-40 max-w-[80%] object-contain transition-transform duration-300 group-hover:scale-105"
+                loading="lazy"
+              />
+              <span class="absolute top-2.5 right-2.5 px-2 py-0.5 bg-[#0d1417] text-[10px] font-mono text-[#00d2b5] border border-[#1a2327] rounded">
+                نشان با عنوان
+              </span>
+            </div>
+            <!-- Meta Details -->
+            <div class="p-5">
+              <div class="flex items-center justify-between mb-2">
+                <h3 class="text-sm font-bold text-white font-sans uppercase">نشان رسمی دارای عنوان · نُوَند</h3>
+                <span class="text-[10px] font-mono text-[#f4f2f1]/50">1080×1080</span>
+              </div>
+              <p class="text-xs text-[#f4f2f1]/70 leading-relaxed font-light mb-4 font-vazirmatn" dir="rtl">
+                نشان مربعی با حاشیه فنی به همراه نام «نُوَند» و عبارت «راهکارهای یکپارچه فناوری و مهندسی زیرساخت» ویژه معرفی برند در شبکه‌های اجتماعی.
+              </p>
+              <div class="flex items-center gap-2 text-[10px] font-mono text-[#00d2b5]">
+                <span>Vector SVG</span> • <span>Lossless PNG</span>
+              </div>
+            </div>
+          </div>
+          <!-- Download Actions -->
+          <div class="p-4 bg-[#0d1417] border-t border-[#15120e] flex items-center gap-2">
+            <a 
+              href="/branding/novand-logo-persian-captioned.svg" 
+              download 
+              class="flex-1 text-center py-2 bg-[#141b1f] hover:bg-[#00d2b5] hover:text-[#0d1417] text-[#f4f2f1] text-xs font-mono font-medium rounded-sm border border-[#1a2327] transition-all"
+            >
+              SVG (وکتور)
+            </a>
+            <a 
+              href="/branding/novand-logo-persian-captioned-1080x1080.png" 
+              download 
+              class="flex-1 text-center py-2 bg-[#141b1f] hover:bg-[#1a2327] text-[#f4f2f1]/80 hover:text-white text-xs font-mono font-medium rounded-sm border border-[#1a2327] transition-all"
+            >
+              PNG (رستر)
+            </a>
+          </div>
+        </div>
+
+        <!-- Asset 10: تک‌رنگ سفید -->
+        <div class="asset-card group bg-[#141b1f] border border-[#1a2327] rounded-sm overflow-hidden flex flex-col justify-between" data-category="mono">
+          <div>
+            <!-- Preview Stage -->
+            <div class="h-52 bg-[#090e10] p-6 flex items-center justify-center border-b border-[#15120e] relative">
+              <img 
+                src="/branding/novand-logo-monochrome-white.svg" 
+                alt="Novand تک‌رنگ سفید" 
+                class="max-h-28 max-w-[65%] object-contain transition-transform duration-300 group-hover:scale-105 drop-shadow-[0_4px_15px_rgba(255,255,255,0.2)]"
+                loading="lazy"
+              />
+              <span class="absolute top-2.5 right-2.5 px-2 py-0.5 bg-[#0d1417] text-[10px] font-mono text-white border border-[#1a2327] rounded">
+                100% White
+              </span>
+            </div>
+            <!-- Meta Details -->
+            <div class="p-5">
+              <div class="flex items-center justify-between mb-2">
+                <h3 class="text-sm font-bold text-white font-sans uppercase">تک‌رنگ سفید</h3>
+                <span class="text-[10px] font-mono text-[#f4f2f1]/50">Vector / PNG</span>
+              </div>
+              <p class="text-xs text-[#f4f2f1]/70 leading-relaxed font-light mb-4">
+                تک‌رنگ سفید خالص روی پس‌زمینه شفاف. ضروری برای واترمارک ویدیوها، درج روی تصاویر عکاسی مهندسی و گلدوزی روی لباس‌های فرم تیره.
+              </p>
+              <div class="flex items-center gap-2 text-[10px] font-mono text-[#00d2b5]">
+                <span>Vector SVG</span> • <span>600×600 PNG</span>
+              </div>
+            </div>
+          </div>
+          <!-- Download Actions -->
+          <div class="p-4 bg-[#0d1417] border-t border-[#15120e] flex items-center gap-2">
+            <a 
+              href="/branding/novand-logo-monochrome-white.svg" 
+              download 
+              class="flex-1 text-center py-2 bg-[#141b1f] hover:bg-[#00d2b5] hover:text-[#0d1417] text-[#f4f2f1] text-xs font-mono font-medium rounded-sm border border-[#1a2327] transition-all"
+            >
+              SVG (وکتور)
+            </a>
+            <a 
+              href="/branding/novand-logo-monochrome-white.png" 
+              download 
+              class="flex-1 text-center py-2 bg-[#141b1f] hover:bg-[#1a2327] text-[#f4f2f1]/80 hover:text-white text-xs font-mono font-medium rounded-sm border border-[#1a2327] transition-all"
+            >
+              PNG (رستر)
+            </a>
+          </div>
+        </div>
+
+        <!-- Asset 11: Monochrome Black / Etch -->
+        <div class="asset-card group bg-[#141b1f] border border-[#1a2327] rounded-sm overflow-hidden flex flex-col justify-between" data-category="mono">
+          <div>
+            <!-- Preview Stage -->
+            <div class="h-52 bg-[#f8fafc] p-6 flex items-center justify-center border-b border-[#e2e8f0] relative">
+              <img 
+                src="/branding/novand-logo-monochrome-black.svg" 
+                alt="Novand Monochrome Black" 
+                class="max-h-28 max-w-[65%] object-contain transition-transform duration-300 group-hover:scale-105"
+                loading="lazy"
+              />
+              <span class="absolute top-2.5 right-2.5 px-2 py-0.5 bg-white text-[10px] font-mono text-[#0d1417] border border-[#cbd5e1] rounded">
+                100% Black
+              </span>
+            </div>
+            <!-- Meta Details -->
+            <div class="p-5">
+              <div class="flex items-center justify-between mb-2">
+                <h3 class="text-sm font-bold text-white font-sans uppercase">تک‌رنگ مشکی · حکاکی</h3>
+                <span class="text-[10px] font-mono text-[#f4f2f1]/50">Vector / PNG</span>
+              </div>
+              <p class="text-xs text-[#f4f2f1]/70 leading-relaxed font-light mb-4">
+                تک‌رنگ مشکی خالص روی پس‌زمینه شفاف. به‌طور خاص برای حکاکی لیزری روی رک‌های آلومینیومی سرور شبکه، پنل‌های جلوی سخت‌افزار و چاپ حرارتی طراحی شده است.
+              </p>
+              <div class="flex items-center gap-2 text-[10px] font-mono text-[#00d2b5]">
+                <span>Vector SVG</span> • <span>600×600 PNG</span>
+              </div>
+            </div>
+          </div>
+          <!-- Download Actions -->
+          <div class="p-4 bg-[#0d1417] border-t border-[#15120e] flex items-center gap-2">
+            <a 
+              href="/branding/novand-logo-monochrome-black.svg" 
+              download 
+              class="flex-1 text-center py-2 bg-[#141b1f] hover:bg-[#00d2b5] hover:text-[#0d1417] text-[#f4f2f1] text-xs font-mono font-medium rounded-sm border border-[#1a2327] transition-all"
+            >
+              SVG (وکتور)
+            </a>
+            <a 
+              href="/branding/novand-logo-monochrome-black.png" 
+              download 
+              class="flex-1 text-center py-2 bg-[#141b1f] hover:bg-[#1a2327] text-[#f4f2f1]/80 hover:text-white text-xs font-mono font-medium rounded-sm border border-[#1a2327] transition-all"
+            >
+              PNG (رستر)
+            </a>
+          </div>
+        </div>
+
+        <!-- Asset 12: Social Banner (English 1200x630) -->
+        <div class="asset-card group bg-[#141b1f] border border-[#1a2327] rounded-sm overflow-hidden flex flex-col justify-between" data-category="social">
+          <div>
+            <!-- Preview Stage -->
+            <div class="h-52 bg-[#090e10] p-4 flex items-center justify-center border-b border-[#15120e] relative">
+              <img 
+                src="/branding/novand-social-banner-1200x630.png" 
+                alt="Novand Social Banner English" 
+                class="max-h-36 max-w-[95%] object-contain border border-[#1a2327] transition-transform duration-300 group-hover:scale-105"
+                loading="lazy"
+              />
+              <span class="absolute top-2.5 right-2.5 px-2 py-0.5 bg-[#0d1417] text-[10px] font-mono text-[#00d2b5] border border-[#1a2327] rounded">
+                OpenGraph
+              </span>
+            </div>
+            <!-- Meta Details -->
+            <div class="p-5">
+              <div class="flex items-center justify-between mb-2">
+                <h3 class="text-sm font-bold text-white font-sans uppercase">بنر شبکه‌های اجتماعی (انگلیسی)</h3>
+                <span class="text-[10px] font-mono text-[#f4f2f1]/50">1200×630</span>
+              </div>
+              <p class="text-xs text-[#f4f2f1]/70 leading-relaxed font-light mb-4">
+                بنر افقی ۱.۹۱:۱ برای پیش‌نمایش لینک در لینکدین، توییتر/X، دیسکورد، اسلک و گرافیک مقالات مطبوعاتی.
+              </p>
+              <div class="flex items-center gap-2 text-[10px] font-mono text-[#00d2b5]">
+                <span>Lossless PNG (High-DPI)</span>
+              </div>
+            </div>
+          </div>
+          <!-- Download Actions -->
+          <div class="p-4 bg-[#0d1417] border-t border-[#15120e] flex items-center gap-2">
+            <a 
+              href="/branding/novand-social-banner-1200x630.png" 
+              download 
+              class="w-full text-center py-2 bg-[#141b1f] hover:bg-[#00d2b5] hover:text-[#0d1417] text-[#f4f2f1] text-xs font-mono font-medium rounded-sm border border-[#1a2327] transition-all"
+            >
+              دانلود 1200×630 PNG
+            </a>
+          </div>
+        </div>
+
+        <!-- Asset 13: Social Banner (Persian 1200x630) -->
+        <div class="asset-card group bg-[#141b1f] border border-[#1a2327] rounded-sm overflow-hidden flex flex-col justify-between" data-category="social persian">
+          <div>
+            <!-- Preview Stage -->
+            <div class="h-52 bg-[#090e10] p-4 flex items-center justify-center border-b border-[#15120e] relative">
+              <img 
+                src="/branding/novand-social-banner-persian-1200x630.png" 
+                alt="بنر لینکدین و شبکه اجتماعی نُوَند" 
+                class="max-h-36 max-w-[95%] object-contain border border-[#1a2327] transition-transform duration-300 group-hover:scale-105"
+                loading="lazy"
+              />
+              <span class="absolute top-2.5 right-2.5 px-2 py-0.5 bg-[#0d1417] text-[10px] font-mono text-[#00d2b5] border border-[#1a2327] rounded">
+                بنر فارسی
+              </span>
+            </div>
+            <!-- Meta Details -->
+            <div class="p-5">
+              <div class="flex items-center justify-between mb-2">
+                <h3 class="text-sm font-bold text-white font-sans uppercase">بنر شبکه‌های اجتماعی فارسی (RTL)</h3>
+                <span class="text-[10px] font-mono text-[#f4f2f1]/50">1200×630</span>
+              </div>
+              <p class="text-xs text-[#f4f2f1]/70 leading-relaxed font-light mb-4 font-vazirmatn" dir="rtl">
+                بنر افقی ۱۲۰۰×۶۳۰ راست‌چین با خط وزیرمتن، شامل حوزه‌های هوشمندسازی، فیبر نوری، سرور، امنیت فیزیکی و تأمین تجهیزات IT.
+              </p>
+              <div class="flex items-center gap-2 text-[10px] font-mono text-[#00d2b5]">
+                <span>Vector SVG</span> • <span>Lossless PNG</span>
+              </div>
+            </div>
+          </div>
+          <!-- Download Actions -->
+          <div class="p-4 bg-[#0d1417] border-t border-[#15120e] flex items-center gap-2">
+            <a 
+              href="/branding/novand-social-banner-persian.svg" 
+              download 
+              class="flex-1 text-center py-2 bg-[#141b1f] hover:bg-[#00d2b5] hover:text-[#0d1417] text-[#f4f2f1] text-xs font-mono font-medium rounded-sm border border-[#1a2327] transition-all"
+            >
+              SVG (وکتور)
+            </a>
+            <a 
+              href="/branding/novand-social-banner-persian-1200x630.png" 
+              download 
+              class="flex-1 text-center py-2 bg-[#141b1f] hover:bg-[#1a2327] text-[#f4f2f1]/80 hover:text-white text-xs font-mono font-medium rounded-sm border border-[#1a2327] transition-all"
+            >
+              PNG (رستر)
+            </a>
+          </div>
+        </div>
+
+        <!-- Asset 14: Mobile Story (English 1080x1920) -->
+        <div class="asset-card group bg-[#141b1f] border border-[#1a2327] rounded-sm overflow-hidden flex flex-col justify-between" data-category="social">
+          <div>
+            <!-- Preview Stage -->
+            <div class="h-52 bg-[#090e10] p-4 flex items-center justify-center border-b border-[#15120e] relative">
+              <img 
+                src="/branding/novand-instagram-story-1080x1920.png" 
+                alt="Novand Instagram Story 1080x1920" 
+                class="max-h-44 object-contain border border-[#1a2327] transition-transform duration-300 group-hover:scale-105"
+                loading="lazy"
+              />
+              <span class="absolute top-2.5 right-2.5 px-2 py-0.5 bg-[#0d1417] text-[10px] font-mono text-[#00d2b5] border border-[#1a2327] rounded">
+                9:16 Vertical
+              </span>
+            </div>
+            <!-- Meta Details -->
+            <div class="p-5">
+              <div class="flex items-center justify-between mb-2">
+                <h3 class="text-sm font-bold text-white font-sans uppercase">بنر موبایل و استوری (انگلیسی)</h3>
+                <span class="text-[10px] font-mono text-[#f4f2f1]/50">1080×1920</span>
+              </div>
+              <p class="text-xs text-[#f4f2f1]/70 leading-relaxed font-light mb-4">
+                ترکیب عمودی ۹:۱۶ برای استوری‌های اینستاگرام، وضعیت واتس‌اپ، کارت‌های شروع ارائه‌های موبایل و بنرهای ایستاده کنفرانس‌ها.
+              </p>
+              <div class="flex items-center gap-2 text-[10px] font-mono text-[#00d2b5]">
+                <span>Lossless PNG (9:16)</span>
+              </div>
+            </div>
+          </div>
+          <!-- Download Actions -->
+          <div class="p-4 bg-[#0d1417] border-t border-[#15120e] flex items-center gap-2">
+            <a 
+              href="/branding/novand-instagram-story-1080x1920.png" 
+              download 
+              class="w-full text-center py-2 bg-[#141b1f] hover:bg-[#00d2b5] hover:text-[#0d1417] text-[#f4f2f1] text-xs font-mono font-medium rounded-sm border border-[#1a2327] transition-all"
+            >
+              دانلود 1080×1920 PNG
+            </a>
+          </div>
+        </div>
+
+        <!-- Asset 15: Mobile Story (Persian 1080x1920) -->
+        <div class="asset-card group bg-[#141b1f] border border-[#1a2327] rounded-sm overflow-hidden flex flex-col justify-between" data-category="social persian">
+          <div>
+            <!-- Preview Stage -->
+            <div class="h-52 bg-[#090e10] p-4 flex items-center justify-center border-b border-[#15120e] relative">
+              <img 
+                src="/branding/novand-instagram-story-persian-1080x1920.png" 
+                alt="قالب استوری اینستاگرام نُوَند" 
+                class="max-h-44 object-contain border border-[#1a2327] transition-transform duration-300 group-hover:scale-105"
+                loading="lazy"
+              />
+              <span class="absolute top-2.5 right-2.5 px-2 py-0.5 bg-[#0d1417] text-[10px] font-mono text-[#00d2b5] border border-[#1a2327] rounded">
+                استوری فارسی
+              </span>
+            </div>
+            <!-- Meta Details -->
+            <div class="p-5">
+              <div class="flex items-center justify-between mb-2">
+                <h3 class="text-sm font-bold text-white font-sans uppercase">قالب عمودی و استوری فارسی</h3>
+                <span class="text-[10px] font-mono text-[#f4f2f1]/50">1080×1920</span>
+              </div>
+              <p class="text-xs text-[#f4f2f1]/70 leading-relaxed font-light mb-4 font-vazirmatn" dir="rtl">
+                طراحی عمودی ۹:۱۶ با چیدمان دقیق نشان مرکزی، عنوان فارسی و معرفی جامع خوشه‌های تخصصی هوشمندسازی، فیبر نوری، سرور و تأسیسات.
+              </p>
+              <div class="flex items-center gap-2 text-[10px] font-mono text-[#00d2b5]">
+                <span>Vector SVG</span> • <span>Lossless PNG</span>
+              </div>
+            </div>
+          </div>
+          <!-- Download Actions -->
+          <div class="p-4 bg-[#0d1417] border-t border-[#15120e] flex items-center gap-2">
+            <a 
+              href="/branding/novand-instagram-story-persian.svg" 
+              download 
+              class="flex-1 text-center py-2 bg-[#141b1f] hover:bg-[#00d2b5] hover:text-[#0d1417] text-[#f4f2f1] text-xs font-mono font-medium rounded-sm border border-[#1a2327] transition-all"
+            >
+              SVG (وکتور)
+            </a>
+            <a 
+              href="/branding/novand-instagram-story-persian-1080x1920.png" 
+              download 
+              class="flex-1 text-center py-2 bg-[#141b1f] hover:bg-[#1a2327] text-[#f4f2f1]/80 hover:text-white text-xs font-mono font-medium rounded-sm border border-[#1a2327] transition-all"
+            >
+              PNG (رستر)
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Section: Color System & Tokens -->
+  <section id="colors" class="py-20 bg-[#090e10] text-[#f4f2f1] border-b border-[#15120e]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="max-w-3xl mb-12">
+        <span class="text-xs font-mono uppercase tracking-[0.2em] text-[#00d2b5] block mb-2">ماتریس رنگ‌ها</span>
+        <h2 class="text-2xl sm:text-4xl font-bold text-white tracking-tight">
+          پالت رنگ برند و متغیرها
+        </h2>
+        <p class="text-sm sm:text-base text-[#f4f2f1]/70 leading-relaxed font-light mt-2">
+          روی هر بلوک رنگی کلیک کنید تا مقدار هگز آن مستقیماً در کلیپ‌بورد کپی شود. پالت ما بر روی بدنه‌های ابسیدین عمیق با هایلایت‌های سیگنال نوری پرطراوت بنا شده است.
+        </p>
+      </div>
+
+      <!-- Color Swatches Grid -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+
+        <!-- Color 1: تیره ابسیدین -->
+        <div class="bg-[#141b1f] border border-[#1a2327] rounded-sm overflow-hidden p-5 flex flex-col justify-between group">
+          <div>
+            <div class="h-28 w-full bg-[#0d1417] border border-[#1a2327] rounded-sm mb-4 flex items-end p-3 justify-between">
+              <span class="px-2 py-0.5 bg-[#141b1f] text-[10px] font-mono text-white/80 rounded">پس‌زمینه اصلی</span>
+            </div>
+            <h3 class="text-base font-bold text-white font-sans">تیره ابسیدین</h3>
+            <p class="text-xs text-[#f4f2f1]/60 font-light mt-1 mb-4">
+              بوم شاسی پایه که نشان‌دهنده رک‌های فیزیکی سرور و معماری مدرن تیره است.
+            </p>
+          </div>
+          <div class="border-t border-[#15120e] pt-4 space-y-1.5 text-xs font-mono">
+            <div class="flex justify-between items-center">
+              <span class="text-[#f4f2f1]/50">HEX</span>
+              <button type="button" class="copy-hex font-bold text-[#00d2b5] hover:underline cursor-pointer flex items-center gap-1" data-hex="#0d1417">
+                #0d1417
+                <svg class="w-3 h-3 opacity-70" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+              </button>
+            </div>
+            <div class="flex justify-between items-center text-[#f4f2f1]/60 text-[11px]">
+              <span>RGB</span>
+              <span>13, 20, 23</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Color 2: سطح کربنی -->
+        <div class="bg-[#141b1f] border border-[#1a2327] rounded-sm overflow-hidden p-5 flex flex-col justify-between group">
+          <div>
+            <div class="h-28 w-full bg-[#141b1f] border border-[#1a2327] rounded-sm mb-4 flex items-end p-3 justify-between">
+              <span class="px-2 py-0.5 bg-[#090e10] text-[10px] font-mono text-white/80 rounded">سطوح و کارت‌ها</span>
+            </div>
+            <h3 class="text-base font-bold text-white font-sans">سطح کربنی</h3>
+            <p class="text-xs text-[#f4f2f1]/60 font-light mt-1 mb-4">
+              لایه پنل برجسته برای کارت‌ها، بج‌ها و قاب‌های اجزا با عمق بصری ملایم.
+            </p>
+          </div>
+          <div class="border-t border-[#15120e] pt-4 space-y-1.5 text-xs font-mono">
+            <div class="flex justify-between items-center">
+              <span class="text-[#f4f2f1]/50">HEX</span>
+              <button type="button" class="copy-hex font-bold text-[#00d2b5] hover:underline cursor-pointer flex items-center gap-1" data-hex="#141b1f">
+                #141b1f
+                <svg class="w-3 h-3 opacity-70" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+              </button>
+            </div>
+            <div class="flex justify-between items-center text-[#f4f2f1]/60 text-[11px]">
+              <span>RGB</span>
+              <span>20, 27, 31</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Color 3: سیگنال: فیروزه‌ای -->
+        <div class="bg-[#141b1f] border border-[#1a2327] rounded-sm overflow-hidden p-5 flex flex-col justify-between group">
+          <div>
+            <div class="h-28 w-full bg-[#00d2b5] rounded-sm mb-4 flex items-end p-3 justify-between shadow-[0_0_20px_rgba(0,210,181,0.2)]">
+              <span class="px-2 py-0.5 bg-[#0d1417] text-[10px] font-mono text-[#00d2b5] rounded font-bold">سیگنال: فعال</span>
+            </div>
+            <h3 class="text-base font-bold text-white font-sans">سیگنال: فیروزه‌ای</h3>
+            <p class="text-xs text-[#f4f2f1]/60 font-light mt-1 mb-4">
+              تاکید سیگنال نوری فعال، که نشان‌دهنده طول موج فیبر نوری و جریان شبکه زنده است.
+            </p>
+          </div>
+          <div class="border-t border-[#15120e] pt-4 space-y-1.5 text-xs font-mono">
+            <div class="flex justify-between items-center">
+              <span class="text-[#f4f2f1]/50">HEX</span>
+              <button type="button" class="copy-hex font-bold text-[#00d2b5] hover:underline cursor-pointer flex items-center gap-1" data-hex="#00d2b5">
+                #00d2b5
+                <svg class="w-3 h-3 opacity-70" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+              </button>
+            </div>
+            <div class="flex justify-between items-center text-[#f4f2f1]/60 text-[11px]">
+              <span>RGB</span>
+              <span>0, 210, 181</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Color 4: مسیریابی: زمردی -->
+        <div class="bg-[#141b1f] border border-[#1a2327] rounded-sm overflow-hidden p-5 flex flex-col justify-between group">
+          <div>
+            <div class="h-28 w-full bg-[#10b981] rounded-sm mb-4 flex items-end p-3 justify-between shadow-[0_0_20px_rgba(16,185,129,0.2)]">
+              <span class="px-2 py-0.5 bg-[#0d1417] text-[10px] font-mono text-[#10b981] rounded font-bold">وضعیت: سالم</span>
+            </div>
+            <h3 class="text-base font-bold text-white font-sans">مسیریابی: زمردی</h3>
+            <p class="text-xs text-[#f4f2f1]/60 font-light mt-1 mb-4">
+              گرادیان نقطه‌های پایانی ترمینال، نمایانگر سرزندگی سیستم و اتوماسیون بهینه در مصرف انرژی.
+            </p>
+          </div>
+          <div class="border-t border-[#15120e] pt-4 space-y-1.5 text-xs font-mono">
+            <div class="flex justify-between items-center">
+              <span class="text-[#f4f2f1]/50">HEX</span>
+              <button type="button" class="copy-hex font-bold text-[#10b981] hover:underline cursor-pointer flex items-center gap-1" data-hex="#10b981">
+                #10b981
+                <svg class="w-3 h-3 opacity-70" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+              </button>
+            </div>
+            <div class="flex justify-between items-center text-[#f4f2f1]/60 text-[11px]">
+              <span>RGB</span>
+              <span>16, 185, 129</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Color 5: سفید معماری -->
+        <div class="bg-[#141b1f] border border-[#1a2327] rounded-sm overflow-hidden p-5 flex flex-col justify-between group">
+          <div>
+            <div class="h-28 w-full bg-[#f4f2f1] rounded-sm mb-4 flex items-end p-3 justify-between">
+              <span class="px-2 py-0.5 bg-[#0d1417] text-[10px] font-mono text-white rounded font-bold">تایپوگرافی و ساختار</span>
+            </div>
+            <h3 class="text-base font-bold text-white font-sans">سفید معماری</h3>
+            <p class="text-xs text-[#f4f2f1]/60 font-light mt-1 mb-4">
+              رنگ مسیر ساختاری و تایپوگرافی واضح اصلی با گرمای ملایم برای جلوگیری از خستگی چشم.
+            </p>
+          </div>
+          <div class="border-t border-[#15120e] pt-4 space-y-1.5 text-xs font-mono">
+            <div class="flex justify-between items-center">
+              <span class="text-[#f4f2f1]/50">HEX</span>
+              <button type="button" class="copy-hex font-bold text-white hover:underline cursor-pointer flex items-center gap-1" data-hex="#f4f2f1">
+                #f4f2f1
+                <svg class="w-3 h-3 opacity-70" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+              </button>
+            </div>
+            <div class="flex justify-between items-center text-[#f4f2f1]/60 text-[11px]">
+              <span>RGB</span>
+              <span>244, 242, 241</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Color 6: Wireframe Divider -->
+        <div class="bg-[#141b1f] border border-[#1a2327] rounded-sm overflow-hidden p-5 flex flex-col justify-between group">
+          <div>
+            <div class="h-28 w-full bg-[#1a2327] rounded-sm mb-4 flex items-end p-3 justify-between">
+              <span class="px-2 py-0.5 bg-[#0d1417] text-[10px] font-mono text-white/70 rounded">حاشیه‌ها و گرید</span>
+            </div>
+            <h3 class="text-base font-bold text-white font-sans">خاکستری وایرفریم</h3>
+            <p class="text-xs text-[#f4f2f1]/60 font-light mt-1 mb-4">
+              جداکننده‌های دقیق و خطوط شبکه شماتیک که پنل‌های فنی و کانتینرهای رابط کاربری را قاب می‌کنند.
+            </p>
+          </div>
+          <div class="border-t border-[#15120e] pt-4 space-y-1.5 text-xs font-mono">
+            <div class="flex justify-between items-center">
+              <span class="text-[#f4f2f1]/50">HEX</span>
+              <button type="button" class="copy-hex font-bold text-[#00d2b5] hover:underline cursor-pointer flex items-center gap-1" data-hex="#1a2327">
+                #1a2327
+                <svg class="w-3 h-3 opacity-70" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+              </button>
+            </div>
+            <div class="flex justify-between items-center text-[#f4f2f1]/60 text-[11px]">
+              <span>RGB</span>
+              <span>26, 35, 39</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Section: تایپوگرافی System -->
+  <section id="typography" class="py-20 bg-[#0d1417] text-[#f4f2f1] border-b border-[#15120e]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="max-w-3xl mb-12">
+        <span class="text-xs font-mono uppercase tracking-[0.2em] text-[#00d2b5] block mb-2">تایپ‌فیس‌ها و سلسله مراتب</span>
+        <h2 class="text-2xl sm:text-4xl font-bold text-white tracking-tight">
+          تایپوگرافی System
+        </h2>
+        <p class="text-sm sm:text-base text-[#f4f2f1]/70 leading-relaxed font-light mt-2">
+          تایپوگرافی متوازن که سرتیترهای هندسی لاتین با دقت بالا را با تایپوگرافی مدرن و ظریف فارسی و مشخصات داده‌های مهندسی تک‌عرض (Monospace) جفت می‌کند.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+        
+        <!-- Typeface 1: Space Grotesk -->
+        <div class="bg-[#141b1f] border border-[#1a2327] p-8 rounded-sm space-y-6">
+          <div class="flex items-center justify-between border-b border-[#15120e] pb-4">
+            <div>
+              <h3 class="text-xl font-bold text-white font-sans">Space Grotesk</h3>
+              <p class="text-xs text-[#00d2b5] font-mono">فونت لاتین اصلی و عناوین</p>
+            </div>
+            <span class="text-xs font-mono text-[#f4f2f1]/50">700 / 500 / 400</span>
+          </div>
+
+          <div class="space-y-4">
+            <div>
+              <span class="text-[10px] font-mono text-[#f4f2f1]/50 uppercase block mb-1">نمونه نمایشی</span>
+              <p class="text-2xl font-bold text-white font-sans tracking-tight">
+                NOVAND
+              </p>
+              <p class="text-xs text-[#00d2b5] font-mono tracking-widest uppercase mt-1">
+                فناوری‌های یکپارچه و زیرساخت
+              </p>
+            </div>
+
+            <div>
+              <span class="text-[10px] font-mono text-[#f4f2f1]/50 uppercase block mb-1">مجموعه کاراکترها</span>
+              <p class="text-sm text-[#f4f2f1]/80 font-sans tracking-wider leading-relaxed">
+                ABCDEFGHIJKLMNOPQRSTUVWXYZ<br />
+                abcdefghijklmnopqrstuvwxyz<br />
+                0123456789 • !@#$%&amp;*()
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Typeface 2: وزیرمتن -->
+        <div class="bg-[#141b1f] border border-[#1a2327] p-8 rounded-sm space-y-6">
+          <div class="flex items-center justify-between border-b border-[#15120e] pb-4">
+            <div>
+              <h3 class="text-xl font-bold text-white font-vazirmatn">وزیرمتن (وزیرمتن)</h3>
+              <p class="text-xs text-[#00d2b5] font-mono">فونت اصلی فارسی و هویت برند</p>
+            </div>
+            <span class="text-xs font-mono text-[#f4f2f1]/50">ضخیم / معمولی</span>
+          </div>
+
+          <div class="space-y-4" dir="rtl">
+            <div>
+              <span class="text-[10px] font-mono text-[#f4f2f1]/50 uppercase block mb-1" dir="ltr">نمونه عنوان رسمی</span>
+              <p class="text-2xl font-bold text-white font-vazirmatn tracking-normal">
+                نُوَند
+              </p>
+              <p class="text-xs text-[#00d2b5] font-vazirmatn font-semibold mt-1">
+                راهکارهای یکپارچه فناوری و مهندسی زیرساخت
+              </p>
+            </div>
+
+            <div>
+              <span class="text-[10px] font-mono text-[#f4f2f1]/50 uppercase block mb-1" dir="ltr">حروف الفبا</span>
+              <p class="text-sm text-[#f4f2f1]/80 font-vazirmatn leading-relaxed">
+                ابپتثجچحخدذرزژسشصضطظعغفقکگلمنوهی<br />
+                ۰۱۲۳۴۵۶۷۸۹ · هوشمندسازی تأسیسات
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Typeface 3: JetBrains Mono / Monospace -->
+        <div class="bg-[#141b1f] border border-[#1a2327] p-8 rounded-sm space-y-6">
+          <div class="flex items-center justify-between border-b border-[#15120e] pb-4">
+            <div>
+              <h3 class="text-xl font-bold text-white font-mono">فونت هم‌عرض سیستمی (Monospace)</h3>
+              <p class="text-xs text-[#00d2b5] font-mono">مشخصات فنی و مختصات</p>
+            </div>
+            <span class="text-xs font-mono text-[#f4f2f1]/50">اعداد جدولی</span>
+          </div>
+
+          <div class="space-y-4 font-mono">
+            <div>
+              <span class="text-[10px] font-mono text-[#f4f2f1]/50 uppercase block mb-1">نمونه داده‌سنجی (Telemetry)</span>
+              <p class="text-sm font-semibold text-white">
+                FTTH-TRUNK // 10G-SFP+<br />
+                VLAN: 4096 · وضعیت: تایید<br />
+                مقیاس: 1080x1080 · D65-RGB
+              </p>
+            </div>
+
+            <div>
+              <span class="text-[10px] font-mono text-[#f4f2f1]/50 uppercase block mb-1">کد و اعداد</span>
+              <p class="text-sm text-[#f4f2f1]/80 tracking-widest">
+                0 1 2 3 4 5 6 7 8 9<br />
+                [x=540, y=540, r=4.5]
+              </p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Section: Clearspace, Sizing & Brand Guidelines -->
+  <section id="standards" class="py-20 bg-[#090e10] text-[#f4f2f1] border-b border-[#15120e]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="max-w-3xl mb-12">
+        <span class="text-xs font-mono uppercase tracking-[0.2em] text-[#00d2b5] block mb-2">استانداردهای استفاده</span>
+        <h2 class="text-2xl sm:text-4xl font-bold text-white tracking-tight">
+          قوانین فضای امن و استفاده از برند
+        </h2>
+        <p class="text-sm sm:text-base text-[#f4f2f1]/70 leading-relaxed font-light mt-2">
+          مناطق حریم امن بصری سخت‌گیرانه تضمین می‌کنند که نشان نُوَند حداکثر وضوح و برجستگی خود را در هر کاربردی حفظ می‌کند.
+        </p>
+      </div>
+
+      <!-- Clearspace Diagram & Minimum Size Cards -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-16">
+        
+        <!-- Left: Clearspace Visualization -->
+        <div class="lg:col-span-7 bg-[#0d1417] border border-[#1a2327] p-8 rounded-sm">
+          <div class="flex items-center justify-between mb-6">
+            <h3 class="text-base font-bold text-white font-sans uppercase">منطقه حریم امن (X = 0.5H)</h3>
+            <span class="text-xs font-mono text-[#00d2b5]">حداقل پیرامون</span>
+          </div>
+
+          <!-- Visual Clearspace Box -->
+          <div class="p-10 border border-dashed border-[#00d2b5]/40 bg-[#090e10] relative rounded-sm flex items-center justify-center">
+            <!-- Corner dimension markers -->
+            <div class="absolute top-2 left-2 text-[10px] font-mono text-[#00d2b5]/60">X</div>
+            <div class="absolute top-2 right-2 text-[10px] font-mono text-[#00d2b5]/60">X</div>
+            <div class="absolute bottom-2 left-2 text-[10px] font-mono text-[#00d2b5]/60">X</div>
+            <div class="absolute bottom-2 right-2 text-[10px] font-mono text-[#00d2b5]/60">X</div>
+
+            <div class="w-32 h-32 text-white relative z-10">
+              <NovandLogo />
+            </div>
+          </div>
+
+          <p class="text-xs text-[#f4f2f1]/70 font-light mt-4 leading-relaxed">
+            The minimum exclusion margin corresponds to dimension <strong class="text-white">X</strong>, defined as half the height of the primary building gable. No typography, secondary company logos, graphic borders, or photography edges may intrude into this zone.
+          </p>
+        </div>
+
+        <!-- Right: Minimum Sizes Matrix -->
+        <div class="lg:col-span-5 space-y-4">
+          
+          <div class="p-6 bg-[#141b1f] border border-[#1a2327] rounded-sm">
+            <h3 class="text-sm font-bold text-white font-sans uppercase mb-2">حداقل اندازه دیجیتال</h3>
+            <div class="space-y-3 text-xs">
+              <div class="flex justify-between items-center py-2 border-b border-[#15120e]">
+                <span class="text-[#f4f2f1]/70">مونو-مارک مستقل</span>
+                <span class="font-mono text-[#00d2b5] font-bold">24 × 24 px</span>
+              </div>
+              <div class="flex justify-between items-center py-2 border-b border-[#15120e]">
+                <span class="text-[#f4f2f1]/70">نشانواره افقی</span>
+                <span class="font-mono text-[#00d2b5] font-bold">140 × 35 px</span>
+              </div>
+              <div class="flex justify-between items-center py-2">
+                <span class="text-[#f4f2f1]/70">ترکیب‌بندی مرکزی چیده شده روی هم</span>
+                <span class="font-mono text-[#00d2b5] font-bold">96 × 96 px</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="p-6 bg-[#141b1f] border border-[#1a2327] rounded-sm">
+            <h3 class="text-sm font-bold text-white font-sans uppercase mb-2">حداقل‌های چاپ و ساخت</h3>
+            <div class="space-y-3 text-xs">
+              <div class="flex justify-between items-center py-2 border-b border-[#15120e]">
+                <span class="text-[#f4f2f1]/70">مونو-مارک مستقل</span>
+                <span class="font-mono text-[#10b981] font-bold">6.0 × 6.0 mm</span>
+              </div>
+              <div class="flex justify-between items-center py-2 border-b border-[#15120e]">
+                <span class="text-[#f4f2f1]/70">نشانواره افقی</span>
+                <span class="font-mono text-[#10b981] font-bold">30.0 × 8.0 mm</span>
+              </div>
+              <div class="flex justify-between items-center py-2">
+                <span class="text-[#f4f2f1]/70">حکاکی لیزری روی شاسی</span>
+                <span class="font-mono text-[#10b981] font-bold">12.0 × 12.0 mm</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- Do's and Don'ts Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        
+        <!-- Column 1: DO -->
+        <div class="p-8 bg-[#141b1f] border border-[#1a2327] rounded-sm space-y-4">
+          <div class="flex items-center gap-2 text-emerald-400 font-mono text-xs uppercase tracking-widest font-bold">
+            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            روش‌های تایید شده (بایدها)
+          </div>
+          <ul class="space-y-3 text-xs text-[#f4f2f1]/80 font-light leading-relaxed">
+            <li class="flex items-start gap-2.5">
+              <span class="text-emerald-400 font-bold shrink-0">✓</span>
+              <span>همیشه از <strong class="text-white">نشانواره تاریک</strong> رسمی روی پس‌زمینه‌های تیره و <strong class="text-white">نشانواره روشن</strong> روی پس‌زمینه‌های سفید یا روشن استفاده کنید.</span>
+            </li>
+            <li class="flex items-start gap-2.5">
+              <span class="text-emerald-400 font-bold shrink-0">✓</span>
+              <span>حریم فضای خالی مشخص شده در اطراف نماد را در تمام طرح‌ها حفظ کنید.</span>
+            </li>
+            <li class="flex items-start gap-2.5">
+              <span class="text-emerald-400 font-bold shrink-0">✓</span>
+              <span>از فرمت <strong class="text-white">مشکی تک‌رنگ</strong> برای حکاکی لیزری فیزیکی روی رک‌های آلومینیومی شبکه و فرم‌های تک‌رنگ استفاده کنید.</span>
+            </li>
+            <li class="flex items-start gap-2.5">
+              <span class="text-emerald-400 font-bold shrink-0">✓</span>
+              <span>از نشانواره رسمی با تایپوگرافی فارسی برای مستندات منطقه‌ای و ایران استفاده کنید.</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Column 2: DON'T -->
+        <div class="p-8 bg-[#141b1f] border border-[#1a2327] rounded-sm space-y-4">
+          <div class="flex items-center gap-2 text-rose-400 font-mono text-xs uppercase tracking-widest font-bold">
+            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+            تغییرات ممنوعه (نبایدها)
+          </div>
+          <ul class="space-y-3 text-xs text-[#f4f2f1]/80 font-light leading-relaxed">
+            <li class="flex items-start gap-2.5">
+              <span class="text-rose-400 font-bold shrink-0">✗</span>
+              <span>هرگز تناسبات هندسی مونوگرام یا نماد متنی را نکشید، فشرده نکنید یا تغییر ندهید.</span>
+            </li>
+            <li class="flex items-start gap-2.5">
+              <span class="text-rose-400 font-bold shrink-0">✗</span>
+              <span>هرگز رنگ‌های گرادیان دلخواه (مانند بنفش، نارنجی) را جایگزین رنگ‌های فیروزه‌ای-زمردی مسیر نوری نکنید.</span>
+            </li>
+            <li class="flex items-start gap-2.5">
+              <span class="text-rose-400 font-bold shrink-0">✗</span>
+              <span>هرگز نماد تاریک تمام‌رنگ را روی تصاویر پس‌زمینه شلوغ با کنتراست بالا بدون لایه تیره قرار ندهید.</span>
+            </li>
+            <li class="flex items-start gap-2.5">
+              <span class="text-rose-400 font-bold shrink-0">✗</span>
+              <span>هرگز موقعیت یا زاویه خطوط مدار و گره‌های پایانی را تغییر ندهید.</span>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Section: Press & Media Kit CTA -->
+  <section id="press-kit" class="py-16 bg-[#0d1417] text-[#f4f2f1]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="bg-[#141b1f] border border-[#1a2327] p-8 sm:p-12 rounded-sm relative overflow-hidden flex flex-col md:flex-row items-center justify-between gap-8">
+        <div class="max-w-2xl space-y-2">
+          <span class="text-xs font-mono uppercase tracking-[0.2em] text-[#00d2b5]">ارتباطات رسانه‌ای و سازمانی</span>
+          <h2 class="text-2xl sm:text-3xl font-bold text-white tracking-tight font-sans">
+            به فرمت‌های سفارشی یا تایید برند مشترک نیاز دارید؟
+          </h2>
+          <p class="text-sm text-[#f4f2f1]/70 leading-relaxed font-light">
+            برای انتشار مقالات، کیت‌های حمایت مالی کنفرانس، نقشه‌های مهندسی وکتور، یا بررسی برندینگ مشترک با شرکا، تیم ما آماده کمک است.
+          </p>
+        </div>
+
+        <div class="flex flex-wrap items-center gap-4 shrink-0">
+          <a 
+            href="/branding/novand-brand-assets.zip" 
+            download
+            class="px-5 py-3 bg-[#00d2b5] hover:bg-[#00e5c5] text-[#0d1417] font-semibold text-xs tracking-wide rounded-sm transition-all"
+          >
+            دانلود تمام فایل‌ها (.ZIP)
+          </a>
+          <a 
+            href="/contact" 
+            class="px-5 py-3 bg-[#090e10] hover:bg-[#1a2327] text-[#f4f2f1] font-medium text-xs tracking-wide border border-[#1a2327] rounded-sm transition-colors"
+          >
+            تماس با تیم برند
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Toast Notification Container for Hex Copies -->
+  <div 
+    id="toast-notification" 
+    class="fixed bottom-6 right-6 z-50 transform translate-y-16 opacity-0 transition-all duration-300 pointer-events-none px-4 py-3 bg-[#141b1f] text-white border border-[#00d2b5] rounded-sm shadow-2xl text-xs font-mono flex items-center gap-2"
+  >
+    <svg class="w-4 h-4 text-[#00d2b5]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+    <span id="toast-message">در کلیپ‌بورد کپی شد!</span>
+  </div>
+
+  <script is:inline>
+    // 1. Asset Filtering Logic
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const assetCards = document.querySelectorAll('.asset-card');
+
+    filterButtons.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        // Update active filter styling
+        filterButtons.forEach((b) => {
+          b.classList.remove('bg-[#00d2b5]', 'text-[#0d1417]', 'font-bold');
+          b.classList.add('bg-[#141b1f]', 'text-[#f4f2f1]/80');
+        });
+        btn.classList.remove('bg-[#141b1f]', 'text-[#f4f2f1]/80');
+        btn.classList.add('bg-[#00d2b5]', 'text-[#0d1417]', 'font-bold');
+
+        const filter = btn.getAttribute('data-filter');
+
+        assetCards.forEach((card) => {
+          if (filter === 'all') {
+            card.style.display = 'flex';
+          } else {
+            const categories = card.getAttribute('data-category') || '';
+            if (categories.includes(filter)) {
+              card.style.display = 'flex';
+            } else {
+              card.style.display = 'none';
+            }
+          }
+        });
+      });
+    });
+
+    // 2. Click to Copy Hex Colors with Toast
+    const copyButtons = document.querySelectorAll('.copy-hex');
+    const toast = document.getElementById('toast-notification');
+    const toastMsg = document.getElementById('toast-message');
+    let toastTimeout;
+
+    copyButtons.forEach((btn) => {
+      btn.addEventListener('click', async () => {
+        const hex = btn.getAttribute('data-hex');
+        if (!hex) return;
+        try {
+          await navigator.clipboard.writeText(hex);
+          if (toast && toastMsg) {
+            toastMsg.textContent = `Copied ${hex} to clipboard!`;
+            toast.classList.remove('translate-y-16', 'opacity-0');
+            clearTimeout(toastTimeout);
+            toastTimeout = setTimeout(() => {
+              toast.classList.add('translate-y-16', 'opacity-0');
+            }, 2500);
+          }
+        } catch (e) {
+          console.error('Clipboard copy failed', e);
+        }
+      });
+    });
+  </script>
+</BaseLayout>

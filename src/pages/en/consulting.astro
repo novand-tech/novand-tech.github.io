@@ -1,0 +1,185 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/ui/Breadcrumbs.astro';
+import SectionHeading from '../../components/ui/SectionHeading.astro';
+import Button from '../../components/ui/Button.astro';
+import { consultingDataEn as consultingData } from '../../data/consulting';
+---
+<BaseLayout 
+  title="Equipment Advisory & Infrastructure Consulting | Novand"
+  description="Independent, vendor-neutral engineering advisory for evaluating, specifying, and procuring networking, server, physical security, automation, and IT hardware."
+>
+  <!-- Breadcrumbs -->
+  <div class="bg-[#141210] border-b border-[#15120e] py-3">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <Breadcrumbs items={[{ label: 'Consulting & Equipment Advisory' }]} />
+    </div>
+  </div>
+
+  <!-- Hero Section -->
+  <section class="bg-[#141210] text-[#f4f2f1] py-16 sm:py-24 border-b border-[#15120e] bg-grid-subtle">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl">
+        <div class="inline-flex items-center gap-3 px-3.5 py-1 bg-[#0d1417] border border-[#15120e] text-[#f6f2ee] text-[10px] font-mono uppercase tracking-[0.25em] mb-4">
+          <span class="w-1.5 h-1.5 bg-[#f4f2f1]"></span>
+          Independent Technical Advisory
+        </div>
+        <h1 class="text-3xl sm:text-5xl font-light tracking-tight leading-tight text-[#f4f2f1] mb-6">
+          {consultingData.headline}
+        </h1>
+        <p class="text-base sm:text-lg text-[#f4f2f1]/70 leading-relaxed font-light">
+          {consultingData.leadCopy}
+        </p>
+        <div class="mt-8 flex flex-wrap gap-4">
+          <Button href="/en/contact#consultation" variant="primary" size="lg">
+            Schedule an Advisory Call
+          </Button>
+          <Button href="#pillars" variant="outline" size="lg">
+            Explore Advisory Domains ↓
+          </Button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Advisory Philosophy: Why Independent Advice Matters -->
+  <section class="bg-[#0d1417] text-[#f4f2f1] py-16 sm:py-20 border-b border-[#15120e]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        <div class="lg:col-span-6">
+          <span class="text-[10px] font-mono uppercase tracking-widest text-[#f6f2ee] opacity-70 block mb-2">
+            The Danger of Vendor Sales Reps
+          </span>
+          <h2 class="text-2xl sm:text-3xl font-light tracking-tight text-[#f4f2f1] mb-4">
+            Specification Driven by Engineering Math, Not Sales Quotas
+          </h2>
+          <p class="text-[#f4f2f1]/70 leading-relaxed text-sm sm:text-base font-light">
+            Equipment distributors and manufacturer sales teams are incentivized to sell whatever product has the highest margin or aging warehouse inventory. This routinely results in over-provisioned chassis, proprietary feature lock-in, or under-powered switches that lack adequate PoE budgets for future security expansions.
+          </p>
+          <p class="text-[#f4f2f1]/70 leading-relaxed text-sm sm:text-base mt-4 font-light">
+            Novand operates as an independent technical advocate. We calculate switching backplanes, packet per second (pps) throughput, thermal loads, and storage write-endurance directly against your operational requirements.
+          </p>
+        </div>
+
+        <div class="lg:col-span-6 bg-[#15120e] border border-[#15120e] p-6 sm:p-8 space-y-4 text-xs font-mono text-[#f4f2f1]">
+          <span class="text-[#f6f2ee] font-medium uppercase tracking-wider block border-b border-[#15120e] pb-2 text-[11px]">
+            Independent Due Diligence Checklist
+          </span>
+          <ul class="space-y-2.5 text-[#f4f2f1]/70 font-sans font-light">
+            <li class="flex items-start gap-2">
+              <span class="text-[#f4f2f1] font-mono">✓</span>
+              <span><strong class="text-[#f4f2f1]">Hardware Lifecycle Horizon:</strong> Verification of vendor EOL/EOS roadmaps.</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-[#f4f2f1] font-mono">✓</span>
+              <span><strong class="text-[#f4f2f1]">Operating Temperature Windows:</strong> Ensuring fanless or active cooling matches enclosure ambient temps.</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-[#f4f2f1] font-mono">✓</span>
+              <span><strong class="text-[#f4f2f1]">Transceiver Interoperability:</strong> Preventing vendor lock-out codes on optical SFP+ / QSFP28 modules.</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-[#f4f2f1] font-mono">✓</span>
+              <span><strong class="text-[#f4f2f1]">Total Cost of Ownership (TCO):</strong> Factoring in mandatory renewals, license tiers, and maintenance contracts.</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4 Advisory Domains -->
+  <section id="pillars" class="bg-[#141210] text-[#f4f2f1] py-16 sm:py-24 border-b border-[#15120e]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <SectionHeading 
+        eyebrow="Advisory Scope"
+        title="Equipment Selection Disciplines"
+        description="We evaluate specifications across the full physical and logical technology infrastructure stack."
+        theme="dark"
+      />
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-8">
+        {consultingData.pillars.map((pillar) => (
+          <div class="bg-[#0d1417] border border-[#15120e] p-8 flex flex-col justify-between hover:border-[#f4f2f1]/30 transition-colors">
+            <div>
+              <span class="text-[10px] font-mono text-[#f6f2ee] opacity-70 uppercase tracking-widest block mb-1">
+                {pillar.eyebrow}
+              </span>
+              <h3 class="text-xl font-light text-[#f4f2f1] mb-3 tracking-tight">
+                {pillar.title}
+              </h3>
+              <p class="text-xs sm:text-sm text-[#f4f2f1]/65 font-light leading-relaxed mb-6">
+                {pillar.description}
+              </p>
+            </div>
+
+            <div class="pt-4 border-t border-[#15120e]">
+              <span class="text-[10px] font-mono uppercase text-[#f6f2ee] opacity-70 block mb-2">
+                Evaluated Engineering Metrics:
+              </span>
+              <ul class="space-y-1.5 text-xs font-mono text-[#f4f2f1]/60">
+                {pillar.focusAreas.map((area) => (
+                  <li class="flex items-center gap-2">
+                    <span class="text-[#f4f2f1] opacity-60">•</span>
+                    <span>{area}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Advisory Process -->
+  <section class="bg-[#0d1417] text-[#f4f2f1] py-16 sm:py-24 border-b border-[#15120e]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <SectionHeading 
+        eyebrow="Consulting Workflow"
+        title="The Technical Advisory Process"
+        description="How we guide procurement teams and facility executives from blank slate to verified bill of materials."
+        theme="dark"
+      />
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-8">
+        {consultingData.advisoryProcess.map((step) => (
+          <div class="bg-[#15120e] border border-[#15120e] p-6 flex flex-col justify-between hover:border-[#f4f2f1]/30 transition-colors">
+            <div>
+              <div class="text-2xl font-mono font-light text-[#f6f2ee] mb-3">
+                {step.step}
+              </div>
+              <h3 class="text-base font-light text-[#f4f2f1] mb-2">
+                {step.title}
+              </h3>
+              <p class="text-xs text-[#f4f2f1]/65 font-light leading-relaxed">
+                {step.detail}
+              </p>
+            </div>
+            <div class="mt-6 pt-4 border-t border-[#15120e] text-[10px] font-mono text-[#f4f2f1]/40 uppercase tracking-wider">
+              PHASE // AUDIT
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="bg-[#141210] text-[#f4f2f1] py-16 sm:py-24 border-b border-[#15120e]">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6">
+      <h2 class="text-2xl sm:text-3xl font-light tracking-tight text-[#f4f2f1]">
+        Review Your Equipment Bill of Materials Before Purchasing
+      </h2>
+      <p class="text-base text-[#f4f2f1]/70 font-light max-w-2xl mx-auto leading-relaxed">
+        Send us your architectural specifications, vendor quotes, or equipment schedules for an independent technical sanity check.
+      </p>
+      <div class="pt-2">
+        <Button href="/en/contact#consultation" variant="primary" size="lg">
+          Request an Equipment Advisory Review
+        </Button>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>

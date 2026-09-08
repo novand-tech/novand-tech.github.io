@@ -1,0 +1,54 @@
+---
+import type { ServiceDetail } from '../../data/services';
+
+interface Props {
+  service: ServiceDetail;
+  index?: number;
+}
+
+const { service, index = 0 } = Astro.props;
+const isEn = Astro.url.pathname.startsWith("/en");
+const paddedNumber = String(index + 1).padStart(2, '0');
+---
+<article class="group relative bg-[#0d1417] border border-[#15120e] hover:border-[#f4f2f1]/30 transition-all duration-300 flex flex-col justify-between p-6 sm:p-8">
+  <div>
+    <!-- Technical Index & Eyebrow -->
+    <div class="flex items-baseline justify-between border-b border-[#15120e] pb-4 mb-5">
+      <span class="text-xs font-mono text-[#f6f2ee] opacity-70 font-medium">
+        SYS // {paddedNumber}
+      </span>
+      <span class="text-[10px] uppercase font-mono tracking-[0.2em] text-[#f4f2f1]/50">
+        {service.eyebrow}
+      </span>
+    </div>
+
+    <!-- Title -->
+    <h3 class="text-xl sm:text-2xl font-light text-[#f4f2f1] group-hover:text-white tracking-tight mb-3">
+      <a href={isEn ? `/en/services/${service.slug}` : `/services/${service.slug}`} class="focus-visible:outline-none focus-visible:underline">
+        <span class="absolute inset-0" aria-hidden="true"></span>
+        {service.title}
+      </a>
+    </h3>
+
+    <!-- Summary -->
+    <p class="text-xs sm:text-sm text-[#f4f2f1]/65 font-light leading-relaxed mb-6">
+      {service.summary}
+    </p>
+
+    <!-- Key Deliverable Bullets -->
+    <ul class="space-y-2 mb-6 border-t border-[#15120e] pt-4 text-xs text-[#f4f2f1]/75 font-light">
+      {(service.whatWeProvide || []).slice(0, 3).map((item) => (
+        <li class="flex items-start gap-2">
+          <span class="text-[#f4f2f1] opacity-60 font-mono mt-0.5" aria-hidden="true">&plus;</span>
+          <span class="leading-normal">{item}</span>
+        </li>
+      ))}
+    </ul>
+  </div>
+
+  <!-- Footer Link Indicator -->
+  <div class="pt-4 border-t border-[#15120e] flex items-center justify-between text-[10px] font-mono uppercase tracking-widest text-[#f4f2f1]/50 group-hover:text-[#f4f2f1] transition-colors">
+    <span class="tracking-wider">{isEn ? "Specifications & Scope" : "مشخصات و محدوده"}</span>
+    <span class="text-[#f4f2f1] group-hover:translate-x-1 transition-transform" aria-hidden="true">→</span>
+  </div>
+</article>

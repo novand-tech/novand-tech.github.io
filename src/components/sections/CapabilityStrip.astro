@@ -1,0 +1,16 @@
+---
+const companyData = getCompanyData(Astro.url.pathname);
+import { getCompanyData } from "../../data/company";
+---
+<section class="border-b border-[#15120e] bg-[#15120e] text-[#f4f2f1] grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6">
+  {companyData.capabilities.map((cap, i) => (
+    <div class="p-6 border-r border-b lg:border-b-0 border-[#141210]/60 flex flex-col justify-between h-28 sm:h-32 hover:bg-[#f6f2ee]/5 transition-colors group cursor-pointer">
+      <span class="text-[10px] uppercase font-mono tracking-[0.2em] text-[#f6f2ee] opacity-40 group-hover:opacity-100 transition-opacity">
+        0{i + 1}
+      </span>
+      <span class="text-xs uppercase tracking-wider font-semibold text-[#f4f2f1] leading-snug">
+        {cap}
+      </span>
+    </div>
+  ))}
+</section>

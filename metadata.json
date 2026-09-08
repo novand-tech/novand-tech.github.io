@@ -1,0 +1,6 @@
+{
+  "name": "Novand",
+  "description": "Corporate engineering website for Novand — integrated technology infrastructure, enterprise networking, systems administration, security, and smart building automation.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

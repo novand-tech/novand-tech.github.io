@@ -1,0 +1,58 @@
+---
+const consultingData = getConsultingData(Astro.url.pathname);
+const isEn = Astro.url.pathname.startsWith("/en");
+import SectionHeading from '../ui/SectionHeading.astro';
+import Button from '../ui/Button.astro';
+import { getConsultingData } from '../../data/consulting';
+---
+<section class="bg-[#141210] text-[#f4f2f1] py-20 sm:py-28 border-b border-[#15120e]">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+      
+      <!-- Left Column -->
+      <div class="lg:col-span-6 space-y-6">
+        <SectionHeading 
+          eyebrow={consultingData.subheadline}
+          title={consultingData.headline}
+          description={consultingData.leadCopy}
+          theme="dark"
+          class="mb-6"
+        />
+
+        <div class="pt-2 flex flex-wrap gap-4">
+          <Button href={isEn ? "/en/consulting" : "/consulting"} variant="primary" size="md">
+            {isEn ? 'View Equipment Advisory Services' : 'مشاهده خدمات مشاوره تجهیزات'}
+          </Button>
+          <Button href={isEn ? "/en/contact#consultation" : "/contact#consultation"} variant="outline" size="md">
+            {isEn ? 'Request an Advisory Call' : 'درخواست تماس مشاوره‌ای'}
+          </Button>
+        </div>
+      </div>
+
+      <!-- Right Column: 4 Advisory Focus Cards -->
+      <div class="lg:col-span-6 grid grid-cols-1 sm:grid-cols-2 gap-4">
+        {consultingData.pillars.map((pillar) => (
+          <div class="p-5 bg-[#0d1417] border border-[#15120e] flex flex-col justify-between hover:border-[#f4f2f1]/30 transition-colors">
+            <div>
+              <span class="text-[10px] font-mono text-[#f6f2ee] opacity-70 uppercase tracking-wider block mb-1">
+                {pillar.eyebrow}
+              </span>
+              <h4 class="text-base font-light text-[#f4f2f1] mb-2">
+                {pillar.title}
+              </h4>
+              <p class="text-xs text-[#f4f2f1]/65 font-light leading-relaxed mb-4">
+                {pillar.description}
+              </p>
+            </div>
+            <div class="pt-3 border-t border-[#15120e] text-[10px] font-mono uppercase tracking-widest text-[#f4f2f1]/50">
+              {isEn ? 'Technical Due Diligence →' : 'بررسی فنی ←'}
+            </div>
+          </div>
+        ))}
+      </div>
+
+    </div>
+
+  </div>
+</section>

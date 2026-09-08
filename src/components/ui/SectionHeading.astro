@@ -1,0 +1,57 @@
+---
+interface Props {
+  eyebrow?: string;
+  title: string;
+  description?: string;
+  align?: 'left' | 'center';
+  theme?: 'dark' | 'light' | 'warm';
+  class?: string;
+}
+
+const {
+  eyebrow,
+  title,
+  description,
+  align = 'left',
+  theme = 'dark',
+  class: className = ''
+} = Astro.props;
+
+const alignClasses = align === 'center' ? 'text-center mx-auto' : 'text-left';
+
+const eyebrowColors = {
+  dark: 'text-[#f6f2ee] opacity-70 tracking-[0.3em]',
+  light: 'text-[#f6f2ee] opacity-70 tracking-[0.3em]',
+  warm: 'text-[#f6f2ee] opacity-80 tracking-[0.3em]'
+};
+
+const titleColors = {
+  dark: 'text-[#f4f2f1]',
+  light: 'text-[#f4f2f1]',
+  warm: 'text-[#f4f2f1]'
+};
+
+const descColors = {
+  dark: 'text-[#f4f2f1] opacity-75 font-light',
+  light: 'text-[#f4f2f1] opacity-75 font-light',
+  warm: 'text-[#f4f2f1] opacity-80 font-light'
+};
+---
+<div class={`max-w-3xl mb-12 sm:mb-16 ${alignClasses} ${className}`}>
+  {eyebrow && (
+    <div class="inline-flex items-center gap-2 mb-3">
+      <span class="w-2 h-[1px] bg-[#f4f2f1] opacity-60"></span>
+      <p class={`text-[10px] sm:text-xs uppercase font-mono font-medium ${eyebrowColors[theme]}`}>
+        {eyebrow}
+      </p>
+    </div>
+  )}
+  <h2 class={`text-2xl sm:text-3xl md:text-4xl font-light tracking-tight leading-tight ${titleColors[theme]}`}>
+    {title}
+  </h2>
+  {description && (
+    <p class={`mt-4 text-base sm:text-lg leading-relaxed ${descColors[theme]}`}>
+      {description}
+    </p>
+  )}
+</div>

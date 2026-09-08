@@ -1,0 +1,98 @@
+---
+interface Props {
+  class?: string;
+  size?: 'sm' | 'md' | 'lg' | 'xl';
+  variant?: 'light' | 'dark' | 'emerald' | 'monochrome';
+}
+
+const {
+  class: className = '',
+  size = 'md',
+  variant = 'emerald'
+} = Astro.props;
+
+// Dimension mapping
+const sizeClasses = {
+  sm: 'w-6 h-6',
+  md: 'w-8 h-8',
+  lg: 'w-10 h-10',
+  xl: 'w-16 h-16',
+};
+
+// Colors based on variant
+// In dark theme: house structure is titanium/platinum white (#f4f2f1), circuit traces are glowing emerald/teal (#10b981 / #34d399 / #38bdf8)
+const houseStroke = variant === 'light' ? '#0d1417' : '#f4f2f1';
+const windowFill = variant === 'light' ? '#0d1417' : '#f4f2f1';
+---
+<div class={`inline-flex items-center justify-center ${sizeClasses[size]} ${className}`} aria-hidden="true">
+  <svg 
+    viewBox="0 0 100 100" 
+    fill="none" 
+    xmlns="http://www.w3.org/2000/svg"
+    class="w-full h-full drop-shadow-[0_2px_8px_rgba(16,185,129,0.15)]"
+  >
+    <!-- Architectural Building / Smart Facility Silhouette -->
+    <!-- Gable Roof & Left Wall & Floor Segment -->
+    <path 
+      d="M52 16L85 41L85 43M52 16L18 41V70H48" 
+      stroke={houseStroke} 
+      stroke-width="7" 
+      stroke-linecap="round" 
+      stroke-linejoin="round" 
+    />
+
+    <!-- 4-Pane Grid Window (Facility Core) -->
+    <rect x="46" y="39" width="5.5" height="6" fill={windowFill} rx="0.5" />
+    <rect x="54" y="39" width="5.5" height="6" fill={windowFill} rx="0.5" />
+    <rect x="46" y="47.5" width="5.5" height="6" fill={windowFill} rx="0.5" />
+    <rect x="54" y="47.5" width="5.5" height="6" fill={windowFill} rx="0.5" />
+
+    <!-- Smart Technology Traces / Network & Automation PCB Conduits -->
+    <!-- Gradient definitions for dynamic technical radiance -->
+    <defs>
+      <linearGradient id="trace-glow" x1="28" y1="75" x2="84" y2="50" gradientUnits="userSpaceOnUse">
+        <stop offset="0%" stop-color="#06b6d4" />
+        <stop offset="50%" stop-color="#10b981" />
+        <stop offset="100%" stop-color="#34d399" />
+      </linearGradient>
+    </defs>
+
+    <!-- Trace 1 (Top Conduit with Terminal Data Node) -->
+    <path 
+      d="M52 75L77 50" 
+      stroke="url(#trace-glow)" 
+      stroke-width="6.5" 
+      stroke-linecap="round" 
+      stroke-linejoin="round" 
+    />
+    <circle cx="81.5" cy="51" r="5" fill="#10b981" stroke="#090e10" stroke-width="2.5" />
+
+    <!-- Trace 2 (Middle Conduit with Terminal Data Node) -->
+    <path 
+      d="M30 76H56L77 66" 
+      stroke="url(#trace-glow)" 
+      stroke-width="6.5" 
+      stroke-linecap="round" 
+      stroke-linejoin="round" 
+    />
+    <circle cx="81.5" cy="68" r="5" fill="#10b981" stroke="#090e10" stroke-width="2.5" />
+
+    <!-- Trace 3 (Bottom Conduit with Terminal Data Node) -->
+    <path 
+      d="M45 83H60L77 82" 
+      stroke="url(#trace-glow)" 
+      stroke-width="6.5" 
+      stroke-linecap="round" 
+      stroke-linejoin="round" 
+    />
+    <!-- Segment linking down -->
+    <path 
+      d="M61 90H70L77 82" 
+      stroke="url(#trace-glow)" 
+      stroke-width="6.5" 
+      stroke-linecap="round" 
+      stroke-linejoin="round" 
+    />
+    <circle cx="81.5" cy="82" r="5" fill="#10b981" stroke="#090e10" stroke-width="2.5" />
+  </svg>
+</div>

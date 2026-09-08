@@ -1,0 +1,84 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="none" class="w-full h-full">
+  <defs>
+    <!-- Cyan to emerald circuit gradient matching high-tech network speed -->
+    <linearGradient id="novand-circuit-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00d2b5" />
+      <stop offset="100%" stop-color="#10b981" />
+    </linearGradient>
+  </defs>
+
+  <!-- Architectural Building / Enterprise Roof & Facade Outline -->
+  <!-- Roof apex at (50, 18), left slope to (22, 38), left wall down to (22, 68), bottom baseline to (48, 68) -->
+  <!-- Right roof slope from (50, 18) down to (84, 42) -->
+  <path
+    d="M50 18 L22 38 V68 H48"
+    stroke="currentColor"
+    stroke-width="5"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  />
+  <path
+    d="M50 18 L84 42"
+    stroke="currentColor"
+    stroke-width="5"
+    stroke-linecap="round"
+  />
+
+  <!-- 4-Pane Architectural Core Window -->
+  <rect x="46" y="39" width="6" height="6" fill="currentColor" rx="0.5" />
+  <rect x="54" y="39" width="6" height="6" fill="currentColor" rx="0.5" />
+  <rect x="46" y="47" width="6" height="6" fill="currentColor" rx="0.5" />
+  <rect x="54" y="47" width="6" height="6" fill="currentColor" rx="0.5" />
+
+  <!-- Integrated Circuit & Network Traces (Stepped Conduits with Data Terminal Nodes) -->
+  <!-- Trace 1 (Top / Longest): starts at x=30, y=76 -> runs right to x=54 -> angles up 45 deg to (76, 54) -> Node at (80, 50) -->
+  <path
+    d="M30 76 H54 L76 54"
+    stroke="url(#novand-circuit-gradient)"
+    stroke-width="4.5"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  />
+  <circle
+    cx="80"
+    cy="50"
+    r="4.5"
+    stroke="url(#novand-circuit-gradient)"
+    stroke-width="3.5"
+    fill="transparent"
+  />
+
+  <!-- Trace 2 (Middle): starts at x=45, y=84 -> runs right to x=60 -> angles up 45 deg to (76, 68) -> Node at (80, 64) -->
+  <path
+    d="M45 84 H60 L76 68"
+    stroke="url(#novand-circuit-gradient)"
+    stroke-width="4.5"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  />
+  <circle
+    cx="80"
+    cy="64"
+    r="4.5"
+    stroke="url(#novand-circuit-gradient)"
+    stroke-width="3.5"
+    fill="transparent"
+  />
+
+  <!-- Trace 3 (Bottom): starts at x=61, y=90 -> runs right to x=70 -> angles up 45 deg to (77, 83) -> Node at (80, 80) -->
+  <path
+    d="M61 90 H70 L77 83"
+    stroke="url(#novand-circuit-gradient)"
+    stroke-width="4.5"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  />
+  <circle
+    cx="80"
+    cy="80"
+    r="4.5"
+    stroke="url(#novand-circuit-gradient)"
+    stroke-width="3.5"
+    fill="transparent"
+  />
+</svg>

@@ -1,0 +1,147 @@
+---
+const solutionsData = getSolutionsData(Astro.url.pathname);
+const servicesData = getServicesData(Astro.url.pathname);
+const companyData = getCompanyData(Astro.url.pathname);
+const isEn = Astro.url.pathname.startsWith("/en");
+import { getCompanyData } from "../../data/company";
+import { getServicesData } from "../../data/services";
+import { getSolutionsData } from "../../data/solutions";
+import NovandLogo from '../ui/NovandLogo.astro';
+---
+<footer class="bg-[#0d1417] text-[#f4f2f1]/80 border-t border-[#15120e] pt-16 pb-12">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    
+    <!-- Top Grid: 4 Conceptual Groups + Brand Overview -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 lg:gap-8 mb-16">
+      
+      <!-- Brand column -->
+      <div class="lg:col-span-2 space-y-4">
+        <a href={isEn ? "/en" : "/"} class="flex items-center gap-3.5 group">
+          <div class="w-9 h-9 text-[#f4f2f1] flex items-center justify-center transition-transform duration-300 group-hover:scale-105">
+            <NovandLogo />
+          </div>
+          <span class="text-base font-bold tracking-tight uppercase text-[#f4f2f1] group-hover:text-white transition-colors font-sans">
+            {companyData.name}
+          </span>
+        </a>
+        <p class="text-xs sm:text-sm text-[#f4f2f1]/60 leading-relaxed max-w-sm font-light">
+          {companyData.heroCopy}
+        </p>
+        <div class="pt-2">
+          <span class="inline-flex items-center px-2.5 py-1 text-[10px] font-mono uppercase tracking-[0.2em] text-[#f6f2ee] bg-[#15120e] border border-[#15120e]">
+            {isEn ? 'Architecture · Systems · Infrastructure' : 'معماری · سیستم‌ها · زیرساخت'}
+          </span>
+        </div>
+      </div>
+
+      <!-- Group 1 -->
+      <div>
+        <p class="text-[10px] uppercase font-mono tracking-[0.2em] text-[#f6f2ee] font-semibold mb-4">
+          {isEn ? 'Company' : 'شرکت'}
+        </p>
+        <ul class="space-y-2.5 text-xs">
+          <li>
+            <a href={isEn ? "/en/about" : "/about"} class="text-[#f4f2f1]/60 hover:text-[#f6f2ee] transition-colors">
+              {isEn ? 'About Novand' : 'درباره نُوَند'}
+            </a>
+          </li>
+          <li>
+            <a href={isEn ? "/en/about#approach" : "/about#approach"} class="text-[#f4f2f1]/60 hover:text-[#f6f2ee] transition-colors">
+              {isEn ? 'Our Approach & Process' : 'رویکرد و فرآیند ما'}
+            </a>
+          </li>
+          <li>
+            <a href={isEn ? "/en/projects" : "/projects"} class="text-[#f4f2f1]/60 hover:text-[#f6f2ee] transition-colors">
+              {isEn ? 'Projects & Case Models' : 'پروژه‌ها و نمونه‌ها'}
+            </a>
+          </li>
+          <li>
+            <a href={isEn ? "/en/consulting" : "/consulting"} class="text-[#f4f2f1]/60 hover:text-[#f6f2ee] transition-colors">
+              {isEn ? 'Equipment Advisory' : 'مشاوره تجهیزات'}
+            </a>
+          </li>
+          <li>
+            <a href={isEn ? "/en/brand" : "/brand"} class="text-[#f4f2f1]/60 hover:text-[#f6f2ee] transition-colors">
+              {isEn ? 'Brand & Identity Kit' : 'برند و هویت بصری'}
+            </a>
+          </li>
+          <li>
+            <a href={isEn ? "/en/contact" : "/contact"} class="text-[#f4f2f1]/60 hover:text-[#f6f2ee] transition-colors">
+              {isEn ? 'Request Consultation' : 'درخواست مشاوره'}
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Group 2 -->
+      <div>
+        <p class="text-[10px] uppercase font-mono tracking-[0.2em] text-[#f6f2ee] font-semibold mb-4">
+          {isEn ? 'Services' : 'خدمات'}
+        </p>
+        <ul class="space-y-2.5 text-xs">
+          {servicesData.slice(0, 6).map((service) => (
+            <li>
+              <a href={isEn ? `/en/services/${service.slug}` : `/services/${service.slug}`} class="text-[#f4f2f1]/60 hover:text-[#f6f2ee] transition-colors">
+                {service.title}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <!-- Group 3 -->
+      <div>
+        <p class="text-[10px] uppercase font-mono tracking-[0.2em] text-[#f6f2ee] font-semibold mb-4">
+          {isEn ? 'Solutions' : 'راهکارها'}
+        </p>
+        <ul class="space-y-2.5 text-xs">
+          {solutionsData.map((solution) => (
+            <li>
+              <a href={isEn ? `/en/solutions/${solution.slug}` : `/solutions/${solution.slug}`} class="text-[#f4f2f1]/60 hover:text-[#f6f2ee] transition-colors">
+                {solution.title}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+    </div>
+
+    <!-- Contact & Operating Information Bar -->
+    <div class="border-t border-[#15120e] pt-8 pb-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 text-xs text-[#f4f2f1]/60 font-mono">
+      <div>
+        <span class="text-[#f6f2ee] block uppercase tracking-[0.15em] text-[10px] mb-1">{isEn ? 'Telephone' : 'تلفن'}</span>
+        <a href={`tel:${companyData.contactInfo.phone.replace(/[^0-9+]/g, '')}`} class="hover:text-white transition-colors">
+          {companyData.contactInfo.phone}
+        </a>
+      </div>
+      <div>
+        <span class="text-[#f6f2ee] block uppercase tracking-[0.15em] text-[10px] mb-1">{isEn ? 'Engineering Mail' : 'ایمیل مهندسی'}</span>
+        <a href={`mailto:${companyData.contactInfo.email}`} class="hover:text-white transition-colors">
+          {companyData.contactInfo.email}
+        </a>
+      </div>
+      <div>
+        <span class="text-[#f6f2ee] block uppercase tracking-[0.15em] text-[10px] mb-1">{isEn ? 'Facility Location' : 'آدرس مرکز'}</span>
+        <span>{companyData.contactInfo.address}</span>
+      </div>
+      <div>
+        <span class="text-[#f6f2ee] block uppercase tracking-[0.15em] text-[10px] mb-1">{isEn ? 'Standard Operations' : 'ساعات کاری'}</span>
+        <span>{companyData.contactInfo.hours}</span>
+      </div>
+    </div>
+
+    <!-- Bottom Bar: Legal, Placeholders & Copyright -->
+    <div class="border-t border-[#15120e] pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] text-[#f4f2f1]/40">
+      <div>
+        &copy; {new Date().getFullYear()} {companyData.name}. {isEn ? 'All rights reserved. Engineering specifications subject to physical site constraints.' : 'تمامی حقوق محفوظ است. مشخصات مهندسی منوط به محدودیت‌های فیزیکی سایت می‌باشد.'}
+      </div>
+      <div class="flex items-center space-x-6">
+        <a href={isEn ? "/en/about" : "/about"} class="hover:text-[#f4f2f1]/70 transition-colors">{isEn ? "Engineering Ethics" : "اخلاق مهندسی"}</a>
+        <a href={isEn ? "/en/contact" : "/contact"} class="hover:text-[#f4f2f1]/70 transition-colors">{isEn ? "Privacy Policy" : "حریم خصوصی"}</a>
+        <a href={isEn ? "/en/contact" : "/contact"} class="hover:text-[#f4f2f1]/70 transition-colors">{isEn ? "Terms of Service" : "شرایط خدمات"}</a>
+      </div>
+    </div>
+
+  </div>
+</footer>

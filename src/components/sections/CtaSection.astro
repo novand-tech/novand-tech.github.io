@@ -1,0 +1,39 @@
+---
+const isEn = Astro.url.pathname.startsWith("/en");
+const companyData = getCompanyData(Astro.url.pathname);
+import Button from '../ui/Button.astro';
+import { getCompanyData } from "../../data/company";
+---
+<section class="bg-[#0d1417] text-[#f4f2f1] py-20 sm:py-28 border-b border-[#15120e] bg-grid-subtle">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="max-w-4xl mx-auto bg-[#141210] border border-[#15120e] p-8 sm:p-14 text-center relative overflow-hidden shadow-2xl">
+      
+      <div class="inline-flex items-center gap-3 px-3.5 py-1 bg-[#0d1417] border border-[#15120e] text-[#f6f2ee] text-[10px] font-mono uppercase tracking-[0.25em] mb-6">
+        <span class="w-1.5 h-1.5 bg-[#f4f2f1]"></span>
+        {isEn ? 'Direct Technical Engagement' : 'تعامل فنی مستقیم'}
+      </div>
+
+      <h2 class="text-3xl sm:text-4xl lg:text-5xl font-light tracking-tight text-[#f4f2f1] mb-6">
+        {isEn ? 'Have a Technology Project in Mind?' : 'پروژه فناوری در ذهن دارید؟'}
+      </h2>
+
+      <p class="text-base sm:text-lg text-[#f4f2f1]/70 font-light leading-relaxed max-w-2xl mx-auto mb-10">
+        {isEn ? 'Speak directly with engineering practitioners about your upcoming cabling, networking, security, automation, or server infrastructure requirements. We provide straightforward feasibility assessments and structured design guidance.' : 'مستقیماً با کارشناسان مهندسی درباره نیازهای شبکه‌بندی، امنیت، اتوماسیون یا زیرساخت سرور خود صحبت کنید. ما ارزیابی‌های امکان‌سنجی شفاف و راهنمایی‌های طراحی ساختاریافته ارائه می‌دهیم.'}
+      </p>
+
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+        <Button href={isEn ? "/en/contact#consultation" : "/contact#consultation"} variant="primary" size="lg">
+          {isEn ? 'Request a Consultation' : 'درخواست مشاوره'}
+        </Button>
+        <Button href={isEn ? "/en/contact" : "/contact"} variant="outline" size="lg">
+          {isEn ? 'Contact Engineering Team' : 'تماس با تیم مهندسی'}
+        </Button>
+      </div>
+
+      <div class="mt-8 pt-6 border-t border-[#15120e] text-xs font-mono text-[#f4f2f1]/50">
+        {isEn ? 'Direct Inquiries:' : 'سوالات مستقیم:'} <a href={`mailto:${companyData.contactInfo.email}`} class="text-[#f4f2f1] hover:underline">{companyData.contactInfo.email}</a> {isEn ? '• Operations:' : '• عملیات:'} {companyData.contactInfo.phone}
+      </div>
+
+    </div>
+  </div>
+</section>

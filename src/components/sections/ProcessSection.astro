@@ -1,0 +1,64 @@
+---
+const isEn = Astro.url.pathname.startsWith("/en");
+const companyData = getCompanyData(Astro.url.pathname);
+import SectionHeading from '../ui/SectionHeading.astro';
+import { getCompanyData } from "../../data/company";
+---
+<section id="process" class="bg-[#141210] text-[#f4f2f1] py-20 sm:py-28 border-b border-[#15120e] bg-grid-subtle">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    
+    <SectionHeading 
+      eyebrow={isEn ? 'Delivery Methodology' : 'متدولوژی اجرا'}
+      title={isEn ? 'A Disciplined Engineering Workflow' : 'گردش کار مهندسی منضبط'}
+      description={isEn ? 'Reliable systems are never accidental. We execute every engagement through a structured four-stage methodology that enforces rigor from initial site survey through post-commissioning lifecycle management.' : 'سیستم‌های پایدار تصادفی به وجود نمی‌آیند. ما هر پروژه را از طریق یک متدولوژی چهار مرحله‌ای ساختاریافته اجرا می‌کنیم که از ارزیابی اولیه سایت تا مدیریت پس از راه‌اندازی را در بر می‌گیرد.'}
+      theme="dark"
+      align="center"
+    />
+
+    <!-- Process Flow: 01 Understand -> 02 Design -> 03 Implement -> 04 Support -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 mt-12">
+      {companyData.processSteps.map((step) => (
+        <div class="relative bg-[#0d1417] border border-[#15120e] p-6 sm:p-7 flex flex-col justify-between group hover:border-[#f4f2f1]/30 transition-colors">
+          <div>
+            <!-- Number & Status -->
+            <div class="flex items-center justify-between border-b border-[#15120e] pb-3 mb-4">
+              <span class="text-2xl sm:text-3xl font-mono font-light text-[#f6f2ee]">
+                {step.number}
+              </span>
+              <span class="text-[9px] uppercase font-mono tracking-[0.2em] text-[#f4f2f1]/40">
+                {isEn ? 'STAGE //' : 'مرحله //'} {step.number}
+              </span>
+            </div>
+
+            <!-- Title -->
+            <h3 class="text-xl font-light text-[#f4f2f1] mb-3 tracking-tight">
+              {step.title}
+            </h3>
+
+            <!-- Description -->
+            <p class="text-xs sm:text-sm text-[#f4f2f1]/65 font-light leading-relaxed mb-6">
+              {step.description}
+            </p>
+          </div>
+
+          <!-- Deliverables List -->
+          <div class="pt-4 border-t border-[#15120e]">
+            <span class="text-[10px] font-mono uppercase tracking-[0.15em] text-[#f6f2ee] block mb-2">
+              {isEn ? 'Deliverables:' : 'خروجی‌ها:'}
+            </span>
+            <ul class="space-y-1.5 text-xs text-[#f4f2f1]/60 font-mono">
+              {step.deliverables.map((deliv) => (
+                <li class="flex items-center gap-1.5">
+                  <span class="text-[#f4f2f1] opacity-70">•</span>
+                  <span>{deliv}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+        </div>
+      ))}
+    </div>
+
+  </div>
+</section>

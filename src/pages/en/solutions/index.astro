@@ -1,0 +1,112 @@
+---
+const solutionsData = getSolutionsData(Astro.url.pathname);
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../../components/ui/Breadcrumbs.astro';
+import SolutionCard from '../../../components/cards/SolutionCard.astro';
+import SectionHeading from '../../../components/ui/SectionHeading.astro';
+import Button from '../../../components/ui/Button.astro';
+import { getSolutionsData } from "../../../data/solutions";
+---
+<BaseLayout 
+  title="Facility Solutions & Environments | Novand"
+  description="Engineered technology solutions designed around physical architecture and operational demands across Business, Education, Residential, Healthcare, Hospitality, and Specialized Facilities."
+>
+  <!-- Breadcrumbs -->
+  <div class="bg-[#141210] border-b border-[#15120e] py-3">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <Breadcrumbs items={[{ label: 'Solutions' }]} />
+    </div>
+  </div>
+
+  <!-- Page Header / Hero -->
+  <section class="bg-[#141210] text-[#f4f2f1] py-16 sm:py-24 border-b border-[#15120e] bg-grid-subtle">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl">
+        <div class="inline-flex items-center gap-3 px-3.5 py-1 bg-[#0d1417] border border-[#15120e] text-[#f6f2ee] text-[10px] font-mono uppercase tracking-[0.25em] mb-4">
+          <span class="w-1.5 h-1.5 bg-[#f4f2f1]"></span>
+          Environmental Architectures
+        </div>
+        <h1 class="text-3xl sm:text-5xl font-light tracking-tight leading-tight text-[#f4f2f1] mb-6">
+          Technology Systems Adapted to Facility Realities
+        </h1>
+        <p class="text-base sm:text-lg text-[#f4f2f1]/70 leading-relaxed font-light">
+          A high-density office requires vastly different cabling and RF planning than an acoustic auditorium, an electromagnetic hospital wing, or an industrial cold-storage warehouse. We design around your building's physical constraints.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Solutions Grid -->
+  <section class="bg-[#0d1417] text-[#f4f2f1] py-16 sm:py-24 border-b border-[#15120e]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {solutionsData.map((solution) => (
+          <SolutionCard solution={solution} theme="dark" />
+        ))}
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Facility Challenge Matrix -->
+  <section class="bg-[#141210] text-[#f4f2f1] py-16 sm:py-24 border-b border-[#15120e]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <SectionHeading 
+        eyebrow="Architectural Considerations"
+        title="Environmental Comparison Matrix"
+        description="Understanding how environmental factors dictate cabling choices, wireless propagation models, and equipment enclosures."
+        theme="dark"
+        class="mb-8"
+      />
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-xs font-mono">
+        <div class="bg-[#15120e] p-6 border border-[#15120e] space-y-3 hover:border-[#f4f2f1]/30 transition-colors">
+          <div class="text-[#f6f2ee] opacity-80 uppercase tracking-wider text-[10px] border-b border-[#15120e] pb-2">
+            Acoustic & Aesthetic
+          </div>
+          <p class="text-[#f4f2f1]/65 font-light leading-relaxed font-sans text-xs">
+            Residential, executive suites, and boutique hospitality environments mandate invisible infrastructure: concealed cable pathways, flush-mount architectural speakers, silent passive cooling, and discreet tactile keypad interfaces.
+          </p>
+        </div>
+
+        <div class="bg-[#15120e] p-6 border border-[#15120e] space-y-3 hover:border-[#f4f2f1]/30 transition-colors">
+          <div class="text-[#f6f2ee] opacity-80 uppercase tracking-wider text-[10px] border-b border-[#15120e] pb-2">
+            Density & Roaming
+          </div>
+          <p class="text-[#f4f2f1]/65 font-light leading-relaxed font-sans text-xs">
+            Higher education campuses and enterprise offices face high-density client contention and rapid AP roaming. We engineer 5GHz/6GHz micro-cell coverage models with 802.11k/v/r fast transitions.
+          </p>
+        </div>
+
+        <div class="bg-[#15120e] p-6 border border-[#15120e] space-y-3 hover:border-[#f4f2f1]/30 transition-colors">
+          <div class="text-[#f6f2ee] opacity-80 uppercase tracking-wider text-[10px] border-b border-[#15120e] pb-2">
+            Thermal & Harsh Industrial
+          </div>
+          <p class="text-[#f4f2f1]/65 font-light leading-relaxed font-sans text-xs">
+            Data centers, distribution centers, and mechanical rooms experience airborne particulate, wide temperature deltas, and heavy vibration. We specify NEMA/IP-rated enclosures, ruggedized switches, and armored fiber.
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Consultation CTA -->
+  <section class="bg-[#0d1417] text-[#f4f2f1] py-16 sm:py-24 border-b border-[#15120e]">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6">
+      <h2 class="text-2xl sm:text-3xl font-light tracking-tight text-[#f4f2f1]">
+        Discuss Your Specific Facility Requirements
+      </h2>
+      <p class="text-base text-[#f4f2f1]/70 font-light max-w-2xl mx-auto">
+        Our engineers can conduct site surveys and review MEP (mechanical, electrical, plumbing) drawings to ensure seamless technology coordination.
+      </p>
+      <div class="pt-2">
+        <Button href="/en/contact#consultation" variant="primary" size="lg">
+          Request a Consultation
+        </Button>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>

@@ -1,0 +1,141 @@
+---
+const isEn = Astro.url.pathname.startsWith("/en");
+const servicesData = getServicesData(Astro.url.pathname);
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/ui/Breadcrumbs.astro';
+import ServiceCard from '../../components/cards/ServiceCard.astro';
+import SectionHeading from '../../components/ui/SectionHeading.astro';
+import Button from '../../components/ui/Button.astro';
+import { getServicesData } from "../../data/services";
+---
+<BaseLayout 
+  title="خدمات یکپارچه مهندسی | نُوَند"
+  description="کاوش در خدمات پایه مهندسی ما: اتوماسیون خانه‌های هوشمند، شبکه‌های پسیو و اکتیو، IT سازمانی و VoIP، مدیریت سیستم‌ها و مجازی‌سازی، امنیت فیزیکی، سیستم‌های صوتی و پشتیبانی سخت‌افزار."
+>
+  <!-- Breadcrumbs -->
+  <div class="bg-[#141210] border-b border-[#15120e] py-3">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <Breadcrumbs items={[{ label: isEn ? 'Services' : 'خدمات' }]} />
+    </div>
+  </div>
+
+  <!-- Page Header / Hero -->
+  <section class="bg-[#141210] text-[#f4f2f1] py-16 sm:py-24 border-b border-[#15120e] bg-grid-subtle">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl">
+        <div class="inline-flex items-center gap-3 px-3.5 py-1 bg-[#0d1417] border border-[#15120e] text-[#f6f2ee] text-[10px] font-mono uppercase tracking-[0.25em] mb-4">
+          <span class="w-1.5 h-1.5 bg-[#f4f2f1]"></span>
+          فهرست خدمات یکپارچه
+        </div>
+        <h1 class="text-3xl sm:text-5xl font-light tracking-tight leading-tight text-[#f4f2f1] mb-6">
+          سیستم‌های فناوری مهندسی‌شده برای عملکرد یکپارچه
+        </h1>
+        <p class="text-base sm:text-lg text-[#f4f2f1]/70 leading-relaxed font-light">
+          ما در هفت حوزه کلیدی فیزیکی و منطقی دارای تخصص عمیق مهندسی درون‌سازمانی هستیم. مشتریان ما به‌جای استخدام چندین پیمانکار پراکنده، یک زیرساخت فناوری یکپارچه و منطبق بر استاندارد دریافت می‌کنند.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- All 7 Services Catalog -->
+  <section class="bg-[#0d1417] text-[#f4f2f1] py-16 sm:py-24 border-b border-[#15120e]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {servicesData.map((service, index) => (
+          <ServiceCard service={service} index={index} />
+        ))}
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Technical Standards & Verification Matrix -->
+  <section class="bg-[#141210] text-[#f4f2f1] py-16 sm:py-24 border-b border-[#15120e]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <SectionHeading 
+        eyebrow="مبنای اعتبارسنجی"
+        title="استانداردهای مهندسی در تمامی حوزه‌های تخصصی"
+        description="هر استقرار و نصب، مقید به مشخصات صنعتی بوده و پیش از تحویل به مشتری با تجهیزات تست تخصصی اعتبارسنجی می‌شود."
+        theme="dark"
+        class="mb-8"
+      />
+
+      <div class="overflow-x-auto">
+        <table class="w-full text-left text-xs font-mono border border-[#15120e]">
+          <thead class="bg-[#0d1417] text-[#f6f2ee] text-[10px] uppercase tracking-wider border-b border-[#15120e]">
+            <tr>
+              <th class="p-4">حوزه تخصصی</th>
+              <th class="p-4">استانداردهای پایه</th>
+              <th class="p-4">ابزارهای اعتبارسنجی</th>
+              <th class="p-4">خروجی تحویلی</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-[#15120e] text-[#f4f2f1]/70 font-light">
+            <tr class="hover:bg-[#15120e]/60 transition-colors">
+              <td class="p-4 font-normal text-[#f4f2f1]">خانه‌ها و ساختمان‌های هوشمند</td>
+              <td class="p-4">اینترنت اشیا (IoT)، DALI-2، BACnet، KNX، HDMI/HDBaseT</td>
+              <td class="p-4">نمایشگرهای گذرگاه منطقی، سنسورهای محیطی، لوکس‌متر</td>
+              <td class="p-4 text-[#f6f2ee] opacity-80">پروفایل‌های تجهیزات و راهنمای کلاس‌های درس</td>
+            </tr>
+            <tr class="hover:bg-[#15120e]/60 transition-colors">
+              <td class="p-4 font-normal text-[#f4f2f1]">زیرساخت شبکه</td>
+              <td class="p-4">CCNA و Network+، ANSI/TIA-568-D، FTTH</td>
+              <td class="p-4">تستر شبکه، تحلیل‌گر افت فیبر نوری، تحلیلگر طیف RF</td>
+              <td class="p-4 text-[#f6f2ee] opacity-80">گزارش‌های تست معتبر و نقشه پورت‌ها</td>
+            </tr>
+            <tr class="hover:bg-[#15120e]/60 transition-colors">
+              <td class="p-4 font-normal text-[#f4f2f1]">فناوری اطلاعات سازمانی و نرم‌افزارها</td>
+              <td class="p-4">SIP / H.323، اکتیو دایرکتوری، Citrix / VMware VDI</td>
+              <td class="p-4">تحلیلگرهای Jitter در VoIP، مانیتورینگ بسته‌ها</td>
+              <td class="p-4 text-[#f6f2ee] opacity-80">برنامه‌های شماره‌گیری، پورتال‌های سازمانی و ماتریس دایرکتوری</td>
+            </tr>
+            <tr class="hover:bg-[#15120e]/60 transition-colors">
+              <td class="p-4 font-normal text-[#f4f2f1]">مدیریت سیستم‌ها و مجازی‌سازی</td>
+              <td class="p-4">لینوکس (RHEL، اوبونتو)، داکر، VMware ESXi</td>
+              <td class="p-4">HP iLO، memtest86+، SMARTctl، IOzone، FIO</td>
+              <td class="p-4 text-[#f6f2ee] opacity-80">دستورالعمل سلامت کلاستر و مانورهای بازیابی اطلاعات</td>
+            </tr>
+            <tr class="hover:bg-[#15120e]/60 transition-colors">
+              <td class="p-4 font-normal text-[#f4f2f1]">امنیت و اتوماسیون هوشمند</td>
+              <td class="p-4">تجهیزات منطبق با استانداردها، دوربین‌های IP/WiFi/آالوگ</td>
+              <td class="p-4">محاسبه‌گر پهنای‌باند، ترسیم‌گرهای میدان دید (FoV)، سنسورهای ایمنی درها</td>
+              <td class="p-4 text-[#f6f2ee] opacity-80">نقشه چیدمان دوربین‌ها و مناطق هشدار</td>
+            </tr>
+            <tr class="hover:bg-[#15120e]/60 transition-colors">
+              <td class="p-4 font-normal text-[#f4f2f1]">سیستم‌های صوتی و برق اضطراری</td>
+              <td class="p-4">AES67، Dante IP، یو‌پی‌اس‌های Online Double-Conversion</td>
+              <td class="p-4">صدا سنج، تله‌متری PDU، مولتی‌مترهای True RMS</td>
+              <td class="p-4 text-[#f6f2ee] opacity-80">محاسبات ظرفیت باتری و ماتریس مسیریابی زون‌ها</td>
+            </tr>
+            <tr class="hover:bg-[#15120e]/60 transition-colors">
+              <td class="p-4 font-normal text-[#f4f2f1]">نگهداری و تامین سخت‌افزار</td>
+              <td class="p-4">عیب‌یابی ایمن ESD، بازیابی اطلاعات SATA/NVMe، سانترال و اینترکام</td>
+              <td class="p-4">دوربین‌های حرارتی، تحلیلگرهای عیب‌یابی سخت‌افزار</td>
+              <td class="p-4 text-[#f6f2ee] opacity-80">لیست کارهای عیب‌یابی و پیش‌فاکتورهای تامین</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="bg-[#0d1417] text-[#f4f2f1] py-16 sm:py-24 border-b border-[#15120e]">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6">
+      <h2 class="text-2xl sm:text-3xl font-light tracking-tight text-[#f4f2f1]">
+        آماده بررسی یک سیستم چندتخصصی هستید؟
+      </h2>
+      <p class="text-base text-[#f4f2f1]/70 font-light max-w-2xl mx-auto">
+        برای بررسی نقشه‌های معماری و تعیین نیازمندی‌ها، مستقیماً با تیم مهندسی گفتگو کنید.
+      </p>
+      <div class="pt-2">
+        <Button href="/contact#consultation" variant="primary" size="lg">
+          درخواست مشاوره
+        </Button>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>

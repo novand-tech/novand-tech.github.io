@@ -1,0 +1,142 @@
+@import "tailwindcss";
+
+@font-face {
+  font-family: 'Vazirmatn';
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url('/fonts/Vazirmatn-Regular.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Vazirmatn';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('/fonts/Vazirmatn-Bold.ttf') format('truetype');
+}
+
+@theme {
+  --font-sans: 'Space Grotesk', 'Vazirmatn', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-persian: 'Vazirmatn', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+
+  /* Black Scale */
+  --color-black-50: #f4f2f1;
+  --color-black-100: #e7e4e1;
+  --color-black-200: #d2ccc7;
+  --color-black-300: #b5aaa2;
+  --color-black-400: #93857b;
+  --color-black-500: #74665c;
+  --color-black-600: #5c4f46;
+  --color-black-700: #463b34;
+  --color-black-800: #2d2621;
+  --color-black-900: #1c1815;
+  --color-black-950: #141210;
+
+  /* Jet Black Scale (Technical Cool Tone) */
+  --color-jet-50: #eff4f6;
+  --color-jet-100: #dce7eb;
+  --color-jet-200: #bcd0d8;
+  --color-jet-300: #93b1bd;
+  --color-jet-400: #688e9d;
+  --color-jet-500: #486f7f;
+  --color-jet-600: #385765;
+  --color-jet-700: #2b424d;
+  --color-jet-800: #1e2c34;
+  --color-jet-900: #131d22;
+  --color-jet-950: #0d1417;
+
+  /* Almond Cream Scale (Warm Architecture) */
+  --color-almond-50: #f6f2ee;
+  --color-almond-100: #ebe3d9;
+  --color-almond-200: #d8c7b4;
+  --color-almond-300: #c1a78c;
+  --color-almond-400: #a88665;
+  --color-almond-500: #8c6c4c;
+  --color-almond-600: #70543a;
+  --color-almond-700: #553e2b;
+  --color-almond-800: #3b2a1c;
+  --color-almond-900: #241910;
+  --color-almond-950: #18120c;
+
+  /* Khaki Beige Scale */
+  --color-khaki-50: #f6f3ee;
+  --color-khaki-100: #ece5dc;
+  --color-khaki-200: #dacdb9;
+  --color-khaki-300: #c4b094;
+  --color-khaki-400: #ab926e;
+  --color-khaki-500: #8f7553;
+  --color-khaki-600: #725c40;
+  --color-khaki-700: #56452f;
+  --color-khaki-800: #3c2f20;
+  --color-khaki-900: #251d13;
+  --color-khaki-950: #18120c;
+
+  /* Stone Brown Scale */
+  --color-stone-50: #f5f3f0;
+  --color-stone-100: #eae4de;
+  --color-stone-200: #d5cbc0;
+  --color-stone-300: #bcaea0;
+  --color-stone-400: #9f8d7c;
+  --color-stone-500: #806e5d;
+  --color-stone-600: #665648;
+  --color-stone-700: #4d4036;
+  --color-stone-800: #342a22;
+  --color-stone-900: #201914;
+  --color-stone-950: #15120e;
+}
+
+@layer base {
+  html {
+    font-family: var(--font-sans);
+    scroll-behavior: smooth;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    background-color: #141210;
+    color: #f4f2f1;
+  }
+
+  body {
+    font-family: var(--font-sans);
+    background-color: #141210;
+    color: #f4f2f1;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, ::before, ::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+
+  /* Focus visible outline for accessibility */
+  :focus-visible {
+    outline: 2px solid #f4f2f1;
+    outline-offset: 2px;
+  }
+}
+
+/* Subtle architectural grid pattern */
+.bg-grid-subtle {
+  background-image: linear-gradient(to right, rgba(244, 242, 241, 0.03) 1px, transparent 1px),
+                    linear-gradient(to bottom, rgba(244, 242, 241, 0.03) 1px, transparent 1px);
+  background-size: 48px 48px;
+}
+
+.bg-grid-warm {
+  background-image: linear-gradient(to right, rgba(244, 242, 241, 0.02) 1px, transparent 1px),
+                    linear-gradient(to bottom, rgba(244, 242, 241, 0.02) 1px, transparent 1px);
+  background-size: 48px 48px;
+}
+
+.technical-border {
+  border-color: #15120e;
+}
+
+/* Persian typography with Vazirmatn */
+.font-vazirmatn, [dir="rtl"], :lang(fa) {
+  font-family: 'Vazirmatn', var(--font-persian, sans-serif);
+}

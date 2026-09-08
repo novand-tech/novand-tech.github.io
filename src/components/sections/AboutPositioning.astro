@@ -1,0 +1,65 @@
+---
+const isEn = Astro.url.pathname.startsWith("/en");
+const companyData = getCompanyData(Astro.url.pathname);
+import SectionHeading from '../ui/SectionHeading.astro';
+import Button from '../ui/Button.astro';
+import { getCompanyData } from "../../data/company";
+---
+<section class="bg-[#0d1417] text-[#f4f2f1] py-20 sm:py-28 border-b border-[#15120e] bg-grid-subtle">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+      
+      <!-- Left Column: Heading & Context -->
+      <div class="lg:col-span-5">
+        <SectionHeading 
+          eyebrow={isEn ? 'Integrated Architecture' : 'معماری یکپارچه'} 
+          title={companyData.aboutHeadline} 
+          theme="dark"
+          class="mb-6"
+        />
+        <div class="p-6 bg-[#15120e] border border-[#15120e] mt-6 text-xs font-mono space-y-3">
+          <div class="text-[#f6f2ee] font-semibold uppercase tracking-wider text-[11px]">
+            {isEn ? 'Engineering Principle: Single-Source Accountability' : 'اصل مهندسی: پاسخگویی متمرکز'}
+          </div>
+          <p class="text-[#f4f2f1]/70 leading-relaxed font-sans font-light text-xs">
+            {isEn ? 'Eliminating vendor finger-pointing between cabling technicians, network administrators, and building automation contractors by delivering a unified physical and logical system architecture.' : 'جلوگیری از شانه خالی کردن پیمانکاران مختلف از طریق ارائه یک معماری سیستم جامع و یکپارچه در لایه‌های فیزیکی و منطقی.'}
+          </p>
+        </div>
+        <div class="mt-8">
+          <Button href={isEn ? "/en/about" : "/about"} variant="outline" size="md">
+            {isEn ? 'Learn About Our Methodology →' : 'آشنایی با متدولوژی ما ←'}
+          </Button>
+        </div>
+      </div>
+
+      <!-- Right Column: Substantial Editorial Explanation -->
+      <div class="lg:col-span-7 space-y-6 text-base sm:text-lg leading-relaxed text-[#f4f2f1]/75 font-light">
+        {companyData.aboutCopy.map((para) => (
+          <p>{para}</p>
+        ))}
+
+        <div class="pt-6 border-t border-[#15120e] grid grid-cols-1 sm:grid-cols-2 gap-6 text-sm">
+          <div class="border-l-2 border-[#f4f2f1]/40 pl-4">
+            <h4 class="font-semibold text-[#f4f2f1] uppercase font-mono text-xs tracking-wider mb-1">
+              {isEn ? 'Deterministic Convergence' : 'همگرایی قطعی'}
+            </h4>
+            <p class="text-[#f4f2f1]/60 text-xs leading-normal font-light">
+              {isEn ? 'Audio, surveillance, HVAC control, and employee data coexisting on segmented network fabrics without packet collision.' : 'صدا، تصویر، کنترل تهویه و داده‌های سازمانی در کنار هم روی شبکه‌های مجزا بدون تداخل.'}
+            </p>
+          </div>
+          <div class="border-l-2 border-[#f4f2f1]/40 pl-4">
+            <h4 class="font-semibold text-[#f4f2f1] uppercase font-mono text-xs tracking-wider mb-1">
+              {isEn ? 'Field-Tested Reliability' : 'قابلیت اطمینان میدانی'}
+            </h4>
+            <p class="text-[#f4f2f1]/60 text-xs leading-normal font-light">
+              {isEn ? 'Commercial-grade hardware specified for continuous duty cycles in demanding commercial, institutional, and residential facilities.' : 'سخت‌افزارهای تجاری ویژه برای چرخه‌های کاری مداوم در محیط‌های پرتقاضای تجاری و مسکونی.'}
+            </p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>

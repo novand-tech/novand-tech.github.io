@@ -1,0 +1,24 @@
+<svg width="1080" height="1080" viewBox="0 0 1080 1080" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="trans-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00d2b5" />
+      <stop offset="100%" stop-color="#10b981" />
+    </linearGradient>
+  </defs>
+  <g transform="translate(340, 260) scale(4.0)">
+    <path d="M50 18 L22 38 V68 H48" stroke="#f4f2f1" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" />
+    <path d="M50 18 L84 42" stroke="#f4f2f1" stroke-width="5" stroke-linecap="round" />
+    <rect x="46" y="39" width="6" height="6" fill="#f4f2f1" rx="0.5" />
+    <rect x="54" y="39" width="6" height="6" fill="#f4f2f1" rx="0.5" />
+    <rect x="46" y="47" width="6" height="6" fill="#f4f2f1" rx="0.5" />
+    <rect x="54" y="47" width="6" height="6" fill="#f4f2f1" rx="0.5" />
+    <path d="M30 76 H54 L76 54" stroke="url(#trans-grad)" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round" />
+    <circle cx="80" cy="50" r="4.5" stroke="url(#trans-grad)" stroke-width="3.5" fill="none" />
+    <path d="M45 84 H60 L76 68" stroke="url(#trans-grad)" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round" />
+    <circle cx="80" cy="64" r="4.5" stroke="url(#trans-grad)" stroke-width="3.5" fill="none" />
+    <path d="M61 90 H70 L77 83" stroke="url(#trans-grad)" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round" />
+    <circle cx="80" cy="80" r="4.5" stroke="url(#trans-grad)" stroke-width="3.5" fill="none" />
+  </g>
+  <text x="540" y="760" fill="#ffffff" font-family="'Space Grotesk', sans-serif" font-size="80" font-weight="700" text-anchor="middle">NOVAND</text>
+  <text x="540" y="820" fill="#00d2b5" font-family="'Space Grotesk', monospace" font-size="20" font-weight="600" letter-spacing="4" text-anchor="middle">INTEGRATED TECH &amp; INFRASTRUCTURE</text>
+</svg>

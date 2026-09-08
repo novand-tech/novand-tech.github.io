@@ -1,0 +1,177 @@
+---
+const isEn = Astro.url.pathname.startsWith("/en");
+const projectsData = getProjectsData(Astro.url.pathname);
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/ui/Breadcrumbs.astro';
+import Button from '../../components/ui/Button.astro';
+import { getProjectsData } from "../../data/projects";
+---
+<BaseLayout 
+  title="مدل‌های مرجع پروژه و الگوهای مهندسی | نُوَند"
+  description="بررسی مدل‌های معماری و الگوهای استقرار مهندسی در حوزه‌های شبکه‌های سازمانی، اتوماسیون ساختمان‌های هوشمند، امنیت فیزیکی و سرورهای مجازی."
+>
+  <!-- Breadcrumbs -->
+  <div class="bg-[#141210] border-b border-[#15120e] py-3">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <Breadcrumbs items={[{ label: isEn ? 'Projects & Case Models' : 'پروژه‌ها و نمونه‌ها' }]} />
+    </div>
+  </div>
+
+  <!-- Hero -->
+  <section class="bg-[#141210] text-[#f4f2f1] py-16 sm:py-24 border-b border-[#15120e] bg-grid-subtle">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl">
+        <div class="inline-flex items-center gap-3 px-3.5 py-1 bg-[#0d1417] border border-[#15120e] text-[#f6f2ee] text-[10px] font-mono uppercase tracking-[0.25em] mb-4">
+          <span class="w-1.5 h-1.5 bg-[#f4f2f1]"></span>
+          سیستم ثبت مرجع مهندسی
+        </div>
+        <h1 class="text-3xl sm:text-5xl font-light tracking-tight leading-tight text-[#f4f2f1] mb-6">
+          مدل‌های نمونه معماری و طرح‌های استقرار
+        </h1>
+        <p class="text-base sm:text-lg text-[#f4f2f1]/70 leading-relaxed font-light">
+          به‌جای انتشار خلاصه‌های تبلیغاتی با نام مشتریان (به دلیل محرمانگی قراردادها)، ما مدل‌های دقیق مهندسی را ارائه می‌دهیم. هر پروفایل شامل چالش فیزیکی، توپولوژی زیرسیستم پیاده‌سازی شده و نتایج تاییدشده است.
+        </p>
+      </div>
+
+      <!-- Notice regarding archetype placeholders -->
+      <div class="mt-8 p-4 bg-[#15120e] border-l-2 border-[#f4f2f1]/50 text-xs font-mono text-[#f4f2f1]/70 max-w-2xl font-light">
+        <span class="text-[#f6f2ee] font-medium uppercase tracking-wider block mb-1">مدل‌های مرجع استاندارد</span>
+        پروفایل‌های مورد زیر، استقرارهای استاندارد معماری مهندسی‌شده توسط تیم ما را نشان می‌دهند. این موارد به‌عنوان قالب‌های فنی تاییدشده برای تعیین محدوده پروژه و برنامه‌ریزی مشتریان استفاده می‌شوند.
+      </div>
+    </div>
+  </section>
+
+  <!-- Detailed Projects List -->
+  <section class="bg-[#0d1417] text-[#f4f2f1] py-16 sm:py-24 border-b border-[#15120e]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
+      
+      {projectsData.map((project, index) => (
+        <article id={project.slug} class="bg-[#141210] border border-[#15120e] shadow-2xl scroll-mt-28">
+          
+          <!-- Card Header Bar -->
+          <div class="p-6 sm:p-8 border-b border-[#15120e] flex flex-col md:flex-row md:items-center justify-between gap-4 bg-[#0d1417]">
+            <div>
+              <div class="flex items-center gap-3 mb-2 text-xs font-mono">
+                <span class="px-2.5 py-0.5 bg-[#15120e] border border-[#15120e] text-[#f6f2ee] text-[10px] uppercase tracking-wider font-medium">
+                  {project.status}
+                </span>
+                <span class="text-[#f4f2f1]/40 text-[10px]">معماری // 0{index + 1}</span>
+              </div>
+              <h2 class="text-2xl sm:text-3xl font-light text-[#f4f2f1] tracking-tight">
+                {project.title}
+              </h2>
+            </div>
+
+            <div class="text-xs font-mono text-[#f4f2f1]/60 text-right sm:text-left">
+              <span class="text-[#f6f2ee] opacity-70 block uppercase text-[10px]">نوع محیط و کاربری</span>
+              <span class="text-[#f4f2f1] font-light">{project.environment}</span>
+            </div>
+          </div>
+
+          <!-- Image & Summary Split -->
+          <div class="grid grid-cols-1 lg:grid-cols-12 border-b border-[#15120e]">
+            <div class="lg:col-span-5 h-64 lg:h-auto relative overflow-hidden bg-[#0d1417] border-b lg:border-b-0 lg:border-r border-[#15120e]">
+              <img 
+                src={project.featuredImage} 
+                alt={`${project.title} architecture installation`}
+                class="w-full h-full object-cover grayscale contrast-125 opacity-75"
+                loading="lazy"
+              />
+              <div class="absolute inset-0 bg-gradient-to-t from-[#0d1417] via-transparent to-transparent"></div>
+              <div class="absolute bottom-4 left-4 right-4 text-xs font-mono text-[#f4f2f1] bg-[#141210]/90 p-2.5 border border-[#15120e]">
+                <span class="text-[#f6f2ee] opacity-70 block mb-0.5 text-[10px] uppercase tracking-wider">دسته‌بندی</span>
+                {project.category}
+              </div>
+            </div>
+
+            <div class="lg:col-span-7 p-6 sm:p-8 space-y-6 flex flex-col justify-between">
+              <div>
+                <span class="text-[10px] font-mono text-[#f6f2ee] opacity-70 uppercase tracking-wider block mb-2">
+                  {isEn ? "Architecture Summary" : "خلاصه معماری"}
+                </span>
+                <p class="text-sm sm:text-base text-[#f4f2f1]/75 font-light leading-relaxed">
+                  {project.summary}
+                </p>
+              </div>
+
+              <!-- Technology Stack Chips -->
+              <div>
+                <span class="text-[10px] font-mono text-[#f6f2ee] opacity-70 uppercase tracking-wider block mb-2">
+                  {isEn ? "Verified Technologies & Standards:" : "تکنولوژی‌ها و استانداردهای تایید شده:"}
+                </span>
+                <div class="flex flex-wrap gap-2">
+                  {project.technologies.map((tech) => (
+                    <span class="px-2.5 py-1 text-[11px] font-mono bg-[#0d1417] border border-[#15120e] text-[#f4f2f1]/80">
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+              </div>
+
+              <!-- Services Involved -->
+              <div class="pt-4 border-t border-[#15120e] text-xs font-mono text-[#f4f2f1]/50">
+                <span class="text-[#f6f2ee] opacity-70 uppercase tracking-wider mr-2 text-[10px]">سیستم‌های یکپارچه‌شده:</span>
+                <span class="text-[#f4f2f1]/70">{project.services.join(" · ")}</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- 3-Column Engineering Deep-Dive: Challenge, Solution, Result -->
+          <div class="p-6 sm:p-8 grid grid-cols-1 md:grid-cols-3 gap-8 text-sm">
+            
+            <div class="border-t border-[#15120e] pt-4">
+              <span class="text-[10px] font-mono text-[#f6f2ee] opacity-70 uppercase tracking-widest block mb-2">
+                {isEn ? "01 // The Engineering Challenge" : "۰۱ // چالش مهندسی"}
+              </span>
+              <p class="text-[#f4f2f1]/65 font-light leading-relaxed text-xs sm:text-sm">
+                {project.challenge}
+              </p>
+            </div>
+
+            <div class="border-t border-[#15120e] pt-4">
+              <span class="text-[10px] font-mono text-[#f6f2ee] opacity-70 uppercase tracking-widest block mb-2">
+                {isEn ? "02 // The Implemented Architecture" : "۰۲ // معماری پیاده‌سازی شده"}
+              </span>
+              <p class="text-[#f4f2f1]/65 font-light leading-relaxed text-xs sm:text-sm">
+                {project.solution}
+              </p>
+            </div>
+
+            <div class="border-t border-[#15120e] pt-4">
+              <span class="text-[10px] font-mono text-[#f6f2ee] opacity-70 uppercase tracking-widest block mb-2">
+                {isEn ? "03 // The Verified Outcome" : "۰۳ // نتیجه تایید شده"}
+              </span>
+              <p class="text-[#f4f2f1]/65 font-light leading-relaxed text-xs sm:text-sm">
+                {project.result}
+              </p>
+            </div>
+
+          </div>
+
+        </article>
+      ))}
+
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="bg-[#141210] text-[#f4f2f1] py-16 sm:py-24 border-b border-[#15120e]">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6">
+      <h2 class="text-2xl sm:text-3xl font-light tracking-tight text-[#f4f2f1]">
+        {isEn ? "Ready to Plan an Infrastructure Deployment?" : "آماده برنامه‌ریزی برای استقرار زیرساخت هستید؟"}
+      </h2>
+      <p class="text-base text-[#f4f2f1]/70 font-light max-w-2xl mx-auto">
+        {isEn ? "Review our engineering runbooks and get an architectural bill of materials tailored to your building or facility." : "مستندات مهندسی ما را بررسی کنید و لیست تجهیزات معماری متناسب با ساختمان یا تاسیسات خود را دریافت کنید."}
+      </p>
+      <div class="pt-2 flex flex-col sm:flex-row items-center justify-center gap-4">
+        <Button href="/contact#consultation" variant="primary" size="lg">
+          {isEn ? "Request a Consultation" : "درخواست مشاوره"}
+        </Button>
+        <Button href="/consulting" variant="outline" size="lg">
+          {isEn ? "Explore Equipment Advisory" : "بررسی مشاوره تجهیزات"}
+        </Button>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>

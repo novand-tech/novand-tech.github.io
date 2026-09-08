@@ -1,0 +1,80 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="none">
+  <rect width="100" height="100" rx="18" fill="#0d1417" />
+  
+  <defs>
+    <linearGradient id="novand-fav-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00d2b5" />
+      <stop offset="100%" stop-color="#10b981" />
+    </linearGradient>
+  </defs>
+
+  <!-- Architectural House Silhouette in clean silver-white -->
+  <path
+    d="M50 16 L20 38 V70 H48"
+    stroke="#f4f2f1"
+    stroke-width="6"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  />
+  <path
+    d="M50 16 L86 42"
+    stroke="#f4f2f1"
+    stroke-width="6"
+    stroke-linecap="round"
+  />
+
+  <!-- 4-Pane Grid Window -->
+  <rect x="45" y="38" width="7" height="7" fill="#f4f2f1" rx="0.5" />
+  <rect x="55" y="38" width="7" height="7" fill="#f4f2f1" rx="0.5" />
+  <rect x="45" y="48" width="7" height="7" fill="#f4f2f1" rx="0.5" />
+  <rect x="55" y="48" width="7" height="7" fill="#f4f2f1" rx="0.5" />
+
+  <!-- Integrated Circuit & Network Traces -->
+  <path
+    d="M28 78 H54 L75 57"
+    stroke="url(#novand-fav-grad)"
+    stroke-width="5.5"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  />
+  <circle
+    cx="81"
+    cy="51"
+    r="5"
+    stroke="url(#novand-fav-grad)"
+    stroke-width="4"
+    fill="#0d1417"
+  />
+
+  <path
+    d="M44 86 H60 L75 71"
+    stroke="url(#novand-fav-grad)"
+    stroke-width="5.5"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  />
+  <circle
+    cx="81"
+    cy="65"
+    r="5"
+    stroke="url(#novand-fav-grad)"
+    stroke-width="4"
+    fill="#0d1417"
+  />
+
+  <path
+    d="M60 92 H69 L76 85"
+    stroke="url(#novand-fav-grad)"
+    stroke-width="5.5"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  />
+  <circle
+    cx="81"
+    cy="80"
+    r="5"
+    stroke="url(#novand-fav-grad)"
+    stroke-width="4"
+    fill="#0d1417"
+  />
+</svg>

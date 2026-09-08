@@ -1,0 +1,45 @@
+---
+const isEn = Astro.url.pathname.startsWith("/en");
+
+interface Crumb {
+  label: string;
+  href?: string;
+}
+
+interface Props {
+  items: Crumb[];
+  theme?: 'dark' | 'light';
+}
+
+const { items } = Astro.props;
+
+const textColors = 'text-[#f4f2f1]/50';
+const activeColors = 'text-[#f4f2f1]';
+const separatorColors = 'text-[#f4f2f1]/30';
+---
+<nav aria-label="Breadcrumb" class="py-4">
+  <ol class="flex flex-wrap items-center gap-2 text-xs font-mono tracking-wider uppercase">
+    <li>
+      <a href={isEn ? "/en" : "/"} class={`${textColors} hover:${activeColors} transition-colors`}>
+        {Astro.url.pathname.startsWith("/en") ? "Home" : "خانه"}
+      </a>
+    </li>
+    {items.map((item, index) => {
+      const isLast = index === items.length - 1;
+      return (
+        <li class="flex items-center gap-2">
+          <span class={separatorColors} aria-hidden="true">/</span>
+          {item.href && !isLast ? (
+            <a href={item.href} class={`${textColors} hover:${activeColors} transition-colors`}>
+              {!isEn && item.label === "Services" ? "خدمات" : (!isEn && item.label === "Solutions" ? "راهکارها" : (!isEn && item.label === "Projects" ? "پروژه‌ها" : (!isEn && item.label === "Brand" ? "هویت بصری" : item.label)))}
+            </a>
+          ) : (
+            <span class={`${activeColors} font-semibold`} aria-current={isLast ? "page" : undefined}>
+              {!isEn && item.label === "Services" ? "خدمات" : (!isEn && item.label === "Solutions" ? "راهکارها" : (!isEn && item.label === "Projects" ? "پروژه‌ها" : (!isEn && item.label === "Brand" ? "هویت بصری" : item.label)))}
+            </span>
+          )}
+        </li>
+      );
+    })}
+  </ol>
+</nav>

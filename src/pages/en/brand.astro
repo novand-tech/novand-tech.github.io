@@ -1,0 +1,1581 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import NovandLogo from '@/components/ui/NovandLogo.astro';
+---
+<BaseLayout
+  title="Brand & Identity System | Novand"
+  description="The official brand identity, logomarks, typography, color tokens, and asset guidelines for Novand — integrated technology and engineering infrastructure."
+>
+  <!-- Sticky Quick Sub-Navigation for Brand System -->
+  <div class="sticky top-20 z-40 bg-[#090e10]/90 backdrop-blur-md border-b border-[#15120e] hidden md:block">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-12 text-xs font-mono">
+      <div class="flex items-center gap-6">
+        <a href="#overview" class="text-[#f4f2f1]/70 hover:text-[#00d2b5] transition-colors uppercase tracking-wider">Overview</a>
+        <a href="#anatomy" class="text-[#f4f2f1]/70 hover:text-[#00d2b5] transition-colors uppercase tracking-wider">Anatomy</a>
+        <a href="#logos" class="text-[#f4f2f1]/70 hover:text-[#00d2b5] transition-colors uppercase tracking-wider">Logos &amp; Lockups</a>
+        <a href="#colors" class="text-[#f4f2f1]/70 hover:text-[#00d2b5] transition-colors uppercase tracking-wider">Color Tokens</a>
+        <a href="#typography" class="text-[#f4f2f1]/70 hover:text-[#00d2b5] transition-colors uppercase tracking-wider">Typography</a>
+        <a href="#standards" class="text-[#f4f2f1]/70 hover:text-[#00d2b5] transition-colors uppercase tracking-wider">Rules &amp; Sizing</a>
+      </div>
+      <a 
+        href="/branding/novand-brand-assets.zip" 
+        download 
+        class="inline-flex items-center gap-2 text-[#00d2b5] hover:text-[#10b981] font-semibold transition-colors"
+      >
+        <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+          <polyline points="7 10 12 15 17 10"></polyline>
+          <line x1="12" y1="15" x2="12" y2="3"></line>
+        </svg>
+        Download Brand Pack (.ZIP 1.2 MB)
+      </a>
+    </div>
+  </div>
+
+  <!-- Hero Section -->
+  <section id="overview" class="py-16 sm:py-24 bg-[#0d1417] text-[#f4f2f1] border-b border-[#15120e] relative overflow-hidden">
+    <div class="absolute inset-0 bg-[linear-gradient(to_right,#141b1f_1px,transparent_1px),linear-gradient(to_bottom,#141b1f_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] opacity-30 pointer-events-none"></div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        
+        <!-- Left: Copy & Callouts -->
+        <div class="lg:col-span-7 space-y-6">
+          <div class="inline-flex items-center gap-2 px-3 py-1 bg-[#141b1f] border border-[#1a2327] text-xs font-mono tracking-widest uppercase text-[#f4f2f1]/80 rounded-sm">
+            <span class="w-2 h-2 rounded-full bg-[#00d2b5] animate-pulse"></span>
+            Design System · Brand Guidelines · Master Kit v2.4
+          </div>
+
+          <h1 class="text-3xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-white leading-tight font-sans">
+            Architectural Precision.<br />
+            <span class="text-transparent bg-clip-text bg-gradient-to-r from-[#00d2b5] to-[#10b981]">
+              Converged Digital Flow.
+            </span>
+          </h1>
+
+          <p class="text-base sm:text-lg text-[#f4f2f1]/70 leading-relaxed font-light max-w-2xl">
+            The Novand identity bridges the structural permanence of modern physical facilities with the dynamic flow of high-speed optical routing and intelligent automation. This official kit provides comprehensive standards, geometry specifications, color tokens, and multi-purpose logos for media, architectural blueprints, digital products, and physical hardware.
+          </p>
+
+          <!-- Action buttons -->
+          <div class="pt-4 flex flex-wrap items-center gap-4">
+            <a 
+              href="/branding/novand-brand-assets.zip" 
+              download
+              class="inline-flex items-center justify-center gap-2.5 px-6 py-3.5 bg-[#00d2b5] hover:bg-[#00e5c5] text-[#0d1417] font-semibold text-sm tracking-wide rounded-sm transition-all shadow-[0_0_20px_rgba(0,210,181,0.25)] hover:shadow-[0_0_30px_rgba(0,210,181,0.4)]"
+            >
+              <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                <polyline points="7 10 12 15 17 10"></polyline>
+                <line x1="12" y1="15" x2="12" y2="3"></line>
+              </svg>
+              Download Complete Brand Kit (.ZIP)
+            </a>
+
+            <a 
+              href="#logos" 
+              class="inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-[#141b1f] hover:bg-[#1a2327] text-[#f4f2f1] font-medium text-sm tracking-wide border border-[#1a2327] rounded-sm transition-colors"
+            >
+              Explore Logo Assets
+              <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </a>
+          </div>
+
+          <!-- Quick Metrics Bar -->
+          <div class="pt-6 grid grid-cols-3 gap-4 border-t border-[#15120e] max-w-lg">
+            <div>
+              <div class="text-[10px] font-mono text-[#f4f2f1]/50 uppercase">Vector Mark</div>
+              <div class="text-sm font-mono text-white font-semibold mt-0.5">W3C SVG 1.1</div>
+            </div>
+            <div>
+              <div class="text-[10px] font-mono text-[#f4f2f1]/50 uppercase">Color Spectrum</div>
+              <div class="text-sm font-mono text-[#00d2b5] font-semibold mt-0.5">Cyan-Emerald Bus</div>
+            </div>
+            <div>
+              <div class="text-[10px] font-mono text-[#f4f2f1]/50 uppercase">Dual Language</div>
+              <div class="text-sm font-mono text-white font-semibold mt-0.5">EN + FA Vazirmatn</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Grand Emblem Showcase Canvas -->
+        <div class="lg:col-span-5">
+          <div class="bg-[#141b1f] border border-[#1a2327] p-8 sm:p-10 rounded-sm relative group overflow-hidden shadow-2xl">
+            <div class="absolute -right-20 -top-20 w-64 h-64 bg-[#00d2b5]/10 rounded-full blur-3xl pointer-events-none"></div>
+            
+            <!-- Logo Stage -->
+            <div class="aspect-square w-full max-w-[340px] mx-auto flex items-center justify-center p-8 bg-[#090e10] border border-[#15120e] rounded-sm relative">
+              <!-- Background Circuit Guides -->
+              <div class="absolute inset-0 bg-[radial-gradient(#1a2327_1px,transparent_1px)] [background-size:16px_16px] opacity-40"></div>
+              
+              <div class="w-44 h-44 sm:w-56 sm:h-56 text-white relative z-10 transition-transform duration-500 group-hover:scale-105 drop-shadow-[0_12px_40px_rgba(0,210,181,0.18)]">
+                <NovandLogo />
+              </div>
+
+              <!-- Live Coordinate Badge -->
+              <div class="absolute bottom-2.5 left-2.5 px-2 py-0.5 bg-[#0d1417]/80 border border-[#1a2327] rounded text-[9px] font-mono text-[#00d2b5]">
+                SCALE: 1:1 MASTER
+              </div>
+            </div>
+
+            <!-- Signature Card Footer -->
+            <div class="mt-6 flex items-center justify-between text-xs border-t border-[#15120e] pt-4">
+              <div>
+                <div class="font-bold text-white font-sans uppercase tracking-wider">Novand Monogram</div>
+                <div class="text-[10px] font-mono text-[#f4f2f1]/60">Physical Infrastructure &amp; Dynamic Traces</div>
+              </div>
+              <a 
+                href="/branding/novand-logo-vector.svg" 
+                download="novand-logo-master.svg" 
+                class="px-2.5 py-1 bg-[#090e10] hover:bg-[#00d2b5]/20 hover:text-[#00d2b5] border border-[#1a2327] text-[10px] font-mono rounded transition-colors text-[#f4f2f1]/80"
+              >
+                Download SVG
+              </a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Section: Anatomy & Geometric Construction -->
+  <section id="anatomy" class="py-20 bg-[#090e10] text-[#f4f2f1] border-b border-[#15120e]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="max-w-3xl mb-14">
+        <span class="text-xs font-mono uppercase tracking-[0.2em] text-[#00d2b5] block mb-2">Geometric Blueprint</span>
+        <h2 class="text-2xl sm:text-4xl font-bold text-white tracking-tight">
+          The Anatomy of the Monogram
+        </h2>
+        <p class="text-sm sm:text-base text-[#f4f2f1]/70 leading-relaxed font-light mt-2">
+          Every vector line and node corresponds to an engineering discipline in Novand’s capability stack, calculated along precise 45-degree isometric conduits.
+        </p>
+      </div>
+
+      <!-- Interactive Anatomy Grid -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+        
+        <!-- Left: Exploded Schematic Visual -->
+        <div class="lg:col-span-6 bg-[#0d1417] border border-[#1a2327] p-8 sm:p-12 rounded-sm relative">
+          <div class="text-center mb-6">
+            <span class="text-[10px] font-mono uppercase tracking-widest text-[#f4f2f1]/40">CAD Vector Schematic · 1080×1080 Grid</span>
+          </div>
+
+          <div class="relative max-w-[340px] mx-auto aspect-square flex items-center justify-center p-6 bg-[#090e10] border border-[#15120e] rounded">
+            <!-- Grid Lines -->
+            <svg class="absolute inset-0 w-full h-full pointer-events-none opacity-25" viewBox="0 0 100 100">
+              <line x1="0" y1="50" x2="100" y2="50" stroke="#00d2b5" stroke-dasharray="2 2" stroke-width="0.5" />
+              <line x1="50" y1="0" x2="50" y2="100" stroke="#00d2b5" stroke-dasharray="2 2" stroke-width="0.5" />
+              <circle cx="50" cy="50" r="45" fill="none" stroke="#f4f2f1" stroke-dasharray="1 3" stroke-width="0.5" />
+            </svg>
+
+            <!-- Scaled Emblem with Callout markers -->
+            <div class="w-56 h-56 text-white relative">
+              <NovandLogo />
+
+              <!-- Overlay Callout 1: Roofline -->
+              <div class="absolute -top-2 left-6 bg-[#0d1417] border border-[#00d2b5] text-[#00d2b5] w-5 h-5 rounded-full flex items-center justify-center text-[10px] font-mono font-bold shadow-lg">1</div>
+              <!-- Overlay Callout 2: Windows -->
+              <div class="absolute top-[42%] left-[48%] bg-[#0d1417] border border-[#00d2b5] text-[#00d2b5] w-5 h-5 rounded-full flex items-center justify-center text-[10px] font-mono font-bold shadow-lg">2</div>
+              <!-- Overlay Callout 3: Circuit Traces -->
+              <div class="absolute bottom-8 left-12 bg-[#0d1417] border border-[#00d2b5] text-[#00d2b5] w-5 h-5 rounded-full flex items-center justify-center text-[10px] font-mono font-bold shadow-lg">3</div>
+              <!-- Overlay Callout 4: Terminal Nodes -->
+              <div class="absolute top-1/2 right-0 bg-[#0d1417] border border-[#10b981] text-[#10b981] w-5 h-5 rounded-full flex items-center justify-center text-[10px] font-mono font-bold shadow-lg">4</div>
+            </div>
+          </div>
+
+          <div class="mt-6 flex justify-between text-[11px] font-mono text-[#f4f2f1]/50 border-t border-[#15120e] pt-4">
+            <span>Primary Stroke: 5.0pt</span>
+            <span>Trace Conduits: 4.5pt</span>
+            <span>Terminals: 3.5pt / 4.5r</span>
+          </div>
+        </div>
+
+        <!-- Right: Rationale Cards -->
+        <div class="lg:col-span-6 space-y-4">
+          
+          <div class="p-5 bg-[#141b1f] border border-[#1a2327] rounded-sm hover:border-[#00d2b5]/40 transition-colors">
+            <div class="flex items-start gap-4">
+              <div class="w-7 h-7 rounded-sm bg-[#090e10] border border-[#00d2b5]/50 text-[#00d2b5] flex items-center justify-center text-xs font-mono font-bold shrink-0">
+                1
+              </div>
+              <div>
+                <h3 class="text-base font-bold text-white font-sans">The Architectural Gable &amp; Envelope</h3>
+                <p class="text-xs text-[#f4f2f1]/70 leading-relaxed font-light mt-1">
+                  The bold white roofline establishes physical presence, facility permanence, and structural sheltering. It represents data center buildings, smart corporate offices, and campus infrastructure.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="p-5 bg-[#141b1f] border border-[#1a2327] rounded-sm hover:border-[#00d2b5]/40 transition-colors">
+            <div class="flex items-start gap-4">
+              <div class="w-7 h-7 rounded-sm bg-[#090e10] border border-[#00d2b5]/50 text-[#00d2b5] flex items-center justify-center text-xs font-mono font-bold shrink-0">
+                2
+              </div>
+              <div>
+                <h3 class="text-base font-bold text-white font-sans">The Quad Window Array</h3>
+                <p class="text-xs text-[#f4f2f1]/70 leading-relaxed font-light mt-1">
+                  A calibrated 2×2 grid signifying structured spaces, server rack chassis, and organizational discipline. It anchors the mark to real-world corporate architecture and workspace operations.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="p-5 bg-[#141b1f] border border-[#1a2327] rounded-sm hover:border-[#00d2b5]/40 transition-colors">
+            <div class="flex items-start gap-4">
+              <div class="w-7 h-7 rounded-sm bg-[#090e10] border border-[#00d2b5]/50 text-[#00d2b5] flex items-center justify-center text-xs font-mono font-bold shrink-0">
+                3
+              </div>
+              <div>
+                <h3 class="text-base font-bold text-white font-sans">45° Converged Circuit Traces</h3>
+                <p class="text-xs text-[#f4f2f1]/70 leading-relaxed font-light mt-1">
+                  Stepped diagonal pathways symbolize FTTH fiber optic trunk lines, high-frequency copper cabling, and active routing conduits carrying multi-gigabit traffic across the facility.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="p-5 bg-[#141b1f] border border-[#1a2327] rounded-sm hover:border-[#10b981]/40 transition-colors">
+            <div class="flex items-start gap-4">
+              <div class="w-7 h-7 rounded-sm bg-[#090e10] border border-[#10b981]/50 text-[#10b981] flex items-center justify-center text-xs font-mono font-bold shrink-0">
+                4
+              </div>
+              <div>
+                <h3 class="text-base font-bold text-white font-sans">Terminal Node Endpoints</h3>
+                <p class="text-xs text-[#f4f2f1]/70 leading-relaxed font-light mt-1">
+                  Three distinct circular endpoints embody connected clients: IoT building automation sensors, CCTV &amp; security access controllers, and high-performance server clusters.
+                </p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Section: Extended Multi-Purpose Logo Collection -->
+  <section id="logos" class="py-20 bg-[#0d1417] text-[#f4f2f1] border-b border-[#15120e]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Section Header -->
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
+        <div class="max-w-2xl">
+          <span class="text-xs font-mono uppercase tracking-[0.2em] text-[#00d2b5] block mb-2">Asset Matrix</span>
+          <h2 class="text-2xl sm:text-4xl font-bold text-white tracking-tight">
+            Logomarks &amp; Extended Lockups
+          </h2>
+          <p class="text-sm sm:text-base text-[#f4f2f1]/70 leading-relaxed font-light mt-2">
+            Calibrated logo formats for every physical and digital surface — from web navigation and software interfaces to physical metal chassis laser engraving and printed contracts.
+          </p>
+        </div>
+
+        <!-- Filter Buttons -->
+        <div class="flex flex-wrap gap-2 text-xs font-mono" id="logo-filter-bar">
+          <button 
+            type="button" 
+            data-filter="all" 
+            class="filter-btn px-3 py-1.5 bg-[#00d2b5] text-[#0d1417] font-bold rounded-sm cursor-pointer transition-all"
+          >
+            All Formats
+          </button>
+          <button 
+            type="button" 
+            data-filter="lockup" 
+            class="filter-btn px-3 py-1.5 bg-[#141b1f] hover:bg-[#1a2327] text-[#f4f2f1]/80 rounded-sm border border-[#1a2327] cursor-pointer transition-all"
+          >
+            Wordmarks &amp; Lockups
+          </button>
+          <button 
+            type="button" 
+            data-filter="badge" 
+            class="filter-btn px-3 py-1.5 bg-[#141b1f] hover:bg-[#1a2327] text-[#f4f2f1]/80 rounded-sm border border-[#1a2327] cursor-pointer transition-all"
+          >
+            Monomarks &amp; Badges
+          </button>
+          <button 
+            type="button" 
+            data-filter="mono" 
+            class="filter-btn px-3 py-1.5 bg-[#141b1f] hover:bg-[#1a2327] text-[#f4f2f1]/80 rounded-sm border border-[#1a2327] cursor-pointer transition-all"
+          >
+            Monochrome &amp; Print
+          </button>
+          <button 
+            type="button" 
+            data-filter="social" 
+            class="filter-btn px-3 py-1.5 bg-[#141b1f] hover:bg-[#1a2327] text-[#f4f2f1]/80 rounded-sm border border-[#1a2327] cursor-pointer transition-all"
+          >
+            Social &amp; Media
+          </button>
+          <button 
+            type="button" 
+            data-filter="persian" 
+            class="filter-btn px-3 py-1.5 bg-[#141b1f] hover:bg-[#1a2327] text-[#f4f2f1]/80 rounded-sm border border-[#1a2327] cursor-pointer transition-all"
+          >
+            Persian Version
+          </button>
+        </div>
+      </div>
+
+      <!-- Assets Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="assets-container">
+
+        <!-- Asset 1: Horizontal Lockup (Dark) -->
+        <div class="asset-card group bg-[#141b1f] border border-[#1a2327] rounded-sm overflow-hidden flex flex-col justify-between" data-category="lockup">
+          <div>
+            <!-- Preview Stage (Dark) -->
+            <div class="h-52 bg-[#090e10] p-6 flex items-center justify-center border-b border-[#15120e] relative">
+              <img 
+                src="/branding/novand-logo-horizontal-dark.svg" 
+                alt="Novand Horizontal Logo Dark" 
+                class="max-h-24 max-w-[85%] object-contain transition-transform duration-300 group-hover:scale-105"
+                loading="lazy"
+              />
+              <span class="absolute top-2.5 right-2.5 px-2 py-0.5 bg-[#0d1417] text-[10px] font-mono text-[#00d2b5] border border-[#1a2327] rounded">
+                Dark Mode
+              </span>
+            </div>
+            <!-- Meta Details -->
+            <div class="p-5">
+              <div class="flex items-center justify-between mb-2">
+                <h3 class="text-sm font-bold text-white font-sans uppercase">Horizontal Lockup · Dark</h3>
+                <span class="text-[10px] font-mono text-[#f4f2f1]/50">1000×280</span>
+              </div>
+              <p class="text-xs text-[#f4f2f1]/70 leading-relaxed font-light mb-4">
+                Primary corporate identity for website headers, software dashboards, dark pitch decks, and partner presentation footers.
+              </p>
+              <div class="flex items-center gap-2 text-[10px] font-mono text-[#00d2b5]">
+                <span>Vector SVG</span> • <span>Lossless PNG</span>
+              </div>
+            </div>
+          </div>
+          <!-- Download Actions -->
+          <div class="p-4 bg-[#0d1417] border-t border-[#15120e] flex items-center gap-2">
+            <a 
+              href="/branding/novand-logo-horizontal-dark.svg" 
+              download 
+              class="flex-1 text-center py-2 bg-[#141b1f] hover:bg-[#00d2b5] hover:text-[#0d1417] text-[#f4f2f1] text-xs font-mono font-medium rounded-sm border border-[#1a2327] transition-all"
+            >
+              SVG (Vector)
+            </a>
+            <a 
+              href="/branding/novand-logo-horizontal-dark.png" 
+              download 
+              class="flex-1 text-center py-2 bg-[#141b1f] hover:bg-[#1a2327] text-[#f4f2f1]/80 hover:text-white text-xs font-mono font-medium rounded-sm border border-[#1a2327] transition-all"
+            >
+              PNG (Raster)
+            </a>
+          </div>
+        </div>
+
+        <!-- Asset 2: Horizontal Lockup (Light) -->
+        <div class="asset-card group bg-[#141b1f] border border-[#1a2327] rounded-sm overflow-hidden flex flex-col justify-between" data-category="lockup">
+          <div>
+            <!-- Preview Stage (Light Canvas) -->
+            <div class="h-52 bg-[#f8fafc] p-6 flex items-center justify-center border-b border-[#e2e8f0] relative">
+              <img 
+                src="/branding/novand-logo-horizontal-light.svg" 
+                alt="Novand Horizontal Logo Light" 
+                class="max-h-24 max-w-[85%] object-contain transition-transform duration-300 group-hover:scale-105"
+                loading="lazy"
+              />
+              <span class="absolute top-2.5 right-2.5 px-2 py-0.5 bg-white text-[10px] font-mono text-[#008f7a] border border-[#cbd5e1] rounded">
+                Light Mode
+              </span>
+            </div>
+            <!-- Meta Details -->
+            <div class="p-5">
+              <div class="flex items-center justify-between mb-2">
+                <h3 class="text-sm font-bold text-white font-sans uppercase">Horizontal Lockup · Light</h3>
+                <span class="text-[10px] font-mono text-[#f4f2f1]/50">1000×280</span>
+              </div>
+              <p class="text-xs text-[#f4f2f1]/70 leading-relaxed font-light mb-4">
+                Engineered for white backgrounds, paper invoices, engineering proposals, client contracts, and light-mode slide decks.
+              </p>
+              <div class="flex items-center gap-2 text-[10px] font-mono text-[#00d2b5]">
+                <span>Vector SVG</span> • <span>Lossless PNG</span>
+              </div>
+            </div>
+          </div>
+          <!-- Download Actions -->
+          <div class="p-4 bg-[#0d1417] border-t border-[#15120e] flex items-center gap-2">
+            <a 
+              href="/branding/novand-logo-horizontal-light.svg" 
+              download 
+              class="flex-1 text-center py-2 bg-[#141b1f] hover:bg-[#00d2b5] hover:text-[#0d1417] text-[#f4f2f1] text-xs font-mono font-medium rounded-sm border border-[#1a2327] transition-all"
+            >
+              SVG (Vector)
+            </a>
+            <a 
+              href="/branding/novand-logo-horizontal-light.png" 
+              download 
+              class="flex-1 text-center py-2 bg-[#141b1f] hover:bg-[#1a2327] text-[#f4f2f1]/80 hover:text-white text-xs font-mono font-medium rounded-sm border border-[#1a2327] transition-all"
+            >
+              PNG (Raster)
+            </a>
+          </div>
+        </div>
+
+        <!-- Asset 3: Horizontal Lockup (Persian) -->
+        <div class="asset-card group bg-[#141b1f] border border-[#1a2327] rounded-sm overflow-hidden flex flex-col justify-between" data-category="lockup persian">
+          <div>
+            <!-- Preview Stage -->
+            <div class="h-52 bg-[#090e10] p-6 flex items-center justify-center border-b border-[#15120e] relative">
+              <img 
+                src="/branding/novand-logo-horizontal-persian.svg" 
+                alt="Novand Horizontal Persian Logo" 
+                class="max-h-24 max-w-[90%] object-contain transition-transform duration-300 group-hover:scale-105"
+                loading="lazy"
+              />
+              <span class="absolute top-2.5 right-2.5 px-2 py-0.5 bg-[#0d1417] text-[10px] font-mono text-[#00d2b5] border border-[#1a2327] rounded">
+                Persian RTL
+              </span>
+            </div>
+            <!-- Meta Details -->
+            <div class="p-5">
+              <div class="flex items-center justify-between mb-2">
+                <h3 class="text-sm font-bold text-white font-sans uppercase">Persian Horizontal Logotype · Novand</h3>
+                <span class="text-[10px] font-mono text-[#f4f2f1]/50">1000×280</span>
+              </div>
+              <p class="text-xs text-[#f4f2f1]/70 leading-relaxed font-light mb-4 font-vazirmatn" dir="rtl">
+                Combination of the official emblem and Vazirmatn typography with the slogan "Integrated Technology & Infrastructure Engineering Solutions" for letterheads and official correspondence.
+              </p>
+              <div class="flex items-center gap-2 text-[10px] font-mono text-[#00d2b5]">
+                <span>Vector SVG</span> • <span>Lossless PNG</span>
+              </div>
+            </div>
+          </div>
+          <!-- Download Actions -->
+          <div class="p-4 bg-[#0d1417] border-t border-[#15120e] flex items-center gap-2">
+            <a 
+              href="/branding/novand-logo-horizontal-persian.svg" 
+              download 
+              class="flex-1 text-center py-2 bg-[#141b1f] hover:bg-[#00d2b5] hover:text-[#0d1417] text-[#f4f2f1] text-xs font-mono font-medium rounded-sm border border-[#1a2327] transition-all"
+            >
+              SVG (Vector)
+            </a>
+            <a 
+              href="/branding/novand-logo-horizontal-persian.png" 
+              download 
+              class="flex-1 text-center py-2 bg-[#141b1f] hover:bg-[#1a2327] text-[#f4f2f1]/80 hover:text-white text-xs font-mono font-medium rounded-sm border border-[#1a2327] transition-all"
+            >
+              PNG (Raster)
+            </a>
+          </div>
+        </div>
+
+        <!-- Asset 4: Stacked Lockup (Dark) -->
+        <div class="asset-card group bg-[#141b1f] border border-[#1a2327] rounded-sm overflow-hidden flex flex-col justify-between" data-category="lockup">
+          <div>
+            <!-- Preview Stage -->
+            <div class="h-52 bg-[#090e10] p-6 flex items-center justify-center border-b border-[#15120e] relative">
+              <img 
+                src="/branding/novand-logo-stacked-dark.svg" 
+                alt="Novand Stacked Logo Dark" 
+                class="max-h-36 max-w-[65%] object-contain transition-transform duration-300 group-hover:scale-105"
+                loading="lazy"
+              />
+              <span class="absolute top-2.5 right-2.5 px-2 py-0.5 bg-[#0d1417] text-[10px] font-mono text-[#00d2b5] border border-[#1a2327] rounded">
+                Centered 1:1
+              </span>
+            </div>
+            <!-- Meta Details -->
+            <div class="p-5">
+              <div class="flex items-center justify-between mb-2">
+                <h3 class="text-sm font-bold text-white font-sans uppercase">Stacked Centered · Dark</h3>
+                <span class="text-[10px] font-mono text-[#f4f2f1]/50">600×600</span>
+              </div>
+              <p class="text-xs text-[#f4f2f1]/70 leading-relaxed font-light mb-4">
+                Vertical balance for conference stage rollups, exhibition entrance boards, square documentation covers, and mobile splash screens.
+              </p>
+              <div class="flex items-center gap-2 text-[10px] font-mono text-[#00d2b5]">
+                <span>Vector SVG</span> • <span>Lossless PNG</span>
+              </div>
+            </div>
+          </div>
+          <!-- Download Actions -->
+          <div class="p-4 bg-[#0d1417] border-t border-[#15120e] flex items-center gap-2">
+            <a 
+              href="/branding/novand-logo-stacked-dark.svg" 
+              download 
+              class="flex-1 text-center py-2 bg-[#141b1f] hover:bg-[#00d2b5] hover:text-[#0d1417] text-[#f4f2f1] text-xs font-mono font-medium rounded-sm border border-[#1a2327] transition-all"
+            >
+              SVG (Vector)
+            </a>
+            <a 
+              href="/branding/novand-logo-stacked-dark.png" 
+              download 
+              class="flex-1 text-center py-2 bg-[#141b1f] hover:bg-[#1a2327] text-[#f4f2f1]/80 hover:text-white text-xs font-mono font-medium rounded-sm border border-[#1a2327] transition-all"
+            >
+              PNG (Raster)
+            </a>
+          </div>
+        </div>
+
+        <!-- Asset 5: Stacked Lockup (Light) -->
+        <div class="asset-card group bg-[#141b1f] border border-[#1a2327] rounded-sm overflow-hidden flex flex-col justify-between" data-category="lockup">
+          <div>
+            <!-- Preview Stage (Light Canvas) -->
+            <div class="h-52 bg-[#f8fafc] p-6 flex items-center justify-center border-b border-[#e2e8f0] relative">
+              <img 
+                src="/branding/novand-logo-stacked-light.svg" 
+                alt="Novand Stacked Logo Light" 
+                class="max-h-36 max-w-[65%] object-contain transition-transform duration-300 group-hover:scale-105"
+                loading="lazy"
+              />
+              <span class="absolute top-2.5 right-2.5 px-2 py-0.5 bg-white text-[10px] font-mono text-[#008f7a] border border-[#cbd5e1] rounded">
+                Centered Light
+              </span>
+            </div>
+            <!-- Meta Details -->
+            <div class="p-5">
+              <div class="flex items-center justify-between mb-2">
+                <h3 class="text-sm font-bold text-white font-sans uppercase">Stacked Centered · Light</h3>
+                <span class="text-[10px] font-mono text-[#f4f2f1]/50">600×600</span>
+              </div>
+              <p class="text-xs text-[#f4f2f1]/70 leading-relaxed font-light mb-4">
+                Vertical centered lockup on pure white chassis, ideal for equipment compliance certificates, product boxes, and printed manuals.
+              </p>
+              <div class="flex items-center gap-2 text-[10px] font-mono text-[#00d2b5]">
+                <span>Vector SVG</span> • <span>Lossless PNG</span>
+              </div>
+            </div>
+          </div>
+          <!-- Download Actions -->
+          <div class="p-4 bg-[#0d1417] border-t border-[#15120e] flex items-center gap-2">
+            <a 
+              href="/branding/novand-logo-stacked-light.svg" 
+              download 
+              class="flex-1 text-center py-2 bg-[#141b1f] hover:bg-[#00d2b5] hover:text-[#0d1417] text-[#f4f2f1] text-xs font-mono font-medium rounded-sm border border-[#1a2327] transition-all"
+            >
+              SVG (Vector)
+            </a>
+            <a 
+              href="/branding/novand-logo-stacked-light.png" 
+              download 
+              class="flex-1 text-center py-2 bg-[#141b1f] hover:bg-[#1a2327] text-[#f4f2f1]/80 hover:text-white text-xs font-mono font-medium rounded-sm border border-[#1a2327] transition-all"
+            >
+              PNG (Raster)
+            </a>
+          </div>
+        </div>
+
+        <!-- Asset 6: Master Monomark (Transparent Vector) -->
+        <div class="asset-card group bg-[#141b1f] border border-[#1a2327] rounded-sm overflow-hidden flex flex-col justify-between" data-category="badge">
+          <div>
+            <!-- Preview Stage (Checkerboard Transparent) -->
+            <div class="h-52 bg-[#090e10] p-6 flex items-center justify-center border-b border-[#15120e] relative">
+              <div class="w-28 h-28 text-white transition-transform duration-300 group-hover:scale-105 drop-shadow-[0_8px_25px_rgba(0,210,181,0.2)]">
+                <NovandLogo />
+              </div>
+              <span class="absolute top-2.5 right-2.5 px-2 py-0.5 bg-[#0d1417] text-[10px] font-mono text-[#00d2b5] border border-[#1a2327] rounded">
+                Transparent
+              </span>
+            </div>
+            <!-- Meta Details -->
+            <div class="p-5">
+              <div class="flex items-center justify-between mb-2">
+                <h3 class="text-sm font-bold text-white font-sans uppercase">Master Monomark (Vector)</h3>
+                <span class="text-[10px] font-mono text-[#f4f2f1]/50">Scalable</span>
+              </div>
+              <p class="text-xs text-[#f4f2f1]/70 leading-relaxed font-light mb-4">
+                The standalone emblem with transparent background and illuminated cyan-emerald conduits. Suitable for UI icons, web navigation, and custom layouts.
+              </p>
+              <div class="flex items-center gap-2 text-[10px] font-mono text-[#00d2b5]">
+                <span>Vector SVG</span> • <span>1080×1080 PNG</span>
+              </div>
+            </div>
+          </div>
+          <!-- Download Actions -->
+          <div class="p-4 bg-[#0d1417] border-t border-[#15120e] flex items-center gap-2">
+            <a 
+              href="/branding/novand-logo-vector.svg" 
+              download 
+              class="flex-1 text-center py-2 bg-[#141b1f] hover:bg-[#00d2b5] hover:text-[#0d1417] text-[#f4f2f1] text-xs font-mono font-medium rounded-sm border border-[#1a2327] transition-all"
+            >
+              SVG (Vector)
+            </a>
+            <a 
+              href="/branding/novand-logo-transparent-1080x1080.png" 
+              download 
+              class="flex-1 text-center py-2 bg-[#141b1f] hover:bg-[#1a2327] text-[#f4f2f1]/80 hover:text-white text-xs font-mono font-medium rounded-sm border border-[#1a2327] transition-all"
+            >
+              PNG (Raster)
+            </a>
+          </div>
+        </div>
+
+        <!-- Asset 7: Obsidian Chassis Badge (1:1) -->
+        <div class="asset-card group bg-[#141b1f] border border-[#1a2327] rounded-sm overflow-hidden flex flex-col justify-between" data-category="badge social">
+          <div>
+            <!-- Preview Stage -->
+            <div class="h-52 bg-[#090e10] p-6 flex items-center justify-center border-b border-[#15120e] relative">
+              <img 
+                src="/branding/novand-logo-square-dark.svg" 
+                alt="Novand Square Dark Badge" 
+                class="max-h-36 max-w-[65%] object-contain rounded-md transition-transform duration-300 group-hover:scale-105"
+                loading="lazy"
+              />
+              <span class="absolute top-2.5 right-2.5 px-2 py-0.5 bg-[#0d1417] text-[10px] font-mono text-[#00d2b5] border border-[#1a2327] rounded">
+                Square Dark
+              </span>
+            </div>
+            <!-- Meta Details -->
+            <div class="p-5">
+              <div class="flex items-center justify-between mb-2">
+                <h3 class="text-sm font-bold text-white font-sans uppercase">Obsidian Chassis Badge</h3>
+                <span class="text-[10px] font-mono text-[#f4f2f1]/50">1080×1080</span>
+              </div>
+              <p class="text-xs text-[#f4f2f1]/70 leading-relaxed font-light mb-4">
+                Enclosed on circular pedestal with subtle CAD background grid. Standard profile avatar for LinkedIn, GitHub, YouTube, and app icons.
+              </p>
+              <div class="flex items-center gap-2 text-[10px] font-mono text-[#00d2b5]">
+                <span>Vector SVG</span> • <span>PNG</span> • <span>JPG</span>
+              </div>
+            </div>
+          </div>
+          <!-- Download Actions -->
+          <div class="p-4 bg-[#0d1417] border-t border-[#15120e] flex items-center gap-2">
+            <a 
+              href="/branding/novand-logo-square-dark.svg" 
+              download 
+              class="flex-1 text-center py-2 bg-[#141b1f] hover:bg-[#00d2b5] hover:text-[#0d1417] text-[#f4f2f1] text-xs font-mono font-medium rounded-sm border border-[#1a2327] transition-all"
+            >
+              SVG
+            </a>
+            <a 
+              href="/branding/novand-logo-instagram-1080x1080.png" 
+              download 
+              class="flex-1 text-center py-2 bg-[#141b1f] hover:bg-[#1a2327] text-[#f4f2f1]/80 hover:text-white text-xs font-mono font-medium rounded-sm border border-[#1a2327] transition-all"
+            >
+              PNG
+            </a>
+            <a 
+              href="/branding/novand-logo-instagram-1080x1080.jpg" 
+              download 
+              class="flex-1 text-center py-2 bg-[#141b1f] hover:bg-[#1a2327] text-[#f4f2f1]/80 hover:text-white text-xs font-mono font-medium rounded-sm border border-[#1a2327] transition-all"
+            >
+              JPG
+            </a>
+          </div>
+        </div>
+
+        <!-- Asset 8: Pure Light Chassis Badge (1:1) -->
+        <div class="asset-card group bg-[#141b1f] border border-[#1a2327] rounded-sm overflow-hidden flex flex-col justify-between" data-category="badge">
+          <div>
+            <!-- Preview Stage -->
+            <div class="h-52 bg-[#f8fafc] p-6 flex items-center justify-center border-b border-[#e2e8f0] relative">
+              <img 
+                src="/branding/novand-logo-square-light.svg" 
+                alt="Novand Square Light Badge" 
+                class="max-h-36 max-w-[65%] object-contain rounded-md transition-transform duration-300 group-hover:scale-105"
+                loading="lazy"
+              />
+              <span class="absolute top-2.5 right-2.5 px-2 py-0.5 bg-white text-[10px] font-mono text-[#008f7a] border border-[#cbd5e1] rounded">
+                Square Light
+              </span>
+            </div>
+            <!-- Meta Details -->
+            <div class="p-5">
+              <div class="flex items-center justify-between mb-2">
+                <h3 class="text-sm font-bold text-white font-sans uppercase">Light Chassis Badge</h3>
+                <span class="text-[10px] font-mono text-[#f4f2f1]/50">1080×1080</span>
+              </div>
+              <p class="text-xs text-[#f4f2f1]/70 leading-relaxed font-light mb-4">
+                Pure white pedestal chassis with high-contrast architectural strokes. Optimized for light-mode mobile home screen bookmarks and product packaging.
+              </p>
+              <div class="flex items-center gap-2 text-[10px] font-mono text-[#00d2b5]">
+                <span>Vector SVG</span> • <span>1080×1080 PNG</span>
+              </div>
+            </div>
+          </div>
+          <!-- Download Actions -->
+          <div class="p-4 bg-[#0d1417] border-t border-[#15120e] flex items-center gap-2">
+            <a 
+              href="/branding/novand-logo-square-light.svg" 
+              download 
+              class="flex-1 text-center py-2 bg-[#141b1f] hover:bg-[#00d2b5] hover:text-[#0d1417] text-[#f4f2f1] text-xs font-mono font-medium rounded-sm border border-[#1a2327] transition-all"
+            >
+              SVG (Vector)
+            </a>
+            <a 
+              href="/branding/novand-logo-square-light.png" 
+              download 
+              class="flex-1 text-center py-2 bg-[#141b1f] hover:bg-[#1a2327] text-[#f4f2f1]/80 hover:text-white text-xs font-mono font-medium rounded-sm border border-[#1a2327] transition-all"
+            >
+              PNG (Raster)
+            </a>
+          </div>
+        </div>
+
+        <!-- Asset 9: Persian Captioned Seal (1080x1080) -->
+        <div class="asset-card group bg-[#141b1f] border border-[#1a2327] rounded-sm overflow-hidden flex flex-col justify-between" data-category="badge persian">
+          <div>
+            <!-- Preview Stage -->
+            <div class="h-52 bg-[#090e10] p-4 flex items-center justify-center border-b border-[#15120e] relative">
+              <img 
+                src="/branding/novand-logo-persian-captioned.svg" 
+                alt="Official Logo with Novand Name" 
+                class="max-h-40 max-w-[80%] object-contain transition-transform duration-300 group-hover:scale-105"
+                loading="lazy"
+              />
+              <span class="absolute top-2.5 right-2.5 px-2 py-0.5 bg-[#0d1417] text-[10px] font-mono text-[#00d2b5] border border-[#1a2327] rounded">
+                Emblem with Title
+              </span>
+            </div>
+            <!-- Meta Details -->
+            <div class="p-5">
+              <div class="flex items-center justify-between mb-2">
+                <h3 class="text-sm font-bold text-white font-sans uppercase">Official Emblem with Title · Novand</h3>
+                <span class="text-[10px] font-mono text-[#f4f2f1]/50">1080×1080</span>
+              </div>
+              <p class="text-xs text-[#f4f2f1]/70 leading-relaxed font-light mb-4 font-vazirmatn" dir="rtl">
+                Square emblem with technical border along with the name "Novand" and the phrase "Integrated Technology & Infrastructure Engineering Solutions" for social media.
+              </p>
+              <div class="flex items-center gap-2 text-[10px] font-mono text-[#00d2b5]">
+                <span>Vector SVG</span> • <span>Lossless PNG</span>
+              </div>
+            </div>
+          </div>
+          <!-- Download Actions -->
+          <div class="p-4 bg-[#0d1417] border-t border-[#15120e] flex items-center gap-2">
+            <a 
+              href="/branding/novand-logo-persian-captioned.svg" 
+              download 
+              class="flex-1 text-center py-2 bg-[#141b1f] hover:bg-[#00d2b5] hover:text-[#0d1417] text-[#f4f2f1] text-xs font-mono font-medium rounded-sm border border-[#1a2327] transition-all"
+            >
+              SVG (Vector)
+            </a>
+            <a 
+              href="/branding/novand-logo-persian-captioned-1080x1080.png" 
+              download 
+              class="flex-1 text-center py-2 bg-[#141b1f] hover:bg-[#1a2327] text-[#f4f2f1]/80 hover:text-white text-xs font-mono font-medium rounded-sm border border-[#1a2327] transition-all"
+            >
+              PNG (Raster)
+            </a>
+          </div>
+        </div>
+
+        <!-- Asset 10: Monochrome White -->
+        <div class="asset-card group bg-[#141b1f] border border-[#1a2327] rounded-sm overflow-hidden flex flex-col justify-between" data-category="mono">
+          <div>
+            <!-- Preview Stage -->
+            <div class="h-52 bg-[#090e10] p-6 flex items-center justify-center border-b border-[#15120e] relative">
+              <img 
+                src="/branding/novand-logo-monochrome-white.svg" 
+                alt="Novand Monochrome White" 
+                class="max-h-28 max-w-[65%] object-contain transition-transform duration-300 group-hover:scale-105 drop-shadow-[0_4px_15px_rgba(255,255,255,0.2)]"
+                loading="lazy"
+              />
+              <span class="absolute top-2.5 right-2.5 px-2 py-0.5 bg-[#0d1417] text-[10px] font-mono text-white border border-[#1a2327] rounded">
+                100% White
+              </span>
+            </div>
+            <!-- Meta Details -->
+            <div class="p-5">
+              <div class="flex items-center justify-between mb-2">
+                <h3 class="text-sm font-bold text-white font-sans uppercase">Monochrome White</h3>
+                <span class="text-[10px] font-mono text-[#f4f2f1]/50">Vector / PNG</span>
+              </div>
+              <p class="text-xs text-[#f4f2f1]/70 leading-relaxed font-light mb-4">
+                Single-color pure white on transparent. Essential for video watermarking, engineering photography overlays, and embroidery on dark uniforms.
+              </p>
+              <div class="flex items-center gap-2 text-[10px] font-mono text-[#00d2b5]">
+                <span>Vector SVG</span> • <span>600×600 PNG</span>
+              </div>
+            </div>
+          </div>
+          <!-- Download Actions -->
+          <div class="p-4 bg-[#0d1417] border-t border-[#15120e] flex items-center gap-2">
+            <a 
+              href="/branding/novand-logo-monochrome-white.svg" 
+              download 
+              class="flex-1 text-center py-2 bg-[#141b1f] hover:bg-[#00d2b5] hover:text-[#0d1417] text-[#f4f2f1] text-xs font-mono font-medium rounded-sm border border-[#1a2327] transition-all"
+            >
+              SVG (Vector)
+            </a>
+            <a 
+              href="/branding/novand-logo-monochrome-white.png" 
+              download 
+              class="flex-1 text-center py-2 bg-[#141b1f] hover:bg-[#1a2327] text-[#f4f2f1]/80 hover:text-white text-xs font-mono font-medium rounded-sm border border-[#1a2327] transition-all"
+            >
+              PNG (Raster)
+            </a>
+          </div>
+        </div>
+
+        <!-- Asset 11: Monochrome Black / Etch -->
+        <div class="asset-card group bg-[#141b1f] border border-[#1a2327] rounded-sm overflow-hidden flex flex-col justify-between" data-category="mono">
+          <div>
+            <!-- Preview Stage -->
+            <div class="h-52 bg-[#f8fafc] p-6 flex items-center justify-center border-b border-[#e2e8f0] relative">
+              <img 
+                src="/branding/novand-logo-monochrome-black.svg" 
+                alt="Novand Monochrome Black" 
+                class="max-h-28 max-w-[65%] object-contain transition-transform duration-300 group-hover:scale-105"
+                loading="lazy"
+              />
+              <span class="absolute top-2.5 right-2.5 px-2 py-0.5 bg-white text-[10px] font-mono text-[#0d1417] border border-[#cbd5e1] rounded">
+                100% Black
+              </span>
+            </div>
+            <!-- Meta Details -->
+            <div class="p-5">
+              <div class="flex items-center justify-between mb-2">
+                <h3 class="text-sm font-bold text-white font-sans uppercase">Monochrome Black · Etch</h3>
+                <span class="text-[10px] font-mono text-[#f4f2f1]/50">Vector / PNG</span>
+              </div>
+              <p class="text-xs text-[#f4f2f1]/70 leading-relaxed font-light mb-4">
+                Single-color pure black on transparent. Specifically tailored for laser etching on aluminum network server racks, hardware faceplates, and thermal print.
+              </p>
+              <div class="flex items-center gap-2 text-[10px] font-mono text-[#00d2b5]">
+                <span>Vector SVG</span> • <span>600×600 PNG</span>
+              </div>
+            </div>
+          </div>
+          <!-- Download Actions -->
+          <div class="p-4 bg-[#0d1417] border-t border-[#15120e] flex items-center gap-2">
+            <a 
+              href="/branding/novand-logo-monochrome-black.svg" 
+              download 
+              class="flex-1 text-center py-2 bg-[#141b1f] hover:bg-[#00d2b5] hover:text-[#0d1417] text-[#f4f2f1] text-xs font-mono font-medium rounded-sm border border-[#1a2327] transition-all"
+            >
+              SVG (Vector)
+            </a>
+            <a 
+              href="/branding/novand-logo-monochrome-black.png" 
+              download 
+              class="flex-1 text-center py-2 bg-[#141b1f] hover:bg-[#1a2327] text-[#f4f2f1]/80 hover:text-white text-xs font-mono font-medium rounded-sm border border-[#1a2327] transition-all"
+            >
+              PNG (Raster)
+            </a>
+          </div>
+        </div>
+
+        <!-- Asset 12: Social Banner (English 1200x630) -->
+        <div class="asset-card group bg-[#141b1f] border border-[#1a2327] rounded-sm overflow-hidden flex flex-col justify-between" data-category="social">
+          <div>
+            <!-- Preview Stage -->
+            <div class="h-52 bg-[#090e10] p-4 flex items-center justify-center border-b border-[#15120e] relative">
+              <img 
+                src="/branding/novand-social-banner-1200x630.png" 
+                alt="Novand Social Banner English" 
+                class="max-h-36 max-w-[95%] object-contain border border-[#1a2327] transition-transform duration-300 group-hover:scale-105"
+                loading="lazy"
+              />
+              <span class="absolute top-2.5 right-2.5 px-2 py-0.5 bg-[#0d1417] text-[10px] font-mono text-[#00d2b5] border border-[#1a2327] rounded">
+                OpenGraph
+              </span>
+            </div>
+            <!-- Meta Details -->
+            <div class="p-5">
+              <div class="flex items-center justify-between mb-2">
+                <h3 class="text-sm font-bold text-white font-sans uppercase">Social OpenGraph Banner (EN)</h3>
+                <span class="text-[10px] font-mono text-[#f4f2f1]/50">1200×630</span>
+              </div>
+              <p class="text-xs text-[#f4f2f1]/70 leading-relaxed font-light mb-4">
+                Landscape 1.91:1 banner for link unfurls across LinkedIn, Twitter/X, Discord, Slack, and press article feature graphics.
+              </p>
+              <div class="flex items-center gap-2 text-[10px] font-mono text-[#00d2b5]">
+                <span>Lossless PNG (High-DPI)</span>
+              </div>
+            </div>
+          </div>
+          <!-- Download Actions -->
+          <div class="p-4 bg-[#0d1417] border-t border-[#15120e] flex items-center gap-2">
+            <a 
+              href="/branding/novand-social-banner-1200x630.png" 
+              download 
+              class="w-full text-center py-2 bg-[#141b1f] hover:bg-[#00d2b5] hover:text-[#0d1417] text-[#f4f2f1] text-xs font-mono font-medium rounded-sm border border-[#1a2327] transition-all"
+            >
+              Download 1200×630 PNG
+            </a>
+          </div>
+        </div>
+
+        <!-- Asset 13: Social Banner (Persian 1200x630) -->
+        <div class="asset-card group bg-[#141b1f] border border-[#1a2327] rounded-sm overflow-hidden flex flex-col justify-between" data-category="social persian">
+          <div>
+            <!-- Preview Stage -->
+            <div class="h-52 bg-[#090e10] p-4 flex items-center justify-center border-b border-[#15120e] relative">
+              <img 
+                src="/branding/novand-social-banner-persian-1200x630.png" 
+                alt="Novand LinkedIn & Social Media Banner" 
+                class="max-h-36 max-w-[95%] object-contain border border-[#1a2327] transition-transform duration-300 group-hover:scale-105"
+                loading="lazy"
+              />
+              <span class="absolute top-2.5 right-2.5 px-2 py-0.5 bg-[#0d1417] text-[10px] font-mono text-[#00d2b5] border border-[#1a2327] rounded">
+                Persian Banner
+              </span>
+            </div>
+            <!-- Meta Details -->
+            <div class="p-5">
+              <div class="flex items-center justify-between mb-2">
+                <h3 class="text-sm font-bold text-white font-sans uppercase">Persian Social Media Banner (RTL)</h3>
+                <span class="text-[10px] font-mono text-[#f4f2f1]/50">1200×630</span>
+              </div>
+              <p class="text-xs text-[#f4f2f1]/70 leading-relaxed font-light mb-4 font-vazirmatn" dir="rtl">
+                RTL 1200x630 horizontal banner covering smart automation, fiber optics, servers, physical security, and IT equipment procurement.
+              </p>
+              <div class="flex items-center gap-2 text-[10px] font-mono text-[#00d2b5]">
+                <span>Vector SVG</span> • <span>Lossless PNG</span>
+              </div>
+            </div>
+          </div>
+          <!-- Download Actions -->
+          <div class="p-4 bg-[#0d1417] border-t border-[#15120e] flex items-center gap-2">
+            <a 
+              href="/branding/novand-social-banner-persian.svg" 
+              download 
+              class="flex-1 text-center py-2 bg-[#141b1f] hover:bg-[#00d2b5] hover:text-[#0d1417] text-[#f4f2f1] text-xs font-mono font-medium rounded-sm border border-[#1a2327] transition-all"
+            >
+              SVG (Vector)
+            </a>
+            <a 
+              href="/branding/novand-social-banner-persian-1200x630.png" 
+              download 
+              class="flex-1 text-center py-2 bg-[#141b1f] hover:bg-[#1a2327] text-[#f4f2f1]/80 hover:text-white text-xs font-mono font-medium rounded-sm border border-[#1a2327] transition-all"
+            >
+              PNG (Raster)
+            </a>
+          </div>
+        </div>
+
+        <!-- Asset 14: Mobile Story (English 1080x1920) -->
+        <div class="asset-card group bg-[#141b1f] border border-[#1a2327] rounded-sm overflow-hidden flex flex-col justify-between" data-category="social">
+          <div>
+            <!-- Preview Stage -->
+            <div class="h-52 bg-[#090e10] p-4 flex items-center justify-center border-b border-[#15120e] relative">
+              <img 
+                src="/branding/novand-instagram-story-1080x1920.png" 
+                alt="Novand Instagram Story 1080x1920" 
+                class="max-h-44 object-contain border border-[#1a2327] transition-transform duration-300 group-hover:scale-105"
+                loading="lazy"
+              />
+              <span class="absolute top-2.5 right-2.5 px-2 py-0.5 bg-[#0d1417] text-[10px] font-mono text-[#00d2b5] border border-[#1a2327] rounded">
+                9:16 Vertical
+              </span>
+            </div>
+            <!-- Meta Details -->
+            <div class="p-5">
+              <div class="flex items-center justify-between mb-2">
+                <h3 class="text-sm font-bold text-white font-sans uppercase">Mobile &amp; Story Banner (EN)</h3>
+                <span class="text-[10px] font-mono text-[#f4f2f1]/50">1080×1920</span>
+              </div>
+              <p class="text-xs text-[#f4f2f1]/70 leading-relaxed font-light mb-4">
+                Vertical 9:16 composition for Instagram Stories, WhatsApp status, mobile presentation splash cards, and conference totems.
+              </p>
+              <div class="flex items-center gap-2 text-[10px] font-mono text-[#00d2b5]">
+                <span>Lossless PNG (9:16)</span>
+              </div>
+            </div>
+          </div>
+          <!-- Download Actions -->
+          <div class="p-4 bg-[#0d1417] border-t border-[#15120e] flex items-center gap-2">
+            <a 
+              href="/branding/novand-instagram-story-1080x1920.png" 
+              download 
+              class="w-full text-center py-2 bg-[#141b1f] hover:bg-[#00d2b5] hover:text-[#0d1417] text-[#f4f2f1] text-xs font-mono font-medium rounded-sm border border-[#1a2327] transition-all"
+            >
+              Download 1080×1920 PNG
+            </a>
+          </div>
+        </div>
+
+        <!-- Asset 15: Mobile Story (Persian 1080x1920) -->
+        <div class="asset-card group bg-[#141b1f] border border-[#1a2327] rounded-sm overflow-hidden flex flex-col justify-between" data-category="social persian">
+          <div>
+            <!-- Preview Stage -->
+            <div class="h-52 bg-[#090e10] p-4 flex items-center justify-center border-b border-[#15120e] relative">
+              <img 
+                src="/branding/novand-instagram-story-persian-1080x1920.png" 
+                alt="Novand Instagram Story Template" 
+                class="max-h-44 object-contain border border-[#1a2327] transition-transform duration-300 group-hover:scale-105"
+                loading="lazy"
+              />
+              <span class="absolute top-2.5 right-2.5 px-2 py-0.5 bg-[#0d1417] text-[10px] font-mono text-[#00d2b5] border border-[#1a2327] rounded">
+                Persian Story
+              </span>
+            </div>
+            <!-- Meta Details -->
+            <div class="p-5">
+              <div class="flex items-center justify-between mb-2">
+                <h3 class="text-sm font-bold text-white font-sans uppercase">Persian Vertical & Story Template</h3>
+                <span class="text-[10px] font-mono text-[#f4f2f1]/50">1080×1920</span>
+              </div>
+              <p class="text-xs text-[#f4f2f1]/70 leading-relaxed font-light mb-4 font-vazirmatn" dir="rtl">
+                9:16 vertical design with central emblem, Persian title, and comprehensive introduction of smart automation, fiber optics, server, and facility clusters.
+              </p>
+              <div class="flex items-center gap-2 text-[10px] font-mono text-[#00d2b5]">
+                <span>Vector SVG</span> • <span>Lossless PNG</span>
+              </div>
+            </div>
+          </div>
+          <!-- Download Actions -->
+          <div class="p-4 bg-[#0d1417] border-t border-[#15120e] flex items-center gap-2">
+            <a 
+              href="/branding/novand-instagram-story-persian.svg" 
+              download 
+              class="flex-1 text-center py-2 bg-[#141b1f] hover:bg-[#00d2b5] hover:text-[#0d1417] text-[#f4f2f1] text-xs font-mono font-medium rounded-sm border border-[#1a2327] transition-all"
+            >
+              SVG (Vector)
+            </a>
+            <a 
+              href="/branding/novand-instagram-story-persian-1080x1920.png" 
+              download 
+              class="flex-1 text-center py-2 bg-[#141b1f] hover:bg-[#1a2327] text-[#f4f2f1]/80 hover:text-white text-xs font-mono font-medium rounded-sm border border-[#1a2327] transition-all"
+            >
+              PNG (Raster)
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Section: Color System & Tokens -->
+  <section id="colors" class="py-20 bg-[#090e10] text-[#f4f2f1] border-b border-[#15120e]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="max-w-3xl mb-12">
+        <span class="text-xs font-mono uppercase tracking-[0.2em] text-[#00d2b5] block mb-2">Color Matrix</span>
+        <h2 class="text-2xl sm:text-4xl font-bold text-white tracking-tight">
+          Brand Color Palette &amp; Tokens
+        </h2>
+        <p class="text-sm sm:text-base text-[#f4f2f1]/70 leading-relaxed font-light mt-2">
+          Click any color block to copy its hex value directly to your clipboard. Our palette is built on deep obsidian chassis with vibrant optical signal highlights.
+        </p>
+      </div>
+
+      <!-- Color Swatches Grid -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+
+        <!-- Color 1: Obsidian Dark -->
+        <div class="bg-[#141b1f] border border-[#1a2327] rounded-sm overflow-hidden p-5 flex flex-col justify-between group">
+          <div>
+            <div class="h-28 w-full bg-[#0d1417] border border-[#1a2327] rounded-sm mb-4 flex items-end p-3 justify-between">
+              <span class="px-2 py-0.5 bg-[#141b1f] text-[10px] font-mono text-white/80 rounded">Canvas Primary</span>
+            </div>
+            <h3 class="text-base font-bold text-white font-sans">Obsidian Dark</h3>
+            <p class="text-xs text-[#f4f2f1]/60 font-light mt-1 mb-4">
+              Base chassis canvas representing physical server racks and modern dark architecture.
+            </p>
+          </div>
+          <div class="border-t border-[#15120e] pt-4 space-y-1.5 text-xs font-mono">
+            <div class="flex justify-between items-center">
+              <span class="text-[#f4f2f1]/50">HEX</span>
+              <button type="button" class="copy-hex font-bold text-[#00d2b5] hover:underline cursor-pointer flex items-center gap-1" data-hex="#0d1417">
+                #0d1417
+                <svg class="w-3 h-3 opacity-70" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+              </button>
+            </div>
+            <div class="flex justify-between items-center text-[#f4f2f1]/60 text-[11px]">
+              <span>RGB</span>
+              <span>13, 20, 23</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Color 2: Carbon Surface -->
+        <div class="bg-[#141b1f] border border-[#1a2327] rounded-sm overflow-hidden p-5 flex flex-col justify-between group">
+          <div>
+            <div class="h-28 w-full bg-[#141b1f] border border-[#1a2327] rounded-sm mb-4 flex items-end p-3 justify-between">
+              <span class="px-2 py-0.5 bg-[#090e10] text-[10px] font-mono text-white/80 rounded">Surface &amp; Cards</span>
+            </div>
+            <h3 class="text-base font-bold text-white font-sans">Carbon Surface</h3>
+            <p class="text-xs text-[#f4f2f1]/60 font-light mt-1 mb-4">
+              Elevated panel layer for cards, badges, and component frames with subtle visual depth.
+            </p>
+          </div>
+          <div class="border-t border-[#15120e] pt-4 space-y-1.5 text-xs font-mono">
+            <div class="flex justify-between items-center">
+              <span class="text-[#f4f2f1]/50">HEX</span>
+              <button type="button" class="copy-hex font-bold text-[#00d2b5] hover:underline cursor-pointer flex items-center gap-1" data-hex="#141b1f">
+                #141b1f
+                <svg class="w-3 h-3 opacity-70" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+              </button>
+            </div>
+            <div class="flex justify-between items-center text-[#f4f2f1]/60 text-[11px]">
+              <span>RGB</span>
+              <span>20, 27, 31</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Color 3: Signal Cyan -->
+        <div class="bg-[#141b1f] border border-[#1a2327] rounded-sm overflow-hidden p-5 flex flex-col justify-between group">
+          <div>
+            <div class="h-28 w-full bg-[#00d2b5] rounded-sm mb-4 flex items-end p-3 justify-between shadow-[0_0_20px_rgba(0,210,181,0.2)]">
+              <span class="px-2 py-0.5 bg-[#0d1417] text-[10px] font-mono text-[#00d2b5] rounded font-bold">Signal Active</span>
+            </div>
+            <h3 class="text-base font-bold text-white font-sans">Signal Cyan</h3>
+            <p class="text-xs text-[#f4f2f1]/60 font-light mt-1 mb-4">
+              Active optical signal accent, representing fiber optic wavelengths and live network flow.
+            </p>
+          </div>
+          <div class="border-t border-[#15120e] pt-4 space-y-1.5 text-xs font-mono">
+            <div class="flex justify-between items-center">
+              <span class="text-[#f4f2f1]/50">HEX</span>
+              <button type="button" class="copy-hex font-bold text-[#00d2b5] hover:underline cursor-pointer flex items-center gap-1" data-hex="#00d2b5">
+                #00d2b5
+                <svg class="w-3 h-3 opacity-70" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+              </button>
+            </div>
+            <div class="flex justify-between items-center text-[#f4f2f1]/60 text-[11px]">
+              <span>RGB</span>
+              <span>0, 210, 181</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Color 4: Routing Emerald -->
+        <div class="bg-[#141b1f] border border-[#1a2327] rounded-sm overflow-hidden p-5 flex flex-col justify-between group">
+          <div>
+            <div class="h-28 w-full bg-[#10b981] rounded-sm mb-4 flex items-end p-3 justify-between shadow-[0_0_20px_rgba(16,185,129,0.2)]">
+              <span class="px-2 py-0.5 bg-[#0d1417] text-[10px] font-mono text-[#10b981] rounded font-bold">Status Healthy</span>
+            </div>
+            <h3 class="text-base font-bold text-white font-sans">Routing Emerald</h3>
+            <p class="text-xs text-[#f4f2f1]/60 font-light mt-1 mb-4">
+              Gradient terminal anchor, representing system vitality and energy-efficient automation.
+            </p>
+          </div>
+          <div class="border-t border-[#15120e] pt-4 space-y-1.5 text-xs font-mono">
+            <div class="flex justify-between items-center">
+              <span class="text-[#f4f2f1]/50">HEX</span>
+              <button type="button" class="copy-hex font-bold text-[#10b981] hover:underline cursor-pointer flex items-center gap-1" data-hex="#10b981">
+                #10b981
+                <svg class="w-3 h-3 opacity-70" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+              </button>
+            </div>
+            <div class="flex justify-between items-center text-[#f4f2f1]/60 text-[11px]">
+              <span>RGB</span>
+              <span>16, 185, 129</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Color 5: Architectural Off-White -->
+        <div class="bg-[#141b1f] border border-[#1a2327] rounded-sm overflow-hidden p-5 flex flex-col justify-between group">
+          <div>
+            <div class="h-28 w-full bg-[#f4f2f1] rounded-sm mb-4 flex items-end p-3 justify-between">
+              <span class="px-2 py-0.5 bg-[#0d1417] text-[10px] font-mono text-white rounded font-bold">Typography &amp; Structure</span>
+            </div>
+            <h3 class="text-base font-bold text-white font-sans">Architectural Off-White</h3>
+            <p class="text-xs text-[#f4f2f1]/60 font-light mt-1 mb-4">
+              Structural path color and crisp primary typography with soft warmth to prevent eye fatigue.
+            </p>
+          </div>
+          <div class="border-t border-[#15120e] pt-4 space-y-1.5 text-xs font-mono">
+            <div class="flex justify-between items-center">
+              <span class="text-[#f4f2f1]/50">HEX</span>
+              <button type="button" class="copy-hex font-bold text-white hover:underline cursor-pointer flex items-center gap-1" data-hex="#f4f2f1">
+                #f4f2f1
+                <svg class="w-3 h-3 opacity-70" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+              </button>
+            </div>
+            <div class="flex justify-between items-center text-[#f4f2f1]/60 text-[11px]">
+              <span>RGB</span>
+              <span>244, 242, 241</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Color 6: Wireframe Divider -->
+        <div class="bg-[#141b1f] border border-[#1a2327] rounded-sm overflow-hidden p-5 flex flex-col justify-between group">
+          <div>
+            <div class="h-28 w-full bg-[#1a2327] rounded-sm mb-4 flex items-end p-3 justify-between">
+              <span class="px-2 py-0.5 bg-[#0d1417] text-[10px] font-mono text-white/70 rounded">Borders &amp; Grid</span>
+            </div>
+            <h3 class="text-base font-bold text-white font-sans">Wireframe Slate</h3>
+            <p class="text-xs text-[#f4f2f1]/60 font-light mt-1 mb-4">
+              Precision dividers and schematic grid lines framing technical panels and UI containers.
+            </p>
+          </div>
+          <div class="border-t border-[#15120e] pt-4 space-y-1.5 text-xs font-mono">
+            <div class="flex justify-between items-center">
+              <span class="text-[#f4f2f1]/50">HEX</span>
+              <button type="button" class="copy-hex font-bold text-[#00d2b5] hover:underline cursor-pointer flex items-center gap-1" data-hex="#1a2327">
+                #1a2327
+                <svg class="w-3 h-3 opacity-70" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+              </button>
+            </div>
+            <div class="flex justify-between items-center text-[#f4f2f1]/60 text-[11px]">
+              <span>RGB</span>
+              <span>26, 35, 39</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Section: Typography System -->
+  <section id="typography" class="py-20 bg-[#0d1417] text-[#f4f2f1] border-b border-[#15120e]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="max-w-3xl mb-12">
+        <span class="text-xs font-mono uppercase tracking-[0.2em] text-[#00d2b5] block mb-2">Typefaces &amp; Hierarchy</span>
+        <h2 class="text-2xl sm:text-4xl font-bold text-white tracking-tight">
+          Typography System
+        </h2>
+        <p class="text-sm sm:text-base text-[#f4f2f1]/70 leading-relaxed font-light mt-2">
+          Balanced typography pairing high-precision Latin geometric headings with elegant modern Persian typography and monospace engineering data specs.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+        
+        <!-- Typeface 1: Space Grotesk -->
+        <div class="bg-[#141b1f] border border-[#1a2327] p-8 rounded-sm space-y-6">
+          <div class="flex items-center justify-between border-b border-[#15120e] pb-4">
+            <div>
+              <h3 class="text-xl font-bold text-white font-sans">Space Grotesk</h3>
+              <p class="text-xs text-[#00d2b5] font-mono">Latin Primary &amp; Titles</p>
+            </div>
+            <span class="text-xs font-mono text-[#f4f2f1]/50">700 / 500 / 400</span>
+          </div>
+
+          <div class="space-y-4">
+            <div>
+              <span class="text-[10px] font-mono text-[#f4f2f1]/50 uppercase block mb-1">Display Sample</span>
+              <p class="text-2xl font-bold text-white font-sans tracking-tight">
+                NOVAND
+              </p>
+              <p class="text-xs text-[#00d2b5] font-mono tracking-widest uppercase mt-1">
+                INTEGRATED TECH &amp; INFRASTRUCTURE
+              </p>
+            </div>
+
+            <div>
+              <span class="text-[10px] font-mono text-[#f4f2f1]/50 uppercase block mb-1">Character Set</span>
+              <p class="text-sm text-[#f4f2f1]/80 font-sans tracking-wider leading-relaxed">
+                ABCDEFGHIJKLMNOPQRSTUVWXYZ<br />
+                abcdefghijklmnopqrstuvwxyz<br />
+                0123456789 • !@#$%&amp;*()
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Typeface 2: Vazirmatn -->
+        <div class="bg-[#141b1f] border border-[#1a2327] p-8 rounded-sm space-y-6">
+          <div class="flex items-center justify-between border-b border-[#15120e] pb-4">
+            <div>
+              <h3 class="text-xl font-bold text-white font-vazirmatn">وزیرمتن (Vazirmatn)</h3>
+              <p class="text-xs text-[#00d2b5] font-mono">Persian Primary &amp; Identity</p>
+            </div>
+            <span class="text-xs font-mono text-[#f4f2f1]/50">Bold / Regular</span>
+          </div>
+
+          <div class="space-y-4" dir="rtl">
+            <div>
+              <span class="text-[10px] font-mono text-[#f4f2f1]/50 uppercase block mb-1" dir="ltr">Official Title Sample</span>
+              <p class="text-2xl font-bold text-white font-vazirmatn tracking-normal">
+                Novand
+              </p>
+              <p class="text-xs text-[#00d2b5] font-vazirmatn font-semibold mt-1">
+                Integrated Technology & Infrastructure Engineering Solutions
+              </p>
+            </div>
+
+            <div>
+              <span class="text-[10px] font-mono text-[#f4f2f1]/50 uppercase block mb-1" dir="ltr">Alphabet</span>
+              <p class="text-sm text-[#f4f2f1]/80 font-vazirmatn leading-relaxed">
+                ابپتثجچحخدذرزژسشصضطظعغفقکگلمنوهی<br />
+                0123456789 · Facility Automation
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Typeface 3: JetBrains Mono / Monospace -->
+        <div class="bg-[#141b1f] border border-[#1a2327] p-8 rounded-sm space-y-6">
+          <div class="flex items-center justify-between border-b border-[#15120e] pb-4">
+            <div>
+              <h3 class="text-xl font-bold text-white font-mono">System Monospace</h3>
+              <p class="text-xs text-[#00d2b5] font-mono">Technical Specs &amp; Coordinates</p>
+            </div>
+            <span class="text-xs font-mono text-[#f4f2f1]/50">Tabular Numbers</span>
+          </div>
+
+          <div class="space-y-4 font-mono">
+            <div>
+              <span class="text-[10px] font-mono text-[#f4f2f1]/50 uppercase block mb-1">Telemetry Sample</span>
+              <p class="text-sm font-semibold text-white">
+                FTTH-TRUNK // 10G-SFP+<br />
+                VLAN: 4096 · STATUS: OK<br />
+                SCALE: 1080x1080 · D65-RGB
+              </p>
+            </div>
+
+            <div>
+              <span class="text-[10px] font-mono text-[#f4f2f1]/50 uppercase block mb-1">Code &amp; Numbers</span>
+              <p class="text-sm text-[#f4f2f1]/80 tracking-widest">
+                0 1 2 3 4 5 6 7 8 9<br />
+                [x=540, y=540, r=4.5]
+              </p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Section: Clearspace, Sizing & Brand Guidelines -->
+  <section id="standards" class="py-20 bg-[#090e10] text-[#f4f2f1] border-b border-[#15120e]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="max-w-3xl mb-12">
+        <span class="text-xs font-mono uppercase tracking-[0.2em] text-[#00d2b5] block mb-2">Usage Standards</span>
+        <h2 class="text-2xl sm:text-4xl font-bold text-white tracking-tight">
+          Clearspace &amp; Brand Usage Rules
+        </h2>
+        <p class="text-sm sm:text-base text-[#f4f2f1]/70 leading-relaxed font-light mt-2">
+          Strict visual protection zones ensure that the Novand emblem retains maximum clarity and prominence across any application.
+        </p>
+      </div>
+
+      <!-- Clearspace Diagram & Minimum Size Cards -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-16">
+        
+        <!-- Left: Clearspace Visualization -->
+        <div class="lg:col-span-7 bg-[#0d1417] border border-[#1a2327] p-8 rounded-sm">
+          <div class="flex items-center justify-between mb-6">
+            <h3 class="text-base font-bold text-white font-sans uppercase">Clearspace Exclusion Zone (X = 0.5H)</h3>
+            <span class="text-xs font-mono text-[#00d2b5]">Minimum Perimeter</span>
+          </div>
+
+          <!-- Visual Clearspace Box -->
+          <div class="p-10 border border-dashed border-[#00d2b5]/40 bg-[#090e10] relative rounded-sm flex items-center justify-center">
+            <!-- Corner dimension markers -->
+            <div class="absolute top-2 left-2 text-[10px] font-mono text-[#00d2b5]/60">X</div>
+            <div class="absolute top-2 right-2 text-[10px] font-mono text-[#00d2b5]/60">X</div>
+            <div class="absolute bottom-2 left-2 text-[10px] font-mono text-[#00d2b5]/60">X</div>
+            <div class="absolute bottom-2 right-2 text-[10px] font-mono text-[#00d2b5]/60">X</div>
+
+            <div class="w-32 h-32 text-white relative z-10">
+              <NovandLogo />
+            </div>
+          </div>
+
+          <p class="text-xs text-[#f4f2f1]/70 font-light mt-4 leading-relaxed">
+            The minimum exclusion margin corresponds to dimension <strong class="text-white">X</strong>, defined as half the height of the primary building gable. No typography, secondary company logos, graphic borders, or photography edges may intrude into this zone.
+          </p>
+        </div>
+
+        <!-- Right: Minimum Sizes Matrix -->
+        <div class="lg:col-span-5 space-y-4">
+          
+          <div class="p-6 bg-[#141b1f] border border-[#1a2327] rounded-sm">
+            <h3 class="text-sm font-bold text-white font-sans uppercase mb-2">Digital Minimum Sizing</h3>
+            <div class="space-y-3 text-xs">
+              <div class="flex justify-between items-center py-2 border-b border-[#15120e]">
+                <span class="text-[#f4f2f1]/70">Standalone Monomark</span>
+                <span class="font-mono text-[#00d2b5] font-bold">24 × 24 px</span>
+              </div>
+              <div class="flex justify-between items-center py-2 border-b border-[#15120e]">
+                <span class="text-[#f4f2f1]/70">Horizontal Lockup</span>
+                <span class="font-mono text-[#00d2b5] font-bold">140 × 35 px</span>
+              </div>
+              <div class="flex justify-between items-center py-2">
+                <span class="text-[#f4f2f1]/70">Centered Stacked Lockup</span>
+                <span class="font-mono text-[#00d2b5] font-bold">96 × 96 px</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="p-6 bg-[#141b1f] border border-[#1a2327] rounded-sm">
+            <h3 class="text-sm font-bold text-white font-sans uppercase mb-2">Print &amp; Fabrication Minimums</h3>
+            <div class="space-y-3 text-xs">
+              <div class="flex justify-between items-center py-2 border-b border-[#15120e]">
+                <span class="text-[#f4f2f1]/70">Standalone Monomark</span>
+                <span class="font-mono text-[#10b981] font-bold">6.0 × 6.0 mm</span>
+              </div>
+              <div class="flex justify-between items-center py-2 border-b border-[#15120e]">
+                <span class="text-[#f4f2f1]/70">Horizontal Lockup</span>
+                <span class="font-mono text-[#10b981] font-bold">30.0 × 8.0 mm</span>
+              </div>
+              <div class="flex justify-between items-center py-2">
+                <span class="text-[#f4f2f1]/70">Laser Etching on Chassis</span>
+                <span class="font-mono text-[#10b981] font-bold">12.0 × 12.0 mm</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- Do's and Don'ts Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        
+        <!-- Column 1: DO -->
+        <div class="p-8 bg-[#141b1f] border border-[#1a2327] rounded-sm space-y-4">
+          <div class="flex items-center gap-2 text-emerald-400 font-mono text-xs uppercase tracking-widest font-bold">
+            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            Approved Practices (DO)
+          </div>
+          <ul class="space-y-3 text-xs text-[#f4f2f1]/80 font-light leading-relaxed">
+            <li class="flex items-start gap-2.5">
+              <span class="text-emerald-400 font-bold shrink-0">✓</span>
+              <span>Always use the official <strong class="text-white">Dark Lockup</strong> on dark backgrounds and the <strong class="text-white">Light Lockup</strong> on white or light backgrounds.</span>
+            </li>
+            <li class="flex items-start gap-2.5">
+              <span class="text-emerald-400 font-bold shrink-0">✓</span>
+              <span>Maintain the specified exclusion clearspace around the emblem in all layouts.</span>
+            </li>
+            <li class="flex items-start gap-2.5">
+              <span class="text-emerald-400 font-bold shrink-0">✓</span>
+              <span>Use the <strong class="text-white">Monochrome Black</strong> format for physical laser etching on aluminum network racks and single-color forms.</span>
+            </li>
+            <li class="flex items-start gap-2.5">
+              <span class="text-emerald-400 font-bold shrink-0">✓</span>
+              <span>Utilize the official Persian typography lockup for Iranian and regional documentation.</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Column 2: DON'T -->
+        <div class="p-8 bg-[#141b1f] border border-[#1a2327] rounded-sm space-y-4">
+          <div class="flex items-center gap-2 text-rose-400 font-mono text-xs uppercase tracking-widest font-bold">
+            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+            Prohibited Modifications (DON'T)
+          </div>
+          <ul class="space-y-3 text-xs text-[#f4f2f1]/80 font-light leading-relaxed">
+            <li class="flex items-start gap-2.5">
+              <span class="text-rose-400 font-bold shrink-0">✗</span>
+              <span>Never stretch, squish, or distort the geometric proportions of the monogram or wordmark.</span>
+            </li>
+            <li class="flex items-start gap-2.5">
+              <span class="text-rose-400 font-bold shrink-0">✗</span>
+              <span>Never substitute arbitrary gradient colors (e.g. purple, orange) for the Cyan-Emerald optical bus.</span>
+            </li>
+            <li class="flex items-start gap-2.5">
+              <span class="text-rose-400 font-bold shrink-0">✗</span>
+              <span>Never place the full-color dark emblem on high-contrast busy photography without a darkening overlay.</span>
+            </li>
+            <li class="flex items-start gap-2.5">
+              <span class="text-rose-400 font-bold shrink-0">✗</span>
+              <span>Never alter the individual positions or angles of the circuit traces and terminal nodes.</span>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Section: Press & Media Kit CTA -->
+  <section id="press-kit" class="py-16 bg-[#0d1417] text-[#f4f2f1]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="bg-[#141b1f] border border-[#1a2327] p-8 sm:p-12 rounded-sm relative overflow-hidden flex flex-col md:flex-row items-center justify-between gap-8">
+        <div class="max-w-2xl space-y-2">
+          <span class="text-xs font-mono uppercase tracking-[0.2em] text-[#00d2b5]">Media &amp; Corporate Inquiries</span>
+          <h2 class="text-2xl sm:text-3xl font-bold text-white tracking-tight font-sans">
+            Need Custom Asset Formats or Co-Branding Approval?
+          </h2>
+          <p class="text-sm text-[#f4f2f1]/70 leading-relaxed font-light">
+            For editorial features, conference sponsorship kits, vector engineering blueprints, or partner co-branding reviews, our team is available to assist.
+          </p>
+        </div>
+
+        <div class="flex flex-wrap items-center gap-4 shrink-0">
+          <a 
+            href="/branding/novand-brand-assets.zip" 
+            download
+            class="px-5 py-3 bg-[#00d2b5] hover:bg-[#00e5c5] text-[#0d1417] font-semibold text-xs tracking-wide rounded-sm transition-all"
+          >
+            Download All Assets (.ZIP)
+          </a>
+          <a 
+            href="/en/contact" 
+            class="px-5 py-3 bg-[#090e10] hover:bg-[#1a2327] text-[#f4f2f1] font-medium text-xs tracking-wide border border-[#1a2327] rounded-sm transition-colors"
+          >
+            Contact Brand Team
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Toast Notification Container for Hex Copies -->
+  <div 
+    id="toast-notification" 
+    class="fixed bottom-6 right-6 z-50 transform translate-y-16 opacity-0 transition-all duration-300 pointer-events-none px-4 py-3 bg-[#141b1f] text-white border border-[#00d2b5] rounded-sm shadow-2xl text-xs font-mono flex items-center gap-2"
+  >
+    <svg class="w-4 h-4 text-[#00d2b5]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+    <span id="toast-message">Copied to clipboard!</span>
+  </div>
+
+  <script is:inline>
+    // 1. Asset Filtering Logic
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const assetCards = document.querySelectorAll('.asset-card');
+
+    filterButtons.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        // Update active filter styling
+        filterButtons.forEach((b) => {
+          b.classList.remove('bg-[#00d2b5]', 'text-[#0d1417]', 'font-bold');
+          b.classList.add('bg-[#141b1f]', 'text-[#f4f2f1]/80');
+        });
+        btn.classList.remove('bg-[#141b1f]', 'text-[#f4f2f1]/80');
+        btn.classList.add('bg-[#00d2b5]', 'text-[#0d1417]', 'font-bold');
+
+        const filter = btn.getAttribute('data-filter');
+
+        assetCards.forEach((card) => {
+          if (filter === 'all') {
+            card.style.display = 'flex';
+          } else {
+            const categories = card.getAttribute('data-category') || '';
+            if (categories.includes(filter)) {
+              card.style.display = 'flex';
+            } else {
+              card.style.display = 'none';
+            }
+          }
+        });
+      });
+    });
+
+    // 2. Click to Copy Hex Colors with Toast
+    const copyButtons = document.querySelectorAll('.copy-hex');
+    const toast = document.getElementById('toast-notification');
+    const toastMsg = document.getElementById('toast-message');
+    let toastTimeout;
+
+    copyButtons.forEach((btn) => {
+      btn.addEventListener('click', async () => {
+        const hex = btn.getAttribute('data-hex');
+        if (!hex) return;
+        try {
+          await navigator.clipboard.writeText(hex);
+          if (toast && toastMsg) {
+            toastMsg.textContent = `Copied ${hex} to clipboard!`;
+            toast.classList.remove('translate-y-16', 'opacity-0');
+            clearTimeout(toastTimeout);
+            toastTimeout = setTimeout(() => {
+              toast.classList.add('translate-y-16', 'opacity-0');
+            }, 2500);
+          }
+        } catch (e) {
+          console.error('Clipboard copy failed', e);
+        }
+      });
+    });
+  </script>
+</BaseLayout>

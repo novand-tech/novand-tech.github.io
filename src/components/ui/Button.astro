@@ -1,0 +1,54 @@
+---
+interface Props {
+  href?: string;
+  variant?: 'primary' | 'secondary' | 'outline' | 'ghost' | 'warm';
+  size?: 'sm' | 'md' | 'lg';
+  type?: 'button' | 'submit' | 'reset';
+  class?: string;
+  id?: string;
+  target?: string;
+  rel?: string;
+  [key: string]: any;
+}
+
+const {
+  href,
+  variant = 'primary',
+  size = 'md',
+  type = 'button',
+  class: className = '',
+  id,
+  target,
+  rel,
+  ...rest
+} = Astro.props;
+
+const baseStyles = "inline-flex items-center justify-center font-medium transition-all duration-200 focus-visible:outline-2 focus-visible:outline-offset-2 disabled:opacity-50 disabled:pointer-events-none text-center select-none";
+
+const sizeStyles = {
+  sm: "text-[10px] px-4 py-2 uppercase font-bold tracking-widest",
+  md: "text-[11px] px-6 py-2.5 uppercase font-bold tracking-widest",
+  lg: "text-[11px] sm:text-xs px-8 py-3.5 uppercase font-bold tracking-widest"
+};
+
+const variantStyles = {
+  primary: "bg-[#f4f2f1] text-[#141210] hover:bg-[#f6f2ee] active:bg-[#e7e4e1] border border-transparent transition-colors",
+  secondary: "bg-[#0d1417] text-[#f4f2f1] hover:bg-[#15120e] border border-[#15120e] hover:border-[#f4f2f1]/30 active:bg-[#141210] transition-colors",
+  outline: "bg-transparent text-[#f4f2f1] border border-[#f4f2f1] hover:bg-[#f4f2f1] hover:text-[#141210] transition-all",
+  ghost: "bg-transparent text-[#f4f2f1]/80 hover:text-[#f6f2ee] hover:bg-[#f6f2ee]/5 transition-colors",
+  warm: "bg-[#15120e] text-[#f4f2f1] hover:bg-[#0d1417] border border-[#f4f2f1]/20 hover:border-[#f4f2f1] transition-all"
+};
+
+const computedClass = `${baseStyles} ${sizeStyles[size]} ${variantStyles[variant]} ${className}`;
+---
+{
+  href ? (
+    <a href={href} class={computedClass} id={id} target={target} rel={rel} {...rest}>
+      <slot />
+    </a>
+  ) : (
+    <button type={type} class={computedClass} id={id} {...rest}>
+      <slot />
+    </button>
+  )
+}

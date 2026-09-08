@@ -1,0 +1,69 @@
+---
+const isEn = Astro.url.pathname.startsWith("/en");
+const companyData = getCompanyData(Astro.url.pathname);
+import SectionHeading from '../ui/SectionHeading.astro';
+import { getCompanyData } from "../../data/company";
+---
+<section class="bg-[#0d1417] text-[#f4f2f1] py-20 sm:py-28 border-b border-[#15120e] bg-grid-subtle">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+      
+      <div class="lg:col-span-5">
+        <SectionHeading 
+          eyebrow={isEn ? 'Engineering Principles' : 'اصول مهندسی'}
+          title={isEn ? 'Why Organizations Partner with Novand' : 'چرا سازمان‌ها با نُوَند کار می‌کنند'}
+          description={isEn ? 'We do not make generic marketing promises. We deliver quantifiable engineering value based on standards adherence, architectural discipline, and vendor-neutral equipment selection.' : 'ما به جای وعده‌های توخالی، ارزش مهندسی واقعی بر پایه استانداردها و بدون وابستگی به برند خاصی ارائه می‌دهیم.'}
+          theme="dark"
+          class="mb-6"
+        />
+
+        <div class="p-6 bg-[#15120e] border border-[#15120e] text-xs font-mono space-y-2">
+          <span class="text-[#f6f2ee] font-medium uppercase tracking-wider block">
+            {isEn ? 'Vendor-Neutral Architecture' : 'معماری مستقل از برند'}
+          </span>
+          <p class="text-[#f4f2f1]/70 leading-relaxed font-sans font-light">
+            {isEn ? 'We specify hardware and protocols based strictly on reliability, documentation quality, MTBF ratings, and lifetime total cost of ownership—never on sales quotas or exclusive vendor kickbacks.' : 'ما سخت‌افزار را صرفا براساس قابلیت اطمینان، کیفیت، طول عمر و هزینه مالکیت انتخاب می‌کنیم، نه حاشیه سود فروش.'}
+          </p>
+        </div>
+      </div>
+
+      <!-- 5 Core Value Columns (7 Cols) -->
+      <div class="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-6">
+        {companyData.whyUs.map((item, index) => (
+          <div class="bg-[#15120e] border border-[#15120e] p-6 flex flex-col justify-between hover:border-[#f4f2f1]/30 transition-colors">
+            <div>
+              <div class="text-[10px] font-mono text-[#f6f2ee] opacity-70 mb-2">
+                0{index + 1} // CRITERION
+              </div>
+              <h3 class="text-lg font-light text-[#f4f2f1] mb-2 tracking-tight">
+                {item.title}
+              </h3>
+              <p class="text-xs sm:text-sm text-[#f4f2f1]/65 font-light leading-relaxed">
+                {item.description}
+              </p>
+            </div>
+          </div>
+        ))}
+        
+        <!-- Supplementary Anchor Block -->
+        <div class="bg-[#141210] text-[#f4f2f1] p-6 flex flex-col justify-between border border-[#15120e]">
+          <div>
+            <div class="text-[10px] font-mono text-[#f6f2ee] opacity-70 mb-2">
+              {isEn ? 'VERIFICATION' : 'تاییدیه'}
+            </div>
+            <h3 class="text-lg font-light text-white mb-2 tracking-tight">
+              {isEn ? 'Documentation & Handover' : 'مستندات و تحویل'}
+            </h3>
+            <p class="text-xs sm:text-sm text-[#f4f2f1]/65 font-light leading-relaxed">
+              {isEn ? 'Every completed installation includes comprehensive as-built schematics, labeled port matrices, and root credential escrow runbooks.' : 'در انتهای کار، مستندات کامل شامل نقشه‌های از-بیلت، جدول پورت‌ها و گذرواژه‌های اصلی به صورت امن تحویل می‌گردد.'}
+            </p>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+</section>

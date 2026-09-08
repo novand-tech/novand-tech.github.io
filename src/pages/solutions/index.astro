@@ -1,0 +1,112 @@
+---
+const solutionsData = getSolutionsData(Astro.url.pathname);
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/ui/Breadcrumbs.astro';
+import SolutionCard from '../../components/cards/SolutionCard.astro';
+import SectionHeading from '../../components/ui/SectionHeading.astro';
+import Button from '../../components/ui/Button.astro';
+import { getSolutionsData } from "../../data/solutions";
+---
+<BaseLayout 
+  title="راهکارها و محیط‌های اجرایی | Novand"
+  description="راهکارهای مهندسی فناوری بر اساس معماری فیزیکی و نیازهای عملیاتی در حوزه‌های تجاری، آموزشی، مسکونی، درمانی، اقامتی و تاسیسات خاص."
+>
+  <!-- Breadcrumbs -->
+  <div class="bg-[#141210] border-b border-[#15120e] py-3">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <Breadcrumbs items={[{ label: 'راهکارها' }]} />
+    </div>
+  </div>
+
+  <!-- Page Header / Hero -->
+  <section class="bg-[#141210] text-[#f4f2f1] py-16 sm:py-24 border-b border-[#15120e] bg-grid-subtle">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl">
+        <div class="inline-flex items-center gap-3 px-3.5 py-1 bg-[#0d1417] border border-[#15120e] text-[#f6f2ee] text-[10px] font-mono uppercase tracking-[0.25em] mb-4">
+          <span class="w-1.5 h-1.5 bg-[#f4f2f1]"></span>
+          معماری محیطی
+        </div>
+        <h1 class="text-3xl sm:text-5xl font-light tracking-tight leading-tight text-[#f4f2f1] mb-6">
+          انطباق سیستم‌های فناوری با واقعیت‌های محیط
+        </h1>
+        <p class="text-base sm:text-lg text-[#f4f2f1]/70 leading-relaxed font-light">
+          یک دفتر کاری با تراکم بالا به برنامه‌ریزی کابل‌کشی و امواج RF کاملاً متفاوتی نسبت به یک سالن آکوستیک، بخش بیمارستانی یا سردخانه صنعتی نیاز دارد. ما طراحی‌ها را دقیقاً بر اساس محدودیت‌های فیزیکی ساختمان شما انجام می‌دهیم.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- راهکارها Grid -->
+  <section class="bg-[#0d1417] text-[#f4f2f1] py-16 sm:py-24 border-b border-[#15120e]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {solutionsData.map((solution) => (
+          <SolutionCard solution={solution} theme="dark" />
+        ))}
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Facility Challenge Matrix -->
+  <section class="bg-[#141210] text-[#f4f2f1] py-16 sm:py-24 border-b border-[#15120e]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <SectionHeading 
+        eyebrow="ملاحظات معماری"
+        title="ماتریس مقایسه محیطی"
+        description="درک چگونگی تاثیر عوامل محیطی بر انتخاب نوع کابل‌کشی، مدل‌های انتشار بی‌سیم و رک‌های تجهیزات."
+        theme="dark"
+        class="mb-8"
+      />
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-xs font-mono">
+        <div class="bg-[#15120e] p-6 border border-[#15120e] space-y-3 hover:border-[#f4f2f1]/30 transition-colors">
+          <div class="text-[#f6f2ee] opacity-80 uppercase tracking-wider text-[10px] border-b border-[#15120e] pb-2">
+            آکوستیک و زیبایی‌شناسی
+          </div>
+          <p class="text-[#f4f2f1]/65 font-light leading-relaxed font-sans text-xs">
+            محیط‌های مسکونی، سوئیت‌های مدیریتی و هتل‌های بوتیک نیازمند زیرساخت‌های نامرئی هستند: مسیرهای کابل‌کشی مخفی، اسپیکرهای توکار معماری، خنک‌کننده‌های بدون صدا (پسیو) و کیبوردهای لمسی ظریف.
+          </p>
+        </div>
+
+        <div class="bg-[#15120e] p-6 border border-[#15120e] space-y-3 hover:border-[#f4f2f1]/30 transition-colors">
+          <div class="text-[#f6f2ee] opacity-80 uppercase tracking-wider text-[10px] border-b border-[#15120e] pb-2">
+            تراکم و رومینگ
+          </div>
+          <p class="text-[#f4f2f1]/65 font-light leading-relaxed font-sans text-xs">
+            پردیس‌های دانشگاهی و دفاتر سازمانی با تراکم بالای کاربران و رومینگ سریع اکسس‌پوینت‌ها مواجه‌اند. ما مدل‌های پوشش مایکرو-سلول 5GHz/6GHz را با انتقال سریع 802.11k/v/r مهندسی می‌کنیم.
+          </p>
+        </div>
+
+        <div class="bg-[#15120e] p-6 border border-[#15120e] space-y-3 hover:border-[#f4f2f1]/30 transition-colors">
+          <div class="text-[#f6f2ee] opacity-80 uppercase tracking-wider text-[10px] border-b border-[#15120e] pb-2">
+            محیط‌های حرارتی و صنعتی سخت
+          </div>
+          <p class="text-[#f4f2f1]/65 font-light leading-relaxed font-sans text-xs">
+            مراکز داده، مراکز توزیع و اتاق‌های مکانیکی با ذرات معلق، نوسانات شدید دمایی و لرزش بالا روبه‌رو هستند. ما از رک‌های دارای استاندارد NEMA/IP، سوئیچ‌های صنعتی مقاوم و فیبرهای زره‌دار (Armored) استفاده می‌کنیم.
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Consultation CTA -->
+  <section class="bg-[#0d1417] text-[#f4f2f1] py-16 sm:py-24 border-b border-[#15120e]">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6">
+      <h2 class="text-2xl sm:text-3xl font-light tracking-tight text-[#f4f2f1]">
+        درباره نیازهای خاص تاسیسات خود گفتگو کنید
+      </h2>
+      <p class="text-base text-[#f4f2f1]/70 font-light max-w-2xl mx-auto">
+        مهندسین ما می‌توانند بازدیدهای میدانی انجام داده و نقشه‌های تاسیساتی (مکانیکی، الکتریکی، لوله‌کشی) را برای هماهنگی یکپارچه فناوری بررسی کنند.
+      </p>
+      <div class="pt-2">
+        <Button href="/contact#consultation" variant="primary" size="lg">
+          درخواست مشاوره
+        </Button>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>

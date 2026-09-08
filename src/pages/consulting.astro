@@ -1,0 +1,185 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Breadcrumbs from '../components/ui/Breadcrumbs.astro';
+import SectionHeading from '../components/ui/SectionHeading.astro';
+import Button from '../components/ui/Button.astro';
+import { consultingData } from '../data/consulting';
+---
+<BaseLayout 
+  title="مشاوره تجهیزات و زیرساخت | نُوَند"
+  description="مشاوره مهندسی مستقل و بدون وابستگی به برند جهت ارزیابی، تعیین مشخصات و تهیه شبکه، سرور، امنیت فیزیکی، اتوماسیون و سخت‌افزارهای IT."
+>
+  <!-- Breadcrumbs -->
+  <div class="bg-[#141210] border-b border-[#15120e] py-3">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <Breadcrumbs items={[{ label: 'مشاوره و تامین تجهیزات' }]} />
+    </div>
+  </div>
+
+  <!-- Hero Section -->
+  <section class="bg-[#141210] text-[#f4f2f1] py-16 sm:py-24 border-b border-[#15120e] bg-grid-subtle">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl">
+        <div class="inline-flex items-center gap-3 px-3.5 py-1 bg-[#0d1417] border border-[#15120e] text-[#f6f2ee] text-[10px] font-mono uppercase tracking-[0.25em] mb-4">
+          <span class="w-1.5 h-1.5 bg-[#f4f2f1]"></span>
+          مشاوره فنی مستقل
+        </div>
+        <h1 class="text-3xl sm:text-5xl font-light tracking-tight leading-tight text-[#f4f2f1] mb-6">
+          {consultingData.headline}
+        </h1>
+        <p class="text-base sm:text-lg text-[#f4f2f1]/70 leading-relaxed font-light">
+          {consultingData.leadCopy}
+        </p>
+        <div class="mt-8 flex flex-wrap gap-4">
+          <Button href="/contact#consultation" variant="primary" size="lg">
+            درخواست مشاوره
+          </Button>
+          <Button href="#pillars" variant="outline" size="lg">
+            بررسی حوزه‌های مشاوره ↓
+          </Button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Advisory Philosophy: Why Independent Advice Matters -->
+  <section class="bg-[#0d1417] text-[#f4f2f1] py-16 sm:py-20 border-b border-[#15120e]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        <div class="lg:col-span-6">
+          <span class="text-[10px] font-mono uppercase tracking-widest text-[#f6f2ee] opacity-70 block mb-2">
+            خطر وابستگی به نمایندگان فروش
+          </span>
+          <h2 class="text-2xl sm:text-3xl font-light tracking-tight text-[#f4f2f1] mb-4">
+            تعیین مشخصات بر اساس مهندسی، نه سهمیه فروش
+          </h2>
+          <p class="text-[#f4f2f1]/70 leading-relaxed text-sm sm:text-base font-light">
+            توزیع‌کنندگان تجهیزات و تیم‌های فروش سازندگان معمولاً انگیزه دارند تا محصولاتی را با بالاترین حاشیه سود یا موجودی قدیمی انبار به فروش برسانند. این امر اغلب به طراحی‌های فراتر از نیاز، وابستگی به ویژگی‌های انحصاری، یا سوئیچ‌های ضعیفی که بودجه توان PoE کافی برای توسعه‌های امنیتی آینده ندارند، منجر می‌شود.
+          </p>
+          <p class="text-[#f4f2f1]/70 leading-relaxed text-sm sm:text-base mt-4 font-light">
+            نُوَند به عنوان یک مدافع فنی مستقل عمل می‌کند. ما ظرفیت سوئیچینگ، توان عملیاتی بسته‌ها در ثانیه (pps)، بارهای حرارتی و مقاومت خواندن/نوشتن ذخیره‌سازی را مستقیماً بر اساس نیازهای عملیاتی شما محاسبه می‌کنیم.
+          </p>
+        </div>
+
+        <div class="lg:col-span-6 bg-[#15120e] border border-[#15120e] p-6 sm:p-8 space-y-4 text-xs font-mono text-[#f4f2f1]">
+          <span class="text-[#f6f2ee] font-medium uppercase tracking-wider block border-b border-[#15120e] pb-2 text-[11px]">
+            چک‌لیست ارزیابی و بررسی مستقل
+          </span>
+          <ul class="space-y-2.5 text-[#f4f2f1]/70 font-sans font-light">
+            <li class="flex items-start gap-2">
+              <span class="text-[#f4f2f1] font-mono">✓</span>
+              <span><strong class="text-[#f4f2f1]">افق چرخه عمر سخت‌افزار:</strong> بررسی نقشه‌راه پایان تولید/پشتیبانی (EOL/EOS) سازنده.</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-[#f4f2f1] font-mono">✓</span>
+              <span><strong class="text-[#f4f2f1]">بازه دمای عملیاتی:</strong> اطمینان از تطابق خنک‌کننده (اکتیو/پسیو) با دمای محیط رک.</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-[#f4f2f1] font-mono">✓</span>
+              <span><strong class="text-[#f4f2f1]">سازگاری فرستنده‌گیرنده‌ها:</strong> جلوگیری از قفل‌شدگی ماژول‌های نوری (SFP+ / QSFP28) توسط برندها.</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-[#f4f2f1] font-mono">✓</span>
+              <span><strong class="text-[#f4f2f1]">هزینه کل مالکیت (TCO):</strong> محاسبه تمدیدهای اجباری، سطوح لایسنس و قراردادهای پشتیبانی.</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4 Advisory Domains -->
+  <section id="pillars" class="bg-[#141210] text-[#f4f2f1] py-16 sm:py-24 border-b border-[#15120e]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <SectionHeading 
+        eyebrow="حوزه‌های مشاوره"
+        title="حوزه‌های تخصصی انتخاب تجهیزات"
+        description="ما مشخصات تجهیزات را در تمامی لایه‌های فیزیکی و منطقی زیرساخت فناوری ارزیابی می‌کنیم."
+        theme="dark"
+      />
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-8">
+        {consultingData.pillars.map((pillar) => (
+          <div class="bg-[#0d1417] border border-[#15120e] p-8 flex flex-col justify-between hover:border-[#f4f2f1]/30 transition-colors">
+            <div>
+              <span class="text-[10px] font-mono text-[#f6f2ee] opacity-70 uppercase tracking-widest block mb-1">
+                {pillar.eyebrow}
+              </span>
+              <h3 class="text-xl font-light text-[#f4f2f1] mb-3 tracking-tight">
+                {pillar.title}
+              </h3>
+              <p class="text-xs sm:text-sm text-[#f4f2f1]/65 font-light leading-relaxed mb-6">
+                {pillar.description}
+              </p>
+            </div>
+
+            <div class="pt-4 border-t border-[#15120e]">
+              <span class="text-[10px] font-mono uppercase text-[#f6f2ee] opacity-70 block mb-2">
+                شاخص‌های مهندسی ارزیابی‌شده:
+              </span>
+              <ul class="space-y-1.5 text-xs font-mono text-[#f4f2f1]/60">
+                {pillar.focusAreas.map((area) => (
+                  <li class="flex items-center gap-2">
+                    <span class="text-[#f4f2f1] opacity-60">•</span>
+                    <span>{area}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Advisory Process -->
+  <section class="bg-[#0d1417] text-[#f4f2f1] py-16 sm:py-24 border-b border-[#15120e]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <SectionHeading 
+        eyebrow="فرآیند مشاوره"
+        title="فرآیند مشاوره فنی"
+        description="چگونگی هدایت تیم‌های تدارکات و مدیران تاسیسات از نقطه شروع تا رسیدن به یک لیست دقیق و تاییدشده تجهیزات (BOM)."
+        theme="dark"
+      />
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-8">
+        {consultingData.advisoryProcess.map((step) => (
+          <div class="bg-[#15120e] border border-[#15120e] p-6 flex flex-col justify-between hover:border-[#f4f2f1]/30 transition-colors">
+            <div>
+              <div class="text-2xl font-mono font-light text-[#f6f2ee] mb-3">
+                {step.step}
+              </div>
+              <h3 class="text-base font-light text-[#f4f2f1] mb-2">
+                {step.title}
+              </h3>
+              <p class="text-xs text-[#f4f2f1]/65 font-light leading-relaxed">
+                {step.detail}
+              </p>
+            </div>
+            <div class="mt-6 pt-4 border-t border-[#15120e] text-[10px] font-mono text-[#f4f2f1]/40 uppercase tracking-wider">
+              فاز // ممیزی
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="bg-[#141210] text-[#f4f2f1] py-16 sm:py-24 border-b border-[#15120e]">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6">
+      <h2 class="text-2xl sm:text-3xl font-light tracking-tight text-[#f4f2f1]">
+        بررسی پیش‌فاکتور و لیست تجهیزات پیش از خرید
+      </h2>
+      <p class="text-base text-[#f4f2f1]/70 font-light max-w-2xl mx-auto leading-relaxed">
+        مشخصات معماری، پیش‌فاکتور فروشندگان، یا جدول زمان‌بندی تجهیزات خود را برای بررسی و ارزیابی فنی و مستقل برای ما ارسال کنید.
+      </p>
+      <div class="pt-2">
+        <Button href="/contact#consultation" variant="primary" size="lg">
+          درخواست بررسی مشاوره تجهیزات
+        </Button>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>

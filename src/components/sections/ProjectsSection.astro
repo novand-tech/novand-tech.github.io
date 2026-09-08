@@ -1,0 +1,43 @@
+---
+const isEn = Astro.url.pathname.startsWith("/en");
+const projectsData = getProjectsData(Astro.url.pathname);
+import SectionHeading from '../ui/SectionHeading.astro';
+import ProjectCard from '../cards/ProjectCard.astro';
+import Button from '../ui/Button.astro';
+import { getProjectsData } from "../../data/projects";
+---
+<section class="bg-[#141210] text-[#f4f2f1] py-20 sm:py-28 border-b border-[#15120e]">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    
+    <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 sm:mb-16">
+      <SectionHeading 
+        eyebrow={isEn ? 'Architectural Case Models' : 'مدل‌های معماری'}
+        title={isEn ? 'Representative Engineering Archetypes' : 'الگوهای مهندسی شاخص'}
+        description={isEn ? 'Detailed technical blueprints illustrating how integrated networking, physical security, environmental controls, and virtualization operate in production facilities.' : 'طرح‌های فنی دقیق که نشان می‌دهد چگونه شبکه‌بندی یکپارچه، امنیت فیزیکی، کنترل‌های محیطی و مجازی‌سازی در تاسیسات تولیدی عمل می‌کنند.'}
+        theme="dark"
+        class="mb-0 max-w-2xl"
+      />
+      <div class="mt-6 md:mt-0">
+        <Button href={isEn ? "/en/projects" : "/projects"} variant="outline" size="md">
+          {isEn ? 'Explore All Project Models →' : 'بررسی تمام مدل‌های پروژه ←'}
+        </Button>
+      </div>
+    </div>
+
+    <!-- Notice banner stating these are architectural archetypes -->
+    <div class="mb-8 p-4 bg-[#0d1417] border border-[#15120e] border-l-2 border-l-[#f4f2f1]/60 text-xs font-mono text-[#f4f2f1]/60 flex items-center justify-between">
+      <span>
+        <strong class="text-[#f4f2f1] font-normal">{isEn ? 'EDITORIAL REFERENCE:' : 'مرجع:'}</strong> {isEn ? 'Case models below represent standardized engineering deployments and serve as functional templates for client facility planning.' : 'مدل‌های زیر نشان‌دهنده استقرار مهندسی استاندارد بوده و به عنوان الگوهای کاربردی برای برنامه‌ریزی تاسیسات مشتریان عمل می‌کنند.'}
+      </span>
+      <span class="hidden sm:inline-block text-[#f6f2ee] opacity-70">ARCH // 2025</span>
+    </div>
+
+    <!-- 4 Projects Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      {projectsData.map((project) => (
+        <ProjectCard project={project} />
+      ))}
+    </div>
+
+  </div>
+</section>

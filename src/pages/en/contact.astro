@@ -1,0 +1,295 @@
+---
+const companyData = getCompanyData(Astro.url.pathname);
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/ui/Breadcrumbs.astro';
+import Button from '../../components/ui/Button.astro';
+import { getCompanyData } from "../../data/company";
+---
+<BaseLayout 
+  title="Contact & Technical Consultation | Novand"
+  description="Contact Novand for engineering inquiries, facility site surveys, equipment advisory, and integrated infrastructure project scoping."
+>
+  <!-- Breadcrumbs -->
+  <div class="bg-[#141210] border-b border-[#15120e] py-3">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <Breadcrumbs items={[{ label: 'Contact & Operations' }]} />
+    </div>
+  </div>
+
+  <!-- Page Hero -->
+  <section class="bg-[#141210] text-[#f4f2f1] py-16 sm:py-24 border-b border-[#15120e] bg-grid-subtle">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl">
+        <div class="inline-flex items-center gap-3 px-3.5 py-1 bg-[#0d1417] border border-[#15120e] text-[#f6f2ee] text-[10px] font-mono uppercase tracking-[0.25em] mb-4">
+          <span class="w-1.5 h-1.5 bg-[#f4f2f1]"></span>
+          Direct Engineering Access
+        </div>
+        <h1 class="text-3xl sm:text-5xl font-light tracking-tight leading-tight text-[#f4f2f1] mb-6">
+          Initiate an Infrastructure Consultation
+        </h1>
+        <p class="text-base sm:text-lg text-[#f4f2f1]/70 leading-relaxed font-light">
+          Whether you are evaluating low-voltage cabling options, planning an on-premises hypervisor cluster, or integrating commercial access control, our engineers will provide straightforward technical guidance.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Grid: Left Form, Right Contact Info & Operations -->
+  <section id="consultation" class="bg-[#0d1417] text-[#f4f2f1] py-16 sm:py-24 border-b border-[#15120e]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
+        
+        <!-- Left: Consultation Form (7 Cols) -->
+        <div class="lg:col-span-7 bg-[#141210] border border-[#15120e] p-6 sm:p-10 shadow-2xl">
+          <div class="border-b border-[#15120e] pb-4 mb-6">
+            <h2 class="text-xl font-light text-[#f4f2f1]">
+              Technical Inquiry & Project Scoping Form
+            </h2>
+            <p class="text-xs text-[#f4f2f1]/60 font-mono mt-1">
+              All inquiries are reviewed directly by practicing systems engineers.
+            </p>
+          </div>
+
+          <!-- Form Element with Success State Container -->
+          <form id="contact-form" class="space-y-6" novalidate>
+            
+            <div id="form-error" data-fs-error class="hidden p-4 bg-red-950/40 border border-red-800 text-xs font-mono text-red-300" role="alert">
+              <strong>ATTENTION:</strong> Please complete all required fields marked with an asterisk (*).
+            </div>
+
+            <div id="form-feedback" data-fs-success class="hidden p-4 bg-[#15120e] border border-[#f4f2f1]/30 text-xs font-mono text-[#f4f2f1]" role="alert">
+              <strong>SUBMISSION RECEIVED:</strong> Your project details have been logged into our engineering dispatch queue. A systems engineer will respond within one business day.
+            </div>
+
+            <!-- Name and Organization -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+              <div>
+                <label for="contact-name" class="block text-[10px] font-mono uppercase tracking-wider text-[#f6f2ee] opacity-80 mb-2">
+                  Full Name <span class="text-[#f4f2f1]">*</span>
+                </label>
+                <input 
+                  type="text" 
+                  id="contact-name" 
+                  name="name" 
+                  required 
+                  class="w-full bg-[#0d1417] border border-[#15120e] px-3.5 py-2.5 text-sm text-[#f4f2f1] placeholder-[#f4f2f1]/30 focus:border-[#f4f2f1]/50 focus:outline-none transition-colors"
+                  placeholder="e.g. Alex Morgan, PE"
+                 data-fs-field />
+                <span data-fs-error="name" class="text-xs text-red-400 font-mono mt-1 block empty:hidden"></span>
+              </div>
+
+              <div>
+                <label for="contact-org" class="block text-[10px] font-mono uppercase tracking-wider text-[#f6f2ee] opacity-80 mb-2">
+                  Organization / Facility <span class="text-[#f4f2f1]">*</span>
+                </label>
+                <input 
+                  type="text" 
+                  id="contact-org" 
+                  name="organization" 
+                  required 
+                  class="w-full bg-[#0d1417] border border-[#15120e] px-3.5 py-2.5 text-sm text-[#f4f2f1] placeholder-[#f4f2f1]/30 focus:border-[#f4f2f1]/50 focus:outline-none transition-colors"
+                  placeholder="e.g. Meridian Logistics Center"
+                 data-fs-field />
+                <span data-fs-error="organization" class="text-xs text-red-400 font-mono mt-1 block empty:hidden"></span>
+              </div>
+            </div>
+
+            <!-- Email and Phone -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+              <div>
+                <label for="contact-email" class="block text-[10px] font-mono uppercase tracking-wider text-[#f6f2ee] opacity-80 mb-2">
+                  Work Email <span class="text-[#f4f2f1]">*</span>
+                </label>
+                <input 
+                  type="email" 
+                  id="contact-email" 
+                  name="email" 
+                  required 
+                  class="w-full bg-[#0d1417] border border-[#15120e] px-3.5 py-2.5 text-sm text-[#f4f2f1] placeholder-[#f4f2f1]/30 focus:border-[#f4f2f1]/50 focus:outline-none transition-colors"
+                  placeholder="amorgan@facility.example.com"
+                 data-fs-field />
+                <span data-fs-error="email" class="text-xs text-red-400 font-mono mt-1 block empty:hidden"></span>
+              </div>
+
+              <div>
+                <label for="contact-phone" class="block text-[10px] font-mono uppercase tracking-wider text-[#f6f2ee] opacity-80 mb-2">
+                  Telephone <span class="text-[#f4f2f1]">*</span>
+                </label>
+                <input 
+                  type="tel" 
+                  id="contact-phone" 
+                  name="phone" 
+                  required 
+                  class="w-full bg-[#0d1417] border border-[#15120e] px-3.5 py-2.5 text-sm text-[#f4f2f1] placeholder-[#f4f2f1]/30 focus:border-[#f4f2f1]/50 focus:outline-none transition-colors"
+                  placeholder="+1 (555) 000-0000"
+                 data-fs-field />
+                <span data-fs-error="phone" class="text-xs text-red-400 font-mono mt-1 block empty:hidden"></span>
+              </div>
+            </div>
+
+            <!-- Primary Project Type & Facility Environment -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+              <div>
+                <label for="project-discipline" class="block text-[10px] font-mono uppercase tracking-wider text-[#f6f2ee] opacity-80 mb-2">
+                  Primary Discipline <span class="text-[#f4f2f1]">*</span>
+                </label>
+                <select 
+                  id="project-discipline" 
+                  name="discipline" 
+                  class="w-full bg-[#0d1417] border border-[#15120e] px-3.5 py-2.5 text-sm text-[#f4f2f1] focus:border-[#f4f2f1]/50 focus:outline-none transition-colors"
+                 data-fs-field>
+
+                  <option value="multi-discipline">Multi-Discipline Infrastructure</option>
+                  <option value="network-cabling">Structured Cabling & Fiber</option>
+                  <option value="enterprise-routing">Enterprise Routing & Switching</option>
+                  <option value="linux-virtualization">Linux, Storage & Virtualization</option>
+                  <option value="smart-automation">Smart Automation & DALI-2</option>
+                  <option value="security-cctv">Physical Security, CCTV & Access Control</option>
+                  <option value="audio-power">Audio Distribution & UPS Critical Power</option>
+                  <option value="equipment-advisory">Equipment Selection / Advisory</option>
+                </select>
+                <span data-fs-error="discipline" class="text-xs text-red-400 font-mono mt-1 block empty:hidden"></span>
+              </div>
+
+              <div>
+                <label for="facility-environment" class="block text-[10px] font-mono uppercase tracking-wider text-[#f6f2ee] opacity-80 mb-2">
+                  Facility Environment <span class="text-[#f4f2f1]">*</span>
+                </label>
+                <select 
+                  id="facility-environment" 
+                  name="environment" 
+                  class="w-full bg-[#0d1417] border border-[#15120e] px-3.5 py-2.5 text-sm text-[#f4f2f1] focus:border-[#f4f2f1]/50 focus:outline-none transition-colors"
+                 data-fs-field>
+
+                  <option value="corporate">Business & Corporate HQ</option>
+                  <option value="education">Education & Institutional Campus</option>
+                  <option value="residential">Private Residential & Multi-Dwelling</option>
+                  <option value="healthcare">Healthcare & Clinical Facility</option>
+                  <option value="hospitality">Hospitality & Venue</option>
+                  <option value="industrial">Warehouse, Logistics & Specialized</option>
+                </select>
+                <span data-fs-error="environment" class="text-xs text-red-400 font-mono mt-1 block empty:hidden"></span>
+              </div>
+            </div>
+
+            <!-- Target Timeline -->
+            <div>
+              <label for="timeline" class="block text-[10px] font-mono uppercase tracking-wider text-[#f6f2ee] opacity-80 mb-2">
+                Target Project Stage / Timeline
+              </label>
+              <select 
+                id="timeline" 
+                name="timeline" 
+                class="w-full bg-[#0d1417] border border-[#15120e] px-3.5 py-2.5 text-sm text-[#f4f2f1] focus:border-[#f4f2f1]/50 focus:outline-none transition-colors"
+               data-fs-field>
+
+                <option value="immediate">Immediate / Urgent Requirement (0-30 Days)</option>
+                <option value="planning">Active Architectural Planning (1-3 Months)</option>
+                <option value="feasibility">Feasibility & Budget Sizing (3-6 Months)</option>
+                <option value="advisory">Vendor Quote Sanity Check / Consulting</option>
+              </select>
+                <span data-fs-error="timeline" class="text-xs text-red-400 font-mono mt-1 block empty:hidden"></span>
+            </div>
+
+            <!-- Project Scope / Description -->
+            <div>
+              <label for="project-scope" class="block text-[10px] font-mono uppercase tracking-wider text-[#f6f2ee] opacity-80 mb-2">
+                Project Scope & Physical Parameters <span class="text-[#f4f2f1]">*</span>
+              </label>
+              <textarea 
+                id="project-scope" 
+                name="scope" 
+                rows="4" 
+                required 
+                class="w-full bg-[#0d1417] border border-[#15120e] p-3.5 text-sm text-[#f4f2f1] placeholder-[#f4f2f1]/30 focus:border-[#f4f2f1]/50 focus:outline-none transition-colors"
+                placeholder="Describe square footage, number of drops/cameras, current network bottlenecks, or specific equipment requirements..."
+               data-fs-field></textarea>
+                <span data-fs-error="scope" class="text-xs text-red-400 font-mono mt-1 block empty:hidden"></span>
+            </div>
+
+            <!-- Architectural Drawing Notice / Drag-and-drop placeholder -->
+            <div class="p-4 border border-dashed border-[#15120e] bg-[#0d1417] text-center space-y-1">
+              <span class="text-[10px] font-mono text-[#f6f2ee] opacity-80 uppercase tracking-wider block">
+                Architectural Drawing / RFP Upload Notice
+              </span>
+              <p class="text-xs text-[#f4f2f1]/50 font-light">
+                You may attach CAD files, floor plans, or equipment lists during our follow-up email thread, or email them directly to <span class="text-[#f4f2f1]">{companyData.contactInfo.email}</span>.
+              </p>
+            </div>
+
+            <!-- Submit Button -->
+            <div>
+              <Button type="submit" variant="primary" size="lg" class="w-full" id="submit-btn" data-fs-submit-btn>
+                Submit Technical Consultation Request
+              </Button>
+            </div>
+
+          </form>
+        </div>
+
+        <!-- Right: Operations Information (5 Cols) -->
+        <div class="lg:col-span-5 space-y-8">
+          
+          <div class="bg-[#141210] border border-[#15120e] p-6 sm:p-8 space-y-6 shadow-2xl">
+            <h3 class="text-lg font-light text-[#f4f2f1] border-b border-[#15120e] pb-3">
+              Direct Engineering Office
+            </h3>
+
+            <div class="space-y-4 text-xs font-mono">
+              <div>
+                <span class="text-[10px] uppercase font-mono text-[#f6f2ee] opacity-70 block mb-1">Telephone</span>
+                <a href={`tel:${companyData.contactInfo.phone.replace(/[^0-9+]/g, '')}`} class="text-sm text-[#f4f2f1] hover:underline font-light">
+                  {companyData.contactInfo.phone}
+                </a>
+                <span class="text-[#f4f2f1]/40 block mt-0.5 text-[11px]">[Dedicated Facility Line]</span>
+              </div>
+
+              <div>
+                <span class="text-[10px] uppercase font-mono text-[#f6f2ee] opacity-70 block mb-1">Engineering Mail</span>
+                <a href={`mailto:${companyData.contactInfo.email}`} class="text-sm text-[#f4f2f1] hover:underline font-light">
+                  {companyData.contactInfo.email}
+                </a>
+                <span class="text-[#f4f2f1]/40 block mt-0.5 text-[11px]">[Monitored by Lead Engineers]</span>
+              </div>
+
+              <div>
+                <span class="text-[10px] uppercase font-mono text-[#f6f2ee] opacity-70 block mb-1">Facility & Lab Location</span>
+                <p class="text-sm text-[#f4f2f1] font-light leading-relaxed">
+                  {companyData.contactInfo.address}
+                </p>
+                <span class="text-[#f4f2f1]/40 block mt-0.5 text-[11px]">[Bench Staging & Testing Facility]</span>
+              </div>
+
+              <div>
+                <span class="text-[10px] uppercase font-mono text-[#f6f2ee] opacity-70 block mb-1">Operating Hours</span>
+                <p class="text-sm text-[#f4f2f1] font-light">
+                  {companyData.contactInfo.hours}
+                </p>
+                <span class="text-[#f4f2f1]/40 block mt-0.5 text-[11px]">Emergency support contracts honored 24/7/365</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Technical SLA / Response Commitment -->
+          <div class="bg-[#141210] border border-[#15120e] p-6 space-y-3 shadow-xl">
+            <span class="text-[10px] font-mono uppercase tracking-widest text-[#f6f2ee] opacity-70 block">
+              Consultation Protocol
+            </span>
+            <p class="text-xs text-[#f4f2f1]/65 font-light leading-relaxed">
+              We do not route inquiries through third-party call centers. Initial scoping calls are conducted by experienced systems architects who review your requirements, determine physical feasibility, and prepare preliminary equipment bills of materials.
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>
+
+<script is:inline>
+  window.formspree = window.formspree || function () { (formspree.q = formspree.q || []).push(arguments); };
+  formspree('initForm', { formElement: '#contact-form', formId: 'xgaenjbn' });
+</script>
+<script src="https://unpkg.com/@formspree/ajax@1" defer is:inline></script>

@@ -1,0 +1,223 @@
+---
+const isEn = Astro.url.pathname.startsWith("/en");
+
+const servicesData = getServicesData(Astro.url.pathname);
+import BaseLayout from './BaseLayout.astro';
+import Breadcrumbs from '../components/ui/Breadcrumbs.astro';
+import Button from '../components/ui/Button.astro';
+import type { SolutionDetail } from '../data/solutions';
+import { getServicesData } from "../data/services";
+
+interface Props {
+  solution: SolutionDetail;
+}
+
+const { solution } = Astro.props;
+
+// Filter recommended services
+const recommended = servicesData.filter(s => (solution.recommendedServices || []).includes(s.slug));
+---
+<BaseLayout 
+  title={`${solution.title} ${isEn ? "Solutions" : "راهکارها"} | Novand`}
+  description={solution.summary}
+  ogImage={solution.heroImage}
+>
+  <!-- Breadcrumbs -->
+  <div class="bg-[#141210] border-b border-[#15120e] py-3">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <Breadcrumbs items={[
+        { label: isEn ? 'Solutions' : 'راهکارها', href: isEn ? '/en/solutions' : '/solutions' },
+        { label: solution.title }
+      ]} />
+    </div>
+  </div>
+
+  <!-- Solution Hero -->
+  <section class="relative bg-[#141210] text-[#f4f2f1] py-16 sm:py-24 border-b border-[#15120e] bg-grid-subtle">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        
+        <div class="lg:col-span-7 space-y-6">
+          <div class="inline-flex items-center gap-3 px-3.5 py-1 bg-[#0d1417] border border-[#15120e] text-[#f6f2ee] text-[10px] font-mono uppercase tracking-[0.25em]">
+            <span class="w-1.5 h-1.5 bg-[#f4f2f1]"></span>
+            {isEn ? "Facility Environment" : "محیط تاسیسات"}
+          </div>
+
+          <h1 class="text-3xl sm:text-4xl lg:text-5xl font-light tracking-tight text-[#f4f2f1] leading-tight">
+            {solution.title}
+          </h1>
+
+          <p class="text-base sm:text-lg text-[#f4f2f1]/70 leading-relaxed max-w-2xl font-light">
+            {solution.summary}
+          </p>
+
+          <div class="pt-2 flex flex-wrap gap-4">
+            <Button href={isEn ? "/en/contact#consultation" : "/contact#consultation"} variant="primary" size="md">{isEn ? "Request a Consultation for This Environment" : "درخواست مشاوره برای این محیط"}</Button>
+            <Button href="#components" variant="outline" size="md">{isEn ? "Typical System Architecture ↓" : "معماری معمول سیستم ↓"}</Button>
+          </div>
+        </div>
+
+        <div class="lg:col-span-5">
+          <div class="relative bg-[#141210] border border-[#15120e] p-2 shadow-2xl">
+            <div class="relative aspect-16/10 overflow-hidden bg-[#0d1417]">
+              <img 
+                src={solution.heroImage} 
+                alt={`${solution.title} facility environment`}
+                class="w-full h-full object-cover grayscale contrast-125 brightness-90"
+              />
+            </div>
+            <div class="p-4 bg-[#0d1417] border-t border-[#15120e] text-xs font-mono text-[#f4f2f1]/60">
+              <span class="text-[#f6f2ee] opacity-80 uppercase text-[10px] block mb-1">{isEn ? "Architecture Profile:" : "پروفایل معماری:"}</span>
+              <span class="font-light">{solution.eyebrow} {isEn ? "// Verified Physical Standards" : "// استانداردهای فیزیکی تایید شده"}</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Architectural Introduction -->
+  <section class="bg-[#0d1417] text-[#f4f2f1] py-16 sm:py-20 border-b border-[#15120e]">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="border-l-2 border-[#f4f2f1]/50 pl-6 space-y-4">
+        <span class="text-[10px] font-mono uppercase tracking-[0.25em] text-[#f6f2ee] opacity-70 block">{isEn ? "Operating Demands & Requirements" : "نیازها و پیش‌نیازهای عملیاتی"}</span>
+        <p class="text-xl sm:text-2xl font-light text-[#f4f2f1] leading-relaxed">
+          {solution.introduction}
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Core Pillars -->
+  <section class="bg-[#141210] text-[#f4f2f1] py-16 sm:py-24 border-b border-[#15120e]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="max-w-3xl mb-12">
+        <span class="text-[10px] font-mono uppercase tracking-[0.25em] text-[#f6f2ee] opacity-70 block mb-2">{isEn ? "Design Tenets" : "اصول طراحی"}</span>
+        <h2 class="text-2xl sm:text-3xl font-light tracking-tight text-[#f4f2f1]">{isEn ? "Core Engineering Pillars" : "ارکان پایه مهندسی"}</h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        {(solution.corePillars || []).map((pillar, i) => (
+          <div class="bg-[#15120e] border border-[#15120e] hover:border-[#f4f2f1]/30 transition-colors p-6 flex flex-col justify-between">
+            <div>
+              <div class="text-[10px] font-mono text-[#f6f2ee] opacity-70 mb-3">
+                {isEn ? "PILLAR" : "رکن"} 0{i + 1}
+              </div>
+              <h3 class="text-lg font-light text-[#f4f2f1] mb-2">
+                {pillar.title}
+              </h3>
+              <p class="text-sm text-[#f4f2f1]/65 font-light leading-relaxed">
+                {pillar.description}
+              </p>
+            </div>
+          </div>
+        ))}
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Typical Components -->
+  <section id="components" class="bg-[#0d1417] text-[#f4f2f1] py-16 sm:py-24 border-b border-[#15120e] bg-grid-subtle">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="max-w-3xl mb-12">
+        <span class="text-[10px] font-mono uppercase tracking-[0.25em] text-[#f6f2ee] opacity-70 block mb-2">{isEn ? "System Composition" : "ترکیب سیستم"}</span>
+        <h2 class="text-2xl sm:text-3xl font-light tracking-tight text-[#f4f2f1]">{isEn ? "Typical Subsystem Deployments" : "استقرار زیرسیستم‌های معمول"}</h2>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        {(solution.typicalComponents || []).map((comp) => (
+          <div class="p-4 bg-[#141210] border border-[#15120e] text-xs font-mono flex items-start gap-3">
+            <span class="text-[#f6f2ee] font-bold">✓</span>
+            <span class="text-[#f4f2f1]/80 font-light leading-normal">{comp}</span>
+          </div>
+        ))}
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Challenges & Engineering Solutions -->
+  <section class="bg-[#141210] text-[#f4f2f1] py-16 sm:py-24 border-b border-[#15120e]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="max-w-3xl mb-12">
+        <span class="text-[10px] font-mono uppercase tracking-[0.25em] text-[#f6f2ee] opacity-70 block mb-2">{isEn ? "Operational Problem Solving" : "حل مسائل عملیاتی"}</span>
+        <h2 class="text-2xl sm:text-3xl font-light tracking-tight text-[#f4f2f1]">{isEn ? "Key Challenges Solved" : "چالش‌های کلیدی رفع‌شده"}</h2>
+      </div>
+
+      <div class="space-y-6">
+        {(solution.keyChallengesSolved || []).map((item) => (
+          <div class="bg-[#15120e] border border-[#15120e] p-6 sm:p-8 grid grid-cols-1 md:grid-cols-12 gap-6 items-start">
+            <div class="md:col-span-5">
+              <span class="text-[10px] font-mono uppercase tracking-wider text-[#f6f2ee] opacity-70 block mb-1">{isEn ? "Common Facility Hurdle:" : "موانع رایج تاسیساتی:"}</span>
+              <p class="text-sm font-normal text-[#f4f2f1]">
+                {item.challenge}
+              </p>
+            </div>
+            <div class="md:col-span-7 bg-[#0d1417] p-5 border border-[#15120e]">
+              <span class="text-[10px] font-mono uppercase tracking-wider text-[#f6f2ee] opacity-70 block mb-1">{isEn ? "Our Engineering Resolution:" : "راهکار مهندسی ما:"}</span>
+              <p class="text-xs sm:text-sm text-[#f4f2f1]/70 font-light leading-relaxed">
+                {item.solution}
+              </p>
+            </div>
+          </div>
+        ))}
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Recommended Core Services -->
+  {recommended.length > 0 && (
+    <section class="bg-[#0d1417] text-[#f4f2f1] py-16 sm:py-20 border-b border-[#15120e]">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="max-w-3xl mb-10">
+          <span class="text-[10px] font-mono uppercase tracking-[0.25em] text-[#f6f2ee] opacity-70 block mb-2">{isEn ? "Integrated Service Mapping" : "نگاشت سرویس‌های یکپارچه"}</span>
+          <h2 class="text-xl sm:text-2xl font-light tracking-tight text-[#f4f2f1]">{isEn ? "Recommended Engineering Services" : "سرویس‌های مهندسی پیشنهادی"}</h2>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          {recommended.map((serv) => (
+            <a 
+              href={`/services/${serv.slug}`}
+              class="group bg-[#141210] border border-[#15120e] p-5 hover:border-[#f4f2f1]/30 transition-colors block"
+            >
+              <span class="text-[10px] font-mono text-[#f6f2ee] opacity-70 uppercase block mb-1">{serv.eyebrow}</span>
+              <h3 class="text-base font-light text-[#f4f2f1] group-hover:text-white mb-2">
+                {serv.title}
+              </h3>
+              <p class="text-xs text-[#f4f2f1]/60 font-light line-clamp-2 mb-3">
+                {serv.summary}
+              </p>
+              <span class="text-xs font-mono text-[#f4f2f1]/50 group-hover:text-[#f4f2f1] flex items-center gap-1">
+                <span>{isEn ? "View Discipline" : "مشاهده این حوزه"}</span>
+                <span>→</span>
+              </span>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
+
+  <!-- Final Consultation CTA -->
+  <section class="bg-[#141210] text-[#f4f2f1] py-16 sm:py-24 border-b border-[#15120e]">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6">
+      <h2 class="text-2xl sm:text-3xl font-light tracking-tight text-[#f4f2f1]">
+        {isEn ? `Planning Infrastructure for a ${solution.title} Facility?` : `برنامه‌ریزی زیرساخت برای تاسیسات ${solution.title}؟`}
+      </h2>
+      <p class="text-base text-[#f4f2f1]/70 font-light max-w-2xl mx-auto leading-relaxed">
+        {isEn ? "Let our engineers assist with site surveys, structured cabling blueprints, and equipment recommendations." : "اجازه دهید مهندسان ما در بازدید از سایت، نقشه‌های کابل‌کشی ساخت‌یافته و پیشنهاد تجهیزات به شما کمک کنند."}
+      </p>
+      <div class="pt-2 flex flex-col sm:flex-row items-center justify-center gap-4">
+        <Button href={isEn ? "/en/contact#consultation" : "/contact#consultation"} variant="primary" size="lg">{isEn ? "Request a Consultation" : "درخواست مشاوره"}</Button>
+        <Button href={isEn ? "/en/solutions" : "/solutions"} variant="outline" size="lg">{isEn ? "Browse All Solutions" : "مشاهده تمام راهکارها"}</Button>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>

@@ -1,0 +1,47 @@
+---
+const isEn = Astro.url.pathname.startsWith("/en");
+const servicesData = getServicesData(Astro.url.pathname);
+import SectionHeading from '../ui/SectionHeading.astro';
+import ServiceCard from '../cards/ServiceCard.astro';
+import Button from '../ui/Button.astro';
+import { getServicesData } from "../../data/services";
+
+const allServices = servicesData;
+---
+<section class="bg-[#141210] text-[#f4f2f1] py-20 sm:py-28 border-b border-[#15120e]">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    
+    <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 sm:mb-16">
+      <SectionHeading 
+        eyebrow={isEn ? 'Core Disciplines' : 'حوزه‌های اصلی'}
+        title={isEn ? 'Engineered Systems Across the Technology Stack' : 'سیستم‌های مهندسی در لایه‌های مختلف فناوری'}
+        description={isEn ? 'From smart home automation and enterprise networking to physical security and hardware maintenance, our team delivers unified, end-to-end technology solutions.' : 'از اتوماسیون خانه‌های هوشمند و شبکه‌های سازمانی تا امنیت فیزیکی و پشتیبانی سخت‌افزار، تیم ما راهکارهای فناوری یکپارچه و جامع ارائه می‌دهد.'}
+        theme="dark"
+        class="mb-0 max-w-2xl"
+      />
+      <div class="mt-6 md:mt-0">
+        <Button href={isEn ? "/en/services" : "/services"} variant="outline" size="md">
+          {isEn ? 'View All Services & Specifications →' : 'مشاهده همه خدمات و مشخصات ←'}
+        </Button>
+      </div>
+    </div>
+
+    <!-- Core Services Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+      {allServices.map((service, index) => (
+        <ServiceCard service={service} index={index} />
+      ))}
+    </div>
+
+    <!-- IT Equipment Procurement & Consultation Callout -->
+    <div class="mt-12 p-6 bg-[#0d1417] border border-[#15120e] flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 text-xs font-mono">
+      <div class="text-[#f4f2f1]/70 font-light">
+        <span class="text-[#f6f2ee] font-semibold uppercase tracking-wider">{isEn ? 'Direct Supply & Consulting:' : 'تامین مستقیم و مشاوره:'}</span> {isEn ? 'Need help sourcing enterprise hardware, networking tools, or smart home controllers? We procure genuine equipment at competitive pricing.' : 'آیا برای تامین سخت‌افزار سازمانی، تجهیزات شبکه یا کنترل‌کننده‌های خانه هوشمند به کمک نیاز دارید؟ ما تجهیزات اصلی را با قیمت رقابتی تامین می‌کنیم.'}
+      </div>
+      <a href={isEn ? "/en/contact#consultation" : "/contact#consultation"} class="text-[#f4f2f1] hover:underline underline-offset-4 whitespace-nowrap font-medium">
+        {isEn ? 'Request Equipment Procurement →' : 'درخواست تامین تجهیزات ←'}
+      </a>
+    </div>
+
+  </div>
+</section>

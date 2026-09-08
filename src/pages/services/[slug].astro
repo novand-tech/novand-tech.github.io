@@ -1,0 +1,18 @@
+---
+import ServiceLayout from '../../layouts/ServiceLayout.astro';
+import { servicesData, type ServiceDetail } from '../../data/services';
+
+export function getStaticPaths() {
+  return servicesData.map((service) => ({
+    params: { slug: service.slug },
+    props: { service }
+  }));
+}
+
+interface Props {
+  service: ServiceDetail;
+}
+
+const { service } = Astro.props;
+---
+<ServiceLayout service={service} />

@@ -1,0 +1,101 @@
+---
+const isEn = Astro.url.pathname.startsWith("/en");
+
+const companyData = getCompanyData(Astro.url.pathname);
+import Header from '../components/layout/Header.astro';
+import Footer from '../components/layout/Footer.astro';
+import { getCompanyData } from "../data/company";
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description?: string;
+  canonicalUrl?: string;
+  ogImage?: string;
+  type?: 'website' | 'article';
+}
+
+const {
+  title,
+  description = companyData.heroCopy,
+  canonicalUrl = Astro.url.href,
+  ogImage = "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1200&q=80",
+  type = "website"
+} = Astro.props;
+const currentPath = Astro.url.pathname;
+const lang = currentPath.startsWith("/en") ? "en" : "fa";
+const dir = lang === "fa" ? "rtl" : "ltr";
+
+const siteTitle = title.includes(companyData.shortName) ? title : `${title} | ${companyData.shortName}`;
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "EngineeringCompany",
+  "name": companyData.name,
+  "alternateName": companyData.shortName,
+  "description": companyData.heroCopy,
+  "url": Astro.site ? String(Astro.site) : "https://novandtech.com",
+  "telephone": companyData.contactInfo.phone,
+  "email": companyData.contactInfo.email,
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "440 Industrial Parkway, Suite 200",
+    "addressLocality": "Tech District",
+    "addressCountry": "US"
+  },
+  "knowsAbout": companyData.capabilities
+};
+---
+<!doctype html>
+<html lang={lang} dir={dir} class={lang === "fa" ? "font-vazirmatn" : ""}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{siteTitle}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalUrl} />
+
+    <!-- Open Graph / Social -->
+    <meta property="og:title" content={siteTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content={type} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:site_name" content={companyData.name} />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={siteTitle} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href={isEn ? "/en/favicon.svg" : "/favicon.svg"} />
+
+    <!-- Typography: Vazirmatn & Space Grotesk -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&family=Vazirmatn:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+
+    <!-- Structured Data -->
+    <script type="application/ld+json" is:inline set:html={JSON.stringify(jsonLd)} />
+  </head>
+  <body class="min-h-screen flex flex-col bg-[#141210] text-[#f4f2f1]">
+    
+    <!-- Accessibility Landmark: Skip Link -->
+    <a 
+      href="#main-content" 
+      class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-[#f4f2f1] focus:text-[#141210] focus:font-semibold focus:shadow-lg focus:border focus:border-[#15120e]"
+    >
+      {lang === "en" ? "Skip to main content" : "پرش به محتوای اصلی"}
+    </a>
+
+    <Header currentPath={Astro.url.pathname} />
+
+    <main id="main-content" class="flex-grow focus:outline-none">
+      <slot />
+    </main>
+
+    <Footer />
+  </body>
+</html>
