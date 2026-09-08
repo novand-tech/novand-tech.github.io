@@ -36,6 +36,7 @@ function safeTailwind() {
 }
 
 export default defineConfig({
+  site: 'https://novand-tech.github.io',
   integrations: [react()],
   vite: {
     plugins: [safeTailwind()],
