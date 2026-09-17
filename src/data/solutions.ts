@@ -14,7 +14,7 @@ export interface Solution {
 export const solutionsDataFa: Solution[] = [
   {
     slug: "residential",
-    heroImage: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=1200&q=80",
+    heroImage: "/images/residential-smart-home.jpg",
     title: "مجتمع‌های مسکونی و خانه‌های شخصی",
     summary: "زیرساخت‌های یکپارچه اتوماسیون، شبکه‌های وای‌فای بدون نقطه کور، و سیستم‌های امنیتی پنهان برای خانه‌های مدرن.",
     description: "خانه‌های مدرن نیازمند زیرساختی بیش از یک روتر ساده اینترنت هستند. راهکارهای مسکونی ما بر پایه پنهان‌سازی فناوری در عین دسترسی پایدار به آن بنا شده است. ما شبکه‌های وای‌فای در سطح سازمانی (Enterprise) با پایداری صددرصد طراحی می‌کنیم، سیستم‌های روشنایی و تهویه هوشمند را پیاده‌سازی کرده و زیرساخت‌های نظارتی و دوربین مداربسته ظریف و مقاوم نصب می‌کنیم که بدون آسیب به معماری داخلی، بالاترین سطح امنیت را فراهم می‌کنند.",
@@ -36,7 +36,7 @@ export const solutionsDataFa: Solution[] = [
   },
   {
     slug: "business",
-    heroImage: "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1200&q=80",
+    heroImage: "/images/business-office.jpg",
     title: "محیط‌های کاری و اداری شرکتی",
     summary: "شبکه‌های با پایداری بالا، ارتباطات صوتی مبتنی بر VoIP، و زیرساخت‌های امنیتی برای عملیات‌های تجاری بی‌وقفه.",
     description: "زمان قطعی شبکه مستقیماً به معنای از دست دادن درآمد است. راهکارهای شرکتی ما بر پایه‌گذاری زیرساخت‌های شبکه ایمن و ایزوله‌شده تمرکز دارد تا ترافیک مهمانان، ترافیک سرورها و سیستم‌های تلفنی را از هم مجزا سازد. ما اتاق‌های کنفرانس را با سیستم‌های صوتی‌تصویری بدون دردسر تجهیز می‌کنیم، سرورهای داخلی پایدار برای فایل‌ها نصب کرده و اطمینان می‌دهیم که امنیت سایبری و کنترل تردد فیزیکی کاملاً هماهنگ و یکپارچه عمل کنند.",
@@ -58,7 +58,7 @@ export const solutionsDataFa: Solution[] = [
   },
   {
     slug: "education",
-    heroImage: "https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&w=1200&q=80",
+    heroImage: "/images/education-campus.jpg",
     title: "آموزشگاه‌ها و پردیس‌های دانشگاهی",
     summary: "زیرساخت‌های مقیاس‌پذیر اینترنت اشیا (IoT)، اتوماسیون کلاس‌های درس و سیستم‌های پیجینگ برای محیط‌های یادگیری.",
     description: "محیط‌های آموزشی به ارتباطات پایدار برای یادگیری دیجیتال و سیستم‌های هماهنگ برای حفظ امنیت فیزیکی نیازمندند. ما شبکه‌های وای‌فای با ظرفیت بالا و فیلترینگ محتوای مناسب دانش‌آموزان پیاده‌سازی می‌کنیم. کلاس‌ها به سیستم‌های صوتی‌تصویری تعاملی مجهز می‌شوند و مدیریت مدرسه با در اختیار داشتن سیستم‌های پیجینگ اضطراری یکپارچه با زنگ‌ها و اعلان‌ها، کنترل کامل محیط را در دست خواهد داشت.",
@@ -80,7 +80,7 @@ export const solutionsDataFa: Solution[] = [
   },
   {
     slug: "healthcare-hospitality",
-    heroImage: "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&w=1200&q=80",
+    heroImage: "/images/healthcare-facility.jpg",
     title: "مراکز درمانی و مهمان‌نوازی (هتل‌ها)",
     summary: "ایجاد شبکه‌های ایمن برای مدیریت داده‌های بیماران/مهمانان، شبکه‌های تلویزیونی (LAN-TV) و سیستم‌های ارتباطی پایدار.",
     description: "مراکز درمانی و هتل‌ها به دلیل خدمات‌رسانی شبانه‌روزی، نیازمند بالاترین سطح پایداری و امنیت هستند. ما در هتل‌ها و بیمارستان‌ها شبکه‌های ایزوله برای اطمینان از حفظ حریم خصوصی بیماران یا مهمانان پیاده‌سازی می‌کنیم. خدمات ما شامل استقرار سیستم‌های تلویزیون تحت شبکه (IPTV) در اتاق‌ها، سیستم‌های فراخوان پرستار/مهماندار، و زیرساخت‌های یکپارچه کنترل دمای اتاق‌هاست که همگی به سرورهای پایداری متصل‌اند که هیچ‌گاه متوقف نمی‌شوند.",
@@ -102,7 +102,7 @@ export const solutionsDataFa: Solution[] = [
   },
   {
     slug: "specialized-facilities",
-    heroImage: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=1200&q=80",
+    heroImage: "/images/specialized-infrastructure.jpg",
     title: "تأسیسات خاص، صنعتی و انبارها",
     summary: "شبکه‌های صنعتی مقاوم، نظارت گسترده و اتوماسیون محیطی برای گلخانه‌ها و انبارهای بزرگ.",
     description: "محیط‌های صنعتی دارای چالش‌های منحصر‌به‌فردی مانند تداخل الکترومغناطیسی شدید، مساحت‌های بسیار وسیع و شرایط دمایی سخت هستند. ما شبکه‌های فیبر نوری را در کف کارخانه‌ها طراحی کرده، سیستم‌های نظارتی دیده‌بانی و پلاک‌خوان راه‌اندازی می‌کنیم، و سنسورهای پایش محیطی (Environmental Monitoring) را برای حفظ شرایط بهینه در انبارها و گلخانه‌های هوشمند به کار می‌گیریم.",
@@ -127,7 +127,7 @@ export const solutionsDataFa: Solution[] = [
 export const solutionsDataEn: Solution[] = [
   {
     slug: "residential",
-    heroImage: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=1200&q=80",
+    heroImage: "/images/residential-smart-home.jpg",
     title: "Residential Complexes & Private Homes",
     summary: "Integrated automation infrastructure, blind-spot-free Wi-Fi, and invisible security systems for modern homes.",
     description: "Modern homes require infrastructure beyond a simple internet router. Our residential solutions are built on concealing technology while providing stable access to it. We design enterprise-grade Wi-Fi networks with 100% stability, implement smart lighting and HVAC, and install discreet, durable surveillance infrastructure that provides top-tier security without compromising interior aesthetics.",
@@ -149,7 +149,7 @@ export const solutionsDataEn: Solution[] = [
   },
   {
     slug: "business",
-    heroImage: "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1200&q=80",
+    heroImage: "/images/business-office.jpg",
     title: "Corporate & Office Environments",
     summary: "High-availability networks, VoIP-based voice communications, and security infrastructure for uninterrupted business operations.",
     description: "Network downtime translates directly to lost revenue. Our corporate solutions focus on establishing secure, isolated network infrastructures to separate guest traffic, server traffic, and telephony systems. We equip conference rooms with frictionless A/V systems, install stable internal file servers, and ensure cybersecurity and physical access control work in perfect harmony.",
@@ -171,7 +171,7 @@ export const solutionsDataEn: Solution[] = [
   },
   {
     slug: "education",
-    heroImage: "https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&w=1200&q=80",
+    heroImage: "/images/education-campus.jpg",
     title: "Schools & University Campuses",
     summary: "Scalable IoT infrastructure, classroom automation, and paging systems for learning environments.",
     description: "Educational environments require stable connectivity for digital learning and coordinated systems for physical security. We deploy high-capacity Wi-Fi networks with student-appropriate content filtering. Classrooms are equipped with interactive A/V systems, and school administration gains full environmental control through integrated emergency paging systems linked with bells and notifications.",
@@ -193,7 +193,7 @@ export const solutionsDataEn: Solution[] = [
   },
   {
     slug: "healthcare-hospitality",
-    heroImage: "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&w=1200&q=80",
+    heroImage: "/images/healthcare-facility.jpg",
     title: "Healthcare & Hospitality (Hotels)",
     summary: "Creating secure networks for patient/guest data management, LAN-TV, and stable communication systems.",
     description: "Due to round-the-clock operations, healthcare facilities and hotels require the highest level of stability and security. We implement isolated networks in hotels and hospitals to ensure guest and patient privacy is maintained. Our services include the deployment of in-room IPTV systems, nurse/attendant call systems, and integrated room climate control infrastructure, all connected to highly available servers.",
@@ -215,7 +215,7 @@ export const solutionsDataEn: Solution[] = [
   },
   {
     slug: "specialized-facilities",
-    heroImage: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=1200&q=80",
+    heroImage: "/images/specialized-infrastructure.jpg",
     title: "Specialized Facilities, Industrial & Warehouses",
     summary: "Rugged industrial networks, extensive surveillance, and environmental automation for greenhouses and large warehouses.",
     description: "Industrial environments present unique challenges such as severe electromagnetic interference, massive square footage, and harsh temperature conditions. We design fiber optic networks for factory floors, deploy specialized surveillance and LPR (License Plate Recognition) systems, and utilize Environmental Monitoring sensors to maintain optimal conditions in warehouses and smart greenhouses.",

@@ -38,7 +38,7 @@ export const projectsDataFa: Project[] = [
     technologies: ["Cisco Catalyst", "Cat6a STP", "MikroTik CCR", "VLAN Segmentation", "802.1X Auth"],
     status: "تکمیل شده",
     environment: "سازمانی",
-    featuredImage: "https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&w=1200&q=80",
+    featuredImage: "/images/education-campus.jpg",
     services: ["مشاوره", "پیاده‌سازی"],
     result: "اجرای موفقیت‌آمیز"
   },
@@ -59,7 +59,7 @@ export const projectsDataFa: Project[] = [
     technologies: ["DALI-2", "KNX Protocol", "IP Paging", "PoE Access Control", "Centralized Dashboard"],
     status: "تکمیل شده",
     environment: "سازمانی",
-    featuredImage: "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&w=1200&q=80",
+    featuredImage: "/images/healthcare-facility.jpg",
     services: ["مشاوره", "پیاده‌سازی"],
     result: "اجرای موفقیت‌آمیز"
   },
@@ -80,7 +80,7 @@ export const projectsDataFa: Project[] = [
     technologies: ["VMware vSphere", "HPE ProLiant", "SAN Storage", "Veeam Backup", "Zabbix", "APC UPS"],
     status: "تکمیل شده",
     environment: "سازمانی",
-    featuredImage: "https://images.unsplash.com/photo-1620283085439-39620a1e21c4?auto=format&fit=crop&w=1200&q=80",
+    featuredImage: "/images/security-surveillance.jpg",
     services: ["مشاوره", "پیاده‌سازی"],
     result: "اجرای موفقیت‌آمیز"
   }
@@ -104,7 +104,7 @@ export const projectsDataEn: Project[] = [
     technologies: ["Cisco Catalyst", "Cat6a STP", "MikroTik CCR", "VLAN Segmentation", "802.1X Auth"],
     status: "Completed",
     environment: "Enterprise",
-    featuredImage: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=1200&q=80",
+    featuredImage: "/images/residential-smart-home.jpg",
     services: ["Consulting", "Implementation"],
     result: "Successful completion"
   },
@@ -125,7 +125,7 @@ export const projectsDataEn: Project[] = [
     technologies: ["DALI-2", "KNX Protocol", "IP Paging", "PoE Access Control", "Centralized Dashboard"],
     status: "Completed",
     environment: "Enterprise",
-    featuredImage: "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1200&q=80",
+    featuredImage: "/images/business-office.jpg",
     services: ["Consulting", "Implementation"],
     result: "Successful completion"
   },
@@ -146,7 +146,7 @@ export const projectsDataEn: Project[] = [
     technologies: ["VMware vSphere", "HPE ProLiant", "SAN Storage", "Veeam Backup", "Zabbix", "APC UPS"],
     status: "Completed",
     environment: "Enterprise",
-    featuredImage: "https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&w=1200&q=80",
+    featuredImage: "/images/education-campus.jpg",
     services: ["Consulting", "Implementation"],
     result: "Successful completion"
   }

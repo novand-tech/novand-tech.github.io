@@ -26,7 +26,7 @@ export interface ServiceCategory extends ServiceDetail {
 export const servicesDataFa: ServiceCategory[] = [
   {
     slug: "smart-homes-buildings",
-    heroImage: "https://images.unsplash.com/photo-1558002038-1055907df827?auto=format&fit=crop&w=1200&q=80",
+    heroImage: "/images/network-cabling.jpg",
     eyebrow: "اتوماسیون و یکپارچه‌سازی",
     title: "خانه‌ها و ساختمان‌های هوشمند",
     summary: "مهندسی و یکپارچه‌سازی پیشرفته اتوماسیون ساختمان برای فضاهای مسکونی، آموزشی و کشاورزی.",
@@ -48,7 +48,7 @@ export const servicesDataFa: ServiceCategory[] = [
   },
   {
     slug: "network-infrastructure",
-    heroImage: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1200&q=80",
+    heroImage: "/images/hero-datacenter.jpg",
     eyebrow: "زیرساخت و ارتباطات",
     title: "شبکه و زیرساخت IT",
     summary: "طراحی، کابل‌کشی و پیاده‌سازی حرفه‌ای شبکه‌های داده بر پایه تجهیزات سیسکو، میکروتیک و فیبر نوری.",
@@ -70,7 +70,7 @@ export const servicesDataFa: ServiceCategory[] = [
   },
   {
     slug: "enterprise-services",
-    heroImage: "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1200&q=80",
+    heroImage: "/images/business-office.jpg",
     eyebrow: "سرویس‌ها و نرم‌افزار",
     title: "سرویس‌های IT سازمانی",
     summary: "استقرار نرم‌افزارها و خدمات ارتباطی سازمانی برای تسهیل جریان کار، ارتباطات صوتی و ویدئویی و مدیریت کاربران.",
@@ -92,7 +92,7 @@ export const servicesDataFa: ServiceCategory[] = [
   },
   {
     slug: "infrastructure-administration",
-    heroImage: "https://images.unsplash.com/photo-1620283085439-39620a1e21c4?auto=format&fit=crop&w=1200&q=80",
+    heroImage: "/images/security-surveillance.jpg",
     eyebrow: "سرورها و ذخیره‌سازی",
     title: "مدیریت سیستم‌ها و مجازی‌سازی",
     summary: "پیاده‌سازی و نگهداری سرورهای قدرتمند، مجازی‌سازی منابع و معماری‌های نرم‌افزاری مبتنی بر کانتینر.",
@@ -114,7 +114,7 @@ export const servicesDataFa: ServiceCategory[] = [
   },
   {
     slug: "security-surveillance",
-    heroImage: "https://images.unsplash.com/photo-1557597774-9d273605dfa9?auto=format&fit=crop&w=1200&q=80",
+    heroImage: "/images/audio-power.jpg",
     eyebrow: "نظارت و کنترل تردد",
     title: "حفاظت فیزیکی و دوربین‌های مداربسته",
     summary: "نصب و راه‌اندازی سیستم‌های پیشرفته امنیتی، پایش تصویری هوشمند و راهکارهای جامع کنترل تردد.",
@@ -136,7 +136,7 @@ export const servicesDataFa: ServiceCategory[] = [
   },
   {
     slug: "audio-power",
-    heroImage: "https://images.unsplash.com/photo-1620283085439-39620a1e21c4?auto=format&fit=crop&w=1200&q=80",
+    heroImage: "/images/security-surveillance.jpg",
     eyebrow: "صوت و توان مصرفی",
     title: "تجهیزات صوتی و منابع تغذیه اضطراری",
     summary: "طراحی آکوستیک، سیستم‌های صوتی تحت شبکه و مهندسی برق پشتیبان برای تضمین پایداری زیرساخت‌ها.",
@@ -182,7 +182,7 @@ export const servicesDataFa: ServiceCategory[] = [
 export const servicesDataEn: ServiceCategory[] = [
   {
     slug: "smart-homes-buildings",
-    heroImage: "https://images.unsplash.com/photo-1558002038-1055907df827?auto=format&fit=crop&w=1200&q=80",
+    heroImage: "/images/network-cabling.jpg",
     eyebrow: "Automation & Integration",
     title: "Smart Homes & Buildings",
     summary: "Advanced building automation engineering and integration for residential, educational, and agricultural spaces.",
@@ -204,7 +204,7 @@ export const servicesDataEn: ServiceCategory[] = [
   },
   {
     slug: "network-infrastructure",
-    heroImage: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1200&q=80",
+    heroImage: "/images/hero-datacenter.jpg",
     eyebrow: "Infrastructure & Communications",
     title: "Network Infrastructure & IT",
     summary: "Professional design, cabling, and implementation of data networks based on Cisco, MikroTik, and fiber optic technologies.",
@@ -226,7 +226,7 @@ export const servicesDataEn: ServiceCategory[] = [
   },
   {
     slug: "enterprise-services",
-    heroImage: "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1200&q=80",
+    heroImage: "/images/business-office.jpg",
     eyebrow: "Services & Software",
     title: "Enterprise IT & Application Services",
     summary: "Deployment of enterprise software and communication services to streamline workflows, A/V communications, and user management.",
@@ -248,7 +248,7 @@ export const servicesDataEn: ServiceCategory[] = [
   },
   {
     slug: "infrastructure-administration",
-    heroImage: "https://images.unsplash.com/photo-1620283085439-39620a1e21c4?auto=format&fit=crop&w=1200&q=80",
+    heroImage: "/images/security-surveillance.jpg",
     eyebrow: "Servers & Storage",
     title: "Systems Administration & Virtualization",
     summary: "Implementation and maintenance of powerful servers, resource virtualization, and container-based software architectures.",
@@ -270,7 +270,7 @@ export const servicesDataEn: ServiceCategory[] = [
   },
   {
     slug: "security-surveillance",
-    heroImage: "https://images.unsplash.com/photo-1557597774-9d273605dfa9?auto=format&fit=crop&w=1200&q=80",
+    heroImage: "/images/audio-power.jpg",
     eyebrow: "Surveillance & Access Control",
     title: "Physical Security & CCTV",
     summary: "Installation of advanced security systems, smart video monitoring, and comprehensive access control solutions.",
@@ -292,7 +292,7 @@ export const servicesDataEn: ServiceCategory[] = [
   },
   {
     slug: "audio-power",
-    heroImage: "https://images.unsplash.com/photo-1620283085439-39620a1e21c4?auto=format&fit=crop&w=1200&q=80",
+    heroImage: "/images/security-surveillance.jpg",
     eyebrow: "Acoustics & Power",
     title: "Audio Systems & Critical Power",
     summary: "Acoustic design, IP audio systems, and backup electrical engineering to ensure infrastructure stability.",
