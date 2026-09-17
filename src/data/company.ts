@@ -173,7 +173,7 @@ export const companyDataFa: CompanyInfo = {
   ],
   contactInfo: {
     email: "novand.info@gmail.com",
-    phone: "+1 (555) 234-8900",
+    phone: "+98 912 932 1550",
     address: "مرکز مهندسی: ۴۴۰ پارک‌وی صنعتی، واحد ۲۰۰، منطقه فناوری",
     hours: "دوشنبه تا جمعه: ۰۸:۰۰ - ۱۸:۰۰ (پشتیبانی اضطراری ۲۴ ساعته برای قراردادهای فعال)",
     consultationNotice: "تمامی درخواست‌های مشاوره مستقیماً توسط کادر مهندسی فنی بررسی می‌شوند."
