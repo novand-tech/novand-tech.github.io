@@ -52,7 +52,7 @@ const isEn = Astro.url.pathname.startsWith("/en");
 
       <!-- Technology Chips -->
       <div class="flex flex-wrap gap-1.5 mb-6">
-        {(project.technologies || []).slice(0, 4).map((tech) => (
+        {(project.technologies || []).slice(0, 4).map((tech: string) => (
           <span class="px-2 py-0.5 text-[10px] font-mono bg-[#141210] border border-[#15120e] text-[#f4f2f1]/70">
             {tech}
           </span>
@@ -62,7 +62,7 @@ const isEn = Astro.url.pathname.startsWith("/en");
 
     <!-- Bottom Metadata -->
     <div class="pt-4 border-t border-[#15120e] flex items-center justify-between text-[10px] font-mono text-[#f4f2f1]/50">
-      <span>{project.date}</span>
+      <span>{project.date || project.year}</span>
       <span class="text-[#f4f2f1] group-hover:translate-x-1 transition-transform flex items-center gap-1">
         <span>{isEn ? "Review Case Model" : "بررسی نمونه پروپوزال"}</span>
         <span>→</span>

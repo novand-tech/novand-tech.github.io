@@ -9,6 +9,12 @@ export interface ServiceDetail {
     title: string;
     description: string;
   }[];
+  specifications?: { label: string; value: string }[];
+  introduction?: string;
+  whatWeProvide?: { title: string; description: string; icon?: string }[];
+  detailedCapabilities?: { title: string; description?: string; points?: string[] }[];
+  applications?: { title: string; description?: string; environment?: string }[];
+  relatedServices?: string[];
 }
 export interface ServiceCategory extends ServiceDetail {
   slug: string;

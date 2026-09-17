@@ -96,7 +96,7 @@ export const companyDataEn: CompanyInfo = {
   ],
   contactInfo: {
     email: "novand.info@gmail.com",
-    phone: "+1 (555) 234-8900",
+    phone: "+98 912 932 1550",
     address: "Engineering Center: 440 Industrial Parkway, Suite 200, Tech District",
     hours: "Monday – Friday: 08:00 – 18:00 (Emergency response available for contracted facilities)",
     consultationNotice: "All consultation requests are reviewed directly by technical engineering staff."

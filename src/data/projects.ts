@@ -1,9 +1,11 @@
+export type ProjectDetail = Project;
 export interface Project {
   slug: string;
   title: string;
   clientType: string;
   category: string;
   year: string;
+  date?: string;
   summary: string;
   image?: string;
   metrics: {

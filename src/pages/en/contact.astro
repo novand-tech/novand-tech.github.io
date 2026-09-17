@@ -239,7 +239,7 @@ import { getCompanyData } from "../../data/company";
               <div>
                 <span class="text-[10px] uppercase font-mono text-[#f6f2ee] opacity-70 block mb-1">Telephone</span>
                 <a href={`tel:${companyData.contactInfo.phone.replace(/[^0-9+]/g, '')}`} class="text-sm text-[#f4f2f1] hover:underline font-light">
-                  {companyData.contactInfo.phone}
+                  <span dir="ltr" class="inline-block font-sans">{companyData.contactInfo.phone}</span>
                 </a>
                 <span class="text-[#f4f2f1]/40 block mt-0.5 text-[11px]">[Dedicated Facility Line]</span>
               </div>

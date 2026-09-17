@@ -1,4 +1,3 @@
-export interface SolutionDetail extends Solution { corePillars?: any[]; typicalComponents?: any[]; keyChallengesSolved?: any[]; }
 export interface Solution {
   slug: string;
   heroImage?: string;
@@ -9,6 +8,21 @@ export interface Solution {
   challenges: string[];
   approach: string[];
   technologies: string[];
+  corePillars?: string[];
+  typicalComponents?: string[];
+  keyChallengesSolved?: string[];
+  eyebrow?: string;
+  introduction?: string;
+  recommendedServices?: string[];
+}
+
+export interface SolutionDetail extends Solution {
+  corePillars?: any[];
+  typicalComponents?: any[];
+  keyChallengesSolved?: any[];
+  eyebrow?: string;
+  introduction?: string;
+  recommendedServices?: string[];
 }
 
 export const solutionsDataFa: Solution[] = [

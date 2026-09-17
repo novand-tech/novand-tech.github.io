@@ -112,7 +112,7 @@ import NovandLogo from '../ui/NovandLogo.astro';
       <div>
         <span class="text-[#f6f2ee] block uppercase tracking-[0.15em] text-[10px] mb-1">{isEn ? 'Telephone' : 'تلفن'}</span>
         <a href={`tel:${companyData.contactInfo.phone.replace(/[^0-9+]/g, '')}`} class="hover:text-white transition-colors">
-          {companyData.contactInfo.phone}
+          <span dir="ltr" class="inline-block font-sans">{companyData.contactInfo.phone}</span>
         </a>
       </div>
       <div>
