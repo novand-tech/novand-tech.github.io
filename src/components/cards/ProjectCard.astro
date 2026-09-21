@@ -16,9 +16,9 @@ const isEn = Astro.url.pathname.startsWith("/en");
       src={project.featuredImage} 
       alt={`${project.title} installation architecture`} 
       loading="lazy"
-      class="w-full h-full object-cover grayscale contrast-125 opacity-70 group-hover:scale-105 group-hover:opacity-85 transition-all duration-500"
+      class="w-full h-full object-cover group-hover:scale-105 transition-all duration-500"
     />
-    <div class="absolute inset-0 bg-gradient-to-t from-[#0d1417] via-[#0d1417]/40 to-transparent"></div>
+    <div class="absolute inset-0 bg-gradient-to-t from-[#0d1417] via-transparent to-transparent"></div>
     
     <!-- Badges -->
     <div class="absolute top-3 left-3 right-3 flex items-center justify-between text-[10px] font-mono">
