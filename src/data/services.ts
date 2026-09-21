@@ -98,7 +98,7 @@ export const servicesDataFa: ServiceCategory[] = [
   },
   {
     slug: "infrastructure-administration",
-    heroImage: "/images/security-surveillance.jpg",
+    heroImage: "/images/specialized-infrastructure.jpg",
     eyebrow: "سرورها و ذخیره‌سازی",
     title: "مدیریت سیستم‌ها و مجازی‌سازی",
     summary: "پیاده‌سازی و نگهداری سرورهای قدرتمند، مجازی‌سازی منابع و معماری‌های نرم‌افزاری مبتنی بر کانتینر.",
@@ -120,7 +120,7 @@ export const servicesDataFa: ServiceCategory[] = [
   },
   {
     slug: "security-surveillance",
-    heroImage: "/images/audio-power.jpg",
+    heroImage: "/images/security-surveillance.jpg",
     eyebrow: "نظارت و کنترل تردد",
     title: "حفاظت فیزیکی و دوربین‌های مداربسته",
     summary: "نصب و راه‌اندازی سیستم‌های پیشرفته امنیتی، پایش تصویری هوشمند و راهکارهای جامع کنترل تردد.",
@@ -142,7 +142,7 @@ export const servicesDataFa: ServiceCategory[] = [
   },
   {
     slug: "audio-power",
-    heroImage: "/images/security-surveillance.jpg",
+    heroImage: "/images/audio-power.jpg",
     eyebrow: "صوت و توان مصرفی",
     title: "تجهیزات صوتی و منابع تغذیه اضطراری",
     summary: "طراحی آکوستیک، سیستم‌های صوتی تحت شبکه و مهندسی برق پشتیبان برای تضمین پایداری زیرساخت‌ها.",
@@ -164,6 +164,7 @@ export const servicesDataFa: ServiceCategory[] = [
   },
   {
     slug: "hardware-support",
+    heroImage: "/images/hardware-maintenance.jpg",
     eyebrow: "نگهداری و تامین",
     title: "پشتیبانی سخت‌افزار و تجهیزات",
     summary: "سرویس‌های نگهداری پیشگیرانه، تعمیرات تخصصی و مشاوره در تامین قطعات اصلی و حرفه‌ای IT.",
@@ -254,7 +255,7 @@ export const servicesDataEn: ServiceCategory[] = [
   },
   {
     slug: "infrastructure-administration",
-    heroImage: "/images/security-surveillance.jpg",
+    heroImage: "/images/specialized-infrastructure.jpg",
     eyebrow: "Servers & Storage",
     title: "Systems Administration & Virtualization",
     summary: "Implementation and maintenance of powerful servers, resource virtualization, and container-based software architectures.",
@@ -276,7 +277,7 @@ export const servicesDataEn: ServiceCategory[] = [
   },
   {
     slug: "security-surveillance",
-    heroImage: "/images/audio-power.jpg",
+    heroImage: "/images/security-surveillance.jpg",
     eyebrow: "Surveillance & Access Control",
     title: "Physical Security & CCTV",
     summary: "Installation of advanced security systems, smart video monitoring, and comprehensive access control solutions.",
@@ -298,7 +299,7 @@ export const servicesDataEn: ServiceCategory[] = [
   },
   {
     slug: "audio-power",
-    heroImage: "/images/security-surveillance.jpg",
+    heroImage: "/images/audio-power.jpg",
     eyebrow: "Acoustics & Power",
     title: "Audio Systems & Critical Power",
     summary: "Acoustic design, IP audio systems, and backup electrical engineering to ensure infrastructure stability.",
@@ -320,6 +321,7 @@ export const servicesDataEn: ServiceCategory[] = [
   },
   {
     slug: "hardware-support",
+    heroImage: "/images/hardware-maintenance.jpg",
     eyebrow: "Maintenance & Procurement",
     title: "Hardware Maintenance & IT Procurement",
     summary: "Preventative maintenance services, expert repairs, and consulting for sourcing genuine, professional IT components.",
