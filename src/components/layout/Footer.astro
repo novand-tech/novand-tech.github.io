@@ -111,9 +111,13 @@ import NovandLogo from '../ui/NovandLogo.astro';
     <div class="border-t border-[#15120e] pt-8 pb-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 text-xs text-[#f4f2f1]/60 font-mono">
       <div>
         <span class="text-[#f6f2ee] block uppercase tracking-[0.15em] text-[10px] mb-1">{isEn ? 'Telephone' : 'تلفن'}</span>
-        <a href={`tel:${companyData.contactInfo.phone.replace(/[^0-9+]/g, '')}`} class="hover:text-white transition-colors">
-          <span dir="ltr" class="inline-block font-sans">{companyData.contactInfo.phone}</span>
-        </a>
+        <div class="flex flex-col gap-1">
+          {(companyData.contactInfo.phones || [companyData.contactInfo.phone]).map((phoneNum: string) => (
+            <a href={`tel:${phoneNum.replace(/[^0-9+]/g, '')}`} class="hover:text-white transition-colors">
+              <span dir="ltr" class="inline-block font-sans">{phoneNum}</span>
+            </a>
+          ))}
+        </div>
       </div>
       <div>
         <span class="text-[#f6f2ee] block uppercase tracking-[0.15em] text-[10px] mb-1">{isEn ? 'Engineering Mail' : 'ایمیل مهندسی'}</span>

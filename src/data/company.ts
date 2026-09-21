@@ -20,6 +20,7 @@ export interface CompanyInfo {
   contactInfo: {
     email: string;
     phone: string;
+    phones: string[];
     address: string;
     hours: string;
     consultationNotice: string;
@@ -97,6 +98,7 @@ export const companyDataEn: CompanyInfo = {
   contactInfo: {
     email: "novand.info@gmail.com",
     phone: "+98 912 932 1550",
+    phones: ["+98 912 932 1550", "+98 919 691 8758"],
     address: "Engineering Center: 440 Industrial Parkway, Suite 200, Tech District",
     hours: "Monday – Friday: 08:00 – 18:00 (Emergency response available for contracted facilities)",
     consultationNotice: "All consultation requests are reviewed directly by technical engineering staff."
@@ -174,6 +176,7 @@ export const companyDataFa: CompanyInfo = {
   contactInfo: {
     email: "novand.info@gmail.com",
     phone: "+98 912 932 1550",
+    phones: ["+98 912 932 1550", "+98 919 691 8758"],
     address: "مرکز مهندسی: ۴۴۰ پارک‌وی صنعتی، واحد ۲۰۰، منطقه فناوری",
     hours: "دوشنبه تا جمعه: ۰۸:۰۰ - ۱۸:۰۰ (پشتیبانی اضطراری ۲۴ ساعته برای قراردادهای فعال)",
     consultationNotice: "تمامی درخواست‌های مشاوره مستقیماً توسط کادر مهندسی فنی بررسی می‌شوند."

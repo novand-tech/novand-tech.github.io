@@ -31,7 +31,14 @@ import { getCompanyData } from "../../data/company";
       </div>
 
       <div class="mt-8 pt-6 border-t border-[#15120e] text-xs font-mono text-[#f4f2f1]/50">
-        {isEn ? 'Direct Inquiries:' : 'سوالات مستقیم:'} <a href={`mailto:${companyData.contactInfo.email}`} class="text-[#f4f2f1] hover:underline">{companyData.contactInfo.email}</a> {isEn ? '• Operations:' : '• عملیات:'} <span dir="ltr" class="inline-block font-sans">{companyData.contactInfo.phone}</span>
+        {isEn ? 'Direct Inquiries:' : 'سوالات مستقیم:'} <a href={`mailto:${companyData.contactInfo.email}`} class="text-[#f4f2f1] hover:underline">{companyData.contactInfo.email}</a> {isEn ? '• Operations:' : '• عملیات:'} {(companyData.contactInfo.phones || [companyData.contactInfo.phone]).map((phoneNum: string, idx: number) => (
+          <span>
+            {idx > 0 ? " / " : " "}
+            <a href={`tel:${phoneNum.replace(/[^0-9+]/g, "")}`} class="hover:underline text-[#f4f2f1]">
+              <span dir="ltr" class="inline-block font-sans">{phoneNum}</span>
+            </a>
+          </span>
+        ))}
       </div>
 
     </div>

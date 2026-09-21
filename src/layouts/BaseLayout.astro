@@ -35,7 +35,7 @@ const jsonLd = {
   "alternateName": companyData.shortName,
   "description": companyData.heroCopy,
   "url": Astro.site ? String(Astro.site) : "https://novandtech.com",
-  "telephone": companyData.contactInfo.phone,
+  "telephone": (companyData.contactInfo.phones || [companyData.contactInfo.phone]).join(", "),
   "email": companyData.contactInfo.email,
   "address": {
     "@type": "PostalAddress",

@@ -238,10 +238,14 @@ import { getCompanyData } from "../data/company";
             <div class="space-y-4 text-xs font-mono">
               <div>
                 <span class="text-[10px] uppercase font-mono text-[#f6f2ee] opacity-70 block mb-1">تلفن</span>
-                <a href={`tel:${companyData.contactInfo.phone.replace(/[^0-9+]/g, '')}`} class="text-sm text-[#f4f2f1] hover:underline font-light">
-                  <span dir="ltr" class="inline-block font-sans">{companyData.contactInfo.phone}</span>
-                </a>
-                <span class="text-[#f4f2f1]/40 block mt-0.5 text-[11px]">[خط ویژه تاسیسات]</span>
+                <div class="flex flex-col gap-1.5">
+                  {(companyData.contactInfo.phones || [companyData.contactInfo.phone]).map((phoneNum: string) => (
+                    <a href={`tel:${phoneNum.replace(/[^0-9+]/g, "")}`} class="text-sm text-[#f4f2f1] hover:underline font-light">
+                      <span dir="ltr" class="inline-block font-sans">{phoneNum}</span>
+                    </a>
+                  ))}
+                </div>
+                <span class="text-[#f4f2f1]/40 block mt-1 text-[11px]">[خطوط ویژه تاسیسات]</span>
               </div>
 
               <div>
