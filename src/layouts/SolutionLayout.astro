@@ -1,7 +1,4 @@
 ---
-const isEn = Astro.url.pathname.startsWith("/en");
-
-const servicesData = getServicesData(Astro.url.pathname);
 import BaseLayout from './BaseLayout.astro';
 import Breadcrumbs from '../components/ui/Breadcrumbs.astro';
 import Button from '../components/ui/Button.astro';
@@ -13,6 +10,9 @@ interface Props {
 }
 
 const { solution } = Astro.props;
+const currentPath = Astro.url.pathname;
+const isEn = currentPath.startsWith("/en");
+const servicesData = getServicesData(currentPath);
 
 // Filter recommended services
 const recommended = servicesData.filter(s => (solution.recommendedServices || []).includes(s.slug));

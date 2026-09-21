@@ -101,6 +101,11 @@
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
+  <url>
+    <loc>https://novand-tech.com/logos</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
 
   <!-- English Routes -->
   <url>
@@ -200,6 +205,11 @@
   </url>
   <url>
     <loc>https://novand-tech.com/en/brand</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://novand-tech.com/en/logos</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>

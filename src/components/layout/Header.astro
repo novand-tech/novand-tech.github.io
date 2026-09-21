@@ -1,6 +1,4 @@
 ---
-const solutionsData = getSolutionsData(Astro.url.pathname);
-const servicesData = getServicesData(Astro.url.pathname);
 import { getServicesData } from "../../data/services";
 import { getSolutionsData } from "../../data/solutions";
 import Button from '../ui/Button.astro';
@@ -11,9 +9,13 @@ interface Props {
 }
 
 const { currentPath = Astro.url.pathname } = Astro.props;
-
-
+const solutionsData = getSolutionsData(currentPath);
+const servicesData = getServicesData(currentPath);
 const isEn = currentPath.startsWith('/en');
+
+const targetLangUrl = currentPath.startsWith('/en')
+  ? (currentPath.replace(/^\/en/, '') || '/')
+  : ('/en' + (currentPath === '/' ? '' : currentPath));
 
 const navLinks = isEn ? [
   { label: 'Projects', href: '/en/projects' },
@@ -48,7 +50,7 @@ const navLinks = isEn ? [
       </a>
 
       <!-- Desktop Navigation -->
-      <nav class="hidden lg:flex items-center space-x-2" aria-label="Main Navigation">
+      <nav class="hidden lg:flex items-center gap-1.5" aria-label="Main Navigation">
         
         <!-- Services Mega Dropdown -->
         <div class="relative group/menu">
@@ -159,8 +161,12 @@ const navLinks = isEn ? [
       <!-- Action CTA (Desktop) -->
       <div class="hidden lg:flex items-center gap-3">
         <!-- Language Switcher -->
-        <a href={currentPath.startsWith('/en') ? currentPath.replace('/en', '') || '/' : '/en' + (currentPath === '/' ? '' : currentPath)} class="text-[11px] uppercase tracking-widest font-mono font-medium text-[#f4f2f1]/80 hover:text-[#f6f2ee] transition-colors flex items-center gap-1 border border-[#15120e] px-2 py-1.5 hover:bg-[#15120e]">
-          {currentPath.startsWith('/en') ? 'FA / فارسی' : 'EN'}
+        <a 
+          href={targetLangUrl} 
+          aria-label={isEn ? "Switch language to Persian" : "تغییر زبان به انگلیسی"}
+          class="text-[11px] uppercase tracking-widest font-mono font-medium text-[#f4f2f1]/80 hover:text-[#f6f2ee] transition-colors flex items-center gap-1 border border-[#15120e] px-2 py-1.5 hover:bg-[#15120e]"
+        >
+          {isEn ? 'FA / فارسی' : 'EN'}
         </a>
 
         <Button href={isEn ? "/en/contact" : "/contact"} variant="outline" size="sm">
@@ -174,8 +180,12 @@ const navLinks = isEn ? [
       <!-- Mobile Menu Toggle Button -->
       
       <div class="flex lg:hidden items-center gap-2">
-        <a href={currentPath.startsWith('/en') ? currentPath.replace('/en', '') || '/' : '/en' + (currentPath === '/' ? '' : currentPath)} class="text-[10px] uppercase font-mono text-[#f4f2f1]/80 border border-[#15120e] px-2 py-1">
-          {currentPath.startsWith('/en') ? 'FA' : 'EN'}
+        <a 
+          href={targetLangUrl} 
+          aria-label={isEn ? "Switch language to Persian" : "تغییر زبان به انگلیسی"}
+          class="text-[10px] uppercase font-mono text-[#f4f2f1]/80 border border-[#15120e] px-2 py-1"
+        >
+          {isEn ? 'FA' : 'EN'}
         </a>
 
         <Button href={isEn ? "/en/contact#consultation" : "/contact#consultation"} variant="primary" size="sm" class="text-[10px] py-1 px-3">
