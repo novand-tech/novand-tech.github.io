@@ -99,7 +99,7 @@ export const companyDataEn: CompanyInfo = {
     email: "novand.info@gmail.com",
     phone: "+98 912 932 1550",
     phones: ["+98 912 932 1550", "+98 919 691 8758"],
-    address: "Engineering Center: 440 Industrial Parkway, Suite 200, Tech District",
+    address: "Unit 17, No. 26, West 24th St., South Allameh Tabatabaei St., Modiriat Blvd., Saadat Abad, Tehran, Iran",
     hours: "Monday – Friday: 08:00 – 18:00 (Emergency response available for contracted facilities)",
     consultationNotice: "All consultation requests are reviewed directly by technical engineering staff."
   }
@@ -177,7 +177,7 @@ export const companyDataFa: CompanyInfo = {
     email: "novand.info@gmail.com",
     phone: "+98 912 932 1550",
     phones: ["+98 912 932 1550", "+98 919 691 8758"],
-    address: "مرکز مهندسی: ۴۴۰ پارک‌وی صنعتی، واحد ۲۰۰، منطقه فناوری",
+    address: "تهران، سعادت‌آباد، بلوار مدیریت، خیابان علامه طباطبایی جنوبی، بیست‌وچهارم غربی، پلاک ۲۶، واحد ۱۷",
     hours: "دوشنبه تا جمعه: ۰۸:۰۰ - ۱۸:۰۰ (پشتیبانی اضطراری ۲۴ ساعته برای قراردادهای فعال)",
     consultationNotice: "تمامی درخواست‌های مشاوره مستقیماً توسط کادر مهندسی فنی بررسی می‌شوند."
   }

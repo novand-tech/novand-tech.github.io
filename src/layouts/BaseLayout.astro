@@ -34,14 +34,14 @@ const jsonLd = {
   "name": companyData.name,
   "alternateName": companyData.shortName,
   "description": companyData.heroCopy,
-  "url": Astro.site ? String(Astro.site) : "https://novandtech.com",
+  "url": Astro.site ? String(Astro.site) : "https://novand-tech.com",
   "telephone": (companyData.contactInfo.phones || [companyData.contactInfo.phone]).join(", "),
   "email": companyData.contactInfo.email,
   "address": {
     "@type": "PostalAddress",
-    "streetAddress": "440 Industrial Parkway, Suite 200",
-    "addressLocality": "Tech District",
-    "addressCountry": "US"
+    "streetAddress": "Unit 17, No. 26, West 24th St., South Allameh Tabatabaei St., Modiriat Blvd., Saadat Abad",
+    "addressLocality": "Tehran",
+    "addressCountry": "IR"
   },
   "knowsAbout": companyData.capabilities
 };

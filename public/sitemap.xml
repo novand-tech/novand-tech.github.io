@@ -1,98 +1,206 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <!-- Persian Routes -->
   <url>
-    <loc>https://iti-infrastructure.example.com/</loc>
+    <loc>https://novand-tech.com/</loc>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://iti-infrastructure.example.com/about</loc>
+    <loc>https://novand-tech.com/about</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iti-infrastructure.example.com/services</loc>
+    <loc>https://novand-tech.com/services</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://iti-infrastructure.example.com/services/network-infrastructure</loc>
+    <loc>https://novand-tech.com/services/network-infrastructure</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iti-infrastructure.example.com/services/enterprise-services</loc>
+    <loc>https://novand-tech.com/services/enterprise-services</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iti-infrastructure.example.com/services/infrastructure-administration</loc>
+    <loc>https://novand-tech.com/services/infrastructure-administration</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iti-infrastructure.example.com/services/smart-homes-buildings</loc>
+    <loc>https://novand-tech.com/services/smart-homes-buildings</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iti-infrastructure.example.com/services/security-surveillance</loc>
+    <loc>https://novand-tech.com/services/security-surveillance</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iti-infrastructure.example.com/services/audio-power</loc>
+    <loc>https://novand-tech.com/services/audio-power</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iti-infrastructure.example.com/services/hardware-support</loc>
+    <loc>https://novand-tech.com/services/hardware-support</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iti-infrastructure.example.com/solutions</loc>
+    <loc>https://novand-tech.com/solutions</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://iti-infrastructure.example.com/solutions/business</loc>
+    <loc>https://novand-tech.com/solutions/business</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iti-infrastructure.example.com/solutions/education</loc>
+    <loc>https://novand-tech.com/solutions/education</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iti-infrastructure.example.com/solutions/residential</loc>
+    <loc>https://novand-tech.com/solutions/residential</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iti-infrastructure.example.com/solutions/healthcare-hospitality</loc>
+    <loc>https://novand-tech.com/solutions/healthcare-hospitality</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iti-infrastructure.example.com/solutions/specialized-facilities</loc>
+    <loc>https://novand-tech.com/solutions/specialized-facilities</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iti-infrastructure.example.com/projects</loc>
+    <loc>https://novand-tech.com/projects</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iti-infrastructure.example.com/consulting</loc>
+    <loc>https://novand-tech.com/consulting</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iti-infrastructure.example.com/contact</loc>
+    <loc>https://novand-tech.com/contact</loc>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://novand-tech.com/brand</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- English Routes -->
+  <url>
+    <loc>https://novand-tech.com/en</loc>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://novand-tech.com/en/about</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://novand-tech.com/en/services</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://novand-tech.com/en/services/network-infrastructure</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://novand-tech.com/en/services/enterprise-services</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://novand-tech.com/en/services/infrastructure-administration</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://novand-tech.com/en/services/smart-homes-buildings</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://novand-tech.com/en/services/security-surveillance</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://novand-tech.com/en/services/audio-power</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://novand-tech.com/en/services/hardware-support</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://novand-tech.com/en/solutions</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://novand-tech.com/en/solutions/business</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://novand-tech.com/en/solutions/education</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://novand-tech.com/en/solutions/residential</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://novand-tech.com/en/solutions/healthcare-hospitality</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://novand-tech.com/en/solutions/specialized-facilities</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://novand-tech.com/en/projects</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://novand-tech.com/en/consulting</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://novand-tech.com/en/contact</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://novand-tech.com/en/brand</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
 </urlset>
