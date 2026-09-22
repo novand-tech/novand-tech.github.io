@@ -18,15 +18,15 @@ const isEn = currentPath.startsWith("/en");
       
       <!-- Brand column -->
       <div class="lg:col-span-2 space-y-4">
-        <a href={isEn ? "/en" : "/"} class="flex items-center gap-3.5 group" aria-label="Novand">
-          <div class="w-9 h-9 text-[#f4f2f1] flex items-center justify-center transition-all duration-300 group-hover:scale-105 group-hover:text-[#00d2b5] group-hover:drop-shadow-[0_0_14px_rgba(0,210,181,0.6)]">
+        <a href={isEn ? "/en" : "/"} class="footer-brand-link flex items-center gap-3.5 group" aria-label="Novand">
+          <div class="logo-wrapper w-9 h-9 text-[#f4f2f1] flex items-center justify-center transition-all duration-300 group-hover:scale-105 group-hover:text-[#00d2b5] group-hover:drop-shadow-[0_0_14px_rgba(0,210,181,0.6)]">
             <NovandLogo />
           </div>
           <div class="flex flex-col">
-            <span class="text-base font-bold tracking-tight uppercase text-[#f4f2f1] group-hover:text-[#00d2b5] transition-colors duration-300 font-sans">
+            <span class="footer-logo-title text-base font-bold tracking-tight uppercase text-[#f4f2f1] group-hover:text-[#00d2b5] transition-colors duration-300 font-sans">
               {companyData.name}
             </span>
-            <span class="text-[9px] uppercase font-mono tracking-[0.2em] text-[#f4f2f1]/50 group-hover:text-[#10b981] transition-colors duration-300">
+            <span class="footer-logo-subtitle text-[9px] uppercase font-mono tracking-[0.2em] text-[#f4f2f1]/50 group-hover:text-[#10b981] transition-colors duration-300">
               {isEn ? 'Integrated Tech & Infrastructure' : 'فناوری یکپارچه و زیرساخت'}
             </span>
           </div>

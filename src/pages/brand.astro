@@ -281,7 +281,7 @@ import NovandLogo from '@/components/ui/NovandLogo.astro';
           <button 
             type="button" 
             data-filter="all" 
-            class="filter-btn px-3 py-1.5 bg-[#00d2b5] text-[#0d1417] font-bold rounded-sm cursor-pointer transition-all"
+            class="filter-btn active px-3 py-1.5 bg-[#00d2b5] text-[#0d1417] font-bold rounded-sm cursor-pointer transition-all"
           >
             همه فرمت‌ها
           </button>
@@ -1632,11 +1632,11 @@ import NovandLogo from '@/components/ui/NovandLogo.astro';
       btn.addEventListener('click', () => {
         // Update active filter styling
         filterButtons.forEach((b) => {
-          b.classList.remove('bg-[#00d2b5]', 'text-[#0d1417]', 'font-bold');
+          b.classList.remove('bg-[#00d2b5]', 'text-[#0d1417]', 'font-bold', 'active');
           b.classList.add('bg-[#141b1f]', 'text-[#f4f2f1]/80');
         });
         btn.classList.remove('bg-[#141b1f]', 'text-[#f4f2f1]/80');
-        btn.classList.add('bg-[#00d2b5]', 'text-[#0d1417]', 'font-bold');
+        btn.classList.add('bg-[#00d2b5]', 'text-[#0d1417]', 'font-bold', 'active');
 
         const filter = btn.getAttribute('data-filter');
 
