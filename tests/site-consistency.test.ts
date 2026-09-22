@@ -207,6 +207,30 @@ describe('Novand Engineering Site - Diagnostics & Unit Tests', () => {
       }
     });
 
+    test('All Persian business card SVGs and 300 DPI PNGs exist and are non-empty', () => {
+      const requiredBusinessCardFiles = [
+        'novand-business-card-ahmadi-dark.svg',
+        'novand-business-card-ahmadi-dark.png',
+        'novand-business-card-ahmadi-light.svg',
+        'novand-business-card-ahmadi-light.png',
+        'novand-business-card-ashari-dark.svg',
+        'novand-business-card-ashari-dark.png',
+        'novand-business-card-ashari-light.svg',
+        'novand-business-card-ashari-light.png',
+        'novand-business-card-back-dark.svg',
+        'novand-business-card-back-dark.png',
+        'novand-business-card-back-light.svg',
+        'novand-business-card-back-light.png'
+      ];
+
+      for (const fileName of requiredBusinessCardFiles) {
+        const publicPath = path.join(process.cwd(), 'public', 'branding', fileName);
+        assert.ok(fs.existsSync(publicPath), `Missing public business card asset: ${fileName}`);
+        const stat = fs.statSync(publicPath);
+        assert.ok(stat.size > 1000, `Business card file ${fileName} is too small: ${stat.size} bytes`);
+      }
+    });
+
     test('Brand asset zip archive contains both dark and light theme assets', () => {
       const zipPath = path.join(process.cwd(), 'public', 'branding', 'novand-brand-assets.zip');
       assert.ok(fs.existsSync(zipPath), 'novand-brand-assets.zip must exist');
