@@ -30,20 +30,20 @@ const navLinks = isEn ? [
 ];
 
 ---
-<header class="sticky top-0 z-50 w-full bg-[#0d1417]/95 backdrop-blur-md border-b border-[#15120e] transition-colors">
+<header class="sticky top-0 z-50 w-full bg-[#0d1417]/95 backdrop-blur-md border-b border-[#15120e] transition-colors keep-dark">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex items-center justify-between h-20">
       
       <!-- Brand / Logo (Smart Building & Circuit Infrastructure) -->
-      <a href={isEn ? "/en" : "/"} class="flex items-center gap-3.5 group focus-visible:outline-2 focus-visible:outline-offset-2">
-        <div class="logo-wrapper w-9 h-9 text-[#f4f2f1] flex items-center justify-center transition-transform duration-300 group-hover:scale-105">
+      <a href={isEn ? "/en" : "/"} class="flex items-center gap-3.5 group focus-visible:outline-2 focus-visible:outline-offset-2" aria-label="Novand">
+        <div class="logo-wrapper w-9 h-9 text-[#f4f2f1] flex items-center justify-center transition-all duration-300 group-hover:scale-105 group-hover:text-[#00d2b5] group-hover:drop-shadow-[0_0_14px_rgba(0,210,181,0.6)]">
           <NovandLogo />
         </div>
         <div class="flex flex-col">
-          <span class="text-base font-bold tracking-tight uppercase text-[#f4f2f1] group-hover:text-white transition-colors font-sans">
+          <span class="text-base font-bold tracking-tight uppercase text-[#f4f2f1] group-hover:text-[#00d2b5] transition-colors duration-300 font-sans">
             Novand
           </span>
-          <span class="text-[9px] uppercase font-mono tracking-[0.2em] text-[#f4f2f1] opacity-50">
+          <span class="text-[9px] uppercase font-mono tracking-[0.2em] text-[#f4f2f1]/50 group-hover:text-[#10b981] transition-colors duration-300">
             {isEn ? 'Integrated Tech & Infrastructure' : 'فناوری یکپارچه و زیرساخت'}
           </span>
         </div>
@@ -56,7 +56,7 @@ const navLinks = isEn ? [
         <div class="relative group/menu">
           <button 
             type="button" 
-            class="flex items-center gap-1.5 px-3 py-2 text-[11px] uppercase tracking-[0.2em] font-medium text-[#f4f2f1]/80 hover:text-[#f6f2ee] transition-colors focus-visible:outline-none"
+            class="flex items-center gap-1.5 px-3 py-2 text-[11px] uppercase tracking-[0.2em] font-medium text-[#f4f2f1]/80 hover:text-[#00d2b5] transition-colors focus-visible:outline-none"
             aria-expanded="false"
             aria-haspopup="true"
             id="services-menu-btn"
@@ -69,22 +69,22 @@ const navLinks = isEn ? [
 
           <!-- Dropdown Panel -->
           <div 
-            class="absolute left-0 rtl:right-0 rtl:left-auto top-full pt-2 opacity-0 pointer-events-none group-hover/menu:opacity-100 group-hover/menu:pointer-events-auto transition-all duration-200 w-[580px]"
+            class="absolute left-0 rtl:right-0 rtl:left-auto top-full pt-2 opacity-0 -translate-y-1 pointer-events-none group-hover/menu:opacity-100 group-hover/menu:translate-y-0 group-hover/menu:pointer-events-auto transition-all duration-200 w-[580px]"
             id="services-dropdown"
           >
             <div class="bg-[#0d1417] border border-[#15120e] shadow-2xl p-4 grid grid-cols-2 gap-2">
               <div class="col-span-2 pb-2 mb-2 border-b border-[#15120e] flex items-center justify-between">
                 <span class="text-[10px] font-mono uppercase tracking-[0.2em] text-[#f6f2ee] opacity-70">{isEn ? 'Core Engineering Disciplines' : 'حوزه‌های مهندسی'}</span>
-                <a href={isEn ? "/en/services" : "/services"} class="text-xs text-[#f4f2f1]/60 hover:text-[#f4f2f1] transition-colors font-medium">
+                <a href={isEn ? "/en/services" : "/services"} class="text-xs text-[#f4f2f1]/60 hover:text-[#00d2b5] transition-colors font-medium">
                   {isEn ? 'View All Services →' : 'مشاهده همه خدمات ←'}
                 </a>
               </div>
               {servicesData.map((service) => (
                 <a 
                   href={isEn ? `/en/services/${service.slug}` : `/services/${service.slug}`}
-                  class="p-2.5 hover:bg-[#15120e] transition-colors group/item block border border-transparent hover:border-[#f4f2f1]/20"
+                  class="p-2.5 hover:bg-[#15120e] transition-colors group/item block border border-transparent hover:border-[#00d2b5]/30"
                 >
-                  <p class="text-sm font-medium text-[#f4f2f1] group-hover/item:text-white transition-colors leading-tight">
+                  <p class="text-sm font-medium text-[#f4f2f1] group-hover/item:text-[#00d2b5] transition-colors leading-tight">
                     {service.title}
                   </p>
                   <p class="text-xs text-[#f4f2f1]/50 line-clamp-1 mt-1 font-mono">
@@ -100,7 +100,7 @@ const navLinks = isEn ? [
         <div class="relative group/menu">
           <button 
             type="button" 
-            class="flex items-center gap-1.5 px-3 py-2 text-[11px] uppercase tracking-[0.2em] font-medium text-[#f4f2f1]/80 hover:text-[#f6f2ee] transition-colors focus-visible:outline-none"
+            class="flex items-center gap-1.5 px-3 py-2 text-[11px] uppercase tracking-[0.2em] font-medium text-[#f4f2f1]/80 hover:text-[#00d2b5] transition-colors focus-visible:outline-none"
             aria-expanded="false"
             aria-haspopup="true"
             id="solutions-menu-btn"
@@ -113,22 +113,22 @@ const navLinks = isEn ? [
 
           <!-- Dropdown Panel -->
           <div 
-            class="absolute left-0 rtl:right-0 rtl:left-auto top-full pt-2 opacity-0 pointer-events-none group-hover/menu:opacity-100 group-hover/menu:pointer-events-auto transition-all duration-200 w-[420px]"
+            class="absolute left-0 rtl:right-0 rtl:left-auto top-full pt-2 opacity-0 -translate-y-1 pointer-events-none group-hover/menu:opacity-100 group-hover/menu:translate-y-0 group-hover/menu:pointer-events-auto transition-all duration-200 w-[420px]"
             id="solutions-dropdown"
           >
             <div class="bg-[#0d1417] border border-[#15120e] shadow-2xl p-4 flex flex-col gap-1.5">
               <div class="pb-2 mb-1 border-b border-[#15120e] flex items-center justify-between">
                 <span class="text-[10px] font-mono uppercase tracking-[0.2em] text-[#f6f2ee] opacity-70">{isEn ? 'By Facility Environment' : 'بر اساس محیط'}</span>
-                <a href={isEn ? "/en/solutions" : "/solutions"} class="text-xs text-[#f4f2f1]/60 hover:text-[#f4f2f1] transition-colors font-medium">
+                <a href={isEn ? "/en/solutions" : "/solutions"} class="text-xs text-[#f4f2f1]/60 hover:text-[#00d2b5] transition-colors font-medium">
                   {isEn ? 'All Solutions →' : 'همه راهکارها ←'}
                 </a>
               </div>
               {solutionsData.map((solution) => (
                 <a 
                   href={isEn ? `/en/solutions/${solution.slug}` : `/solutions/${solution.slug}`}
-                  class="p-2 hover:bg-[#15120e] transition-colors group/item block border border-transparent hover:border-[#f4f2f1]/20"
+                  class="p-2 hover:bg-[#15120e] transition-colors group/item block border border-transparent hover:border-[#00d2b5]/30"
                 >
-                  <p class="text-sm font-medium text-[#f4f2f1] group-hover/item:text-white transition-colors">
+                  <p class="text-sm font-medium text-[#f4f2f1] group-hover/item:text-[#00d2b5] transition-colors">
                     {solution.title}
                   </p>
                   <p class="text-xs text-[#f4f2f1]/50 line-clamp-1 mt-0.5">
@@ -148,8 +148,8 @@ const navLinks = isEn ? [
               href={link.href}
               class={`px-3 py-2 text-[11px] uppercase tracking-[0.2em] font-medium transition-colors ${
                 isActive 
-                  ? 'text-[#f4f2f1] font-bold' 
-                  : 'text-[#f4f2f1]/80 hover:text-[#f6f2ee]'
+                  ? 'text-[#00d2b5] font-bold' 
+                  : 'text-[#f4f2f1]/80 hover:text-[#00d2b5]'
               }`}
             >
               {link.label}
@@ -169,16 +169,41 @@ const navLinks = isEn ? [
           {isEn ? 'FA / فارسی' : 'EN'}
         </a>
 
-        <Button href={isEn ? "/en/contact" : "/contact"} variant="outline" size="sm">
+        <!-- Theme Switcher (Desktop) -->
+        <button 
+          type="button" 
+          id="theme-toggle-btn"
+          aria-label={isEn ? "Switch to dark theme" : "تغییر به حالت تیره"}
+          class="theme-toggle-btn group text-[11px] font-mono text-[#f4f2f1]/80 hover:text-[#00d2b5] transition-all duration-200 flex items-center justify-center p-2 border border-[#15120e] hover:border-[#00d2b5]/40 hover:bg-[#15120e] cursor-pointer rounded-sm"
+          title={isEn ? "Toggle dark / light theme" : "تغییر حالت تیره / روشن"}
+        >
+          <!-- Sun Icon (shown in dark mode, click to switch to light) -->
+          <svg class="w-4 h-4 hidden dark:block text-[#00d2b5] transition-transform duration-300 group-hover:rotate-45" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
+          <!-- Moon Icon (shown in light mode, click to switch to dark) -->
+          <svg class="w-4 h-4 block dark:hidden text-[#f4f2f1] group-hover:text-[#00d2b5] transition-transform duration-300 group-hover:-rotate-12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+        </button>
+
+        <Button href={isEn ? "/en/contact" : "/contact"} variant="outline" size="sm" class="!bg-transparent !text-[#f4f2f1] !border-[#f4f2f1]/40 hover:!border-[#f4f2f1] hover:!text-[#ffffff] hover:!bg-white/10">
           {isEn ? 'Technical Inquiries' : 'سوالات فنی'}
         </Button>
-        <Button href={isEn ? "/en/contact#consultation" : "/contact#consultation"} variant="primary" size="sm">
+        <Button href={isEn ? "/en/contact#consultation" : "/contact#consultation"} variant="primary" size="sm" class="!bg-[#f4f2f1] !text-[#141210] hover:!bg-[#ffffff] !border-transparent">
           {isEn ? 'Request Consultation' : 'درخواست مشاوره'}
         </Button>
       </div>
 
       <!-- Mobile Menu Toggle Button -->
-      
       <div class="flex lg:hidden items-center gap-2">
         <a 
           href={targetLangUrl} 
@@ -188,7 +213,33 @@ const navLinks = isEn ? [
           {isEn ? 'FA' : 'EN'}
         </a>
 
-        <Button href={isEn ? "/en/contact#consultation" : "/contact#consultation"} variant="primary" size="sm" class="text-[10px] py-1 px-3">
+        <!-- Theme Switcher (Mobile) -->
+        <button 
+          type="button" 
+          id="theme-toggle-btn-mobile"
+          aria-label={isEn ? "Switch to dark theme" : "تغییر به حالت تیره"}
+          class="theme-toggle-btn group text-[10px] font-mono text-[#f4f2f1]/80 hover:text-[#00d2b5] border border-[#15120e] hover:border-[#00d2b5]/40 p-1.5 flex items-center justify-center hover:bg-[#15120e] cursor-pointer rounded-sm transition-all duration-200"
+          title={isEn ? "Toggle dark / light theme" : "تغییر حالت تیره / روشن"}
+        >
+          <!-- Sun Icon (shown in dark mode) -->
+          <svg class="w-4 h-4 hidden dark:block text-[#00d2b5] transition-transform duration-300 group-hover:rotate-45" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
+          <!-- Moon Icon (shown in light mode) -->
+          <svg class="w-4 h-4 block dark:hidden text-[#f4f2f1] group-hover:text-[#00d2b5] transition-transform duration-300 group-hover:-rotate-12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+        </button>
+
+        <Button href={isEn ? "/en/contact#consultation" : "/contact#consultation"} variant="primary" size="sm" class="text-[10px] py-1 px-3 !bg-[#f4f2f1] !text-[#141210] hover:!bg-[#ffffff] !border-transparent">
           {isEn ? 'Consultation' : 'مشاوره'}
         </Button>
         <button 
@@ -247,7 +298,7 @@ const navLinks = isEn ? [
       </div>
 
       <div class="pt-4 border-t border-[#15120e]">
-        <Button href={isEn ? "/en/contact#consultation" : "/contact#consultation"} variant="primary" size="md" class="w-full">
+        <Button href={isEn ? "/en/contact#consultation" : "/contact#consultation"} variant="primary" size="md" class="w-full !bg-[#f4f2f1] !text-[#141210] hover:!bg-[#ffffff] !border-transparent">
           {isEn ? 'Request Consultation' : 'درخواست مشاوره'}
         </Button>
       </div>
@@ -276,4 +327,47 @@ const navLinks = isEn ? [
       }
     });
   }
+
+  // Accessible theme toggle with persistence and zero latency
+  function updateThemeUI(theme: string) {
+    const isDark = theme === 'dark';
+    const isEn = document.documentElement.lang === 'en';
+    const buttons = document.querySelectorAll<HTMLButtonElement>('.theme-toggle-btn');
+    buttons.forEach((btn) => {
+      btn.setAttribute(
+        'aria-label',
+        isDark
+          ? (isEn ? 'Switch to light theme' : 'تغییر به حالت روشن')
+          : (isEn ? 'Switch to dark theme' : 'تغییر به حالت تیره')
+      );
+    });
+    const metaThemeColor = document.getElementById('meta-theme-color');
+    if (metaThemeColor) {
+      metaThemeColor.setAttribute('content', isDark ? '#141210' : '#ffffff');
+    }
+  }
+
+  function toggleTheme() {
+    const currentIsDark = document.documentElement.classList.contains('dark');
+    const newTheme = currentIsDark ? 'light' : 'dark';
+    if (newTheme === 'dark') {
+      document.documentElement.classList.add('dark');
+      document.documentElement.setAttribute('data-theme', 'dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+      document.documentElement.setAttribute('data-theme', 'light');
+    }
+    try {
+      localStorage.setItem('novand_theme', newTheme);
+    } catch (e) {}
+    updateThemeUI(newTheme);
+    window.dispatchEvent(new CustomEvent('novand-theme-change', { detail: { theme: newTheme } }));
+  }
+
+  document.querySelectorAll('.theme-toggle-btn').forEach((btn) => {
+    btn.addEventListener('click', toggleTheme);
+  });
+
+  const initialTheme = document.documentElement.classList.contains('dark') ? 'dark' : 'light';
+  updateThemeUI(initialTheme);
 </script>

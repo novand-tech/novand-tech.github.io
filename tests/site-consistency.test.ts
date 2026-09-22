@@ -171,4 +171,65 @@ describe('Novand Engineering Site - Diagnostics & Unit Tests', () => {
       assert.ok(content.includes('/en/logos'));
     });
   });
+
+  describe('6. Branding Assets & Theme Support Verification', () => {
+    test('All required light and dark logo SVG and PNG variants exist in public/branding/', () => {
+      const requiredBrandFiles = [
+        'novand-logo-horizontal-dark.svg',
+        'novand-logo-horizontal-dark.png',
+        'novand-logo-horizontal-light.svg',
+        'novand-logo-horizontal-light.png',
+        'novand-logo-horizontal-persian.svg',
+        'novand-logo-horizontal-persian.png',
+        'novand-logo-horizontal-persian-light.svg',
+        'novand-logo-horizontal-persian-light.png',
+        'novand-logo-stacked-dark.svg',
+        'novand-logo-stacked-dark.png',
+        'novand-logo-stacked-light.svg',
+        'novand-logo-stacked-light.png',
+        'novand-logo-square-dark.svg',
+        'novand-logo-square-light.svg',
+        'novand-logo-square-light.png',
+        'novand-logo-persian-captioned.svg',
+        'novand-logo-persian-captioned-1080x1080.png',
+        'novand-logo-persian-captioned-light.svg',
+        'novand-logo-persian-captioned-light-1080x1080.png',
+        'novand-logo-vector.svg',
+        'novand-logo-transparent-1080x1080.png',
+        'novand-brand-assets.zip'
+      ];
+
+      for (const fileName of requiredBrandFiles) {
+        const filePath = path.join(process.cwd(), 'public', 'branding', fileName);
+        assert.ok(fs.existsSync(filePath), `Missing required branding asset: ${fileName}`);
+        const stat = fs.statSync(filePath);
+        assert.ok(stat.size > 0, `Branding asset ${fileName} is empty`);
+      }
+    });
+
+    test('Brand asset zip archive contains both dark and light theme assets', () => {
+      const zipPath = path.join(process.cwd(), 'public', 'branding', 'novand-brand-assets.zip');
+      assert.ok(fs.existsSync(zipPath), 'novand-brand-assets.zip must exist');
+      const stat = fs.statSync(zipPath);
+      assert.ok(stat.size > 100000, `ZIP archive size unexpected: ${stat.size} bytes`);
+    });
+
+    test('BaseLayout contains instant theme initialization script with light mode default', () => {
+      const layoutPath = path.join(process.cwd(), 'src', 'layouts', 'BaseLayout.astro');
+      assert.ok(fs.existsSync(layoutPath));
+      const content = fs.readFileSync(layoutPath, 'utf-8');
+      assert.ok(content.includes('localStorage.getItem(\'novand_theme\')'), 'Theme script must read localStorage');
+      assert.ok(content.includes('classList.add(\'dark\')'), 'Theme script must support dark class');
+    });
+
+    test('Global stylesheet contains theme variables and light mode override layer', () => {
+      const cssPath = path.join(process.cwd(), 'src', 'styles', 'global.css');
+      assert.ok(fs.existsSync(cssPath));
+      const cssContent = fs.readFileSync(cssPath, 'utf-8');
+      assert.ok(cssContent.includes('--theme-bg-base'), 'CSS must define --theme-bg-base');
+      assert.ok(cssContent.includes('--theme-bg-surface'), 'CSS must define --theme-bg-surface');
+      assert.ok(cssContent.includes('html.dark'), 'CSS must define html.dark rules');
+      assert.ok(cssContent.includes('html:not(.dark)'), 'CSS must define light mode rules');
+    });
+  });
 });

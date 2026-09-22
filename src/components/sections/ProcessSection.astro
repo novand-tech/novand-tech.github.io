@@ -22,16 +22,16 @@ import { getCompanyData } from "../../data/company";
           <div>
             <!-- Number & Status -->
             <div class="flex items-center justify-between border-b border-[#15120e] pb-3 mb-4">
-              <span class="text-2xl sm:text-3xl font-mono font-light text-[#f6f2ee]">
+              <span class="text-2xl sm:text-3xl font-mono font-light text-[#f4f2f1]">
                 {step.number}
               </span>
-              <span class="text-[9px] uppercase font-mono tracking-[0.2em] text-[#f4f2f1]/40">
+              <span class="text-[9px] uppercase font-mono tracking-[0.2em] text-[#008f7a] dark:text-[#00d2b5] font-semibold">
                 {isEn ? 'STAGE //' : 'مرحله //'} {step.number}
               </span>
             </div>
 
             <!-- Title -->
-            <h3 class="text-xl font-light text-[#f4f2f1] mb-3 tracking-tight">
+            <h3 class="text-xl font-light text-[#f4f2f1] group-hover:text-[#008f7a] dark:group-hover:text-[#ffffff] mb-3 tracking-tight transition-colors">
               {step.title}
             </h3>
 
@@ -49,7 +49,7 @@ import { getCompanyData } from "../../data/company";
             <ul class="space-y-1.5 text-xs text-[#f4f2f1]/60 font-mono">
               {step.deliverables.map((deliv) => (
                 <li class="flex items-center gap-1.5">
-                  <span class="text-[#f4f2f1] opacity-70">•</span>
+                  <span class="text-[#008f7a] dark:text-[#00d2b5] font-bold">•</span>
                   <span>{deliv}</span>
                 </li>
               ))}

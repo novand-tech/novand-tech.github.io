@@ -19,10 +19,9 @@ const sizeClasses = {
   xl: 'w-16 h-16',
 };
 
-// Colors based on variant
-// In dark theme: house structure is titanium/platinum white (#f4f2f1), circuit traces are glowing emerald/teal (#10b981 / #34d399 / #38bdf8)
-const houseStroke = variant === 'light' ? '#0d1417' : '#f4f2f1';
-const windowFill = variant === 'light' ? '#0d1417' : '#f4f2f1';
+// Colors based on variant: 'light' forces dark strokes, 'dark' forces white strokes, default/emerald adopts currentColor
+const houseStroke = variant === 'light' ? '#0d1417' : (variant === 'dark' ? '#f4f2f1' : 'currentColor');
+const windowFill = variant === 'light' ? '#0d1417' : (variant === 'dark' ? '#f4f2f1' : 'currentColor');
 ---
 <div class={`inline-flex items-center justify-center ${sizeClasses[size]} ${className}`} aria-hidden="true">
   <svg 

@@ -120,7 +120,7 @@ export const servicesDataFa: ServiceCategory[] = [
   },
   {
     slug: "security-surveillance",
-    heroImage: "/images/security-surveillance.jpg",
+    heroImage: "/images/audio-power.jpg",
     eyebrow: "نظارت و کنترل تردد",
     title: "حفاظت فیزیکی و دوربین‌های مداربسته",
     summary: "نصب و راه‌اندازی سیستم‌های پیشرفته امنیتی، پایش تصویری هوشمند و راهکارهای جامع کنترل تردد.",
@@ -142,7 +142,7 @@ export const servicesDataFa: ServiceCategory[] = [
   },
   {
     slug: "audio-power",
-    heroImage: "/images/audio-power.jpg",
+    heroImage: "/images/security-surveillance.jpg",
     eyebrow: "صوت و توان مصرفی",
     title: "تجهیزات صوتی و منابع تغذیه اضطراری",
     summary: "طراحی آکوستیک، سیستم‌های صوتی تحت شبکه و مهندسی برق پشتیبان برای تضمین پایداری زیرساخت‌ها.",
@@ -277,7 +277,7 @@ export const servicesDataEn: ServiceCategory[] = [
   },
   {
     slug: "security-surveillance",
-    heroImage: "/images/security-surveillance.jpg",
+    heroImage: "/images/audio-power.jpg",
     eyebrow: "Surveillance & Access Control",
     title: "Physical Security & CCTV",
     summary: "Installation of advanced security systems, smart video monitoring, and comprehensive access control solutions.",
@@ -299,7 +299,7 @@ export const servicesDataEn: ServiceCategory[] = [
   },
   {
     slug: "audio-power",
-    heroImage: "/images/audio-power.jpg",
+    heroImage: "/images/security-surveillance.jpg",
     eyebrow: "Acoustics & Power",
     title: "Audio Systems & Critical Power",
     summary: "Acoustic design, IP audio systems, and backup electrical engineering to ensure infrastructure stability.",

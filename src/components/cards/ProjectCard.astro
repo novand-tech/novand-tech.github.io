@@ -22,25 +22,25 @@ const isEn = Astro.url.pathname.startsWith("/en");
     
     <!-- Badges -->
     <div class="absolute top-3 left-3 right-3 flex items-center justify-between text-[10px] font-mono">
-      <span class="px-2 py-0.5 bg-[#141210]/90 border border-[#15120e] text-[#f4f2f1]/80 backdrop-blur-xs uppercase tracking-wider">
+      <span class="px-2 py-0.5 bg-[#0f172a]/90 dark:bg-[#141210]/90 border border-white/10 text-[#ffffff] dark:text-[#f4f2f1]/80 backdrop-blur-xs uppercase tracking-wider keep-white">
         {project.category}
       </span>
-      <span class="px-2 py-0.5 bg-[#15120e]/95 border border-[#15120e] text-[#f6f2ee] uppercase tracking-wider">
+      <span class="px-2 py-0.5 bg-[#008f7a] dark:bg-[#00d2b5] text-[#ffffff] dark:text-[#0d1417] font-semibold uppercase tracking-wider keep-white">
         {project.status}
       </span>
     </div>
 
     <!-- Archetype Environment Tag -->
-    <div class="absolute bottom-3 left-3 right-3 text-xs font-mono text-[#f4f2f1]/80">
-      <span class="text-[#f4f2f1]/50">{isEn ? "Environment:" : "محیط:"}</span> {project.environment}
+    <div class="absolute bottom-3 left-3 right-3 text-xs font-mono text-[#ffffff] dark:text-[#f4f2f1]/90 drop-shadow-md keep-white">
+      <span class="opacity-75">{isEn ? "Environment:" : "محیط:"}</span> {project.environment}
     </div>
   </div>
 
   <!-- Content Body -->
   <div class="p-6 sm:p-7 flex-grow flex flex-col justify-between">
     <div>
-      <h3 class="text-lg sm:text-xl font-light text-[#f4f2f1] group-hover:text-white tracking-tight mb-2.5">
-        <a href={`/projects#${project.slug}`} class="focus-visible:outline-none focus-visible:underline">
+      <h3 class="text-lg sm:text-xl font-light text-[#f4f2f1] group-hover:text-[#008f7a] dark:group-hover:text-[#00d2b5] tracking-tight mb-2.5 transition-colors">
+        <a href={isEn ? `/en/projects#${project.slug}` : `/projects#${project.slug}`} class="focus-visible:outline-none focus-visible:underline">
           <span class="absolute inset-0" aria-hidden="true"></span>
           {project.title}
         </a>
@@ -53,7 +53,7 @@ const isEn = Astro.url.pathname.startsWith("/en");
       <!-- Technology Chips -->
       <div class="flex flex-wrap gap-1.5 mb-6">
         {(project.technologies || []).slice(0, 4).map((tech: string) => (
-          <span class="px-2 py-0.5 text-[10px] font-mono bg-[#141210] border border-[#15120e] text-[#f4f2f1]/70">
+          <span class="px-2 py-0.5 text-[10px] font-mono bg-[#141210] border border-[#15120e] text-[#f4f2f1]/70 group-hover:border-[#008f7a]/30 dark:group-hover:border-[#00d2b5]/30 group-hover:text-[#008f7a] dark:group-hover:text-[#00d2b5] transition-colors">
             {tech}
           </span>
         ))}
@@ -61,9 +61,9 @@ const isEn = Astro.url.pathname.startsWith("/en");
     </div>
 
     <!-- Bottom Metadata -->
-    <div class="pt-4 border-t border-[#15120e] flex items-center justify-between text-[10px] font-mono text-[#f4f2f1]/50">
+    <div class="pt-4 border-t border-[#15120e] flex items-center justify-between text-[10px] font-mono text-[#f4f2f1]/50 group-hover:text-[#008f7a] dark:group-hover:text-[#00d2b5] transition-colors">
       <span>{project.date || project.year}</span>
-      <span class="text-[#f4f2f1] group-hover:translate-x-1 transition-transform flex items-center gap-1">
+      <span class="text-[#008f7a] dark:text-[#00d2b5] group-hover:translate-x-1 transition-transform flex items-center gap-1">
         <span>{isEn ? "Review Case Model" : "بررسی نمونه پروپوزال"}</span>
         <span>→</span>
       </span>

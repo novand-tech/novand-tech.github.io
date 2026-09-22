@@ -57,8 +57,25 @@ const jsonLd = {
     <title>{siteTitle}</title>
     <meta name="description" content={description} />
     <meta name="robots" content="index, follow" />
-    <meta name="theme-color" content="#141210" />
+    <meta name="theme-color" content="#ffffff" id="meta-theme-color" />
     <link rel="canonical" href={canonicalUrl} />
+
+    <!-- Immediate Theme Initialization (Zero FOUC, Default = Light) -->
+    <script is:inline>
+      (function() {
+        try {
+          var stored = localStorage.getItem('novand_theme');
+          var theme = stored === 'dark' ? 'dark' : 'light';
+          if (theme === 'dark') {
+            document.documentElement.classList.add('dark');
+            document.documentElement.setAttribute('data-theme', 'dark');
+          } else {
+            document.documentElement.classList.remove('dark');
+            document.documentElement.setAttribute('data-theme', 'light');
+          }
+        } catch (e) {}
+      })();
+    </script>
 
     <!-- Multilingual Hreflang Tags -->
     <link rel="alternate" hreflang="fa" href={`https://novand-tech.com${persianPath}`} />
@@ -90,7 +107,7 @@ const jsonLd = {
     <!-- Structured Data -->
     <script type="application/ld+json" is:inline set:html={JSON.stringify(jsonLd)} />
   </head>
-  <body class="min-h-screen flex flex-col bg-[#141210] text-[#f4f2f1]">
+  <body class="min-h-screen flex flex-col bg-white text-slate-900 dark:bg-[#141210] dark:text-[#f4f2f1] transition-colors duration-150">
     
     <!-- Accessibility Landmark: Skip Link -->
     <a 

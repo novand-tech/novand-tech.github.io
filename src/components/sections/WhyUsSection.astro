@@ -33,7 +33,7 @@ import { getCompanyData } from "../../data/company";
         {companyData.whyUs.map((item, index) => (
           <div class="bg-[#15120e] border border-[#15120e] p-6 flex flex-col justify-between hover:border-[#f4f2f1]/30 transition-colors">
             <div>
-              <div class="text-[10px] font-mono text-[#f6f2ee] opacity-70 mb-2">
+              <div class="text-[10px] font-mono text-[#008f7a] dark:text-[#00d2b5] font-semibold mb-2">
                 0{index + 1} // CRITERION
               </div>
               <h3 class="text-lg font-light text-[#f4f2f1] mb-2 tracking-tight">
@@ -47,12 +47,12 @@ import { getCompanyData } from "../../data/company";
         ))}
         
         <!-- Supplementary Anchor Block -->
-        <div class="bg-[#141210] text-[#f4f2f1] p-6 flex flex-col justify-between border border-[#15120e]">
+        <div class="bg-[#141210] text-[#f4f2f1] p-6 flex flex-col justify-between border border-[#15120e] hover:border-[#f4f2f1]/30 transition-colors">
           <div>
-            <div class="text-[10px] font-mono text-[#f6f2ee] opacity-70 mb-2">
+            <div class="text-[10px] font-mono text-[#008f7a] dark:text-[#00d2b5] font-semibold mb-2">
               {isEn ? 'VERIFICATION' : 'تاییدیه'}
             </div>
-            <h3 class="text-lg font-light text-white mb-2 tracking-tight">
+            <h3 class="text-lg font-light text-[#f4f2f1] mb-2 tracking-tight">
               {isEn ? 'Documentation & Handover' : 'مستندات و تحویل'}
             </h3>
             <p class="text-xs sm:text-sm text-[#f4f2f1]/65 font-light leading-relaxed">
@@ -60,7 +60,6 @@ import { getCompanyData } from "../../data/company";
             </p>
           </div>
         </div>
-
       </div>
 
     </div>

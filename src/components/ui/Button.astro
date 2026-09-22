@@ -23,7 +23,7 @@ const {
   ...rest
 } = Astro.props;
 
-const baseStyles = "inline-flex items-center justify-center font-medium transition-all duration-200 focus-visible:outline-2 focus-visible:outline-offset-2 disabled:opacity-50 disabled:pointer-events-none text-center select-none";
+const baseStyles = "btn-novand inline-flex items-center justify-center font-medium transition-all duration-200 focus-visible:outline-2 focus-visible:outline-offset-2 disabled:opacity-50 disabled:pointer-events-none text-center select-none cursor-pointer";
 
 const sizeStyles = {
   sm: "text-[10px] px-4 py-2 uppercase font-bold tracking-widest",
@@ -32,11 +32,11 @@ const sizeStyles = {
 };
 
 const variantStyles = {
-  primary: "bg-[#f4f2f1] text-[#141210] hover:bg-[#f6f2ee] active:bg-[#e7e4e1] border border-transparent transition-colors",
-  secondary: "bg-[#0d1417] text-[#f4f2f1] hover:bg-[#15120e] border border-[#15120e] hover:border-[#f4f2f1]/30 active:bg-[#141210] transition-colors",
-  outline: "bg-transparent text-[#f4f2f1] border border-[#f4f2f1] hover:bg-[#f4f2f1] hover:text-[#141210] transition-all",
-  ghost: "bg-transparent text-[#f4f2f1]/80 hover:text-[#f6f2ee] hover:bg-[#f6f2ee]/5 transition-colors",
-  warm: "bg-[#15120e] text-[#f4f2f1] hover:bg-[#0d1417] border border-[#f4f2f1]/20 hover:border-[#f4f2f1] transition-all"
+  primary: "btn-novand-primary bg-[#0f172a] text-[#ffffff] hover:bg-[#1e293b] active:bg-[#334155] dark:bg-[#f4f2f1] dark:text-[#141210] dark:hover:bg-[#ffffff] border border-transparent shadow-xs keep-white",
+  secondary: "btn-novand-secondary bg-[#ffffff] text-[#0f172a] hover:bg-[#f8fafc] border border-[#cbd5e1] dark:bg-[#15120e] dark:text-[#f4f2f1] dark:hover:bg-[#1a2327] dark:border-[#15120e] active:bg-[#f1f5f9]",
+  outline: "btn-novand-outline bg-transparent text-[#0f172a] border border-[#0f172a] hover:bg-[#0f172a] hover:text-[#ffffff] dark:text-[#f4f2f1] dark:border-[#f4f2f1]/40 dark:hover:border-[#f4f2f1] dark:hover:text-[#ffffff] dark:hover:bg-white/10",
+  ghost: "btn-novand-ghost bg-transparent text-[#0f172a]/80 hover:text-[#008f7a] hover:bg-slate-200/50 dark:text-[#f4f2f1]/80 dark:hover:text-[#f4f2f1] dark:hover:bg-white/5",
+  warm: "btn-novand-warm bg-[#e2e8f0] text-[#0f172a] hover:bg-[#cbd5e1] border border-[#cbd5e1] dark:bg-[#15120e] dark:text-[#f4f2f1] dark:hover:bg-[#1a2327] dark:border-[#15120e]"
 };
 
 const computedClass = `${baseStyles} ${sizeStyles[size]} ${variantStyles[variant]} ${className}`;

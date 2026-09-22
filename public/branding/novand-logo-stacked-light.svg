@@ -5,7 +5,7 @@
       <stop offset="100%" stop-color="#059669" />
     </linearGradient>
   </defs>
-  <rect width="600" height="600" rx="24" fill="#ffffff" stroke="#e2e8f0" stroke-width="1.5" />
+  <rect width="600" height="600" rx="24" fill="#f4f2f1" stroke="#d2ccc7" stroke-width="1.5" />
   
   <!-- Emblem Centered at cx=300, cy=240, scale 3.2 -->
   <g transform="translate(136.8, 67.2) scale(3.2)">

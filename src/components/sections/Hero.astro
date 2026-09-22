@@ -19,8 +19,8 @@ import { getCompanyData } from "../../data/company";
       <div class="lg:col-span-7 space-y-6 lg:border-r lg:border-[#15120e] lg:pr-12">
         
         <!-- Eyebrow -->
-        <div class="inline-flex items-center gap-3 text-[10px] uppercase font-mono tracking-[0.35em] text-[#f6f2ee] opacity-75">
-          <span class="w-8 h-[1px] bg-[#f4f2f1] opacity-60"></span>
+        <div class="inline-flex items-center gap-3 text-[10px] uppercase font-mono tracking-[0.35em] text-[#00d2b5]">
+          <span class="w-8 h-[1.5px] bg-[#00d2b5]"></span>
           <span>{isEn ? '01 // Architectural Engineering' : '01 // مهندسی معماری'}</span>
         </div>
 
@@ -89,16 +89,16 @@ import { getCompanyData } from "../../data/company";
             <div class="absolute inset-0 bg-gradient-to-t from-[#0d1417] via-transparent to-[#0d1417]/30"></div>
             
             <!-- Coordinate HUD Overlay -->
-            <div class="absolute top-4 left-4 text-[10px] font-mono text-[#f4f2f1] bg-[#0d1417]/90 px-2.5 py-1 border border-[#15120e] tracking-widest">
+            <div class="absolute top-4 left-4 text-[10px] font-mono text-[#00d2b5] bg-[#0d1417]/90 px-2.5 py-1 border border-[#00d2b5]/30 tracking-widest">
               {isEn ? 'PHYSICAL LAYER // RACK-01' : 'لایه فیزیکی // RACK-01'}
             </div>
 
             <div class="absolute bottom-4 left-4 right-4 bg-[#0d1417]/95 border border-[#15120e] p-4 text-xs font-mono text-[#f4f2f1] backdrop-blur-xs">
-              <div class="flex items-center justify-between border-b border-[#15120e] pb-2 mb-2 text-[10px] uppercase tracking-[0.15em] text-[#f6f2ee]">
+              <div class="flex items-center justify-between border-b border-[#15120e] pb-2 mb-2 text-[10px] uppercase tracking-[0.15em] text-[#00d2b5]">
                 <span>{isEn ? 'SPECIFICATION STANDARDS' : 'استانداردهای مشخصات'}</span>
-                <span class="text-[9px] px-1.5 py-0.5 bg-[#15120e] border border-[#15120e]">{isEn ? 'STATUS: OPERATIONAL' : 'وضعیت: عملیاتی'}</span>
+                <span class="text-[9px] px-1.5 py-0.5 bg-[#00d2b5] text-[#0d1417] font-semibold">{isEn ? 'STATUS: OPERATIONAL' : 'وضعیت: عملیاتی'}</span>
               </div>
-              <p class="text-[11px] text-[#f4f2f1]/60 leading-snug font-sans font-light">
+              <p class="text-[11px] text-[#f4f2f1]/70 leading-snug font-sans font-light">
                 TIA-568-D compliant Cat6A & single-mode fiber optical backbones with certified OTDR test verification.
               </p>
             </div>

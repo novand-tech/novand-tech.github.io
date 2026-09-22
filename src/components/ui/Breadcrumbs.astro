@@ -13,14 +13,14 @@ interface Props {
 
 const { items } = Astro.props;
 
-const textColors = 'text-[#f4f2f1]/50';
-const activeColors = 'text-[#f4f2f1]';
-const separatorColors = 'text-[#f4f2f1]/30';
+const textColors = 'text-slate-600 hover:text-[#008f7a] dark:text-[#f4f2f1]/70 dark:hover:text-[#00d2b5] font-medium';
+const activeColors = 'text-slate-900 dark:text-[#f4f2f1] font-bold';
+const separatorColors = 'text-slate-400 dark:text-[#f4f2f1]/40 font-bold';
 ---
 <nav aria-label="Breadcrumb" class="py-4">
   <ol class="flex flex-wrap items-center gap-2 text-xs font-mono tracking-wider uppercase">
     <li>
-      <a href={isEn ? "/en" : "/"} class={`${textColors} hover:${activeColors} transition-colors`}>
+      <a href={isEn ? "/en" : "/"} class={`${textColors} transition-colors`}>
         {Astro.url.pathname.startsWith("/en") ? "Home" : "خانه"}
       </a>
     </li>
@@ -30,7 +30,7 @@ const separatorColors = 'text-[#f4f2f1]/30';
         <li class="flex items-center gap-2">
           <span class={separatorColors} aria-hidden="true">/</span>
           {item.href && !isLast ? (
-            <a href={item.href} class={`${textColors} hover:${activeColors} transition-colors`}>
+            <a href={item.href} class={`${textColors} transition-colors`}>
               {!isEn && item.label === "Services" ? "خدمات" : (!isEn && item.label === "Solutions" ? "راهکارها" : (!isEn && item.label === "Projects" ? "پروژه‌ها" : (!isEn && item.label === "Brand" ? "هویت بصری" : item.label)))}
             </a>
           ) : (

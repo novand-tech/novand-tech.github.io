@@ -7,7 +7,7 @@ import NovandLogo from '@/components/ui/NovandLogo.astro';
   description="The official brand identity, logomarks, typography, color tokens, and asset guidelines for Novand — integrated technology and engineering infrastructure."
 >
   <!-- Sticky Quick Sub-Navigation for Brand System -->
-  <div class="sticky top-20 z-40 bg-[#090e10]/90 backdrop-blur-md border-b border-[#15120e] hidden md:block">
+  <div class="sticky top-20 z-40 bg-[#090e10]/90 backdrop-blur-md border-b border-[#15120e] hidden md:block keep-dark">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-12 text-xs font-mono">
       <div class="flex items-center gap-6">
         <a href="#overview" class="text-[#f4f2f1]/70 hover:text-[#00d2b5] transition-colors uppercase tracking-wider">مروری بر برند</a>
@@ -102,7 +102,7 @@ import NovandLogo from '@/components/ui/NovandLogo.astro';
 
         <!-- Right: Grand Emblem Showcase Canvas -->
         <div class="lg:col-span-5">
-          <div class="bg-[#141b1f] border border-[#1a2327] p-8 sm:p-10 rounded-sm relative group overflow-hidden shadow-2xl">
+          <div class="bg-[#141b1f] border border-[#1a2327] p-8 sm:p-10 rounded-sm relative group overflow-hidden shadow-2xl keep-dark">
             <div class="absolute -right-20 -top-20 w-64 h-64 bg-[#00d2b5]/10 rounded-full blur-3xl pointer-events-none"></div>
             
             <!-- Logo Stage -->
@@ -159,7 +159,7 @@ import NovandLogo from '@/components/ui/NovandLogo.astro';
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
         
         <!-- Left: Exploded Schematic Visual -->
-        <div class="lg:col-span-6 bg-[#0d1417] border border-[#1a2327] p-8 sm:p-12 rounded-sm relative">
+        <div class="lg:col-span-6 bg-[#0d1417] border border-[#1a2327] p-8 sm:p-12 rounded-sm relative keep-dark">
           <div class="text-center mb-6">
             <span class="text-[10px] font-mono uppercase tracking-widest text-[#f4f2f1]/40">شماتیک وکتور CAD · شبکه 1080x1080</span>
           </div>
@@ -320,6 +320,13 @@ import NovandLogo from '@/components/ui/NovandLogo.astro';
           >
             نسخه فارسی
           </button>
+          <button 
+            type="button" 
+            data-filter="light" 
+            class="filter-btn px-3 py-1.5 bg-[#141b1f] hover:bg-[#1a2327] text-[#f4f2f1]/80 rounded-sm border border-[#1a2327] cursor-pointer transition-all"
+          >
+            نسخه‌های پوسته روشن (Light)
+          </button>
         </div>
       </div>
 
@@ -330,7 +337,7 @@ import NovandLogo from '@/components/ui/NovandLogo.astro';
         <div class="asset-card group bg-[#141b1f] border border-[#1a2327] rounded-sm overflow-hidden flex flex-col justify-between" data-category="lockup">
           <div>
             <!-- Preview Stage (Dark) -->
-            <div class="h-52 bg-[#090e10] p-6 flex items-center justify-center border-b border-[#15120e] relative">
+            <div class="h-52 bg-[#090e10] p-6 flex items-center justify-center border-b border-[#15120e] relative dark-preview">
               <img 
                 src="/branding/novand-logo-horizontal-dark.svg" 
                 alt="Novand Horizontal Logo Dark" 
@@ -375,17 +382,17 @@ import NovandLogo from '@/components/ui/NovandLogo.astro';
         </div>
 
         <!-- Asset 2: نشانواره افقی (Light) -->
-        <div class="asset-card group bg-[#141b1f] border border-[#1a2327] rounded-sm overflow-hidden flex flex-col justify-between" data-category="lockup">
+        <div class="asset-card group bg-[#141b1f] border border-[#1a2327] rounded-sm overflow-hidden flex flex-col justify-between" data-category="lockup light">
           <div>
             <!-- Preview Stage (Light Canvas) -->
-            <div class="h-52 bg-[#f8fafc] p-6 flex items-center justify-center border-b border-[#e2e8f0] relative">
+            <div class="h-52 bg-[#f4f2f1] p-6 flex items-center justify-center border-b border-[#d2ccc7] relative">
               <img 
                 src="/branding/novand-logo-horizontal-light.svg" 
                 alt="Novand Horizontal Logo Light" 
                 class="max-h-24 max-w-[85%] object-contain transition-transform duration-300 group-hover:scale-105"
                 loading="lazy"
               />
-              <span class="absolute top-2.5 right-2.5 px-2 py-0.5 bg-white text-[10px] font-mono text-[#008f7a] border border-[#cbd5e1] rounded">
+              <span class="absolute top-2.5 right-2.5 px-2 py-0.5 bg-[#ece8e5] text-[10px] font-mono text-[#008f7a] border border-[#d2ccc7] rounded">
                 حالت روشن
               </span>
             </div>
@@ -422,29 +429,29 @@ import NovandLogo from '@/components/ui/NovandLogo.astro';
           </div>
         </div>
 
-        <!-- Asset 3: نشانواره افقی (Persian) -->
+        <!-- Asset 3: لوگوتایپ افقی فارسی · تیره -->
         <div class="asset-card group bg-[#141b1f] border border-[#1a2327] rounded-sm overflow-hidden flex flex-col justify-between" data-category="lockup persian">
           <div>
             <!-- Preview Stage -->
-            <div class="h-52 bg-[#090e10] p-6 flex items-center justify-center border-b border-[#15120e] relative">
+            <div class="h-52 bg-[#090e10] p-6 flex items-center justify-center border-b border-[#15120e] relative dark-preview">
               <img 
                 src="/branding/novand-logo-horizontal-persian.svg" 
-                alt="لوگو افقی نُوَند فارسی" 
+                alt="لوگو افقی نُوَند فارسی حالت تیره" 
                 class="max-h-24 max-w-[90%] object-contain transition-transform duration-300 group-hover:scale-105"
                 loading="lazy"
               />
               <span class="absolute top-2.5 right-2.5 px-2 py-0.5 bg-[#0d1417] text-[10px] font-mono text-[#00d2b5] border border-[#1a2327] rounded">
-                فارسی RTL
+                فارسی · تیره
               </span>
             </div>
             <!-- Meta Details -->
             <div class="p-5">
               <div class="flex items-center justify-between mb-2">
-                <h3 class="text-sm font-bold text-white font-sans uppercase">لوگوتایپ افقی فارسی · نُوَند</h3>
+                <h3 class="text-sm font-bold text-white font-sans uppercase">لوگوتایپ افقی فارسی · تیره</h3>
                 <span class="text-[10px] font-mono text-[#f4f2f1]/50">1000×280</span>
               </div>
               <p class="text-xs text-[#f4f2f1]/70 leading-relaxed font-light mb-4 font-vazirmatn" dir="rtl">
-                ترکیب نشان رسمی و تایپوگرافی وزیرمتن به همراه شعار «راهکارهای یکپارچه فناوری و مهندسی زیرساخت» ویژه سربرگ‌ها و مکاتبات رسمی.
+                ترکیب نشان رسمی و تایپوگرافی وزیرمتن به همراه شعار «راهکارهای یکپارچه فناوری و مهندسی زیرساخت» برای پس‌زمینه‌های تیره و پرزنتیشن‌ها.
               </p>
               <div class="flex items-center gap-2 text-[10px] font-mono text-[#00d2b5]">
                 <span>Vector SVG</span> • <span>Lossless PNG</span>
@@ -470,11 +477,59 @@ import NovandLogo from '@/components/ui/NovandLogo.astro';
           </div>
         </div>
 
+        <!-- Asset 3b: لوگوتایپ افقی فارسی · روشن -->
+        <div class="asset-card group bg-[#141b1f] border border-[#1a2327] rounded-sm overflow-hidden flex flex-col justify-between" data-category="lockup persian light">
+          <div>
+            <!-- Preview Stage (Light Canvas) -->
+            <div class="h-52 bg-[#f4f2f1] p-6 flex items-center justify-center border-b border-[#d2ccc7] relative">
+              <img 
+                src="/branding/novand-logo-horizontal-persian-light.svg" 
+                alt="لوگو افقی نُوَند فارسی حالت روشن" 
+                class="max-h-24 max-w-[90%] object-contain transition-transform duration-300 group-hover:scale-105"
+                loading="lazy"
+              />
+              <span class="absolute top-2.5 right-2.5 px-2 py-0.5 bg-[#ece8e5] text-[10px] font-mono text-[#008f7a] border border-[#d2ccc7] rounded">
+                فارسی · روشن
+              </span>
+            </div>
+            <!-- Meta Details -->
+            <div class="p-5">
+              <div class="flex items-center justify-between mb-2">
+                <h3 class="text-sm font-bold text-white font-sans uppercase">لوگوتایپ افقی فارسی · روشن</h3>
+                <span class="text-[10px] font-mono text-[#f4f2f1]/50">1000×280</span>
+              </div>
+              <p class="text-xs text-[#f4f2f1]/70 leading-relaxed font-light mb-4 font-vazirmatn" dir="rtl">
+                نسخه بهینه‌شده با بالاترین خوانایی روی کاغذ و پس‌زمینه‌های روشن برای سربرگ‌های سازمانی، فاکتورهای رسمی، قراردادها و مستندات مناقصات.
+              </p>
+              <div class="flex items-center gap-2 text-[10px] font-mono text-[#00d2b5]">
+                <span>Vector SVG</span> • <span>Lossless PNG</span>
+              </div>
+            </div>
+          </div>
+          <!-- Download Actions -->
+          <div class="p-4 bg-[#0d1417] border-t border-[#15120e] flex items-center gap-2">
+            <a 
+              href="/branding/novand-logo-horizontal-persian-light.svg" 
+              download 
+              class="flex-1 text-center py-2 bg-[#141b1f] hover:bg-[#00d2b5] hover:text-[#0d1417] text-[#f4f2f1] text-xs font-mono font-medium rounded-sm border border-[#1a2327] transition-all"
+            >
+              SVG (وکتور)
+            </a>
+            <a 
+              href="/branding/novand-logo-horizontal-persian-light.png" 
+              download 
+              class="flex-1 text-center py-2 bg-[#141b1f] hover:bg-[#1a2327] text-[#f4f2f1]/80 hover:text-white text-xs font-mono font-medium rounded-sm border border-[#1a2327] transition-all"
+            >
+              PNG (رستر)
+            </a>
+          </div>
+        </div>
+
         <!-- Asset 4: Stacked Lockup (Dark) -->
         <div class="asset-card group bg-[#141b1f] border border-[#1a2327] rounded-sm overflow-hidden flex flex-col justify-between" data-category="lockup">
           <div>
             <!-- Preview Stage -->
-            <div class="h-52 bg-[#090e10] p-6 flex items-center justify-center border-b border-[#15120e] relative">
+            <div class="h-52 bg-[#090e10] p-6 flex items-center justify-center border-b border-[#15120e] relative dark-preview">
               <img 
                 src="/branding/novand-logo-stacked-dark.svg" 
                 alt="Novand Stacked Logo Dark" 
@@ -519,17 +574,17 @@ import NovandLogo from '@/components/ui/NovandLogo.astro';
         </div>
 
         <!-- Asset 5: Stacked Lockup (Light) -->
-        <div class="asset-card group bg-[#141b1f] border border-[#1a2327] rounded-sm overflow-hidden flex flex-col justify-between" data-category="lockup">
+        <div class="asset-card group bg-[#141b1f] border border-[#1a2327] rounded-sm overflow-hidden flex flex-col justify-between" data-category="lockup light">
           <div>
             <!-- Preview Stage (Light Canvas) -->
-            <div class="h-52 bg-[#f8fafc] p-6 flex items-center justify-center border-b border-[#e2e8f0] relative">
+            <div class="h-52 bg-[#f4f2f1] p-6 flex items-center justify-center border-b border-[#d2ccc7] relative">
               <img 
                 src="/branding/novand-logo-stacked-light.svg" 
                 alt="Novand Stacked Logo Light" 
                 class="max-h-36 max-w-[65%] object-contain transition-transform duration-300 group-hover:scale-105"
                 loading="lazy"
               />
-              <span class="absolute top-2.5 right-2.5 px-2 py-0.5 bg-white text-[10px] font-mono text-[#008f7a] border border-[#cbd5e1] rounded">
+              <span class="absolute top-2.5 right-2.5 px-2 py-0.5 bg-[#ece8e5] text-[10px] font-mono text-[#008f7a] border border-[#d2ccc7] rounded">
                 مرکزی روشن
               </span>
             </div>
@@ -540,7 +595,7 @@ import NovandLogo from '@/components/ui/NovandLogo.astro';
                 <span class="text-[10px] font-mono text-[#f4f2f1]/50">600×600</span>
               </div>
               <p class="text-xs text-[#f4f2f1]/70 leading-relaxed font-light mb-4">
-                ترکیب عمودی متمرکز روی پس‌زمینه کاملاً سفید، ایده‌آل برای گواهی‌های تطابق تجهیزات، جعبه‌های محصول و دفترچه‌های راهنمای چاپی.
+                ترکیب عمودی متمرکز کالیبره‌شده برای محیط‌های سازمانی روشن، گواهی‌های تطابق تجهیزات، بسته‌بندی محصول و دفترچه‌های راهنمای چاپی.
               </p>
               <div class="flex items-center gap-2 text-[10px] font-mono text-[#00d2b5]">
                 <span>Vector SVG</span> • <span>Lossless PNG</span>
@@ -570,7 +625,7 @@ import NovandLogo from '@/components/ui/NovandLogo.astro';
         <div class="asset-card group bg-[#141b1f] border border-[#1a2327] rounded-sm overflow-hidden flex flex-col justify-between" data-category="badge">
           <div>
             <!-- Preview Stage (Checkerboard شفاف) -->
-            <div class="h-52 bg-[#090e10] p-6 flex items-center justify-center border-b border-[#15120e] relative">
+            <div class="h-52 bg-[#090e10] p-6 flex items-center justify-center border-b border-[#15120e] relative dark-preview">
               <div class="w-28 h-28 text-white transition-transform duration-300 group-hover:scale-105 drop-shadow-[0_8px_25px_rgba(0,210,181,0.2)]">
                 <NovandLogo />
               </div>
@@ -615,7 +670,7 @@ import NovandLogo from '@/components/ui/NovandLogo.astro';
         <div class="asset-card group bg-[#141b1f] border border-[#1a2327] rounded-sm overflow-hidden flex flex-col justify-between" data-category="badge social">
           <div>
             <!-- Preview Stage -->
-            <div class="h-52 bg-[#090e10] p-6 flex items-center justify-center border-b border-[#15120e] relative">
+            <div class="h-52 bg-[#090e10] p-6 flex items-center justify-center border-b border-[#15120e] relative dark-preview">
               <img 
                 src="/branding/novand-logo-square-dark.svg" 
                 alt="Novand مربع تیره Badge" 
@@ -667,17 +722,17 @@ import NovandLogo from '@/components/ui/NovandLogo.astro';
         </div>
 
         <!-- Asset 8: Pure بج شاسی روشن (1:1) -->
-        <div class="asset-card group bg-[#141b1f] border border-[#1a2327] rounded-sm overflow-hidden flex flex-col justify-between" data-category="badge">
+        <div class="asset-card group bg-[#141b1f] border border-[#1a2327] rounded-sm overflow-hidden flex flex-col justify-between" data-category="badge light">
           <div>
             <!-- Preview Stage -->
-            <div class="h-52 bg-[#f8fafc] p-6 flex items-center justify-center border-b border-[#e2e8f0] relative">
+            <div class="h-52 bg-[#f4f2f1] p-6 flex items-center justify-center border-b border-[#d2ccc7] relative">
               <img 
                 src="/branding/novand-logo-square-light.svg" 
                 alt="Novand مربع روشن Badge" 
                 class="max-h-36 max-w-[65%] object-contain rounded-md transition-transform duration-300 group-hover:scale-105"
                 loading="lazy"
               />
-              <span class="absolute top-2.5 right-2.5 px-2 py-0.5 bg-white text-[10px] font-mono text-[#008f7a] border border-[#cbd5e1] rounded">
+              <span class="absolute top-2.5 right-2.5 px-2 py-0.5 bg-[#ece8e5] text-[10px] font-mono text-[#008f7a] border border-[#d2ccc7] rounded">
                 مربع روشن
               </span>
             </div>
@@ -714,29 +769,29 @@ import NovandLogo from '@/components/ui/NovandLogo.astro';
           </div>
         </div>
 
-        <!-- Asset 9: Persian Captioned Seal (1080x1080) -->
+        <!-- Asset 9: Persian Captioned Seal (1080x1080) · تیره -->
         <div class="asset-card group bg-[#141b1f] border border-[#1a2327] rounded-sm overflow-hidden flex flex-col justify-between" data-category="badge persian">
           <div>
             <!-- Preview Stage -->
-            <div class="h-52 bg-[#090e10] p-4 flex items-center justify-center border-b border-[#15120e] relative">
+            <div class="h-52 bg-[#090e10] p-4 flex items-center justify-center border-b border-[#15120e] relative dark-preview">
               <img 
                 src="/branding/novand-logo-persian-captioned.svg" 
-                alt="لوگو رسمی دارای نام نُوَند" 
+                alt="لوگو رسمی دارای نام نُوَند حالت تیره" 
                 class="max-h-40 max-w-[80%] object-contain transition-transform duration-300 group-hover:scale-105"
                 loading="lazy"
               />
               <span class="absolute top-2.5 right-2.5 px-2 py-0.5 bg-[#0d1417] text-[10px] font-mono text-[#00d2b5] border border-[#1a2327] rounded">
-                نشان با عنوان
+                نشان با عنوان · تیره
               </span>
             </div>
             <!-- Meta Details -->
             <div class="p-5">
               <div class="flex items-center justify-between mb-2">
-                <h3 class="text-sm font-bold text-white font-sans uppercase">نشان رسمی دارای عنوان · نُوَند</h3>
+                <h3 class="text-sm font-bold text-white font-sans uppercase">نشان رسمی دارای عنوان · تیره</h3>
                 <span class="text-[10px] font-mono text-[#f4f2f1]/50">1080×1080</span>
               </div>
               <p class="text-xs text-[#f4f2f1]/70 leading-relaxed font-light mb-4 font-vazirmatn" dir="rtl">
-                نشان مربعی با حاشیه فنی به همراه نام «نُوَند» و عبارت «راهکارهای یکپارچه فناوری و مهندسی زیرساخت» ویژه معرفی برند در شبکه‌های اجتماعی.
+                نشان مربعی با حاشیه فنی به همراه نام «نُوَند» و عبارت «راهکارهای یکپارچه فناوری و مهندسی زیرساخت» ویژه پس‌زمینه‌های تیره و شبکه‌های اجتماعی.
               </p>
               <div class="flex items-center gap-2 text-[10px] font-mono text-[#00d2b5]">
                 <span>Vector SVG</span> • <span>Lossless PNG</span>
@@ -762,11 +817,59 @@ import NovandLogo from '@/components/ui/NovandLogo.astro';
           </div>
         </div>
 
+        <!-- Asset 9b: Persian Captioned Seal (1080x1080) · روشن -->
+        <div class="asset-card group bg-[#141b1f] border border-[#1a2327] rounded-sm overflow-hidden flex flex-col justify-between" data-category="badge persian light">
+          <div>
+            <!-- Preview Stage (Light Canvas) -->
+            <div class="h-52 bg-[#f4f2f1] p-4 flex items-center justify-center border-b border-[#d2ccc7] relative">
+              <img 
+                src="/branding/novand-logo-persian-captioned-light.svg" 
+                alt="لوگو رسمی دارای نام نُوَند حالت روشن" 
+                class="max-h-40 max-w-[80%] object-contain transition-transform duration-300 group-hover:scale-105"
+                loading="lazy"
+              />
+              <span class="absolute top-2.5 right-2.5 px-2 py-0.5 bg-[#ece8e5] text-[10px] font-mono text-[#008f7a] border border-[#d2ccc7] rounded">
+                نشان با عنوان · روشن
+              </span>
+            </div>
+            <!-- Meta Details -->
+            <div class="p-5">
+              <div class="flex items-center justify-between mb-2">
+                <h3 class="text-sm font-bold text-white font-sans uppercase">نشان رسمی دارای عنوان · روشن</h3>
+                <span class="text-[10px] font-mono text-[#f4f2f1]/50">1080×1080</span>
+              </div>
+              <p class="text-xs text-[#f4f2f1]/70 leading-relaxed font-light mb-4 font-vazirmatn" dir="rtl">
+                نشان رسمی مربعی کالیبره‌شده برای محیط‌ها و پوسته‌های روشن با کنتراست خطوط معماری بالا و رنگ‌آمیزی سازمانی فیروزه‌ای تیره و زغال سنگ.
+              </p>
+              <div class="flex items-center gap-2 text-[10px] font-mono text-[#00d2b5]">
+                <span>Vector SVG</span> • <span>Lossless PNG</span>
+              </div>
+            </div>
+          </div>
+          <!-- Download Actions -->
+          <div class="p-4 bg-[#0d1417] border-t border-[#15120e] flex items-center gap-2">
+            <a 
+              href="/branding/novand-logo-persian-captioned-light.svg" 
+              download 
+              class="flex-1 text-center py-2 bg-[#141b1f] hover:bg-[#00d2b5] hover:text-[#0d1417] text-[#f4f2f1] text-xs font-mono font-medium rounded-sm border border-[#1a2327] transition-all"
+            >
+              SVG (وکتور)
+            </a>
+            <a 
+              href="/branding/novand-logo-persian-captioned-light-1080x1080.png" 
+              download 
+              class="flex-1 text-center py-2 bg-[#141b1f] hover:bg-[#1a2327] text-[#f4f2f1]/80 hover:text-white text-xs font-mono font-medium rounded-sm border border-[#1a2327] transition-all"
+            >
+              PNG (رستر)
+            </a>
+          </div>
+        </div>
+
         <!-- Asset 10: تک‌رنگ سفید -->
         <div class="asset-card group bg-[#141b1f] border border-[#1a2327] rounded-sm overflow-hidden flex flex-col justify-between" data-category="mono">
           <div>
             <!-- Preview Stage -->
-            <div class="h-52 bg-[#090e10] p-6 flex items-center justify-center border-b border-[#15120e] relative">
+            <div class="h-52 bg-[#090e10] p-6 flex items-center justify-center border-b border-[#15120e] relative dark-preview">
               <img 
                 src="/branding/novand-logo-monochrome-white.svg" 
                 alt="Novand تک‌رنگ سفید" 
@@ -814,14 +917,14 @@ import NovandLogo from '@/components/ui/NovandLogo.astro';
         <div class="asset-card group bg-[#141b1f] border border-[#1a2327] rounded-sm overflow-hidden flex flex-col justify-between" data-category="mono">
           <div>
             <!-- Preview Stage -->
-            <div class="h-52 bg-[#f8fafc] p-6 flex items-center justify-center border-b border-[#e2e8f0] relative">
+            <div class="h-52 bg-[#f4f2f1] p-6 flex items-center justify-center border-b border-[#d2ccc7] relative">
               <img 
                 src="/branding/novand-logo-monochrome-black.svg" 
                 alt="Novand Monochrome Black" 
                 class="max-h-28 max-w-[65%] object-contain transition-transform duration-300 group-hover:scale-105"
                 loading="lazy"
               />
-              <span class="absolute top-2.5 right-2.5 px-2 py-0.5 bg-white text-[10px] font-mono text-[#0d1417] border border-[#cbd5e1] rounded">
+              <span class="absolute top-2.5 right-2.5 px-2 py-0.5 bg-[#ece8e5] text-[10px] font-mono text-[#0d1417] border border-[#d2ccc7] rounded">
                 100% Black
               </span>
             </div>
@@ -862,7 +965,7 @@ import NovandLogo from '@/components/ui/NovandLogo.astro';
         <div class="asset-card group bg-[#141b1f] border border-[#1a2327] rounded-sm overflow-hidden flex flex-col justify-between" data-category="social">
           <div>
             <!-- Preview Stage -->
-            <div class="h-52 bg-[#090e10] p-4 flex items-center justify-center border-b border-[#15120e] relative">
+            <div class="h-52 bg-[#090e10] p-4 flex items-center justify-center border-b border-[#15120e] relative dark-preview">
               <img 
                 src="/branding/novand-social-banner-1200x630.png" 
                 alt="Novand Social Banner English" 
@@ -903,7 +1006,7 @@ import NovandLogo from '@/components/ui/NovandLogo.astro';
         <div class="asset-card group bg-[#141b1f] border border-[#1a2327] rounded-sm overflow-hidden flex flex-col justify-between" data-category="social persian">
           <div>
             <!-- Preview Stage -->
-            <div class="h-52 bg-[#090e10] p-4 flex items-center justify-center border-b border-[#15120e] relative">
+            <div class="h-52 bg-[#090e10] p-4 flex items-center justify-center border-b border-[#15120e] relative dark-preview">
               <img 
                 src="/branding/novand-social-banner-persian-1200x630.png" 
                 alt="بنر لینکدین و شبکه اجتماعی نُوَند" 
@@ -951,7 +1054,7 @@ import NovandLogo from '@/components/ui/NovandLogo.astro';
         <div class="asset-card group bg-[#141b1f] border border-[#1a2327] rounded-sm overflow-hidden flex flex-col justify-between" data-category="social">
           <div>
             <!-- Preview Stage -->
-            <div class="h-52 bg-[#090e10] p-4 flex items-center justify-center border-b border-[#15120e] relative">
+            <div class="h-52 bg-[#090e10] p-4 flex items-center justify-center border-b border-[#15120e] relative dark-preview">
               <img 
                 src="/branding/novand-instagram-story-1080x1920.png" 
                 alt="Novand Instagram Story 1080x1920" 
@@ -992,7 +1095,7 @@ import NovandLogo from '@/components/ui/NovandLogo.astro';
         <div class="asset-card group bg-[#141b1f] border border-[#1a2327] rounded-sm overflow-hidden flex flex-col justify-between" data-category="social persian">
           <div>
             <!-- Preview Stage -->
-            <div class="h-52 bg-[#090e10] p-4 flex items-center justify-center border-b border-[#15120e] relative">
+            <div class="h-52 bg-[#090e10] p-4 flex items-center justify-center border-b border-[#15120e] relative dark-preview">
               <img 
                 src="/branding/novand-instagram-story-persian-1080x1920.png" 
                 alt="قالب استوری اینستاگرام نُوَند" 
@@ -1061,7 +1164,7 @@ import NovandLogo from '@/components/ui/NovandLogo.astro';
         <!-- Color 1: تیره ابسیدین -->
         <div class="bg-[#141b1f] border border-[#1a2327] rounded-sm overflow-hidden p-5 flex flex-col justify-between group">
           <div>
-            <div class="h-28 w-full bg-[#0d1417] border border-[#1a2327] rounded-sm mb-4 flex items-end p-3 justify-between">
+            <div class="h-28 w-full bg-[#0d1417] border border-[#1a2327] rounded-sm mb-4 flex items-end p-3 justify-between keep-dark">
               <span class="px-2 py-0.5 bg-[#141b1f] text-[10px] font-mono text-white/80 rounded">پس‌زمینه اصلی</span>
             </div>
             <h3 class="text-base font-bold text-white font-sans">تیره ابسیدین</h3>
@@ -1087,7 +1190,7 @@ import NovandLogo from '@/components/ui/NovandLogo.astro';
         <!-- Color 2: سطح کربنی -->
         <div class="bg-[#141b1f] border border-[#1a2327] rounded-sm overflow-hidden p-5 flex flex-col justify-between group">
           <div>
-            <div class="h-28 w-full bg-[#141b1f] border border-[#1a2327] rounded-sm mb-4 flex items-end p-3 justify-between">
+            <div class="h-28 w-full bg-[#141b1f] border border-[#1a2327] rounded-sm mb-4 flex items-end p-3 justify-between keep-dark">
               <span class="px-2 py-0.5 bg-[#090e10] text-[10px] font-mono text-white/80 rounded">سطوح و کارت‌ها</span>
             </div>
             <h3 class="text-base font-bold text-white font-sans">سطح کربنی</h3>
@@ -1191,7 +1294,7 @@ import NovandLogo from '@/components/ui/NovandLogo.astro';
         <!-- Color 6: Wireframe Divider -->
         <div class="bg-[#141b1f] border border-[#1a2327] rounded-sm overflow-hidden p-5 flex flex-col justify-between group">
           <div>
-            <div class="h-28 w-full bg-[#1a2327] rounded-sm mb-4 flex items-end p-3 justify-between">
+            <div class="h-28 w-full bg-[#1a2327] rounded-sm mb-4 flex items-end p-3 justify-between keep-dark">
               <span class="px-2 py-0.5 bg-[#0d1417] text-[10px] font-mono text-white/70 rounded">حاشیه‌ها و گرید</span>
             </div>
             <h3 class="text-base font-bold text-white font-sans">خاکستری وایرفریم</h3>
@@ -1358,7 +1461,7 @@ import NovandLogo from '@/components/ui/NovandLogo.astro';
           </div>
 
           <!-- Visual Clearspace Box -->
-          <div class="p-10 border border-dashed border-[#00d2b5]/40 bg-[#090e10] relative rounded-sm flex items-center justify-center">
+          <div class="p-10 border border-dashed border-[#00d2b5]/40 bg-[#090e10] relative rounded-sm flex items-center justify-center keep-dark">
             <!-- Corner dimension markers -->
             <div class="absolute top-2 left-2 text-[10px] font-mono text-[#00d2b5]/60">X</div>
             <div class="absolute top-2 right-2 text-[10px] font-mono text-[#00d2b5]/60">X</div>
@@ -1514,7 +1617,7 @@ import NovandLogo from '@/components/ui/NovandLogo.astro';
   <!-- Toast Notification Container for Hex Copies -->
   <div 
     id="toast-notification" 
-    class="fixed bottom-6 right-6 z-50 transform translate-y-16 opacity-0 transition-all duration-300 pointer-events-none px-4 py-3 bg-[#141b1f] text-white border border-[#00d2b5] rounded-sm shadow-2xl text-xs font-mono flex items-center gap-2"
+    class="fixed bottom-6 right-6 z-50 transform translate-y-16 opacity-0 transition-all duration-300 pointer-events-none px-4 py-3 bg-[#141b1f] text-white border border-[#00d2b5] rounded-sm shadow-2xl text-xs font-mono flex items-center gap-2 keep-dark"
   >
     <svg class="w-4 h-4 text-[#00d2b5]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
     <span id="toast-message">در کلیپ‌بورد کپی شد!</span>

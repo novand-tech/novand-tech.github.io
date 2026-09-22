@@ -7,7 +7,7 @@ import NovandLogo from '@/components/ui/NovandLogo.astro';
   description="The official brand identity, logomarks, typography, color tokens, and asset guidelines for Novand — integrated technology and engineering infrastructure."
 >
   <!-- Sticky Quick Sub-Navigation for Brand System -->
-  <div class="sticky top-20 z-40 bg-[#090e10]/90 backdrop-blur-md border-b border-[#15120e] hidden md:block">
+  <div class="sticky top-20 z-40 bg-[#090e10]/90 backdrop-blur-md border-b border-[#15120e] hidden md:block keep-dark">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-12 text-xs font-mono">
       <div class="flex items-center gap-6">
         <a href="#overview" class="text-[#f4f2f1]/70 hover:text-[#00d2b5] transition-colors uppercase tracking-wider">Overview</a>
@@ -320,6 +320,13 @@ import NovandLogo from '@/components/ui/NovandLogo.astro';
           >
             Persian Version
           </button>
+          <button 
+            type="button" 
+            data-filter="light" 
+            class="filter-btn px-3 py-1.5 bg-[#141b1f] hover:bg-[#1a2327] text-[#f4f2f1]/80 rounded-sm border border-[#1a2327] cursor-pointer transition-all"
+          >
+            Light Theme Assets
+          </button>
         </div>
       </div>
 
@@ -375,17 +382,17 @@ import NovandLogo from '@/components/ui/NovandLogo.astro';
         </div>
 
         <!-- Asset 2: Horizontal Lockup (Light) -->
-        <div class="asset-card group bg-[#141b1f] border border-[#1a2327] rounded-sm overflow-hidden flex flex-col justify-between" data-category="lockup">
+        <div class="asset-card group bg-[#141b1f] border border-[#1a2327] rounded-sm overflow-hidden flex flex-col justify-between" data-category="lockup light">
           <div>
             <!-- Preview Stage (Light Canvas) -->
-            <div class="h-52 bg-[#f8fafc] p-6 flex items-center justify-center border-b border-[#e2e8f0] relative">
+            <div class="h-52 bg-[#f4f2f1] p-6 flex items-center justify-center border-b border-[#d2ccc7] relative">
               <img 
                 src="/branding/novand-logo-horizontal-light.svg" 
                 alt="Novand Horizontal Logo Light" 
                 class="max-h-24 max-w-[85%] object-contain transition-transform duration-300 group-hover:scale-105"
                 loading="lazy"
               />
-              <span class="absolute top-2.5 right-2.5 px-2 py-0.5 bg-white text-[10px] font-mono text-[#008f7a] border border-[#cbd5e1] rounded">
+              <span class="absolute top-2.5 right-2.5 px-2 py-0.5 bg-[#ece8e5] text-[10px] font-mono text-[#008f7a] border border-[#d2ccc7] rounded">
                 Light Mode
               </span>
             </div>
@@ -422,29 +429,29 @@ import NovandLogo from '@/components/ui/NovandLogo.astro';
           </div>
         </div>
 
-        <!-- Asset 3: Horizontal Lockup (Persian) -->
+        <!-- Asset 3: Horizontal Lockup (Persian Dark) -->
         <div class="asset-card group bg-[#141b1f] border border-[#1a2327] rounded-sm overflow-hidden flex flex-col justify-between" data-category="lockup persian">
           <div>
             <!-- Preview Stage -->
             <div class="h-52 bg-[#090e10] p-6 flex items-center justify-center border-b border-[#15120e] relative">
               <img 
                 src="/branding/novand-logo-horizontal-persian.svg" 
-                alt="Novand Horizontal Persian Logo" 
+                alt="Novand Horizontal Persian Logo Dark" 
                 class="max-h-24 max-w-[90%] object-contain transition-transform duration-300 group-hover:scale-105"
                 loading="lazy"
               />
               <span class="absolute top-2.5 right-2.5 px-2 py-0.5 bg-[#0d1417] text-[10px] font-mono text-[#00d2b5] border border-[#1a2327] rounded">
-                Persian RTL
+                Persian · Dark
               </span>
             </div>
             <!-- Meta Details -->
             <div class="p-5">
               <div class="flex items-center justify-between mb-2">
-                <h3 class="text-sm font-bold text-white font-sans uppercase">Persian Horizontal Logotype · Novand</h3>
+                <h3 class="text-sm font-bold text-white font-sans uppercase">Persian Horizontal Logotype · Dark</h3>
                 <span class="text-[10px] font-mono text-[#f4f2f1]/50">1000×280</span>
               </div>
               <p class="text-xs text-[#f4f2f1]/70 leading-relaxed font-light mb-4 font-vazirmatn" dir="rtl">
-                Combination of the official emblem and Vazirmatn typography with the slogan "Integrated Technology & Infrastructure Engineering Solutions" for letterheads and official correspondence.
+                Combination of official emblem and Vazirmatn typography for dark backgrounds and presentation decks.
               </p>
               <div class="flex items-center gap-2 text-[10px] font-mono text-[#00d2b5]">
                 <span>Vector SVG</span> • <span>Lossless PNG</span>
@@ -462,6 +469,54 @@ import NovandLogo from '@/components/ui/NovandLogo.astro';
             </a>
             <a 
               href="/branding/novand-logo-horizontal-persian.png" 
+              download 
+              class="flex-1 text-center py-2 bg-[#141b1f] hover:bg-[#1a2327] text-[#f4f2f1]/80 hover:text-white text-xs font-mono font-medium rounded-sm border border-[#1a2327] transition-all"
+            >
+              PNG (Raster)
+            </a>
+          </div>
+        </div>
+
+        <!-- Asset 3b: Horizontal Lockup (Persian Light) -->
+        <div class="asset-card group bg-[#141b1f] border border-[#1a2327] rounded-sm overflow-hidden flex flex-col justify-between" data-category="lockup persian light">
+          <div>
+            <!-- Preview Stage (Light Canvas) -->
+            <div class="h-52 bg-[#f4f2f1] p-6 flex items-center justify-center border-b border-[#d2ccc7] relative">
+              <img 
+                src="/branding/novand-logo-horizontal-persian-light.svg" 
+                alt="Novand Horizontal Persian Logo Light" 
+                class="max-h-24 max-w-[90%] object-contain transition-transform duration-300 group-hover:scale-105"
+                loading="lazy"
+              />
+              <span class="absolute top-2.5 right-2.5 px-2 py-0.5 bg-[#ece8e5] text-[10px] font-mono text-[#008f7a] border border-[#d2ccc7] rounded">
+                Persian · Light
+              </span>
+            </div>
+            <!-- Meta Details -->
+            <div class="p-5">
+              <div class="flex items-center justify-between mb-2">
+                <h3 class="text-sm font-bold text-white font-sans uppercase">Persian Horizontal Logotype · Light</h3>
+                <span class="text-[10px] font-mono text-[#f4f2f1]/50">1000×280</span>
+              </div>
+              <p class="text-xs text-[#f4f2f1]/70 leading-relaxed font-light mb-4 font-vazirmatn" dir="rtl">
+                High-contrast light version optimized for corporate letterheads, invoices, client contracts, and regional print documents.
+              </p>
+              <div class="flex items-center gap-2 text-[10px] font-mono text-[#00d2b5]">
+                <span>Vector SVG</span> • <span>Lossless PNG</span>
+              </div>
+            </div>
+          </div>
+          <!-- Download Actions -->
+          <div class="p-4 bg-[#0d1417] border-t border-[#15120e] flex items-center gap-2">
+            <a 
+              href="/branding/novand-logo-horizontal-persian-light.svg" 
+              download 
+              class="flex-1 text-center py-2 bg-[#141b1f] hover:bg-[#00d2b5] hover:text-[#0d1417] text-[#f4f2f1] text-xs font-mono font-medium rounded-sm border border-[#1a2327] transition-all"
+            >
+              SVG (Vector)
+            </a>
+            <a 
+              href="/branding/novand-logo-horizontal-persian-light.png" 
               download 
               class="flex-1 text-center py-2 bg-[#141b1f] hover:bg-[#1a2327] text-[#f4f2f1]/80 hover:text-white text-xs font-mono font-medium rounded-sm border border-[#1a2327] transition-all"
             >
@@ -519,17 +574,17 @@ import NovandLogo from '@/components/ui/NovandLogo.astro';
         </div>
 
         <!-- Asset 5: Stacked Lockup (Light) -->
-        <div class="asset-card group bg-[#141b1f] border border-[#1a2327] rounded-sm overflow-hidden flex flex-col justify-between" data-category="lockup">
+        <div class="asset-card group bg-[#141b1f] border border-[#1a2327] rounded-sm overflow-hidden flex flex-col justify-between" data-category="lockup light">
           <div>
             <!-- Preview Stage (Light Canvas) -->
-            <div class="h-52 bg-[#f8fafc] p-6 flex items-center justify-center border-b border-[#e2e8f0] relative">
+            <div class="h-52 bg-[#f4f2f1] p-6 flex items-center justify-center border-b border-[#d2ccc7] relative">
               <img 
                 src="/branding/novand-logo-stacked-light.svg" 
                 alt="Novand Stacked Logo Light" 
                 class="max-h-36 max-w-[65%] object-contain transition-transform duration-300 group-hover:scale-105"
                 loading="lazy"
               />
-              <span class="absolute top-2.5 right-2.5 px-2 py-0.5 bg-white text-[10px] font-mono text-[#008f7a] border border-[#cbd5e1] rounded">
+              <span class="absolute top-2.5 right-2.5 px-2 py-0.5 bg-[#ece8e5] text-[10px] font-mono text-[#008f7a] border border-[#d2ccc7] rounded">
                 Centered Light
               </span>
             </div>
@@ -540,7 +595,7 @@ import NovandLogo from '@/components/ui/NovandLogo.astro';
                 <span class="text-[10px] font-mono text-[#f4f2f1]/50">600×600</span>
               </div>
               <p class="text-xs text-[#f4f2f1]/70 leading-relaxed font-light mb-4">
-                Vertical centered lockup on pure white chassis, ideal for equipment compliance certificates, product boxes, and printed manuals.
+                Vertical centered lockup calibrated for bright corporate environments, equipment compliance certificates, product boxes, and printed manuals.
               </p>
               <div class="flex items-center gap-2 text-[10px] font-mono text-[#00d2b5]">
                 <span>Vector SVG</span> • <span>Lossless PNG</span>
@@ -667,17 +722,17 @@ import NovandLogo from '@/components/ui/NovandLogo.astro';
         </div>
 
         <!-- Asset 8: Pure Light Chassis Badge (1:1) -->
-        <div class="asset-card group bg-[#141b1f] border border-[#1a2327] rounded-sm overflow-hidden flex flex-col justify-between" data-category="badge">
+        <div class="asset-card group bg-[#141b1f] border border-[#1a2327] rounded-sm overflow-hidden flex flex-col justify-between" data-category="badge light">
           <div>
             <!-- Preview Stage -->
-            <div class="h-52 bg-[#f8fafc] p-6 flex items-center justify-center border-b border-[#e2e8f0] relative">
+            <div class="h-52 bg-[#f4f2f1] p-6 flex items-center justify-center border-b border-[#d2ccc7] relative">
               <img 
                 src="/branding/novand-logo-square-light.svg" 
                 alt="Novand Square Light Badge" 
                 class="max-h-36 max-w-[65%] object-contain rounded-md transition-transform duration-300 group-hover:scale-105"
                 loading="lazy"
               />
-              <span class="absolute top-2.5 right-2.5 px-2 py-0.5 bg-white text-[10px] font-mono text-[#008f7a] border border-[#cbd5e1] rounded">
+              <span class="absolute top-2.5 right-2.5 px-2 py-0.5 bg-[#ece8e5] text-[10px] font-mono text-[#008f7a] border border-[#d2ccc7] rounded">
                 Square Light
               </span>
             </div>
@@ -688,7 +743,7 @@ import NovandLogo from '@/components/ui/NovandLogo.astro';
                 <span class="text-[10px] font-mono text-[#f4f2f1]/50">1080×1080</span>
               </div>
               <p class="text-xs text-[#f4f2f1]/70 leading-relaxed font-light mb-4">
-                Pure white pedestal chassis with high-contrast architectural strokes. Optimized for light-mode mobile home screen bookmarks and product packaging.
+                Light architectural pedestal chassis with high-contrast structural strokes. Optimized for light-mode mobile home screen bookmarks and product packaging.
               </p>
               <div class="flex items-center gap-2 text-[10px] font-mono text-[#00d2b5]">
                 <span>Vector SVG</span> • <span>1080×1080 PNG</span>
@@ -714,29 +769,29 @@ import NovandLogo from '@/components/ui/NovandLogo.astro';
           </div>
         </div>
 
-        <!-- Asset 9: Persian Captioned Seal (1080x1080) -->
+        <!-- Asset 9: Persian Captioned Seal (1080x1080) · Dark -->
         <div class="asset-card group bg-[#141b1f] border border-[#1a2327] rounded-sm overflow-hidden flex flex-col justify-between" data-category="badge persian">
           <div>
             <!-- Preview Stage -->
             <div class="h-52 bg-[#090e10] p-4 flex items-center justify-center border-b border-[#15120e] relative">
               <img 
                 src="/branding/novand-logo-persian-captioned.svg" 
-                alt="Official Logo with Novand Name" 
+                alt="Official Logo with Novand Name Dark" 
                 class="max-h-40 max-w-[80%] object-contain transition-transform duration-300 group-hover:scale-105"
                 loading="lazy"
               />
               <span class="absolute top-2.5 right-2.5 px-2 py-0.5 bg-[#0d1417] text-[10px] font-mono text-[#00d2b5] border border-[#1a2327] rounded">
-                Emblem with Title
+                Emblem with Title · Dark
               </span>
             </div>
             <!-- Meta Details -->
             <div class="p-5">
               <div class="flex items-center justify-between mb-2">
-                <h3 class="text-sm font-bold text-white font-sans uppercase">Official Emblem with Title · Novand</h3>
+                <h3 class="text-sm font-bold text-white font-sans uppercase">Official Emblem with Title · Dark</h3>
                 <span class="text-[10px] font-mono text-[#f4f2f1]/50">1080×1080</span>
               </div>
               <p class="text-xs text-[#f4f2f1]/70 leading-relaxed font-light mb-4 font-vazirmatn" dir="rtl">
-                Square emblem with technical border along with the name "Novand" and the phrase "Integrated Technology & Infrastructure Engineering Solutions" for social media.
+                Square emblem with technical border along with the name "Novand" and the slogan for dark backgrounds and media.
               </p>
               <div class="flex items-center gap-2 text-[10px] font-mono text-[#00d2b5]">
                 <span>Vector SVG</span> • <span>Lossless PNG</span>
@@ -754,6 +809,54 @@ import NovandLogo from '@/components/ui/NovandLogo.astro';
             </a>
             <a 
               href="/branding/novand-logo-persian-captioned-1080x1080.png" 
+              download 
+              class="flex-1 text-center py-2 bg-[#141b1f] hover:bg-[#1a2327] text-[#f4f2f1]/80 hover:text-white text-xs font-mono font-medium rounded-sm border border-[#1a2327] transition-all"
+            >
+              PNG (Raster)
+            </a>
+          </div>
+        </div>
+
+        <!-- Asset 9b: Persian Captioned Seal (1080x1080) · Light -->
+        <div class="asset-card group bg-[#141b1f] border border-[#1a2327] rounded-sm overflow-hidden flex flex-col justify-between" data-category="badge persian light">
+          <div>
+            <!-- Preview Stage (Light Canvas) -->
+            <div class="h-52 bg-[#f4f2f1] p-4 flex items-center justify-center border-b border-[#d2ccc7] relative">
+              <img 
+                src="/branding/novand-logo-persian-captioned-light.svg" 
+                alt="Official Logo with Novand Name Light" 
+                class="max-h-40 max-w-[80%] object-contain transition-transform duration-300 group-hover:scale-105"
+                loading="lazy"
+              />
+              <span class="absolute top-2.5 right-2.5 px-2 py-0.5 bg-[#ece8e5] text-[10px] font-mono text-[#008f7a] border border-[#d2ccc7] rounded">
+                Emblem with Title · Light
+              </span>
+            </div>
+            <!-- Meta Details -->
+            <div class="p-5">
+              <div class="flex items-center justify-between mb-2">
+                <h3 class="text-sm font-bold text-white font-sans uppercase">Official Emblem with Title · Light</h3>
+                <span class="text-[10px] font-mono text-[#f4f2f1]/50">1080×1080</span>
+              </div>
+              <p class="text-xs text-[#f4f2f1]/70 leading-relaxed font-light mb-4 font-vazirmatn" dir="rtl">
+                Calibrated official square emblem for light theme backgrounds with high architectural contrast and charcoal typography.
+              </p>
+              <div class="flex items-center gap-2 text-[10px] font-mono text-[#00d2b5]">
+                <span>Vector SVG</span> • <span>Lossless PNG</span>
+              </div>
+            </div>
+          </div>
+          <!-- Download Actions -->
+          <div class="p-4 bg-[#0d1417] border-t border-[#15120e] flex items-center gap-2">
+            <a 
+              href="/branding/novand-logo-persian-captioned-light.svg" 
+              download 
+              class="flex-1 text-center py-2 bg-[#141b1f] hover:bg-[#00d2b5] hover:text-[#0d1417] text-[#f4f2f1] text-xs font-mono font-medium rounded-sm border border-[#1a2327] transition-all"
+            >
+              SVG (Vector)
+            </a>
+            <a 
+              href="/branding/novand-logo-persian-captioned-light-1080x1080.png" 
               download 
               class="flex-1 text-center py-2 bg-[#141b1f] hover:bg-[#1a2327] text-[#f4f2f1]/80 hover:text-white text-xs font-mono font-medium rounded-sm border border-[#1a2327] transition-all"
             >
@@ -814,14 +917,14 @@ import NovandLogo from '@/components/ui/NovandLogo.astro';
         <div class="asset-card group bg-[#141b1f] border border-[#1a2327] rounded-sm overflow-hidden flex flex-col justify-between" data-category="mono">
           <div>
             <!-- Preview Stage -->
-            <div class="h-52 bg-[#f8fafc] p-6 flex items-center justify-center border-b border-[#e2e8f0] relative">
+            <div class="h-52 bg-[#f4f2f1] p-6 flex items-center justify-center border-b border-[#d2ccc7] relative">
               <img 
                 src="/branding/novand-logo-monochrome-black.svg" 
                 alt="Novand Monochrome Black" 
                 class="max-h-28 max-w-[65%] object-contain transition-transform duration-300 group-hover:scale-105"
                 loading="lazy"
               />
-              <span class="absolute top-2.5 right-2.5 px-2 py-0.5 bg-white text-[10px] font-mono text-[#0d1417] border border-[#cbd5e1] rounded">
+              <span class="absolute top-2.5 right-2.5 px-2 py-0.5 bg-[#ece8e5] text-[10px] font-mono text-[#0d1417] border border-[#d2ccc7] rounded">
                 100% Black
               </span>
             </div>

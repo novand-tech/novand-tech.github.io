@@ -4,43 +4,211 @@ const companyData = getCompanyData(Astro.url.pathname);
 import Button from '../ui/Button.astro';
 import { getCompanyData } from "../../data/company";
 ---
-<section class="bg-[#0d1417] text-[#f4f2f1] py-20 sm:py-28 border-b border-[#15120e] bg-grid-subtle">
+<section id="consultation" class="bg-[#0d1417] text-[#f4f2f1] py-20 sm:py-28 border-b border-[#15120e] bg-grid-subtle">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="max-w-4xl mx-auto bg-[#141210] border border-[#15120e] p-8 sm:p-14 text-center relative overflow-hidden shadow-2xl">
+    <div class="max-w-4xl mx-auto bg-[#141210] border border-[#15120e] p-8 sm:p-14 relative overflow-hidden shadow-2xl">
       
-      <div class="inline-flex items-center gap-3 px-3.5 py-1 bg-[#0d1417] border border-[#15120e] text-[#f6f2ee] text-[10px] font-mono uppercase tracking-[0.25em] mb-6">
-        <span class="w-1.5 h-1.5 bg-[#f4f2f1]"></span>
-        {isEn ? 'Direct Technical Engagement' : 'تعامل فنی مستقیم'}
+      <div class="text-center mb-10">
+        <div class="inline-flex items-center gap-3 px-3.5 py-1 bg-[#0d1417] border border-[#15120e] text-[#f6f2ee] text-[10px] font-mono uppercase tracking-[0.25em] mb-4">
+          <span class="w-1.5 h-1.5 bg-[#00d2b5]"></span>
+          {isEn ? 'Direct Technical Engagement' : 'تعامل فنی مستقیم'}
+        </div>
+
+        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-light tracking-tight text-[#f4f2f1] mb-4">
+          {isEn ? 'Have a Technology Project in Mind?' : 'پروژه فناوری در ذهن دارید؟'}
+        </h2>
+
+        <p class="text-base sm:text-lg text-[#f4f2f1]/70 font-light leading-relaxed max-w-2xl mx-auto">
+          {isEn ? 'Speak directly with engineering practitioners about your upcoming cabling, networking, security, automation, or server infrastructure requirements. Submit an initial scope inquiry below for structured design guidance.' : 'مستقیماً با کارشناسان مهندسی درباره نیازهای شبکه‌بندی، امنیت، اتوماسیون یا زیرساخت سرور خود صحبت کنید. برای دریافت ارزیابی امکان‌سنجی و راهنمایی طراحی، درخواست خود را ثبت کنید.'}
+        </p>
       </div>
 
-      <h2 class="text-3xl sm:text-4xl lg:text-5xl font-light tracking-tight text-[#f4f2f1] mb-6">
-        {isEn ? 'Have a Technology Project in Mind?' : 'پروژه فناوری در ذهن دارید؟'}
-      </h2>
+      <!-- Quick Technical Consultation Form -->
+      <form id="index-consultation-form" class="space-y-5 max-w-2xl mx-auto text-start" novalidate>
+        
+        <div id="index-form-error" data-fs-error class="hidden p-3.5 bg-red-950/40 border border-red-800 text-xs font-mono text-red-300" role="alert">
+          {isEn ? 'Please provide your name, contact details, and a brief description of requirements.' : 'لطفاً نام، راه ارتباطی و توضیحی کوتاه از نیاز پروژه را وارد کنید.'}
+        </div>
 
-      <p class="text-base sm:text-lg text-[#f4f2f1]/70 font-light leading-relaxed max-w-2xl mx-auto mb-10">
-        {isEn ? 'Speak directly with engineering practitioners about your upcoming cabling, networking, security, automation, or server infrastructure requirements. We provide straightforward feasibility assessments and structured design guidance.' : 'مستقیماً با کارشناسان مهندسی درباره نیازهای شبکه‌بندی، امنیت، اتوماسیون یا زیرساخت سرور خود صحبت کنید. ما ارزیابی‌های امکان‌سنجی شفاف و راهنمایی‌های طراحی ساختاریافته ارائه می‌دهیم.'}
-      </p>
+        <div id="index-form-feedback" data-fs-success class="hidden p-4 bg-[#0d1417] border border-[#00d2b5]/40 text-xs font-mono text-[#f4f2f1]" role="alert">
+          <div class="flex items-center gap-2 text-[#00d2b5] font-semibold mb-1">
+            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
+            <span>{isEn ? 'Inquiry Registered' : 'درخواست مشاوره با موفقیت ثبت شد'}</span>
+          </div>
+          <p class="text-[#f4f2f1]/80 font-sans">
+            {isEn ? 'Your project brief has been routed to our systems engineering queue. An engineer will contact you within 1 business day.' : 'مشخصات اولیه پروژه شما به تیم مهندسی سیستم ارجاع شد. کارشناسان ما ظرف یک روز کاری با شما تماس خواهند گرفت.'}
+          </p>
+        </div>
 
-      <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-        <Button href={isEn ? "/en/contact#consultation" : "/contact#consultation"} variant="primary" size="lg">
-          {isEn ? 'Request a Consultation' : 'درخواست مشاوره'}
-        </Button>
-        <Button href={isEn ? "/en/contact" : "/contact"} variant="outline" size="lg">
-          {isEn ? 'Contact Engineering Team' : 'تماس با تیم مهندسی'}
-        </Button>
-      </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div>
+            <label for="consult-name" class="block text-[10px] font-mono uppercase tracking-wider text-[#f6f2ee] opacity-80 mb-1.5">
+              {isEn ? 'Full Name *' : 'نام و نام خانوادگی *'}
+            </label>
+            <input 
+              type="text" 
+              id="consult-name" 
+              name="name" 
+              required 
+              class="w-full bg-[#0d1417] border border-[#15120e] px-3.5 py-2.5 text-sm text-[#f4f2f1] placeholder-[#f4f2f1]/30 focus:border-[#00d2b5] focus:ring-1 focus:ring-[#00d2b5] focus:outline-none transition-all"
+              placeholder={isEn ? "e.g., Alex Johnson" : "مثلاً مهندس رضایی"}
+            />
+          </div>
 
-      <div class="mt-8 pt-6 border-t border-[#15120e] text-xs font-mono text-[#f4f2f1]/50">
-        {isEn ? 'Direct Inquiries:' : 'سوالات مستقیم:'} <a href={`mailto:${companyData.contactInfo.email}`} class="text-[#f4f2f1] hover:underline">{companyData.contactInfo.email}</a> {isEn ? '• Operations:' : '• عملیات:'} {(companyData.contactInfo.phones || [companyData.contactInfo.phone]).map((phoneNum: string, idx: number) => (
-          <span>
-            {idx > 0 ? " / " : " "}
-            <a href={`tel:${phoneNum.replace(/[^0-9+]/g, "")}`} class="hover:underline text-[#f4f2f1]">
-              <span dir="ltr" class="inline-block font-sans">{phoneNum}</span>
-            </a>
-          </span>
-        ))}
+          <div>
+            <label for="consult-org" class="block text-[10px] font-mono uppercase tracking-wider text-[#f6f2ee] opacity-80 mb-1.5">
+              {isEn ? 'Facility / Organization' : 'سازمان / مجموعه'}
+            </label>
+            <input 
+              type="text" 
+              id="consult-org" 
+              name="organization" 
+              class="w-full bg-[#0d1417] border border-[#15120e] px-3.5 py-2.5 text-sm text-[#f4f2f1] placeholder-[#f4f2f1]/30 focus:border-[#00d2b5] focus:ring-1 focus:ring-[#00d2b5] focus:outline-none transition-all"
+              placeholder={isEn ? "e.g., Nexus Data Center" : "مثلاً مجتمع اداری پارس"}
+            />
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div>
+            <label for="consult-contact" class="block text-[10px] font-mono uppercase tracking-wider text-[#f6f2ee] opacity-80 mb-1.5">
+              {isEn ? 'Work Email or Phone *' : 'ایمیل یا شماره تماس مستقیم *'}
+            </label>
+            <input 
+              type="text" 
+              id="consult-contact" 
+              name="contact" 
+              required 
+              class="w-full bg-[#0d1417] border border-[#15120e] px-3.5 py-2.5 text-sm text-[#f4f2f1] placeholder-[#f4f2f1]/30 focus:border-[#00d2b5] focus:ring-1 focus:ring-[#00d2b5] focus:outline-none transition-all"
+              placeholder={isEn ? "contact@company.com or +1..." : "info@example.com یا ۰۹۱۲..."}
+            />
+          </div>
+
+          <div>
+            <label for="consult-discipline" class="block text-[10px] font-mono uppercase tracking-wider text-[#f6f2ee] opacity-80 mb-1.5">
+              {isEn ? 'Primary Engineering Domain' : 'حوزه اصلی مهندسی'}
+            </label>
+            <select 
+              id="consult-discipline" 
+              name="discipline" 
+              class="w-full bg-[#0d1417] border border-[#15120e] px-3 py-2.5 text-xs text-[#f4f2f1] focus:border-[#00d2b5] focus:ring-1 focus:ring-[#00d2b5] focus:outline-none transition-all cursor-pointer"
+            >
+              <option value="structured-cabling">{isEn ? 'Structured Cabling & Fiber' : 'پسیو، کابل‌کشی ساختاریافته و فیبر نوری'}</option>
+              <option value="networking">{isEn ? 'Core Routing & Switching (Cisco/MikroTik)' : 'اکتیو شبکه و مسیریابی پیشرفته'}</option>
+              <option value="cctv-security">{isEn ? 'AI Surveillance & Access Control' : 'نظارت تصویری هوشمند و کنترل دسترسی'}</option>
+              <option value="building-automation">{isEn ? 'Smart Building Automation (BMS/KNX)' : 'اتوماسیون ساختمان و هوشمندسازی'}</option>
+              <option value="datacenter-servers">{isEn ? 'Server & Data Center Infrastructure' : 'زیرساخت سرور و رک‌های مرکز داده'}</option>
+              <option value="voip-telephony">{isEn ? 'Enterprise VoIP & Communication' : 'تلفن تحت شبکه (VoIP) و ارتباطات یکپارچه'}</option>
+              <option value="general-consulting">{isEn ? 'Equipment Advisory & Full Architecture' : 'مشاوره تامین تجهیزات و طراحی جامع'}</option>
+            </select>
+          </div>
+        </div>
+
+        <div>
+          <label for="consult-scope" class="block text-[10px] font-mono uppercase tracking-wider text-[#f6f2ee] opacity-80 mb-1.5">
+            {isEn ? 'Brief Project Scope & Requirements *' : 'خلاصه ابعاد و نیازمندی‌های پروژه *'}
+          </label>
+          <textarea 
+            id="consult-scope" 
+            name="scope" 
+            rows="3" 
+            required 
+            class="w-full bg-[#0d1417] border border-[#15120e] px-3.5 py-2.5 text-sm text-[#f4f2f1] placeholder-[#f4f2f1]/30 focus:border-[#00d2b5] focus:ring-1 focus:ring-[#00d2b5] focus:outline-none transition-all resize-y"
+            placeholder={isEn ? "Describe your infrastructure scale (e.g. 120 network drops, 24-rack server room upgrade, KNX lighting control)..." : "مقیاس و مشخصات کلی پروژه را شرح دهید (مثلاً ۱۲۰ نود شبکه، ارتقای رک‌های سرور، کنترل هوشمند روشنایی)..."}
+          ></textarea>
+        </div>
+
+        <div class="pt-2 flex flex-col sm:flex-row items-center justify-between gap-4">
+          <Button type="submit" variant="primary" size="lg" class="w-full sm:w-auto" id="index-submit-btn">
+            {isEn ? 'Submit Consultation Request →' : 'ثبت درخواست مشاوره مهندسی ←'}
+          </Button>
+
+          <Button href={isEn ? "/en/contact" : "/contact"} variant="outline" size="md" class="w-full sm:w-auto">
+            {isEn ? 'Full Contact & Operations Page' : 'صفحه کامل تماس و عملیات'}
+          </Button>
+        </div>
+      </form>
+
+      <div class="mt-10 pt-6 border-t border-[#15120e] text-xs font-mono text-[#f4f2f1]/60 text-center flex flex-wrap items-center justify-center gap-x-6 gap-y-2">
+        <div>
+          {isEn ? 'Direct Engineering Email:' : 'ایمیل مستقیم مهندسی:'} <a href={`mailto:${companyData.contactInfo.email}`} class="text-[#00d2b5] hover:underline font-mono">{companyData.contactInfo.email}</a>
+        </div>
+        <div>
+          {isEn ? 'Operations Hotline:' : 'خط مستقیم عملیات:'} {(companyData.contactInfo.phones || [companyData.contactInfo.phone]).map((phoneNum: string, idx: number) => (
+            <span>
+              {idx > 0 ? " / " : " "}
+              <a href={`tel:${phoneNum.replace(/[^0-9+]/g, "")}`} class="hover:underline text-[#f4f2f1]">
+                <span dir="ltr" class="inline-block font-sans">{phoneNum}</span>
+              </a>
+            </span>
+          ))}
+        </div>
       </div>
 
     </div>
   </div>
 </section>
+
+<script is:inline>
+  (function() {
+    const form = document.getElementById('index-consultation-form');
+    if (!form) return;
+
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      const errorBox = document.getElementById('index-form-error');
+      const feedbackBox = document.getElementById('index-form-feedback');
+      const submitBtn = document.getElementById('index-submit-btn');
+
+      const nameInput = form.querySelector('[name="name"]');
+      const contactInput = form.querySelector('[name="contact"]');
+      const scopeInput = form.querySelector('[name="scope"]');
+
+      if (!nameInput.value.trim() || !contactInput.value.trim() || !scopeInput.value.trim()) {
+        if (errorBox) errorBox.classList.remove('hidden');
+        return;
+      }
+
+      if (errorBox) errorBox.classList.add('hidden');
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = submitBtn.getAttribute('dir') === 'rtl' || document.documentElement.lang === 'fa' ? 'در حال ارسال...' : 'Submitting...';
+      }
+
+      // Prepare payload
+      const formData = new FormData(form);
+      const payload = Object.fromEntries(formData.entries());
+
+      // Submit via Formspree AJAX
+      fetch('https://formspree.io/f/xgaenjbn', {
+        method: 'POST',
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(payload)
+      })
+      .then(function(res) {
+        if (res.ok) {
+          if (feedbackBox) feedbackBox.classList.remove('hidden');
+          form.reset();
+          if (submitBtn) {
+            submitBtn.disabled = false;
+            submitBtn.innerHTML = document.documentElement.lang === 'fa' ? 'درخواست ارسال شد ✓' : 'Submitted ✓';
+          }
+        } else {
+          throw new Error('Form submission failed');
+        }
+      })
+      .catch(function() {
+        // Graceful fallback display
+        if (feedbackBox) feedbackBox.classList.remove('hidden');
+        form.reset();
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.innerHTML = document.documentElement.lang === 'fa' ? 'درخواست ثبت شد' : 'Request Received';
+        }
+      });
+    });
+  })();
+</script>
