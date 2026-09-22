@@ -186,10 +186,7 @@ html.dark .technical-border {
 }
 
 /* =========================================================================
-   LIGHT THEME (DEFAULT / SURGICAL BACKGROUND & TEXT BOX CONVERSION)
-   - Backgrounds & content text boxes transition smoothly to bright (#eef1f5 / #ffffff).
-   - Related texts and captions transition to high-contrast dark tones.
-   - Header, Footer, and 01-06 Capabilities Section retain 100% exact parity with dark theme.
+   LIGHT THEME OVERRIDES
    ========================================================================= */
 html:not(.dark) {
   /* Selection styling */
@@ -201,50 +198,45 @@ html:not(.dark) {
   /* 1. Main Canvas & Structural Surfaces */
   body,
   main,
-  section.bg-\[\#141210\]:not(header, footer, .capability-strip, .keep-dark, header *, footer *, .capability-strip *, .keep-dark *),
-  section.bg-\[\#0a0f12\]:not(header, footer, .capability-strip, .keep-dark, header *, footer *, .capability-strip *, .keep-dark *),
-  section.bg-\[\#090e10\]:not(header, footer, .capability-strip, .keep-dark, header *, footer *, .capability-strip *, .keep-dark *) {
+  section.bg-\[\#141210\],
+  section.bg-\[\#0a0f12\],
+  section.bg-\[\#090e10\] {
     background-color: #eef1f5 !important;
   }
 
-  /* 2. Alternating Sections & Structured Tinted Surfaces */
-  section.bg-\[\#0d1417\]:not(header, footer, .capability-strip, .keep-dark, header *, footer *, .capability-strip *, .keep-dark *),
-  section.bg-\[\#141b1f\]:not(header, footer, .capability-strip, .keep-dark, header *, footer *, .capability-strip *, .keep-dark *),
-  section.bg-\[\#0d1417\]\/90:not(header, footer, .capability-strip, .keep-dark, header *, footer *, .capability-strip *, .keep-dark *),
-  section.bg-\[\#0d1417\]\/80:not(header, footer, .capability-strip, .keep-dark, header *, footer *, .capability-strip *, .keep-dark *),
-  section.bg-\[\#0f172a\]:not(header, footer, .capability-strip, .keep-dark, header *, footer *, .capability-strip *, .keep-dark *) {
+  /* 2. Alternating Sections */
+  section.bg-\[\#0d1417\],
+  section.bg-\[\#141b1f\],
+  section.bg-\[\#0d1417\]\/90,
+  section.bg-\[\#0d1417\]\/80,
+  section.bg-\[\#0f172a\] {
     background-color: #e2e7ec !important;
   }
 
-  /* 3. Unified Cards, Content Boxes, Panels, Chips, Tech Tags, and Small Text Containers */
-  div.bg-\[\#141210\]:not(header, footer, .capability-strip, .keep-dark, .dark-preview, pre, code, header *, footer *, .capability-strip *, .keep-dark *, .dark-preview *, pre *, code *),
-  div.bg-\[\#15120e\]:not(header, footer, .capability-strip, .keep-dark, .dark-preview, pre, code, header *, footer *, .capability-strip *, .keep-dark *, .dark-preview *, pre *, code *),
-  div.bg-\[\#0d1417\]:not(header, footer, .capability-strip, .keep-dark, .dark-preview, pre, code, header *, footer *, .capability-strip *, .keep-dark *, .dark-preview *, pre *, code *),
-  div.bg-\[\#141b1f\]:not(header, footer, .capability-strip, .keep-dark, .dark-preview, pre, code, header *, footer *, .capability-strip *, .keep-dark *, .dark-preview *, pre *, code *),
-  div.bg-\[\#1a2327\]:not(header, footer, .capability-strip, .keep-dark, .dark-preview, pre, code, header *, footer *, .capability-strip *, .keep-dark *, .dark-preview *, pre *, code *),
-  article.bg-\[\#0d1417\]:not(header, footer, .capability-strip, .keep-dark, .dark-preview, pre, code, header *, footer *, .capability-strip *, .keep-dark *, .dark-preview *, pre *, code *),
-  article.bg-\[\#15120e\]:not(header, footer, .capability-strip, .keep-dark, .dark-preview, pre, code, header *, footer *, .capability-strip *, .keep-dark *, .dark-preview *, pre *, code *),
-  article.bg-\[\#141210\]:not(header, footer, .capability-strip, .keep-dark, .dark-preview, pre, code, header *, footer *, .capability-strip *, .keep-dark *, .dark-preview *, pre *, code *),
-  a.bg-\[\#141210\]:not(header, footer, .capability-strip, .keep-dark, .dark-preview, pre, code, header *, footer *, .capability-strip *, .keep-dark *, .dark-preview *, pre *, code *),
-  a.bg-\[\#0d1417\]:not(header, footer, .capability-strip, .keep-dark, .dark-preview, pre, code, header *, footer *, .capability-strip *, .keep-dark *, .dark-preview *, pre *, code *),
-  a.bg-\[\#15120e\]:not(header, footer, .capability-strip, .keep-dark, .dark-preview, pre, code, header *, footer *, .capability-strip *, .keep-dark *, .dark-preview *, pre *, code *),
-  a.bg-\[\#141b1f\]:not(header, footer, .capability-strip, .keep-dark, .dark-preview, pre, code, header *, footer *, .capability-strip *, .keep-dark *, .dark-preview *, pre *, code *),
-  span.bg-\[\#141210\]:not(header, footer, .capability-strip, .keep-dark, .dark-preview, pre, code, header *, footer *, .capability-strip *, .keep-dark *, .dark-preview *, pre *, code *),
-  span.bg-\[\#15120e\]:not(header, footer, .capability-strip, .keep-dark, .dark-preview, pre, code, header *, footer *, .capability-strip *, .keep-dark *, .dark-preview *, pre *, code *),
-  span.bg-\[\#0d1417\]:not(header, footer, .capability-strip, .keep-dark, .dark-preview, pre, code, header *, footer *, .capability-strip *, .keep-dark *, .dark-preview *, pre *, code *),
-  span.bg-\[\#141b1f\]:not(header, footer, .capability-strip, .keep-dark, .dark-preview, pre, code, header *, footer *, .capability-strip *, .keep-dark *, .dark-preview *, pre *, code *),
-  span.bg-\[\#1a2327\]:not(header, footer, .capability-strip, .keep-dark, .dark-preview, pre, code, header *, footer *, .capability-strip *, .keep-dark *, .dark-preview *, pre *, code *),
-  li.bg-\[\#141210\]:not(header, footer, .capability-strip, .keep-dark, .dark-preview, pre, code, header *, footer *, .capability-strip *, .keep-dark *, .dark-preview *, pre *, code *),
-  li.bg-\[\#15120e\]:not(header, footer, .capability-strip, .keep-dark, .dark-preview, pre, code, header *, footer *, .capability-strip *, .keep-dark *, .dark-preview *, pre *, code *),
-  li.bg-\[\#0d1417\]:not(header, footer, .capability-strip, .keep-dark, .dark-preview, pre, code, header *, footer *, .capability-strip *, .keep-dark *, .dark-preview *, pre *, code *),
-  p.bg-\[\#141210\]:not(header, footer, .capability-strip, .keep-dark, .dark-preview, pre, code, header *, footer *, .capability-strip *, .keep-dark *, .dark-preview *, pre *, code *),
-  p.bg-\[\#15120e\]:not(header, footer, .capability-strip, .keep-dark, .dark-preview, pre, code, header *, footer *, .capability-strip *, .keep-dark *, .dark-preview *, pre *, code *),
-  p.bg-\[\#0d1417\]:not(header, footer, .capability-strip, .keep-dark, .dark-preview, pre, code, header *, footer *, .capability-strip *, .keep-dark *, .dark-preview *, pre *, code *),
-  [class*="bg-[#141210]"]:not(section):not(header):not(footer):not(.capability-strip):not(.keep-dark):not(.dark-preview):not(pre):not(code):not(header *):not(footer *):not(.capability-strip *):not(.keep-dark *):not(.dark-preview *):not(pre *):not(code *),
-  [class*="bg-[#15120e]"]:not(section):not(header):not(footer):not(.capability-strip):not(.keep-dark):not(.dark-preview):not(pre):not(code):not(header *):not(footer *):not(.capability-strip *):not(.keep-dark *):not(.dark-preview *):not(pre *):not(code *),
-  [class*="bg-[#0d1417]"]:not(section):not(header):not(footer):not(.capability-strip):not(.keep-dark):not(.dark-preview):not(pre):not(code):not(header *):not(footer *):not(.capability-strip *):not(.keep-dark *):not(.dark-preview *):not(pre *):not(code *),
-  [class*="bg-[#141b1f]"]:not(section):not(header):not(footer):not(.capability-strip):not(.keep-dark):not(.dark-preview):not(pre):not(code):not(header *):not(footer *):not(.capability-strip *):not(.keep-dark *):not(.dark-preview *):not(pre *):not(code *),
-  [class*="bg-[#1a2327]"]:not(section):not(header):not(footer):not(.capability-strip):not(.keep-dark):not(.dark-preview):not(pre):not(code):not(header *):not(footer *):not(.capability-strip *):not(.keep-dark *):not(.dark-preview *):not(pre *):not(code *),
+  /* 3. Cards, Content Boxes, Panels, Chips & Small Containers */
+  div.bg-\[\#141210\],
+  div.bg-\[\#15120e\],
+  div.bg-\[\#0d1417\],
+  div.bg-\[\#141b1f\],
+  div.bg-\[\#1a2327\],
+  article.bg-\[\#0d1417\],
+  article.bg-\[\#15120e\],
+  article.bg-\[\#141210\],
+  a.bg-\[\#141210\],
+  a.bg-\[\#0d1417\],
+  a.bg-\[\#15120e\],
+  a.bg-\[\#141b1f\],
+  span.bg-\[\#141210\],
+  span.bg-\[\#15120e\],
+  span.bg-\[\#0d1417\],
+  span.bg-\[\#141b1f\],
+  span.bg-\[\#1a2327\],
+  li.bg-\[\#141210\],
+  li.bg-\[\#15120e\],
+  li.bg-\[\#0d1417\],
+  p.bg-\[\#141210\],
+  p.bg-\[\#15120e\],
+  p.bg-\[\#0d1417\],
   .asset-card {
     background-color: #ffffff !important;
     border-color: #cbd5e1 !important;
@@ -252,27 +244,27 @@ html:not(.dark) {
     box-shadow: 0 1px 3px 0 rgba(15, 23, 42, 0.05) !important;
   }
 
-  /* Secondary Chips, Badges, Spec HUDs & Inner Technical Boxes */
-  .bg-\[\#1a2327\]:not(header, footer, .capability-strip, .keep-dark, header *, footer *, .capability-strip *, .keep-dark *),
-  .bg-\[\#15120e\]\/95:not(header, footer, .capability-strip, .keep-dark, header *, footer *, .capability-strip *, .keep-dark *),
-  .bg-\[\#141210\]\/90:not(header, footer, .capability-strip, .keep-dark, header *, footer *, .capability-strip *, .keep-dark *),
-  .bg-\[\#0f172a\]:not(header, footer, .capability-strip, .keep-dark, header *, footer *, .capability-strip *, .keep-dark *),
-  .bg-\[\#0f172a\]\/90:not(header, footer, .capability-strip, .keep-dark, header *, footer *, .capability-strip *, .keep-dark *),
-  .bg-\[\#0f172a\]\/95:not(header, footer, .capability-strip, .keep-dark, header *, footer *, .capability-strip *, .keep-dark *),
-  .bg-\[\#1e293b\]:not(header, footer, .capability-strip, .keep-dark, header *, footer *, .capability-strip *, .keep-dark *) {
+  /* Secondary Chips, Badges & Small Text Boxes */
+  .bg-\[\#1a2327\],
+  .bg-\[\#15120e\]\/95,
+  .bg-\[\#141210\]\/90,
+  .bg-\[\#0f172a\],
+  .bg-\[\#0f172a\]\/90,
+  .bg-\[\#0f172a\]\/95,
+  .bg-\[\#1e293b\] {
     background-color: #e2e8f0 !important;
     border-color: #cbd5e1 !important;
     color: #0f172a !important;
   }
 
-  /* 4. Form Text Boxes, Inputs, Textareas & Selects */
-  input[type="text"]:not(header, footer, header *, footer *),
-  input[type="email"]:not(header, footer, header *, footer *),
-  input[type="tel"]:not(header, footer, header *, footer *),
-  input[type="search"]:not(header, footer, header *, footer *),
-  input[type="number"]:not(header, footer, header *, footer *),
-  textarea:not(header, footer, header *, footer *),
-  select:not(header, footer, header *, footer *) {
+  /* 4. Form Controls */
+  input[type="text"],
+  input[type="email"],
+  input[type="tel"],
+  input[type="search"],
+  input[type="number"],
+  textarea,
+  select {
     background-color: #ffffff !important;
     border-color: #cbd5e1 !important;
     color: #0f172a !important;
@@ -314,262 +306,160 @@ html:not(.dark) {
     color: #166534 !important;
   }
 
-  /* 5. Typography: High Contrast Dark Text & Captions (Strictly Content Areas) */
-  h1:not(header, footer, .capability-strip, .keep-dark, header *, footer *, .capability-strip *, .keep-dark *),
-  h2:not(header, footer, .capability-strip, .keep-dark, header *, footer *, .capability-strip *, .keep-dark *),
-  h3:not(header, footer, .capability-strip, .keep-dark, header *, footer *, .capability-strip *, .keep-dark *),
-  h4:not(header, footer, .capability-strip, .keep-dark, header *, footer *, .capability-strip *, .keep-dark *),
-  h5:not(header, footer, .capability-strip, .keep-dark, header *, footer *, .capability-strip *, .keep-dark *),
-  h6:not(header, footer, .capability-strip, .keep-dark, header *, footer *, .capability-strip *, .keep-dark *),
-  label:not(header, footer, .capability-strip, .keep-dark, header *, footer *, .capability-strip *, .keep-dark *),
-  strong:not(header, footer, .capability-strip, .keep-dark, header *, footer *, .capability-strip *, .keep-dark *),
-  b:not(header, footer, .capability-strip, .keep-dark, header *, footer *, .capability-strip *, .keep-dark *),
-  th:not(header, footer, .capability-strip, .keep-dark, header *, footer *, .capability-strip *, .keep-dark *),
-  .text-\[\#f4f2f1\]:not(header, footer, .capability-strip, .keep-dark, header *, footer *, .capability-strip *, .keep-dark *),
-  .text-\[\#f6f2ee\]:not(header, footer, .capability-strip, .keep-dark, header *, footer *, .capability-strip *, .keep-dark *),
-  .text-white:not(header, footer, .capability-strip, .keep-dark, header *, footer *, .capability-strip *, .keep-dark *):not(.btn-novand-primary):not(.btn-novand-primary *):not(.btn-novand-outline:hover):not(.btn-novand-outline:hover *) {
+  /* 5. Content Typography in Light Mode */
+  h1, h2, h3, h4, h5, h6,
+  label, strong, b, th,
+  .text-\[\#f4f2f1\],
+  .text-\[\#f6f2ee\] {
     color: #0f172a !important;
   }
 
-  /* Captions & Subtitles */
-  p:not(header, footer, .capability-strip, .keep-dark, header *, footer *, .capability-strip *, .keep-dark *),
-  li:not(header, footer, .capability-strip, .keep-dark, header *, footer *, .capability-strip *, .keep-dark *),
-  [class*="text-white/"]:not(header, footer, .capability-strip, .keep-dark, header *, footer *, .capability-strip *, .keep-dark *),
-  .text-\[\#f4f2f1\]\/90:not(header, footer, .capability-strip, .keep-dark, header *, footer *, .capability-strip *, .keep-dark *),
-  .text-\[\#f4f2f1\]\/80:not(header, footer, .capability-strip, .keep-dark, header *, footer *, .capability-strip *, .keep-dark *),
-  .text-\[\#f4f2f1\]\/75:not(header, footer, .capability-strip, .keep-dark, header *, footer *, .capability-strip *, .keep-dark *),
-  .text-\[\#f4f2f1\]\/70:not(header, footer, .capability-strip, .keep-dark, header *, footer *, .capability-strip *, .keep-dark *),
-  .text-\[\#f6f2ee\]\/90:not(header, footer, .capability-strip, .keep-dark, header *, footer *, .capability-strip *, .keep-dark *),
-  .text-\[\#f6f2ee\]\/80:not(header, footer, .capability-strip, .keep-dark, header *, footer *, .capability-strip *, .keep-dark *),
-  .text-\[\#f6f2ee\]\/70:not(header, footer, .capability-strip, .keep-dark, header *, footer *, .capability-strip *, .keep-dark *) {
+  p, li,
+  .text-\[\#f4f2f1\]\/90,
+  .text-\[\#f4f2f1\]\/80,
+  .text-\[\#f4f2f1\]\/75,
+  .text-\[\#f4f2f1\]\/70,
+  .text-\[\#f6f2ee\]\/90,
+  .text-\[\#f6f2ee\]\/80,
+  .text-\[\#f6f2ee\]\/70 {
     color: #334155 !important;
     opacity: 1 !important;
   }
 
-  /* Small Specs, Metadata & Captions */
-  .text-\[\#f4f2f1\]\/65:not(header, footer, .capability-strip, .keep-dark, header *, footer *, .capability-strip *, .keep-dark *),
-  .text-\[\#f4f2f1\]\/60:not(header, footer, .capability-strip, .keep-dark, header *, footer *, .capability-strip *, .keep-dark *),
-  .text-\[\#f4f2f1\]\/50:not(header, footer, .capability-strip, .keep-dark, header *, footer *, .capability-strip *, .keep-dark *),
-  .text-\[\#f4f2f1\]\/40:not(header, footer, .capability-strip, .keep-dark, header *, footer *, .capability-strip *, .keep-dark *),
-  .text-\[\#f4f2f1\]\/30:not(header, footer, .capability-strip, .keep-dark, header *, footer *, .capability-strip *, .keep-dark *),
-  .text-\[\#f6f2ee\]\/65:not(header, footer, .capability-strip, .keep-dark, header *, footer *, .capability-strip *, .keep-dark *),
-  .text-\[\#f6f2ee\]\/60:not(header, footer, .capability-strip, .keep-dark, header *, footer *, .capability-strip *, .keep-dark *),
-  .text-\[\#f6f2ee\]\/50:not(header, footer, .capability-strip, .keep-dark, header *, footer *, .capability-strip *, .keep-dark *),
-  .text-\[\#f6f2ee\]\/40:not(header, footer, .capability-strip, .keep-dark, header *, footer *, .capability-strip *, .keep-dark *),
-  figcaption:not(header, footer, .capability-strip, .keep-dark, header *, footer *, .capability-strip *, .keep-dark *),
-  caption:not(header, footer, .capability-strip, .keep-dark, header *, footer *, .capability-strip *, .keep-dark *) {
+  .text-\[\#f4f2f1\]\/65,
+  .text-\[\#f4f2f1\]\/60,
+  .text-\[\#f4f2f1\]\/50,
+  .text-\[\#f4f2f1\]\/40,
+  .text-\[\#f4f2f1\]\/30,
+  .text-\[\#f6f2ee\]\/65,
+  .text-\[\#f6f2ee\]\/60,
+  .text-\[\#f6f2ee\]\/50,
+  .text-\[\#f6f2ee\]\/40,
+  figcaption, caption {
     color: #475569 !important;
     opacity: 1 !important;
   }
 
   /* Prevent stacked text opacity */
-  label.opacity-80:not(header, footer, .capability-strip, .keep-dark, header *, footer *, .capability-strip *, .keep-dark *),
-  label.opacity-70:not(header, footer, .capability-strip, .keep-dark, header *, footer *, .capability-strip *, .keep-dark *),
-  span.opacity-80:not(header, footer, .capability-strip, .keep-dark, header *, footer *, .capability-strip *, .keep-dark *),
-  span.opacity-70:not(header, footer, .capability-strip, .keep-dark, header *, footer *, .capability-strip *, .keep-dark *),
-  span.opacity-60:not(header, footer, .capability-strip, .keep-dark, header *, footer *, .capability-strip *, .keep-dark *),
-  span.opacity-50:not(header, footer, .capability-strip, .keep-dark, header *, footer *, .capability-strip *, .keep-dark *),
-  p.opacity-80:not(header, footer, .capability-strip, .keep-dark, header *, footer *, .capability-strip *, .keep-dark *),
-  p.opacity-70:not(header, footer, .capability-strip, .keep-dark, header *, footer *, .capability-strip *, .keep-dark *),
-  div.opacity-80:not(header, footer, .capability-strip, .keep-dark, header *, footer *, .capability-strip *, .keep-dark *),
-  div.opacity-70:not(header, footer, .capability-strip, .keep-dark, header *, footer *, .capability-strip *, .keep-dark *) {
+  label.opacity-80, label.opacity-70,
+  span.opacity-80, span.opacity-70, span.opacity-60, span.opacity-50,
+  p.opacity-80, p.opacity-70,
+  div.opacity-80, div.opacity-70 {
     opacity: 1 !important;
   }
 
-  .text-slate-100:not(header, footer, .capability-strip, .keep-dark, header *, footer *, .capability-strip *, .keep-dark *),
-  .text-slate-200:not(header, footer, .capability-strip, .keep-dark, header *, footer *, .capability-strip *, .keep-dark *),
-  .text-slate-300:not(header, footer, .capability-strip, .keep-dark, header *, footer *, .capability-strip *, .keep-dark *),
-  .text-gray-100:not(header, footer, .capability-strip, .keep-dark, header *, footer *, .capability-strip *, .keep-dark *),
-  .text-gray-200:not(header, footer, .capability-strip, .keep-dark, header *, footer *, .capability-strip *, .keep-dark *),
-  .text-gray-300:not(header, footer, .capability-strip, .keep-dark, header *, footer *, .capability-strip *, .keep-dark *) {
+  .text-slate-100, .text-slate-200, .text-slate-300,
+  .text-gray-100, .text-gray-200, .text-gray-300 {
     color: #334155 !important;
   }
 
   /* Technical Accents */
-  .text-\[\#00d2b5\]:not(header, footer, .capability-strip, .keep-dark, header *, footer *, .capability-strip *, .keep-dark *) {
+  .text-\[\#00d2b5\] {
     color: #00d2b5 !important;
   }
 
-  .text-\[\#10b981\]:not(header, footer, .capability-strip, .keep-dark, header *, footer *, .capability-strip *, .keep-dark *) {
+  .text-\[\#10b981\] {
     color: #10b981 !important;
   }
 
-  .bg-\[\#00d2b5\]:not(header, footer, .capability-strip, .keep-dark, header *, footer *, .capability-strip *, .keep-dark *) {
+  .bg-\[\#00d2b5\] {
     background-color: #00d2b5 !important;
     color: #0d1417 !important;
   }
 
-  .bg-\[\#10b981\]:not(header, footer, .capability-strip, .keep-dark, header *, footer *, .capability-strip *, .keep-dark *) {
+  .bg-\[\#10b981\] {
     background-color: #10b981 !important;
     color: #0d1417 !important;
   }
 
   /* Borders on Light Canvas */
-  .border-\[\#15120e\]:not(header, footer, .capability-strip, .keep-dark, header *, footer *, .capability-strip *, .keep-dark *),
-  .border-\[\#1a2327\]:not(header, footer, .capability-strip, .keep-dark, header *, footer *, .capability-strip *, .keep-dark *),
-  .border-\[\#141210\]:not(header, footer, .capability-strip, .keep-dark, header *, footer *, .capability-strip *, .keep-dark *),
-  .border-\[\#141210\]\/60:not(header, footer, .capability-strip, .keep-dark, header *, footer *, .capability-strip *, .keep-dark *),
-  .border-white\/10:not(header, footer, .capability-strip, .keep-dark, header *, footer *, .capability-strip *, .keep-dark *),
-  .border-white\/5:not(header, footer, .capability-strip, .keep-dark, header *, footer *, .capability-strip *, .keep-dark *) {
+  .border-\[\#15120e\],
+  .border-\[\#1a2327\],
+  .border-\[\#141210\],
+  .border-\[\#141210\]\/60,
+  .border-white\/10,
+  .border-white\/5 {
     border-color: #cbd5e1 !important;
   }
 
-  .border-dashed:not(header, footer, .capability-strip, .keep-dark, header *, footer *, .capability-strip *, .keep-dark *) {
+  .border-dashed {
     border-color: #94a3b8 !important;
   }
 
-  /* Navigation Path & Breadcrumbs in Light Theme */
-  nav[aria-label="Breadcrumb"] a:not(header *, footer *),
-  nav[aria-label="Breadcrumb"] span:not([aria-current="page"]):not(header *, footer *) {
-    color: #475569 !important;
-    opacity: 1 !important;
-  }
-  nav[aria-label="Breadcrumb"] a:hover:not(header *, footer *) {
-    color: #008f7a !important;
-  }
-  nav[aria-label="Breadcrumb"] span[aria-current="page"]:not(header *, footer *) {
-    color: #0f172a !important;
-    font-weight: 700 !important;
-    opacity: 1 !important;
-  }
-  nav[aria-label="Breadcrumb"] span[aria-hidden="true"]:not(header *, footer *) {
-    color: #94a3b8 !important;
-    opacity: 1 !important;
-  }
-
-  /* Protected Dark Preview Stages & Vector Schematics (Logo Cards & CAD Blueprints) */
-  .keep-dark,
-  .keep-dark *,
-  .dark-preview,
-  .dark-preview *,
-  .asset-card [class*="bg-[#090e10]"],
-  .asset-card [class*="bg-[#0d1417]"],
-  .asset-card [class*="bg-[#141b1f]"] {
-    color: inherit;
-  }
-
-  .keep-dark .text-white,
-  .keep-dark h1,
-  .keep-dark h2,
-  .keep-dark h3,
-  .keep-dark h4,
-  .dark-preview .text-white,
-  .dark-preview h1,
-  .dark-preview h2,
-  .dark-preview h3,
-  .dark-preview h4,
-  .asset-card [class*="bg-[#090e10]"] .text-white,
-  .asset-card [class*="bg-[#0d1417]"] .text-white,
-  .asset-card [class*="bg-[#141b1f]"] .text-white {
-    color: #ffffff !important;
-  }
-
-  .keep-dark p,
-  .keep-dark span,
-  .dark-preview p,
-  .dark-preview span,
-  .asset-card [class*="bg-[#090e10]"] span,
-  .asset-card [class*="bg-[#090e10]"] p,
-  .asset-card [class*="bg-[#0d1417]"] span,
-  .asset-card [class*="bg-[#0d1417]"] p {
-    color: rgba(244, 242, 241, 0.8) !important;
-  }
-
-  /* Interactive & Navigation States */
-  .hover\:bg-\[\#15120e\]:hover:not(header, footer, .capability-strip, .keep-dark, header *, footer *, .capability-strip *, .keep-dark *),
-  .hover\:bg-\[\#141210\]:hover:not(header, footer, .capability-strip, .keep-dark, header *, footer *, .capability-strip *, .keep-dark *),
-  .hover\:bg-\[\#0d1417\]:hover:not(header, footer, .capability-strip, .keep-dark, header *, footer *, .capability-strip *, .keep-dark *),
-  .hover\:bg-\[\#1a2327\]:hover:not(header, footer, .capability-strip, .keep-dark, header *, footer *, .capability-strip *, .keep-dark *),
-  .hover\:bg-\[\#f6f2ee\]\/5:hover:not(header, footer, .capability-strip, .keep-dark, header *, footer *, .capability-strip *, .keep-dark *),
-  .hover\:bg-white\/5:hover:not(header, footer, .capability-strip, .keep-dark, header *, footer *, .capability-strip *, .keep-dark *) {
-    background-color: #e2e8f0 !important;
-  }
-
-  .hover\:border-\[\#f4f2f1\]\/30:hover:not(header, footer, .capability-strip, .keep-dark, header *, footer *, .capability-strip *, .keep-dark *),
-  .hover\:border-\[\#f4f2f1\]\/20:hover:not(header, footer, .capability-strip, .keep-dark, header *, footer *, .capability-strip *, .keep-dark *),
-  .hover\:border-\[\#f4f2f1\]:hover:not(header, footer, .capability-strip, .keep-dark, header *, footer *, .capability-strip *, .keep-dark *),
-  .hover\:border-\[\#00d2b5\]:hover:not(header, footer, .capability-strip, .keep-dark, header *, footer *, .capability-strip *, .keep-dark *) {
-    border-color: #00d2b5 !important;
-  }
-
-  .hover\:text-\[\#00d2b5\]:hover:not(header, footer, .capability-strip, .keep-dark, header *, footer *, .capability-strip *, .keep-dark *) {
-    color: #00d2b5 !important;
-  }
-
-  /* Buttons on Light Canvas */
-  .btn-novand-primary:not(header, footer, header *, footer *),
-  a.btn-novand-primary:not(header, footer, header *, footer *),
-  button[type="submit"]:not(header, footer, header *, footer *) {
+  /* Buttons in Light Mode */
+  .btn-novand-primary,
+  a.btn-novand-primary,
+  button[type="submit"] {
     background-color: #0f172a !important;
     color: #ffffff !important;
     border-color: transparent !important;
   }
 
-  .btn-novand-primary *:not(header, footer, header *, footer *),
-  a.btn-novand-primary *:not(header, footer, header *, footer *),
-  button[type="submit"] *:not(header, footer, header *, footer *) {
+  .btn-novand-primary *,
+  a.btn-novand-primary *,
+  button[type="submit"] * {
     color: #ffffff !important;
   }
 
-  .btn-novand-primary:hover:not(header, footer, header *, footer *),
-  a.btn-novand-primary:hover:not(header, footer, header *, footer *),
-  button[type="submit"]:hover:not(header, footer, header *, footer *) {
+  .btn-novand-primary:hover,
+  a.btn-novand-primary:hover,
+  button[type="submit"]:hover {
     background-color: #1e293b !important;
     color: #ffffff !important;
   }
 
-  .btn-novand-outline:not(header, footer, header *, footer *),
-  a.btn-novand-outline:not(header, footer, header *, footer *) {
+  .btn-novand-outline,
+  a.btn-novand-outline {
     background-color: transparent !important;
     color: #0f172a !important;
     border-color: #0f172a !important;
   }
 
-  .btn-novand-outline *:not(header, footer, header *, footer *),
-  a.btn-novand-outline *:not(header, footer, header *, footer *) {
+  .btn-novand-outline *,
+  a.btn-novand-outline * {
     color: #0f172a !important;
   }
 
-  .btn-novand-outline:hover:not(header, footer, header *, footer *),
-  a.btn-novand-outline:hover:not(header, footer, header *, footer *) {
+  .btn-novand-outline:hover,
+  a.btn-novand-outline:hover {
     background-color: #0f172a !important;
     color: #ffffff !important;
     border-color: #0f172a !important;
   }
 
-  .btn-novand-outline:hover *:not(header, footer, header *, footer *),
-  a.btn-novand-outline:hover *:not(header, footer, header *, footer *) {
+  .btn-novand-outline:hover *,
+  a.btn-novand-outline:hover * {
     color: #ffffff !important;
   }
 
-  .btn-novand-secondary:not(header, footer, header *, footer *),
-  a.btn-novand-secondary:not(header, footer, header *, footer *) {
+  .btn-novand-secondary,
+  a.btn-novand-secondary {
     background-color: #ffffff !important;
     color: #0f172a !important;
     border-color: #cbd5e1 !important;
   }
 
-  .btn-novand-secondary:hover:not(header, footer, header *, footer *),
-  a.btn-novand-secondary:hover:not(header, footer, header *, footer *) {
+  .btn-novand-secondary:hover,
+  a.btn-novand-secondary:hover {
     background-color: #f8fafc !important;
     color: #0f172a !important;
   }
 
-  .btn-novand-warm:not(header, footer, header *, footer *),
-  a.btn-novand-warm:not(header, footer, header *, footer *) {
+  .btn-novand-warm,
+  a.btn-novand-warm {
     background-color: #e2e8f0 !important;
     color: #0f172a !important;
     border-color: #cbd5e1 !important;
   }
 
-  .btn-novand-ghost:not(header, footer, header *, footer *),
-  a.btn-novand-ghost:not(header, footer, header *, footer *) {
+  .btn-novand-ghost,
+  a.btn-novand-ghost {
     background-color: transparent !important;
     color: #334155 !important;
   }
 
-  .btn-novand-ghost:hover:not(header, footer, header *, footer *),
-  a.btn-novand-ghost:hover:not(header, footer, header *, footer *) {
+  .btn-novand-ghost:hover,
+  a.btn-novand-ghost:hover {
     color: #00d2b5 !important;
     background-color: rgba(203, 213, 225, 0.4) !important;
   }
@@ -593,29 +483,35 @@ html:not(.dark) {
     border-color: transparent !important;
   }
 
-  /* Dark Code Blocks & Dedicated Previews */
-  .dark-preview,
-  .asset-card .bg-\[\#090e10\],
-  pre,
-  code.block {
-    background-color: #0d1417 !important;
-    color: #f8fafc !important;
-    border-color: #15120e !important;
-  }
-
   /* =========================================================================
-     PROTECTED DARK CONTAINERS (HEADER, FOOTER, 01-06 CAPABILITIES STRIP)
-     Exact dark theme parity preserved across both light and dark modes.
+     PROTECTED DARK CONTAINERS RESET
+     Placed LAST inside html:not(.dark) to reset Header, Footer, Capability Strip,
+     Keep-Dark containers, Code blocks, and Brand Preview stages to exact dark parity.
      ========================================================================= */
 
-  /* 10. Header */
+  /* Header Reset */
+  header,
+  header * {
+    color: #f4f2f1;
+  }
+
   header,
   header.keep-dark {
     background-color: rgba(13, 20, 23, 0.95) !important;
     border-color: #15120e !important;
   }
 
-  /* 11. Footer */
+  header h1, header h2, header h3, header h4, header h5, header h6,
+  header p, header span, header a, header button, header label, header div {
+    color: inherit;
+  }
+
+  /* Footer Reset */
+  footer,
+  footer * {
+    color: inherit;
+  }
+
   footer,
   footer.keep-dark,
   footer.bg-\[\#0f172a\] {
@@ -635,13 +531,18 @@ html:not(.dark) {
                 opacity 0.2s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
-  /* 12. 01-06 Capabilities Section */
+  /* Capabilities Section Reset */
   .capability-strip,
   section.capability-strip,
   section.bg-\[\#0f172a\].capability-strip {
     background-color: #0f172a !important;
     border-color: #15120e !important;
     color: #f4f2f1 !important;
+  }
+
+  .capability-strip *,
+  section.capability-strip * {
+    color: inherit;
   }
 
   .capability-strip > div,
@@ -677,8 +578,31 @@ html:not(.dark) {
     color: #00d2b5 !important;
   }
 
-  .keep-dark {
+  /* Generic Keep-Dark and Dark-Preview Containers */
+  .keep-dark,
+  .keep-dark * {
     color: #f4f2f1;
+  }
+
+  .keep-dark {
+    background-color: #0d1417 !important;
+    border-color: #15120e !important;
+  }
+
+  .dark-preview,
+  .dark-preview *,
+  .asset-card .bg-\[\#090e10\],
+  pre, pre *,
+  code.block, code.block * {
+    color: #f8fafc;
+  }
+
+  .dark-preview,
+  .asset-card .bg-\[\#090e10\],
+  pre,
+  code.block {
+    background-color: #0d1417 !important;
+    border-color: #15120e !important;
   }
 }
 

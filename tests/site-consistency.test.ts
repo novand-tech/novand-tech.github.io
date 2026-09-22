@@ -232,4 +232,51 @@ describe('Novand Engineering Site - Diagnostics & Unit Tests', () => {
       assert.ok(cssContent.includes('html:not(.dark)'), 'CSS must define light mode rules');
     });
   });
+
+  describe('7. Advertisement Landing Page & Digital Business Card (/card)', () => {
+    test('Landing data file exists and contains valid bilingual profiles', () => {
+      const dataFilePath = path.join(process.cwd(), 'src', 'data', 'adLandingData.ts');
+      assert.ok(fs.existsSync(dataFilePath), 'adLandingData.ts must exist');
+      const content = fs.readFileSync(dataFilePath, 'utf-8');
+      assert.ok(content.includes('novand_tech'), 'Must include @novand_tech Instagram handle');
+      assert.ok(content.includes('+989129321550'), 'Must include primary phone number');
+      assert.ok(content.includes('+989196918758'), 'Must include secondary phone number');
+      assert.ok(content.includes('novand.info@gmail.com'), 'Must include email address');
+      assert.ok(content.includes('landingDataFa'), 'Must export landingDataFa');
+      assert.ok(content.includes('landingDataEn'), 'Must export landingDataEn');
+    });
+
+    test('Standalone card page exists and does NOT include website Header/Footer or BaseLayout', () => {
+      const cardPath = path.join(process.cwd(), 'src', 'pages', 'card.astro');
+      const compPath = path.join(process.cwd(), 'src', 'components', 'landing', 'AdLandingCard.astro');
+      assert.ok(fs.existsSync(cardPath), 'src/pages/card.astro must exist');
+      assert.ok(fs.existsSync(compPath), 'src/components/landing/AdLandingCard.astro must exist');
+
+      const cardContent = fs.readFileSync(cardPath, 'utf-8');
+      const compContent = fs.readFileSync(compPath, 'utf-8');
+
+      // Crucial requirement: Must NOT use BaseLayout or global site navigation
+      assert.ok(!cardContent.includes('BaseLayout'), 'card.astro must not use BaseLayout');
+      assert.ok(!compContent.includes('import BaseLayout') && !compContent.includes('<BaseLayout'), 'AdLandingCard must not import or render BaseLayout');
+      assert.ok(!compContent.includes('components/layout/Header'), 'AdLandingCard must not use site Header');
+      assert.ok(!compContent.includes('components/layout/Footer'), 'AdLandingCard must not use site Footer');
+    });
+
+    test('Main site Header and Footer do NOT link to the secret /card page', () => {
+      const headerPath = path.join(process.cwd(), 'src', 'components', 'layout', 'Header.astro');
+      const footerPath = path.join(process.cwd(), 'src', 'components', 'layout', 'Footer.astro');
+
+      const headerContent = fs.readFileSync(headerPath, 'utf-8');
+      const footerContent = fs.readFileSync(footerPath, 'utf-8');
+
+      assert.ok(!headerContent.includes('/card'), 'Header must not expose /card');
+      assert.ok(!footerContent.includes('/card'), 'Footer must not expose /card');
+    });
+
+    test('English card page and aliases (/connect, /links) exist', () => {
+      assert.ok(fs.existsSync(path.join(process.cwd(), 'src', 'pages', 'en', 'card.astro')));
+      assert.ok(fs.existsSync(path.join(process.cwd(), 'src', 'pages', 'connect.astro')));
+      assert.ok(fs.existsSync(path.join(process.cwd(), 'src', 'pages', 'links.astro')));
+    });
+  });
 });
