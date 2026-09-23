@@ -182,7 +182,7 @@ function generateBusinessCardSvg({
         <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/>
         <circle cx="12" cy="10" r="3"/>
       </g>
-      <text x="932" y="25" fill="${textSecondary}" class="font-vazir-reg" font-family="Vazirmatn, sans-serif" font-weight="400" font-size="16.5" text-anchor="end">تهران، سعادت‌آباد، بلوار مدیریت، خیابان علامه طباطبایی جنوبی، بیست‌وچهارم غربی، پلاک ۲۶، واحد ۱۷</text>
+      <text x="932" y="25" fill="${textSecondary}" class="font-vazir-reg" font-family="Vazirmatn, sans-serif" font-weight="400" font-size="15" text-anchor="end">سعادت‌آباد، بلوار مدیریت، خیابان علامه طباطبایی جنوبی، ۲۴‌ام غربی، پلاک ۲۶، واحد ۱۷</text>
     </g>
   </g>
 
@@ -204,35 +204,35 @@ function generateBusinessCardSvg({
     
     <!-- Item 1 (Right): Smart Homes -->
     <g transform="translate(0, 0)">
-      <circle cx="900" cy="31" r="4" fill="${accentTurquoise}" />
-      <text x="885" y="36" fill="${textPrimary}" class="font-vazir-bold" font-family="Vazirmatn, sans-serif" font-weight="700" font-size="15.5" text-anchor="end">هوشمندسازی خانه و ساختمان</text>
+      <circle cx="910" cy="31" r="3.5" fill="${accentTurquoise}" />
+      <text x="896" y="36" fill="${textPrimary}" class="font-vazir-bold" font-family="Vazirmatn, sans-serif" font-weight="700" font-size="14" text-anchor="end">هوشمندسازی خانه و ساختمان</text>
     </g>
 
     <!-- Divider 1 -->
     <line x1="705" y1="16" x2="705" y2="46" stroke="${dockBorder}" stroke-width="1.2" />
 
-    <!-- Item 2 (Center): CCTV -->
+    <!-- Item 2 (Center-Right): CCTV -->
     <g transform="translate(0, 0)">
-      <circle cx="675" cy="31" r="4" fill="${accentTurquoise}" />
-      <text x="660" y="36" fill="${textPrimary}" class="font-vazir-bold" font-family="Vazirmatn, sans-serif" font-weight="700" font-size="15.5" text-anchor="end">نظارت تصویری و دوربین مداربسته</text>
+      <circle cx="680" cy="31" r="3.5" fill="${accentTurquoise}" />
+      <text x="666" y="36" fill="${textPrimary}" class="font-vazir-bold" font-family="Vazirmatn, sans-serif" font-weight="700" font-size="14" text-anchor="end">نظارت تصویری و دوربین مداربسته</text>
     </g>
 
     <!-- Divider 2 -->
     <line x1="470" y1="16" x2="470" y2="46" stroke="${dockBorder}" stroke-width="1.2" />
 
-    <!-- Item 3 (Left): Network -->
+    <!-- Item 3 (Center-Left): Network -->
     <g transform="translate(0, 0)">
-      <circle cx="440" cy="31" r="4" fill="${accentTurquoise}" />
-      <text x="425" y="36" fill="${textPrimary}" class="font-vazir-bold" font-family="Vazirmatn, sans-serif" font-weight="700" font-size="15.5" text-anchor="end">زیرساخت شبکه و اتاق سرور</text>
+      <circle cx="445" cy="31" r="3.5" fill="${accentTurquoise}" />
+      <text x="431" y="36" fill="${textPrimary}" class="font-vazir-bold" font-family="Vazirmatn, sans-serif" font-weight="700" font-size="14" text-anchor="end">زیرساخت شبکه و اتاق سرور</text>
     </g>
 
     <!-- Divider 3 -->
-    <line x1="235" y1="16" x2="235" y2="46" stroke="#1f2d35" stroke-width="1.2" />
+    <line x1="235" y1="16" x2="235" y2="46" stroke="${dockBorder}" stroke-width="1.2" />
 
     <!-- Item 4 (Left): VoIP -->
     <g transform="translate(0, 0)">
-      <circle cx="205" cy="31" r="4" fill="${accentTurquoise}" />
-      <text x="190" y="36" fill="${textPrimary}" class="font-vazir-bold" font-family="Vazirmatn, sans-serif" font-weight="700" font-size="15.5" text-anchor="end">مرکز تلفن VoIP و فیبر نوری</text>
+      <circle cx="210" cy="31" r="3.5" fill="${accentTurquoise}" />
+      <text x="190" y="36" fill="${textPrimary}" class="font-vazir-bold" font-family="Vazirmatn, sans-serif" font-weight="700" font-size="15.5" text-anchor="end">و فیبر نوری VoIP مرکز تلفن</text>
     </g>
 
   </g>
