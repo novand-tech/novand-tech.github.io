@@ -97,7 +97,7 @@
     <!-- Row 1: Phone (English numerals with Space Grotesk) -->
     <g transform="translate(0, 238)">
       <rect x="952" y="0" width="38" height="38" rx="9" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.2" />
-      <g transform="translate(961, 9)" stroke="#008775" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none">
+      <g transform="translate(959, 7)" stroke="#008775" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none">
         <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
       </g>
       <text x="932" y="27" fill="#0f172a" class="font-space-bold" font-family="Space Grotesk, sans-serif" font-weight="700" font-size="24" letter-spacing="1.2" text-anchor="end">0912 932 1550</text>
@@ -106,7 +106,7 @@
     <!-- Row 2: Website (Direct domain) -->
     <g transform="translate(0, 292)">
       <rect x="952" y="0" width="38" height="38" rx="9" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.2" />
-      <g transform="translate(961, 9)" stroke="#008775" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none">
+      <g transform="translate(959, 7)" stroke="#008775" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none">
         <circle cx="12" cy="12" r="10"/>
         <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/>
         <path d="M2 12h20"/>
@@ -117,7 +117,7 @@
     <!-- Row 3: Instagram -->
     <g transform="translate(0, 346)">
       <rect x="952" y="0" width="38" height="38" rx="9" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.2" />
-      <g transform="translate(961, 9)" stroke="#008775" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none">
+      <g transform="translate(959, 7)" stroke="#008775" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none">
         <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
         <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
         <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
@@ -128,11 +128,11 @@
     <!-- Row 4: Location Address -->
     <g transform="translate(0, 400)">
       <rect x="952" y="0" width="38" height="38" rx="9" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.2" />
-      <g transform="translate(961, 9)" stroke="#008775" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none">
+      <g transform="translate(959, 7)" stroke="#008775" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none">
         <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/>
         <circle cx="12" cy="10" r="3"/>
       </g>
-      <text x="932" y="25" fill="#475569" class="font-vazir-reg" font-family="Vazirmatn, sans-serif" font-weight="400" font-size="15" text-anchor="end">سعادت‌آباد، بلوار مدیریت، خیابان علامه طباطبایی جنوبی، ۲۴‌ام غربی، پلاک ۲۶، واحد ۱۷</text>
+      <text x="932" y="25" fill="#475569" class="font-vazir-reg" font-family="Vazirmatn, sans-serif" font-weight="400" font-size="16" text-anchor="end">سعادت‌آباد، بلوار مدیریت، خیابان علامه طباطبایی جنوبی، ۲۴‌ام غربی، پلاک ۲۶، واحد ۱۷</text>
     </g>
   </g>
 
