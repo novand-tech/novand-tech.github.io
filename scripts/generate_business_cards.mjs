@@ -51,7 +51,7 @@ function generateBusinessCardSvg({
   const bgCanvas = isDark ? '#0b1013' : '#ffffff';
   const borderCard = isDark ? '#1a242a' : '#e2e8f0';
   const textPrimary = isDark ? '#ffffff' : '#0f172a';
-  const textSecondary = isDark ? '#94a3b8' : '#475569';
+  const textSecondary = isDark ? '#94a3b8' : '#3b3f48';
   const accentTurquoise = isDark ? '#00d2b5' : '#008775';
   const accentEmerald = isDark ? '#10b981' : '#059669';
   const strokeCore = isDark ? '#f8fafc' : '#0f172a';
@@ -123,12 +123,12 @@ function generateBusinessCardSvg({
 
     <!-- Brand Typography & Subtitle -->
     <text x="885" y="67" fill="${textPrimary}" class="font-vazir-bold" font-family="Vazirmatn, sans-serif" font-weight="700" font-size="38" text-anchor="end">نُـوَند</text>
-    <text x="765" y="64" fill="${accentTurquoise}" class="font-space-bold" font-family="Space Grotesk, sans-serif" font-weight="700" font-size="16" letter-spacing="5" text-anchor="end">NOVAND</text>
-    <text x="885" y="96" fill="${accentTurquoise}" class="font-vazir-bold" font-family="Vazirmatn, sans-serif" font-weight="700" font-size="15" text-anchor="end">هوشمندسازی خانه  ·  سیستم‌های امنیتی و نظارت تصویری  ·  شبکه و فیبر نوری  ·  مرکز تلفن VoIP</text>
+    <text x="765" y="64" fill="${accentTurquoise}" class="font-space-bold" font-family="Space Grotesk, sans-serif" font-weight="700" font-size="18" letter-spacing="4.5" text-anchor="end">NOVAND</text>
+    <text x="885" y="96" fill="${accentTurquoise}" class="font-vazir-bold" font-family="Vazirmatn, sans-serif" font-weight="700" font-size="15" text-anchor="end">هوشمندسازی خانه  ·  سیستم‌های امنیتی و نظارت تصویری  ·  زیرساخت شبکه</text>
 
     <!-- Left Header Callout -->
-    <text x="65" y="65" fill="${textPrimary}" class="font-vazir-bold" font-family="Vazirmatn, sans-serif" font-weight="700" font-size="17.5" text-anchor="start">مهندسی سیستم‌ها و فناوری نُوَند</text>
-    <text x="65" y="93" fill="${accentTurquoise}" class="font-space-bold" font-family="Space Grotesk, sans-serif" font-weight="700" font-size="13" letter-spacing="1.5" text-anchor="start">SMART HOMES · CCTV · NETWORKS</text>
+    <text x="65" y="65" fill="${textPrimary}" class="font-vazir-bold" font-family="Vazirmatn, sans-serif" font-weight="700" font-size="18" text-anchor="start">مهندسی سیستم‌ها و فناوری نُـوَند</text>
+    <text x="65" y="93" fill="${accentTurquoise}" class="font-space-bold" font-family="Space Grotesk, sans-serif" font-weight="700" font-size="13.5" letter-spacing="1.2" text-anchor="start">SMART HOMES · CCTV · NETWORKS</text>
   </g>
 
   <!-- Clean Separation Line -->
@@ -161,7 +161,7 @@ function generateBusinessCardSvg({
         <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/>
         <path d="M2 12h20"/>
       </g>
-      <text x="932" y="26" fill="${textPrimary}" class="font-space-bold" font-family="Space Grotesk, sans-serif" font-weight="700" font-size="22" letter-spacing="1" text-anchor="end">novand-tech.com</text>
+      <text x="932" y="26" fill="${textPrimary}" class="font-space-bold" font-family="Space Grotesk, sans-serif" font-weight="700" font-size="24" letter-spacing="1" text-anchor="end">novand-tech.com</text>
     </g>
 
     <!-- Row 3: Instagram -->
@@ -172,17 +172,17 @@ function generateBusinessCardSvg({
         <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
         <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
       </g>
-      <text x="932" y="26" fill="${accentTurquoise}" class="font-space-bold" font-family="Space Grotesk, sans-serif" font-weight="700" font-size="21" letter-spacing="0.5" text-anchor="end">@novand_tech</text>
+      <text x="932" y="26" fill="${accentTurquoise}" class="font-space-bold" font-family="Space Grotesk, sans-serif" font-weight="700" font-size="24" letter-spacing="0.5" text-anchor="end">@novand_tech</text>
     </g>
 
     <!-- Row 4: Location Address -->
-    <g transform="translate(0, 400)">
+    <g transform="translate(0, 404)">
       <rect x="952" y="0" width="38" height="38" rx="9" fill="${iconBadgeBg}" stroke="${iconBadgeBorder}" stroke-width="1.2" />
       <g transform="translate(959, 7)" stroke="${accentTurquoise}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none">
         <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/>
         <circle cx="12" cy="10" r="3"/>
       </g>
-      <text x="932" y="25" fill="${textSecondary}" class="font-vazir-reg" font-family="Vazirmatn, sans-serif" font-weight="400" font-size="16" text-anchor="end">سعادت‌آباد، بلوار مدیریت، خیابان علامه طباطبایی جنوبی، ۲۴‌ام غربی، پلاک ۲۶، واحد ۱۷</text>
+      <text x="932" y="25" fill="${textPrimary}" class="font-vazir-reg" font-family="Vazirmatn, sans-serif" font-weight="400" font-size="20" text-anchor="end">سعادت‌آباد، خیابان علامه طباطبایی جنوبی، ۲۴‌ام غربی، پلاک ۲۶، واحد ۱۷</text>
     </g>
   </g>
 
@@ -202,37 +202,29 @@ function generateBusinessCardSvg({
   <g id="services-dock" transform="translate(55, 475)">
     <rect x="0" y="0" width="940" height="62" rx="10" fill="${dockBg}" stroke="${dockBorder}" stroke-width="1.2" />
     
-    <!-- Item 1 (Right): Smart Homes -->
+    <!-- Item 1 (Right): VoIP & Fiber -->
     <g transform="translate(0, 0)">
-      <circle cx="910" cy="31" r="3.5" fill="${accentTurquoise}" />
-      <text x="896" y="36" fill="${textPrimary}" class="font-vazir-bold" font-family="Vazirmatn, sans-serif" font-weight="700" font-size="14" text-anchor="end">برق و UPS</text>
+      <text x="910" y="36" fill="${textPrimary}" class="font-vazir-bold" font-family="Vazirmatn, sans-serif" font-weight="700" font-size="18" text-anchor="end">و فیبر نوری VoIP مرکز تلفن</text>
     </g>
 
-    <!-- Divider 1 -->
-    <line x1="705" y1="16" x2="705" y2="46" stroke="${dockBorder}" stroke-width="1.2" />
 
-    <!-- Item 2 (Center-Right): CCTV -->
+    <!-- Item 2 (Center-Right): Hardware & Software -->
     <g transform="translate(0, 0)">
-      <circle cx="680" cy="31" r="3.5" fill="${accentTurquoise}" />
-      <text x="666" y="36" fill="${textPrimary}" class="font-vazir-bold" font-family="Vazirmatn, sans-serif" font-weight="700" font-size="14" text-anchor="end">صوت و تصویر</text>
+      <circle cx="705" cy="31" r="3.5" fill="${accentTurquoise}" />
+      <text x="675" y="36" fill="${textPrimary}" class="font-vazir-bold" font-family="Vazirmatn, sans-serif" font-weight="700" font-size="18" text-anchor="end">سخت‌افزار و نرم‌افزار</text>
     </g>
 
-    <!-- Divider 2 -->
-    <line x1="470" y1="16" x2="470" y2="46" stroke="${dockBorder}" stroke-width="1.2" />
 
-    <!-- Item 3 (Center-Left): Network -->
+    <!-- Item 3 (Center-Left): Audio & Video -->
     <g transform="translate(0, 0)">
-      <circle cx="445" cy="31" r="3.5" fill="${accentTurquoise}" />
-      <text x="431" y="36" fill="${textPrimary}" class="font-vazir-bold" font-family="Vazirmatn, sans-serif" font-weight="700" font-size="14" text-anchor="end">زیرساخت شبکه و اتاق سرور</text>
+      <circle cx="470" cy="31" r="3.5" fill="${accentTurquoise}" />
+      <text x="440" y="36" fill="${textPrimary}" class="font-vazir-bold" font-family="Vazirmatn, sans-serif" font-weight="700" font-size="18" text-anchor="end">صوت و تصویر</text>
     </g>
 
-    <!-- Divider 3 -->
-    <line x1="235" y1="16" x2="235" y2="46" stroke="${dockBorder}" stroke-width="1.2" />
-
-    <!-- Item 4 (Left): VoIP -->
+    <!-- Item 4 (Left): UPS & Power -->
     <g transform="translate(0, 0)">
-      <circle cx="210" cy="31" r="3.5" fill="${accentTurquoise}" />
-      <text x="190" y="36" fill="${textPrimary}" class="font-vazir-bold" font-family="Vazirmatn, sans-serif" font-weight="700" font-size="15.5" text-anchor="end">سخت‌افزار و نرم‌افزار</text>
+      <circle cx="235" cy="31" r="3.5" fill="${accentTurquoise}" />
+      <text x="205" y="36" fill="${textPrimary}" class="font-vazir-bold" font-family="Vazirmatn, sans-serif" font-weight="700" font-size="18" text-anchor="end">UPS برق و</text>
     </g>
 
   </g>
@@ -247,7 +239,7 @@ function generateBusinessCardBackSvg({ theme = 'dark' }) {
   const bgCanvas = isDark ? '#0b1013' : '#ffffff';
   const borderCard = isDark ? '#1a242a' : '#e2e8f0';
   const textPrimary = isDark ? '#ffffff' : '#0f172a';
-  const textSecondary = isDark ? '#94a3b8' : '#475569';
+  const textSecondary = isDark ? '#94a3b8' : '#3b3f48';
   const accentTurquoise = isDark ? '#00d2b5' : '#008775';
   const accentEmerald = isDark ? '#10b981' : '#059669';
   const strokeCore = isDark ? '#f8fafc' : '#0f172a';
@@ -310,13 +302,13 @@ function generateBusinessCardBackSvg({ theme = 'dark' }) {
     
     <line x1="-160" y1="62" x2="160" y2="62" stroke="url(#back-accent-grad-${theme})" stroke-width="2.5" stroke-linecap="round" />
 
-    <text x="0" y="102" fill="${textPrimary}" class="font-vazir-bold" font-family="Vazirmatn, sans-serif" font-weight="700" font-size="24" text-anchor="middle">هوشمندسازی خانه  ·  سیستم‌های امنیتی و نظارت تصویری  ·  شبکه و فیبر نوری  ·  مرکز تلفن VoIP</text>
-    <text x="0" y="136" fill="${textSecondary}" class="font-vazir-reg" font-family="Vazirmatn, sans-serif" font-weight="400" font-size="16.5" text-anchor="middle">مشاوره، تامین تجهیزات، طراحی، پیاده‌سازی و پشتیبانی فنی پروژه‌ها</text>
+    <text x="0" y="102" fill="${textPrimary}" class="font-vazir-bold" font-family="Vazirmatn, sans-serif" font-weight="700" font-size="26" text-anchor="middle">هوشمندسازی خانه  ·  سیستم‌های امنیتی و نظارت تصویری  ·  زیرساخت شبکه</text>
+    <text x="0" y="136" fill="${textSecondary}" class="font-vazir-reg" font-family="Vazirmatn, sans-serif" font-weight="400" font-size="20" text-anchor="middle">مشاوره، تامین تجهیزات، طراحی، پیاده‌سازی و پشتیبانی فنی پروژه‌ها</text>
   </g>
 
   <!-- Bottom Website Bar (Homepage Only) -->
   <g transform="translate(525, 520)">
-    <text x="0" y="0" fill="${accentTurquoise}" class="font-space-bold" font-family="Space Grotesk, sans-serif" font-weight="700" font-size="22" letter-spacing="2.5" text-anchor="middle">novand-tech.com</text>
+    <text x="0" y="0" fill="${accentTurquoise}" class="font-space-bold" font-family="Space Grotesk, sans-serif" font-weight="700" font-size="24" letter-spacing="2.5" text-anchor="middle">novand-tech.com</text>
   </g>
 
 </svg>`;
