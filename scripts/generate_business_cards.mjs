@@ -42,7 +42,7 @@ function getNovandEmblemMarkup({ scale = 1.0, strokeCore = '#ffffff', glowId = '
 function generateBusinessCardSvg({
   theme = 'dark',
   name = 'مهندس محمود احمدی',
-  phone = '+98 912 932 1550',
+  phone = '0912 932 1550',
   qrInnerSvg = '',
 }) {
   const isDark = theme === 'dark';
@@ -182,7 +182,7 @@ function generateBusinessCardSvg({
         <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/>
         <circle cx="12" cy="10" r="3"/>
       </g>
-      <text x="932" y="25" fill="${textSecondary}" class="font-vazir-reg" font-family="Vazirmatn, sans-serif" font-weight="400" font-size="16.5" text-anchor="end">تهران، سعادت‌آباد، بلوار مدیریت، پلاک ۲۶، واحد ۱۷</text>
+      <text x="932" y="25" fill="${textSecondary}" class="font-vazir-reg" font-family="Vazirmatn, sans-serif" font-weight="400" font-size="16.5" text-anchor="end">تهران، سعادت‌آباد، بلوار مدیریت، خیابان علامه طباطبایی جنوبی، بیست‌وچهارم غربی، پلاک ۲۶، واحد ۱۷</text>
     </g>
   </g>
 
@@ -204,27 +204,37 @@ function generateBusinessCardSvg({
     
     <!-- Item 1 (Right): Smart Homes -->
     <g transform="translate(0, 0)">
-      <circle cx="890" cy="31" r="4" fill="${accentTurquoise}" />
-      <text x="874" y="36" fill="${textPrimary}" class="font-vazir-bold" font-family="Vazirmatn, sans-serif" font-weight="700" font-size="15.5" text-anchor="end">هوشمندسازی خانه و ساختمان</text>
+      <circle cx="900" cy="31" r="4" fill="${accentTurquoise}" />
+      <text x="885" y="36" fill="${textPrimary}" class="font-vazir-bold" font-family="Vazirmatn, sans-serif" font-weight="700" font-size="15.5" text-anchor="end">هوشمندسازی خانه و ساختمان</text>
     </g>
 
     <!-- Divider 1 -->
-    <line x1="627" y1="16" x2="627" y2="46" stroke="${dockBorder}" stroke-width="1.2" />
+    <line x1="705" y1="16" x2="705" y2="46" stroke="${dockBorder}" stroke-width="1.2" />
 
     <!-- Item 2 (Center): CCTV -->
     <g transform="translate(0, 0)">
-      <circle cx="585" cy="31" r="4" fill="${accentTurquoise}" />
-      <text x="569" y="36" fill="${textPrimary}" class="font-vazir-bold" font-family="Vazirmatn, sans-serif" font-weight="700" font-size="15.5" text-anchor="end">نظارت تصویری و دوربین مداربسته</text>
+      <circle cx="675" cy="31" r="4" fill="${accentTurquoise}" />
+      <text x="660" y="36" fill="${textPrimary}" class="font-vazir-bold" font-family="Vazirmatn, sans-serif" font-weight="700" font-size="15.5" text-anchor="end">نظارت تصویری و دوربین مداربسته</text>
     </g>
 
     <!-- Divider 2 -->
-    <line x1="313" y1="16" x2="313" y2="46" stroke="${dockBorder}" stroke-width="1.2" />
+    <line x1="470" y1="16" x2="470" y2="46" stroke="${dockBorder}" stroke-width="1.2" />
 
     <!-- Item 3 (Left): Network -->
     <g transform="translate(0, 0)">
-      <circle cx="270" cy="31" r="4" fill="${accentTurquoise}" />
-      <text x="254" y="36" fill="${textPrimary}" class="font-vazir-bold" font-family="Vazirmatn, sans-serif" font-weight="700" font-size="15.5" text-anchor="end">زیرساخت شبکه و اتاق سرور</text>
+      <circle cx="440" cy="31" r="4" fill="${accentTurquoise}" />
+      <text x="425" y="36" fill="${textPrimary}" class="font-vazir-bold" font-family="Vazirmatn, sans-serif" font-weight="700" font-size="15.5" text-anchor="end">زیرساخت شبکه و اتاق سرور</text>
     </g>
+
+    <!-- Divider 3 -->
+    <line x1="235" y1="16" x2="235" y2="46" stroke="#1f2d35" stroke-width="1.2" />
+
+    <!-- Item 4 (Left): VoIP -->
+    <g transform="translate(0, 0)">
+      <circle cx="205" cy="31" r="4" fill="${accentTurquoise}" />
+      <text x="190" y="36" fill="${textPrimary}" class="font-vazir-bold" font-family="Vazirmatn, sans-serif" font-weight="700" font-size="15.5" text-anchor="end">مرکز تلفن VoIP و فیبر نوری</text>
+    </g>
+
   </g>
 
 </svg>`;
@@ -334,7 +344,7 @@ async function main() {
       id: 'novand-business-card-ahmadi-dark',
       theme: 'dark',
       name: 'مهندس محمود احمدی',
-      phone: '+98 912 932 1550',
+      phone: '0912 932 1550',
       type: 'front',
     },
     // 2. Mahmoud Ahmadi - Light
@@ -342,7 +352,7 @@ async function main() {
       id: 'novand-business-card-ahmadi-light',
       theme: 'light',
       name: 'مهندس محمود احمدی',
-      phone: '+98 912 932 1550',
+      phone: '0912 932 1550',
       type: 'front',
     },
     // 3. Hesamoddin Ashari - Dark
@@ -350,7 +360,7 @@ async function main() {
       id: 'novand-business-card-ashari-dark',
       theme: 'dark',
       name: 'حسام‌الدین اشعری',
-      phone: '+98 919 691 8758',
+      phone: '0919 691 8758',
       type: 'front',
     },
     // 4. Hesamoddin Ashari - Light
@@ -358,7 +368,7 @@ async function main() {
       id: 'novand-business-card-ashari-light',
       theme: 'light',
       name: 'حسام‌الدین اشعری',
-      phone: '+98 919 691 8758',
+      phone: '0919 691 8758',
       type: 'front',
     },
     // 5. Corporate Reverse / Back - Dark
