@@ -122,9 +122,9 @@ function generateBusinessCardSvg({
     </g>
 
     <!-- Brand Typography & Subtitle -->
-    <text x="885" y="67" fill="${textPrimary}" class="font-vazir-bold" font-family="Vazirmatn, sans-serif" font-weight="700" font-size="38" text-anchor="end">نُوَند</text>
+    <text x="885" y="67" fill="${textPrimary}" class="font-vazir-bold" font-family="Vazirmatn, sans-serif" font-weight="700" font-size="38" text-anchor="end">نُـوَند</text>
     <text x="765" y="64" fill="${accentTurquoise}" class="font-space-bold" font-family="Space Grotesk, sans-serif" font-weight="700" font-size="16" letter-spacing="5" text-anchor="end">NOVAND</text>
-    <text x="885" y="96" fill="${accentTurquoise}" class="font-vazir-bold" font-family="Vazirmatn, sans-serif" font-weight="700" font-size="15" text-anchor="end">هوشمندسازی ساختمان  ·  دوربین مداربسته  ·  زیرساخت شبکه</text>
+    <text x="885" y="96" fill="${accentTurquoise}" class="font-vazir-bold" font-family="Vazirmatn, sans-serif" font-weight="700" font-size="15" text-anchor="end">هوشمندسازی خانه  ·  سیستم‌های امنیتی و نظارت تصویری  ·  شبکه و فیبر نوری  ·  مرکز تلفن VoIP</text>
 
     <!-- Left Header Callout -->
     <text x="65" y="65" fill="${textPrimary}" class="font-vazir-bold" font-family="Vazirmatn, sans-serif" font-weight="700" font-size="17.5" text-anchor="start">مهندسی سیستم‌ها و فناوری نُوَند</text>
@@ -205,7 +205,7 @@ function generateBusinessCardSvg({
     <!-- Item 1 (Right): Smart Homes -->
     <g transform="translate(0, 0)">
       <circle cx="910" cy="31" r="3.5" fill="${accentTurquoise}" />
-      <text x="896" y="36" fill="${textPrimary}" class="font-vazir-bold" font-family="Vazirmatn, sans-serif" font-weight="700" font-size="14" text-anchor="end">هوشمندسازی خانه و ساختمان</text>
+      <text x="896" y="36" fill="${textPrimary}" class="font-vazir-bold" font-family="Vazirmatn, sans-serif" font-weight="700" font-size="14" text-anchor="end">برق و UPS</text>
     </g>
 
     <!-- Divider 1 -->
@@ -214,7 +214,7 @@ function generateBusinessCardSvg({
     <!-- Item 2 (Center-Right): CCTV -->
     <g transform="translate(0, 0)">
       <circle cx="680" cy="31" r="3.5" fill="${accentTurquoise}" />
-      <text x="666" y="36" fill="${textPrimary}" class="font-vazir-bold" font-family="Vazirmatn, sans-serif" font-weight="700" font-size="14" text-anchor="end">نظارت تصویری و دوربین مداربسته</text>
+      <text x="666" y="36" fill="${textPrimary}" class="font-vazir-bold" font-family="Vazirmatn, sans-serif" font-weight="700" font-size="14" text-anchor="end">صوت و تصویر</text>
     </g>
 
     <!-- Divider 2 -->
@@ -232,7 +232,7 @@ function generateBusinessCardSvg({
     <!-- Item 4 (Left): VoIP -->
     <g transform="translate(0, 0)">
       <circle cx="210" cy="31" r="3.5" fill="${accentTurquoise}" />
-      <text x="190" y="36" fill="${textPrimary}" class="font-vazir-bold" font-family="Vazirmatn, sans-serif" font-weight="700" font-size="15.5" text-anchor="end">و فیبر نوری VoIP مرکز تلفن</text>
+      <text x="190" y="36" fill="${textPrimary}" class="font-vazir-bold" font-family="Vazirmatn, sans-serif" font-weight="700" font-size="15.5" text-anchor="end">سخت‌افزار و نرم‌افزار</text>
     </g>
 
   </g>
@@ -305,13 +305,13 @@ function generateBusinessCardBackSvg({ theme = 'dark' }) {
 
   <!-- Corporate Typography Lockup -->
   <g transform="translate(525, 330)">
-    <text x="0" y="0" fill="${textPrimary}" class="font-vazir-bold" font-family="Vazirmatn, sans-serif" font-weight="700" font-size="54" text-anchor="middle">نُوَند</text>
+    <text x="0" y="0" fill="${textPrimary}" class="font-vazir-bold" font-family="Vazirmatn, sans-serif" font-weight="700" font-size="54" text-anchor="middle">نُـوَند</text>
     <text x="0" y="38" fill="${accentTurquoise}" class="font-space-bold" font-family="Space Grotesk, sans-serif" font-weight="700" font-size="20" letter-spacing="7" text-anchor="middle">NOVAND</text>
     
     <line x1="-160" y1="62" x2="160" y2="62" stroke="url(#back-accent-grad-${theme})" stroke-width="2.5" stroke-linecap="round" />
 
-    <text x="0" y="102" fill="${textPrimary}" class="font-vazir-bold" font-family="Vazirmatn, sans-serif" font-weight="700" font-size="24" text-anchor="middle">هوشمندسازی ساختمان  ·  دوربین مداربسته  ·  زیرساخت شبکه</text>
-    <text x="0" y="136" fill="${textSecondary}" class="font-vazir-reg" font-family="Vazirmatn, sans-serif" font-weight="400" font-size="16.5" text-anchor="middle">مشاوره، تامین تجهیزات تخصصی، پیاده‌سازی و پشتیبانی فنی پروژه‌ها</text>
+    <text x="0" y="102" fill="${textPrimary}" class="font-vazir-bold" font-family="Vazirmatn, sans-serif" font-weight="700" font-size="24" text-anchor="middle">هوشمندسازی خانه  ·  سیستم‌های امنیتی و نظارت تصویری  ·  شبکه و فیبر نوری  ·  مرکز تلفن VoIP</text>
+    <text x="0" y="136" fill="${textSecondary}" class="font-vazir-reg" font-family="Vazirmatn, sans-serif" font-weight="400" font-size="16.5" text-anchor="middle">مشاوره، تامین تجهیزات، طراحی، پیاده‌سازی و پشتیبانی فنی پروژه‌ها</text>
   </g>
 
   <!-- Bottom Website Bar (Homepage Only) -->
