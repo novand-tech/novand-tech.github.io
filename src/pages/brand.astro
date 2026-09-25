@@ -16,6 +16,7 @@ import NovandLogo from '@/components/ui/NovandLogo.astro';
         <a href="#colors" class="text-[#f4f2f1]/70 hover:text-[#00d2b5] transition-colors uppercase tracking-wider">متغیرهای رنگی</a>
         <a href="#typography" class="text-[#f4f2f1]/70 hover:text-[#00d2b5] transition-colors uppercase tracking-wider">تایپوگرافی</a>
         <a href="#standards" class="text-[#f4f2f1]/70 hover:text-[#00d2b5] transition-colors uppercase tracking-wider">قوانین و اندازه‌ها</a>
+        <a href="/brochure" class="text-[#00d2b5] hover:text-[#10b981] transition-colors uppercase tracking-wider font-bold">بروشور رسمی ۶ صفحه‌ای (A4)</a>
       </div>
       <a 
         href="/branding/novand-brand-assets.zip" 
@@ -333,6 +334,13 @@ import NovandLogo from '@/components/ui/NovandLogo.astro';
             class="filter-btn px-3 py-1.5 bg-[#141b1f] hover:bg-[#00d2b5] hover:text-[#0d1417] text-[#00d2b5] font-bold rounded-sm border border-[#00d2b5]/40 cursor-pointer transition-all"
           >
             کارت‌های ویزیت رسمی
+          </button>
+          <button 
+            type="button" 
+            data-filter="brochure" 
+            class="filter-btn px-3 py-1.5 bg-[#141b1f] hover:bg-[#00d2b5] hover:text-[#0d1417] text-[#00d2b5] font-bold rounded-sm border border-[#00d2b5]/40 cursor-pointer transition-all"
+          >
+            بروشور و کاتالوگ ۶ صفحه‌ای A4
           </button>
         </div>
       </div>
@@ -1430,6 +1438,228 @@ import NovandLogo from '@/components/ui/NovandLogo.astro';
               class="flex-1 text-center py-2 bg-[#141b1f] hover:bg-[#1a2327] text-[#f4f2f1]/80 hover:text-white text-xs font-mono font-medium rounded-sm border border-[#1a2327] transition-all"
             >
               PNG (رستر 300DPI)
+            </a>
+          </div>
+        </div>
+
+        <!-- Asset 22: بروشور ۶ صفحه‌ای تیره (شیت‌های چاپ A4) -->
+        <div class="asset-card group bg-[#141b1f] border border-[#1a2327] rounded-sm overflow-hidden flex flex-col justify-between" data-category="brochure dark persian">
+          <div>
+            <!-- Preview Stage -->
+            <div class="h-56 bg-[#090e10] p-3 flex items-center justify-center border-b border-[#15120e] relative dark-preview">
+              <img 
+                src="/branding/novand-brochure-showcase-dark.png" 
+                alt="بروشور تبلیغاتی ۶ صفحه‌ای نُوَند پوسته دارک" 
+                class="max-h-48 max-w-[95%] object-contain rounded shadow-lg border border-[#1a2327] transition-transform duration-300 group-hover:scale-105"
+                loading="lazy"
+              />
+              <span class="absolute top-2.5 right-2.5 px-2 py-0.5 bg-[#0d1417] text-[10px] font-mono text-[#00d2b5] border border-[#1a2327] rounded">
+                بروشور ۶ صفحه‌ای · تیره
+              </span>
+            </div>
+            <!-- Meta Details -->
+            <div class="p-5">
+              <div class="flex items-center justify-between mb-2">
+                <h3 class="text-sm font-bold text-white font-sans uppercase">بروشور تبلیغاتی ۶ صفحه‌ای · تیره</h3>
+                <span class="text-[10px] font-mono text-[#00d2b5]">A4 Tri-Fold · 300 DPI</span>
+              </div>
+              <p class="text-xs text-[#f4f2f1]/70 leading-relaxed font-light mb-4 font-vazirmatn" dir="rtl">
+                دفترچه و بروشور تبلیغاتی ۲ لت (۳ لتی سه‌بخشی) شامل معرفی هوشمندسازی، نظارت تصویری، زیرساخت شبکه، فیبر نوری، مدل ۴ مرحله‌ای و بارکد اختصاصی آماده چاپ A4.
+              </p>
+              <div class="flex flex-wrap items-center gap-2 text-[10px] font-mono text-[#00d2b5]">
+                <span>2 Spreads SVG</span> • <span>3508×2480 PNG (300 DPI)</span> • <span>A4</span>
+              </div>
+            </div>
+          </div>
+          <!-- Download & View Actions -->
+          <div class="p-4 bg-[#0d1417] border-t border-[#15120e] flex flex-col gap-2">
+            <div class="flex items-center gap-2">
+              <a 
+                href="/branding/novand-brochure-spread-outside-dark.svg" 
+                download 
+                class="flex-1 text-center py-2 bg-[#141b1f] hover:bg-[#00d2b5] hover:text-[#0d1417] text-[#f4f2f1] text-xs font-mono font-medium rounded-sm border border-[#1a2327] transition-all"
+              >
+                SVG شیت ۱
+              </a>
+              <a 
+                href="/branding/novand-brochure-spread-outside-dark.png" 
+                download 
+                class="flex-1 text-center py-2 bg-[#141b1f] hover:bg-[#1a2327] text-[#f4f2f1]/80 hover:text-white text-xs font-mono font-medium rounded-sm border border-[#1a2327] transition-all"
+              >
+                PNG شیت ۱
+              </a>
+              <a 
+                href="/branding/novand-brochure-spread-inside-dark.png" 
+                download 
+                class="flex-1 text-center py-2 bg-[#141b1f] hover:bg-[#1a2327] text-[#f4f2f1]/80 hover:text-white text-xs font-mono font-medium rounded-sm border border-[#1a2327] transition-all"
+              >
+                PNG شیت ۲
+              </a>
+            </div>
+            <a 
+              href="/brochure" 
+              class="w-full text-center py-2 bg-[#00d2b5] hover:bg-[#00e5c5] text-[#0d1417] font-bold text-xs rounded-sm transition-all shadow-sm"
+            >
+              مشاهده صفحه اختصاصی و چاپ مستقیم (A4)
+            </a>
+          </div>
+        </div>
+
+        <!-- Asset 23: بروشور ۶ صفحه‌ای روشن (شیت‌های چاپ A4) -->
+        <div class="asset-card group bg-[#141b1f] border border-[#1a2327] rounded-sm overflow-hidden flex flex-col justify-between" data-category="brochure light persian">
+          <div>
+            <!-- Preview Stage -->
+            <div class="h-56 bg-[#f4f2f1] p-3 flex items-center justify-center border-b border-[#d2ccc7] relative">
+              <img 
+                src="/branding/novand-brochure-showcase-light.png" 
+                alt="بروشور تبلیغاتی ۶ صفحه‌ای نُوَند پوسته لایت" 
+                class="max-h-48 max-w-[95%] object-contain rounded shadow-lg border border-[#e2e8f0] transition-transform duration-300 group-hover:scale-105"
+                loading="lazy"
+              />
+              <span class="absolute top-2.5 right-2.5 px-2 py-0.5 bg-[#ffffff] text-[10px] font-mono text-[#009b86] border border-[#d2ccc7] rounded">
+                بروشور ۶ صفحه‌ای · روشن
+              </span>
+            </div>
+            <!-- Meta Details -->
+            <div class="p-5">
+              <div class="flex items-center justify-between mb-2">
+                <h3 class="text-sm font-bold text-white font-sans uppercase">بروشور تبلیغاتی ۶ صفحه‌ای · روشن</h3>
+                <span class="text-[10px] font-mono text-[#009b86]">A4 Tri-Fold · 300 DPI</span>
+              </div>
+              <p class="text-xs text-[#f4f2f1]/70 leading-relaxed font-light mb-4 font-vazirmatn" dir="rtl">
+                نسخه کالیبره‌شده پوسته روشن با کنتراست خطوط و رنگ‌های چاپی، مناسب چاپخانه‌های افست و چاپ دیجیتال با کیفیت بسیار بالا.
+              </p>
+              <div class="flex flex-wrap items-center gap-2 text-[10px] font-mono text-[#00d2b5]">
+                <span>2 Spreads SVG</span> • <span>3508×2480 PNG (300 DPI)</span> • <span>A4</span>
+              </div>
+            </div>
+          </div>
+          <!-- Download & View Actions -->
+          <div class="p-4 bg-[#0d1417] border-t border-[#15120e] flex flex-col gap-2">
+            <div class="flex items-center gap-2">
+              <a 
+                href="/branding/novand-brochure-spread-outside-light.svg" 
+                download 
+                class="flex-1 text-center py-2 bg-[#141b1f] hover:bg-[#00d2b5] hover:text-[#0d1417] text-[#f4f2f1] text-xs font-mono font-medium rounded-sm border border-[#1a2327] transition-all"
+              >
+                SVG شیت ۱
+              </a>
+              <a 
+                href="/branding/novand-brochure-spread-outside-light.png" 
+                download 
+                class="flex-1 text-center py-2 bg-[#141b1f] hover:bg-[#1a2327] text-[#f4f2f1]/80 hover:text-white text-xs font-mono font-medium rounded-sm border border-[#1a2327] transition-all"
+              >
+                PNG شیت ۱
+              </a>
+              <a 
+                href="/branding/novand-brochure-spread-inside-light.png" 
+                download 
+                class="flex-1 text-center py-2 bg-[#141b1f] hover:bg-[#1a2327] text-[#f4f2f1]/80 hover:text-white text-xs font-mono font-medium rounded-sm border border-[#1a2327] transition-all"
+              >
+                PNG شیت ۲
+              </a>
+            </div>
+            <a 
+              href="/brochure" 
+              class="w-full text-center py-2 bg-[#00d2b5] hover:bg-[#00e5c5] text-[#0d1417] font-bold text-xs rounded-sm transition-all shadow-sm"
+            >
+              مشاهده صفحه اختصاصی و چاپ مستقیم (A4)
+            </a>
+          </div>
+        </div>
+
+        <!-- Asset 24: موکاپ پرزنتیشن بروشور (Dark) -->
+        <div class="asset-card group bg-[#141b1f] border border-[#1a2327] rounded-sm overflow-hidden flex flex-col justify-between" data-category="brochure dark social">
+          <div>
+            <!-- Preview Stage -->
+            <div class="h-56 bg-[#090e10] p-3 flex items-center justify-center border-b border-[#15120e] relative dark-preview">
+              <img 
+                src="/branding/novand-brochure-showcase-dark.png" 
+                alt="موکاپ سه‌بعدی پرزنتیشن بروشور نُوَند حالت تیره" 
+                class="max-h-48 max-w-[95%] object-contain rounded shadow-lg border border-[#1a2327] transition-transform duration-300 group-hover:scale-105"
+                loading="lazy"
+              />
+              <span class="absolute top-2.5 right-2.5 px-2 py-0.5 bg-[#0d1417] text-[10px] font-mono text-[#00d2b5] border border-[#1a2327] rounded">
+                پرزنتیشن · تیره
+              </span>
+            </div>
+            <!-- Meta Details -->
+            <div class="p-5">
+              <div class="flex items-center justify-between mb-2">
+                <h3 class="text-sm font-bold text-white font-sans uppercase">موکاپ نمایشی بروشور · تیره</h3>
+                <span class="text-[10px] font-mono text-[#00d2b5]">1920×1080 Full HD</span>
+              </div>
+              <p class="text-xs text-[#f4f2f1]/70 leading-relaxed font-light mb-4 font-vazirmatn" dir="rtl">
+                تصویر پرزنتیشن با پس‌زمینه ابسیدین نمایش‌دهنده جلد روی بروشور، صفحات داخلی و جلد پشت جهت استفاده در ارائه‌ها و وب‌سایت.
+              </p>
+              <div class="flex flex-wrap items-center gap-2 text-[10px] font-mono text-[#00d2b5]">
+                <span>Vector SVG</span> • <span>1080p PNG</span>
+              </div>
+            </div>
+          </div>
+          <!-- Download Actions -->
+          <div class="p-4 bg-[#0d1417] border-t border-[#15120e] flex items-center gap-2">
+            <a 
+              href="/branding/novand-brochure-showcase-dark.svg" 
+              download 
+              class="flex-1 text-center py-2 bg-[#141b1f] hover:bg-[#00d2b5] hover:text-[#0d1417] text-[#f4f2f1] text-xs font-mono font-medium rounded-sm border border-[#1a2327] transition-all"
+            >
+              SVG (وکتور)
+            </a>
+            <a 
+              href="/branding/novand-brochure-showcase-dark.png" 
+              download 
+              class="flex-1 text-center py-2 bg-[#141b1f] hover:bg-[#1a2327] text-[#f4f2f1]/80 hover:text-white text-xs font-mono font-medium rounded-sm border border-[#1a2327] transition-all"
+            >
+              PNG (رستر 1080p)
+            </a>
+          </div>
+        </div>
+
+        <!-- Asset 25: موکاپ پرزنتیشن بروشور (Light) -->
+        <div class="asset-card group bg-[#141b1f] border border-[#1a2327] rounded-sm overflow-hidden flex flex-col justify-between" data-category="brochure light social">
+          <div>
+            <!-- Preview Stage -->
+            <div class="h-56 bg-[#f4f2f1] p-3 flex items-center justify-center border-b border-[#d2ccc7] relative">
+              <img 
+                src="/branding/novand-brochure-showcase-light.png" 
+                alt="موکاپ سه‌بعدی پرزنتیشن بروشور نُوَند حالت روشن" 
+                class="max-h-48 max-w-[95%] object-contain rounded shadow-lg border border-[#e2e8f0] transition-transform duration-300 group-hover:scale-105"
+                loading="lazy"
+              />
+              <span class="absolute top-2.5 right-2.5 px-2 py-0.5 bg-[#ffffff] text-[10px] font-mono text-[#009b86] border border-[#d2ccc7] rounded">
+                پرزنتیشن · روشن
+              </span>
+            </div>
+            <!-- Meta Details -->
+            <div class="p-5">
+              <div class="flex items-center justify-between mb-2">
+                <h3 class="text-sm font-bold text-white font-sans uppercase">موکاپ نمایشی بروشور · روشن</h3>
+                <span class="text-[10px] font-mono text-[#009b86]">1920×1080 Full HD</span>
+              </div>
+              <p class="text-xs text-[#f4f2f1]/70 leading-relaxed font-light mb-4 font-vazirmatn" dir="rtl">
+                تصویر پرزنتیشن در پوسته روشن با کالیبراسیون نورپردازی نرم جهت استفاده در پورتفولیو، اسلایدهای سرمایه‌گذاران و مستندات پروژه.
+              </p>
+              <div class="flex flex-wrap items-center gap-2 text-[10px] font-mono text-[#00d2b5]">
+                <span>Vector SVG</span> • <span>1080p PNG</span>
+              </div>
+            </div>
+          </div>
+          <!-- Download Actions -->
+          <div class="p-4 bg-[#0d1417] border-t border-[#15120e] flex items-center gap-2">
+            <a 
+              href="/branding/novand-brochure-showcase-light.svg" 
+              download 
+              class="flex-1 text-center py-2 bg-[#141b1f] hover:bg-[#00d2b5] hover:text-[#0d1417] text-[#f4f2f1] text-xs font-mono font-medium rounded-sm border border-[#1a2327] transition-all"
+            >
+              SVG (وکتور)
+            </a>
+            <a 
+              href="/branding/novand-brochure-showcase-light.png" 
+              download 
+              class="flex-1 text-center py-2 bg-[#141b1f] hover:bg-[#1a2327] text-[#f4f2f1]/80 hover:text-white text-xs font-mono font-medium rounded-sm border border-[#1a2327] transition-all"
+            >
+              PNG (رستر 1080p)
             </a>
           </div>
         </div>

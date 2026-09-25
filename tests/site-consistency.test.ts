@@ -303,4 +303,83 @@ describe('Novand Engineering Site - Diagnostics & Unit Tests', () => {
       assert.ok(fs.existsSync(path.join(process.cwd(), 'src', 'pages', 'links.astro')));
     });
   });
+
+  describe('8. 6-Page Advertisement Booklet & Tri-Fold Brochure Assets & Architecture', () => {
+    test('brochureData.ts exists, exports 6 structured panels and contact info', () => {
+      const dataFilePath = path.join(process.cwd(), 'src', 'data', 'brochureData.ts');
+      assert.ok(fs.existsSync(dataFilePath), 'brochureData.ts must exist');
+      const content = fs.readFileSync(dataFilePath, 'utf-8');
+      assert.ok(content.includes('brochureData'), 'Must export brochureData');
+      assert.ok(content.includes('0912 932 1550'), 'Must contain required phone number');
+      assert.ok(content.includes('سعادت‌آباد'), 'Must contain required office address in Saadat Abad');
+      assert.ok(content.includes('مشاوره'), 'Must include 4-step process step: مشاوره');
+      assert.ok(content.includes('تأمین تجهیزات') || content.includes('تامین تجهیزات'), 'Must include 4-step process step: تامین تجهیزات');
+      assert.ok(content.includes('اجرا'), 'Must include 4-step process step: اجرا');
+      assert.ok(content.includes('پشتیبانی'), 'Must include 4-step process step: پشتیبانی');
+    });
+
+    test('All 18 generated brochure print and showcase assets exist in public/branding', () => {
+      const brandingDir = path.join(process.cwd(), 'public', 'branding');
+      const requiredFiles = [
+        'novand-brochure-spread-outside-dark.svg',
+        'novand-brochure-spread-outside-dark.png',
+        'novand-brochure-spread-inside-dark.svg',
+        'novand-brochure-spread-inside-dark.png',
+        'novand-brochure-spread-outside-light.svg',
+        'novand-brochure-spread-outside-light.png',
+        'novand-brochure-spread-inside-light.svg',
+        'novand-brochure-spread-inside-light.png',
+        'novand-brochure-showcase-dark.svg',
+        'novand-brochure-showcase-dark.png',
+        'novand-brochure-showcase-light.svg',
+        'novand-brochure-showcase-light.png',
+        'novand-brochure-dark-p1.png',
+        'novand-brochure-dark-p2.png',
+        'novand-brochure-dark-p3.png',
+        'novand-brochure-dark-p4.png',
+        'novand-brochure-dark-p5.png',
+        'novand-brochure-dark-p6.png',
+        'novand-brochure-light-p1.png',
+        'novand-brochure-light-p2.png',
+        'novand-brochure-light-p3.png',
+        'novand-brochure-light-p4.png',
+        'novand-brochure-light-p5.png',
+        'novand-brochure-light-p6.png'
+      ];
+
+      for (const file of requiredFiles) {
+        const fullPath = path.join(brandingDir, file);
+        assert.ok(fs.existsSync(fullPath), `Asset must exist: ${file}`);
+        const stat = fs.statSync(fullPath);
+        assert.ok(stat.size > 1000, `Asset ${file} should have meaningful size, found ${stat.size} bytes`);
+      }
+    });
+
+    test('Brochure dedicated pages exist in both Persian and English', () => {
+      const faPage = path.join(process.cwd(), 'src', 'pages', 'brochure.astro');
+      const enPage = path.join(process.cwd(), 'src', 'pages', 'en', 'brochure.astro');
+      assert.ok(fs.existsSync(faPage), 'src/pages/brochure.astro must exist');
+      assert.ok(fs.existsSync(enPage), 'src/pages/en/brochure.astro must exist');
+
+      const faContent = fs.readFileSync(faPage, 'utf-8');
+      assert.ok(faContent.includes('novand-brochure-spread-outside-dark.png'));
+      assert.ok(faContent.includes('novand-brochure-spread-inside-dark.png'));
+      assert.ok(faContent.includes('@media print'), 'Must include A4 print styles');
+    });
+
+    test('Brand guidelines page integrates brochure assets and filters', () => {
+      const brandFa = path.join(process.cwd(), 'src', 'pages', 'brand.astro');
+      const brandEn = path.join(process.cwd(), 'src', 'pages', 'en', 'brand.astro');
+
+      const contentFa = fs.readFileSync(brandFa, 'utf-8');
+      const contentEn = fs.readFileSync(brandEn, 'utf-8');
+
+      assert.ok(contentFa.includes('data-filter="brochure"'), 'Brand FA must have brochure filter button');
+      assert.ok(contentEn.includes('data-filter="brochure"'), 'Brand EN must have brochure filter button');
+      assert.ok(contentFa.includes('novand-brochure-showcase-dark.png'), 'Brand FA must show dark showcase');
+      assert.ok(contentFa.includes('novand-brochure-showcase-light.png'), 'Brand FA must show light showcase');
+      assert.ok(contentEn.includes('novand-brochure-showcase-dark.png'), 'Brand EN must show dark showcase');
+      assert.ok(contentEn.includes('novand-brochure-showcase-light.png'), 'Brand EN must show light showcase');
+    });
+  });
 });

@@ -1,0 +1,651 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { brochureData } from '@/data/brochureData';
+---
+
+<BaseLayout
+  title="بروشور و دفترچه راهنمای جامع ۶ صفحه‌ای | نُوَند"
+  description="بروشور رسمی ۶ صفحه‌ای و ۲ لت شرکت نُوَند: هوشمندسازی، نظارت تصویری، زیرساخت شبکه، فیبر نوری و مدل خدمات ۴ مرحله‌ای آماده چاپ در قطع A4."
+>
+  <!-- Print Styles for Standard A4 Landscape Spreads & Portrait Pages -->
+  <style>
+    @media print {
+      @page {
+        size: A4 landscape;
+        margin: 0;
+      }
+      body {
+        background: #ffffff !important;
+        color: #000000 !important;
+      }
+      header, footer, nav, .no-print {
+        display: none !important;
+      }
+      .print-only {
+        display: block !important;
+      }
+      .brochure-print-sheet {
+        page-break-after: always;
+        break-after: page;
+        width: 297mm;
+        height: 210mm;
+        margin: 0;
+        padding: 0;
+      }
+    }
+  </style>
+
+  <!-- Sticky Top Quick Bar -->
+  <div class="sticky top-20 z-40 bg-[#090e10]/90 dark:bg-[#090e10]/90 backdrop-blur-md border-b border-stone-200 dark:border-[#15120e] no-print">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-14 text-xs font-mono">
+      <div class="flex items-center gap-4 sm:gap-6 overflow-x-auto py-2">
+        <a href="#spreads" class="text-stone-700 dark:text-[#f4f2f1]/80 hover:text-[#008f7a] dark:hover:text-[#00d2b5] transition-colors whitespace-nowrap font-sans font-medium">نمای چاپ و لایه‌ها</a>
+        <a href="#pages" class="text-stone-700 dark:text-[#f4f2f1]/80 hover:text-[#008f7a] dark:hover:text-[#00d2b5] transition-colors whitespace-nowrap font-sans font-medium">تفکیک ۶ صفحه</a>
+        <a href="#architecture" class="text-stone-700 dark:text-[#f4f2f1]/80 hover:text-[#008f7a] dark:hover:text-[#00d2b5] transition-colors whitespace-nowrap font-sans font-medium">معماری و لایه‌بندی RTL</a>
+        <a href="#downloads" class="text-stone-700 dark:text-[#f4f2f1]/80 hover:text-[#008f7a] dark:hover:text-[#00d2b5] transition-colors whitespace-nowrap font-sans font-medium">دانلود فایل‌های چاپ (300DPI)</a>
+      </div>
+      <div class="flex items-center gap-2 shrink-0">
+        <button
+          type="button"
+          onclick="window.print()"
+          class="hidden sm:inline-flex items-center gap-2 px-3 py-1.5 bg-[#008f7a] hover:bg-[#007362] dark:bg-[#00d2b5] dark:hover:bg-[#00bda3] text-white dark:text-[#0d1417] font-sans font-bold text-xs rounded-sm transition-all shadow-xs cursor-pointer"
+        >
+          <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <polyline points="6 9 6 2 18 2 18 9"></polyline>
+            <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path>
+            <rect x="6" y="14" width="12" height="8"></rect>
+          </svg>
+          چاپ در قطع A4
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Hero Header Section -->
+  <section class="py-12 sm:py-20 bg-stone-100 dark:bg-[#0d1417] text-slate-900 dark:text-[#f4f2f1] border-b border-stone-200 dark:border-[#15120e] relative overflow-hidden no-print">
+    <div class="absolute inset-0 bg-[linear-gradient(to_right,#e2e8f0_1px,transparent_1px),linear-gradient(to_bottom,#e2e8f0_1px,transparent_1px)] dark:bg-[linear-gradient(to_right,#141b1f_1px,transparent_1px),linear-gradient(to_bottom,#141b1f_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] opacity-30 pointer-events-none"></div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div class="max-w-3xl space-y-4">
+        <div class="inline-flex items-center gap-2 px-3 py-1 bg-white dark:bg-[#141b1f] border border-stone-300 dark:border-[#1a2327] text-xs font-mono tracking-widest uppercase text-stone-600 dark:text-[#f4f2f1]/80 rounded-sm">
+          <span class="w-2 h-2 rounded-full bg-[#008f7a] dark:bg-[#00d2b5] animate-pulse"></span>
+          سند رسمی معرفی برند و خدمات نُـوَند · نسخه آماده چاپ A4
+        </div>
+
+        <h1 class="text-3xl sm:text-5xl font-extrabold tracking-tight font-sans leading-tight">
+          بروشور تبلیغاتی ۶ صفحه‌ای<br />
+          <span class="text-transparent bg-clip-text bg-gradient-to-r from-[#008f7a] to-[#10b981] dark:from-[#00d2b5] dark:to-[#10b981]">
+            مهندسی فناوری و زیرساخت نُـوَند
+          </span>
+        </h1>
+
+        <p class="text-base sm:text-lg text-stone-600 dark:text-[#f4f2f1]/70 leading-relaxed font-light">
+          طراحی‌شده در دو لت تاخورده (Tri-Fold) با گردش مطالعه طبیعی راست‌به‌چپ (RTL)، تایپوگرافی مهندسی وزیرمتن، اصطلاحات تخصصی انگلیسی و آماده برای چاپ افست و دیجیتال در کاغذ استاندارد A4 در هر دو پوسته تیره و روشن.
+        </p>
+
+        <!-- Quick Action Buttons -->
+        <div class="pt-4 flex flex-wrap items-center gap-3">
+          <a
+            href="#spreads"
+            class="inline-flex items-center gap-2 px-5 py-3 bg-[#008f7a] hover:bg-[#007362] dark:bg-[#00d2b5] dark:hover:bg-[#00bda3] text-white dark:text-[#0d1417] font-bold text-sm rounded-sm transition-all shadow-sm"
+          >
+            مشاهده شیت‌های کامل چاپ
+            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+          </a>
+
+          <a
+            href="/branding/novand-brand-assets.zip"
+            download
+            class="inline-flex items-center gap-2 px-5 py-3 bg-white hover:bg-stone-50 dark:bg-[#141b1f] dark:hover:bg-[#1a2327] text-slate-800 dark:text-[#f4f2f1] font-medium text-sm border border-stone-300 dark:border-[#1a2327] rounded-sm transition-colors"
+          >
+            <svg class="w-4 h-4 text-[#008f7a] dark:text-[#00d2b5]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+              <polyline points="7 10 12 15 17 10"></polyline>
+              <line x1="12" y1="15" x2="12" y2="3"></line>
+            </svg>
+            دانلود پکیج کامل فایل‌های وکتور و رستر (.ZIP)
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive Controls: Theme & View Mode Switcher -->
+  <section id="spreads" class="py-8 bg-stone-50 dark:bg-[#0a0f12] border-b border-stone-200 dark:border-[#15120e] no-print">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Control Bar -->
+      <div class="bg-white dark:bg-[#12191d] p-4 rounded-xl border border-stone-200 dark:border-[#1f2d35] shadow-sm flex flex-col sm:flex-row items-center justify-between gap-4">
+        
+        <!-- Left: Theme Selectors -->
+        <div class="flex items-center gap-2 w-full sm:w-auto">
+          <span class="text-xs font-bold text-stone-500 dark:text-stone-400 font-sans ml-2">انتخاب پوسته بروشور:</span>
+          <button
+            type="button"
+            id="btn-brochure-dark"
+            class="brochure-theme-btn flex-1 sm:flex-none px-4 py-2 rounded-lg text-xs font-bold font-sans transition-all cursor-pointer bg-slate-900 text-white dark:bg-[#00d2b5] dark:text-[#0d1417] shadow-sm"
+          >
+            پوسته تیره (Dark Mode)
+          </button>
+          <button
+            type="button"
+            id="btn-brochure-light"
+            class="brochure-theme-btn flex-1 sm:flex-none px-4 py-2 rounded-lg text-xs font-bold font-sans transition-all cursor-pointer bg-stone-100 hover:bg-stone-200 dark:bg-[#1a252b] dark:hover:bg-[#223139] text-stone-700 dark:text-stone-300"
+          >
+            پوسته روشن (Light Mode)
+          </button>
+        </div>
+
+        <!-- Right: Spread Navigation Tabs -->
+        <div class="flex items-center gap-2 w-full sm:w-auto">
+          <button
+            type="button"
+            id="btn-tab-outside"
+            class="brochure-spread-tab flex-1 sm:flex-none px-4 py-2 rounded-lg text-xs font-bold font-sans transition-all cursor-pointer bg-[#008f7a] dark:bg-[#10b981] text-white dark:text-[#0d1417]"
+          >
+            شیت ۱: روی بروشور (صفحات ۵ - ۶ - ۱)
+          </button>
+          <button
+            type="button"
+            id="btn-tab-inside"
+            class="brochure-spread-tab flex-1 sm:flex-none px-4 py-2 rounded-lg text-xs font-bold font-sans transition-all cursor-pointer bg-stone-100 hover:bg-stone-200 dark:bg-[#1a252b] dark:hover:bg-[#223139] text-stone-700 dark:text-stone-300"
+          >
+            شیت ۲: داخل بروشور (صفحات ۴ - ۳ - ۲)
+          </button>
+        </div>
+
+      </div>
+
+      <!-- Spread Showcase Canvas -->
+      <div class="mt-8">
+        
+        <!-- Sheet 1: Outside Spread (Panels 5, 6, 1) -->
+        <div id="view-spread-outside" class="spread-view-container block">
+          <div class="bg-white dark:bg-[#12191d] border border-stone-200 dark:border-[#1f2d35] rounded-2xl p-4 sm:p-6 shadow-md">
+            
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pb-4 mb-4 border-b border-stone-100 dark:border-stone-800">
+              <div>
+                <h3 class="text-base sm:text-lg font-bold text-slate-900 dark:text-white font-sans">
+                  شیت شماره ۱: نمای بیرونی بروشور (Exterior Side)
+                </h3>
+                <p class="text-xs text-stone-500 dark:text-stone-400 mt-0.5">
+                  شامل لت تاشونده داخلی (صفحه ۵)، جلد پشت همراه با تماس و بارکد دیجیتال (صفحه ۶) و جلد روی بروشور (صفحه ۱)
+                </p>
+              </div>
+              <div class="flex items-center gap-2">
+                <a
+                  id="link-outside-svg"
+                  href="/branding/novand-brochure-spread-outside-dark.svg"
+                  download
+                  class="px-3 py-1.5 bg-stone-100 hover:bg-stone-200 dark:bg-stone-800 dark:hover:bg-stone-700 text-slate-800 dark:text-stone-200 text-xs font-mono font-medium rounded-lg transition-colors"
+                >
+                  SVG وکتور
+                </a>
+                <a
+                  id="link-outside-png"
+                  href="/branding/novand-brochure-spread-outside-dark.png"
+                  download
+                  class="px-3 py-1.5 bg-[#008f7a] hover:bg-[#007362] dark:bg-[#00d2b5] dark:hover:bg-[#00bda3] text-white dark:text-[#0d1417] text-xs font-mono font-bold rounded-lg transition-colors"
+                >
+                  دانلود 300DPI PNG
+                </a>
+              </div>
+            </div>
+
+            <!-- Image Stage -->
+            <div class="relative w-full aspect-[3508/2480] rounded-xl overflow-hidden bg-stone-900 border border-stone-200 dark:border-stone-800 shadow-inner group">
+              <img
+                id="img-spread-outside"
+                src="/branding/novand-brochure-spread-outside-dark.png"
+                alt="شیت بیرونی بروشور ۶ صفحه‌ای نُوند"
+                class="w-full h-full object-contain transition-transform duration-300 group-hover:scale-[1.01]"
+                loading="eager"
+              />
+            </div>
+
+            <!-- Panel Annotations Bar -->
+            <div class="grid grid-cols-3 gap-2 mt-4 text-center text-xs font-sans">
+              <div class="p-2.5 rounded-lg bg-stone-50 dark:bg-[#0d1417] border border-stone-200/80 dark:border-stone-800">
+                <span class="block font-bold text-slate-800 dark:text-stone-200">صفحه ۵ (لت داخلی)</span>
+                <span class="text-[11px] text-stone-500">مدل فرآیند خدمات ۴ مرحله‌ای</span>
+              </div>
+              <div class="p-2.5 rounded-lg bg-stone-50 dark:bg-[#0d1417] border border-stone-200/80 dark:border-stone-800">
+                <span class="block font-bold text-slate-800 dark:text-stone-200">صفحه ۶ (جلد پشت)</span>
+                <span class="text-[11px] text-stone-500">اطلاعات تماس، مشاوره و بارکد</span>
+              </div>
+              <div class="p-2.5 rounded-lg bg-stone-50 dark:bg-[#0d1417] border border-stone-200/80 dark:border-stone-800">
+                <span class="block font-bold text-[#008f7a] dark:text-[#00d2b5]">صفحه ۱ (جلد روی بروشور)</span>
+                <span class="text-[11px] text-stone-500">نشان رسمی، اسلوگان و وب‌سایت</span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Sheet 2: Inside Spread (Panels 4, 3, 2) -->
+        <div id="view-spread-inside" class="spread-view-container hidden">
+          <div class="bg-white dark:bg-[#12191d] border border-stone-200 dark:border-[#1f2d35] rounded-2xl p-4 sm:p-6 shadow-md">
+            
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pb-4 mb-4 border-b border-stone-100 dark:border-stone-800">
+              <div>
+                <h3 class="text-base sm:text-lg font-bold text-slate-900 dark:text-white font-sans">
+                  شیت شماره ۲: نمای داخلی بروشور (Interior Side)
+                </h3>
+                <p class="text-xs text-stone-500 dark:text-stone-400 mt-0.5">
+                  گسترده ۳ صفحه‌ای با مطالعه پیوسته راست‌به‌چپ: معرفی و هوشمندسازی (صفحه ۲)، نظارت و شبکه (صفحه ۳)، فیبر و سرور (صفحه ۴)
+                </p>
+              </div>
+              <div class="flex items-center gap-2">
+                <a
+                  id="link-inside-svg"
+                  href="/branding/novand-brochure-spread-inside-dark.svg"
+                  download
+                  class="px-3 py-1.5 bg-stone-100 hover:bg-stone-200 dark:bg-stone-800 dark:hover:bg-stone-700 text-slate-800 dark:text-stone-200 text-xs font-mono font-medium rounded-lg transition-colors"
+                >
+                  SVG وکتور
+                </a>
+                <a
+                  id="link-inside-png"
+                  href="/branding/novand-brochure-spread-inside-dark.png"
+                  download
+                  class="px-3 py-1.5 bg-[#008f7a] hover:bg-[#007362] dark:bg-[#00d2b5] dark:hover:bg-[#00bda3] text-white dark:text-[#0d1417] text-xs font-mono font-bold rounded-lg transition-colors"
+                >
+                  دانلود 300DPI PNG
+                </a>
+              </div>
+            </div>
+
+            <!-- Image Stage -->
+            <div class="relative w-full aspect-[3508/2480] rounded-xl overflow-hidden bg-stone-900 border border-stone-200 dark:border-stone-800 shadow-inner group">
+              <img
+                id="img-spread-inside"
+                src="/branding/novand-brochure-spread-inside-dark.png"
+                alt="شیت داخلی بروشور ۶ صفحه‌ای نُوند"
+                class="w-full h-full object-contain transition-transform duration-300 group-hover:scale-[1.01]"
+                loading="lazy"
+              />
+            </div>
+
+            <!-- Panel Annotations Bar -->
+            <div class="grid grid-cols-3 gap-2 mt-4 text-center text-xs font-sans">
+              <div class="p-2.5 rounded-lg bg-stone-50 dark:bg-[#0d1417] border border-stone-200/80 dark:border-stone-800">
+                <span class="block font-bold text-slate-800 dark:text-stone-200">صفحه ۴ (چپ داخل)</span>
+                <span class="text-[11px] text-stone-500">فیبر نوری، VoIP و سرورها</span>
+              </div>
+              <div class="p-2.5 rounded-lg bg-stone-50 dark:bg-[#0d1417] border border-stone-200/80 dark:border-stone-800">
+                <span class="block font-bold text-slate-800 dark:text-stone-200">صفحه ۳ (وسط داخل)</span>
+                <span class="text-[11px] text-stone-500">نظارت تصویری و زیرساخت شبکه</span>
+              </div>
+              <div class="p-2.5 rounded-lg bg-stone-50 dark:bg-[#0d1417] border border-stone-200/80 dark:border-stone-800">
+                <span class="block font-bold text-[#008f7a] dark:text-[#00d2b5]">صفحه ۲ (راست داخل)</span>
+                <span class="text-[11px] text-stone-500">معرفی نُوَند و خانه‌های هوشمند</span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Detailed Page-by-Page Inspection Grid -->
+  <section id="pages" class="py-16 bg-white dark:bg-[#0d1417] border-b border-stone-200 dark:border-[#15120e] no-print">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-2xl mx-auto mb-12">
+        <span class="text-xs font-mono text-[#008f7a] dark:text-[#00d2b5] uppercase tracking-widest block mb-2">
+          PAGE BY PAGE ARCHITECTURE
+        </span>
+        <h2 class="text-2xl sm:text-4xl font-extrabold text-slate-900 dark:text-white font-sans">
+          تفکیک ساختاری و محتوای هر ۶ صفحه
+        </h2>
+        <p class="text-xs sm:text-sm text-stone-600 dark:text-stone-400 mt-2">
+          هر صفحه بر پایه اصول طراحی صنعتی، شبکه‌بندی دقیق و جای‌گذاری هوشمند المان‌های گرافیکی و متنی شکل گرفته است.
+        </p>
+      </div>
+
+      <!-- 6 Pages Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {brochureData.panels.map((panel) => (
+          <div class="bg-stone-50 dark:bg-[#12191d] border border-stone-200 dark:border-[#1f2d35] rounded-2xl overflow-hidden flex flex-col justify-between shadow-sm hover:shadow-md transition-shadow">
+            <div>
+              <!-- Page Preview Stage -->
+              <div class="aspect-[1169/1800] bg-stone-900 relative overflow-hidden border-b border-stone-200 dark:border-stone-800">
+                <img
+                  src={`/branding/novand-brochure-dark-p${panel.pageNumber}.png`}
+                  alt={panel.titleFa}
+                  class="panel-preview-img w-full h-full object-contain p-2"
+                  data-page={panel.pageNumber}
+                  loading="lazy"
+                />
+                <span class="absolute top-3 right-3 px-2.5 py-1 bg-black/70 backdrop-blur-sm text-[11px] font-mono font-bold text-[#00d2b5] rounded-md border border-white/10">
+                  صفحه {panel.pageNumber}
+                </span>
+                <span class="absolute top-3 left-3 px-2 py-1 bg-black/70 backdrop-blur-sm text-[10px] font-mono text-white/80 rounded-md">
+                  {panel.slug}
+                </span>
+              </div>
+
+              <!-- Page Details & Copywriting Brief -->
+              <div class="p-5 space-y-3">
+                <div class="flex items-center justify-between">
+                  <h3 class="text-base font-bold text-slate-900 dark:text-white font-sans">
+                    {panel.titleFa}
+                  </h3>
+                  <span class="text-[10px] font-mono text-stone-400">P.0{panel.pageNumber}</span>
+                </div>
+
+                <p class="text-xs font-mono text-[#008f7a] dark:text-[#00d2b5]">
+                  {panel.subtitleEn}
+                </p>
+
+                <p class="text-xs text-stone-600 dark:text-stone-300 leading-relaxed font-light">
+                  {panel.contentFa.lead}
+                </p>
+
+                <!-- Badges -->
+                <div class="flex flex-wrap gap-1.5 pt-2">
+                  {panel.badges.map((badge) => (
+                    <span class="px-2 py-0.5 rounded bg-white dark:bg-[#182329] border border-stone-200 dark:border-[#23343d] text-[10px] font-mono text-stone-600 dark:text-stone-300">
+                      {badge}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            <!-- Download Buttons for this Page -->
+            <div class="p-4 bg-stone-100/70 dark:bg-[#0e1417] border-t border-stone-200/80 dark:border-stone-800 flex items-center gap-2">
+              <a
+                href={`/branding/novand-brochure-dark-p${panel.pageNumber}.svg`}
+                download
+                class="flex-1 text-center py-2 bg-white hover:bg-stone-200 dark:bg-[#1a252b] dark:hover:bg-[#23333b] text-slate-800 dark:text-stone-200 text-xs font-mono font-medium rounded-lg border border-stone-300 dark:border-[#23343d] transition-colors"
+              >
+                SVG (وکتور)
+              </a>
+              <a
+                href={`/branding/novand-brochure-dark-p${panel.pageNumber}.png`}
+                download
+                class="flex-1 text-center py-2 bg-slate-900 hover:bg-slate-800 dark:bg-[#00d2b5] dark:hover:bg-[#00bda3] text-white dark:text-[#0d1417] text-xs font-mono font-bold rounded-lg transition-colors"
+              >
+                PNG (300DPI)
+              </a>
+            </div>
+
+          </div>
+        ))}
+      </div>
+
+    </div>
+  </section>
+
+  <!-- RTL Architecture & Print Technical Specifications -->
+  <section id="architecture" class="py-16 bg-stone-50 dark:bg-[#0a0f12] border-b border-stone-200 dark:border-[#15120e] no-print">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        
+        <div class="lg:col-span-6 space-y-6">
+          <span class="text-xs font-mono text-[#008f7a] dark:text-[#00d2b5] uppercase tracking-widest block">
+            RTL ERGONOMIC FOLDING &amp; PRINT SPECS
+          </span>
+          <h2 class="text-2xl sm:text-4xl font-extrabold text-slate-900 dark:text-white font-sans leading-tight">
+            اصول تا، هدایت چشم و استانداردهای چاپ A4
+          </h2>
+          <div class="space-y-4 text-xs sm:text-sm text-stone-600 dark:text-stone-300 leading-relaxed font-light">
+            <p>
+              در متون و بروشورهای فارسی، جهت مطالعه از <strong>راست به چپ (RTL)</strong> است. برخلاف بروشورهای غربی که جلد روی آن‌ها در سمت چپ قرار می‌گیرد، در ساختار ارگونومیک نُـوَند، <strong>صفحه ۱ (جلد روی بروشور)</strong> در سمت راست شیت بیرونی مستقر شده تا پس از تاخوردن، کاربر به شکل طبیعی ابتدا جلد را در دست بگیرد.
+            </p>
+            <p>
+              با بازکردن اولین لَت، لت شماره ۵ (مدل خدمات ۴ مرحله‌ای) نمایان شده و با بازکردن کامل، شیت سه‌لتی یکپارچه شامل <strong>صفحه ۲ (راست)</strong>، <strong>صفحه ۳ (وسط)</strong> و <strong>صفحه ۴ (چپ)</strong> در برابر دیدگان مخاطب قرار می‌گیرد که داستانی منسجم از معرفی هوشمندسازی، نظارت و شبکه تا فیبر نوری و سرورها را روایت می‌کند.
+            </p>
+            <p>
+              در نهایت، در پشت بروشور (صفحه ۶)، اطلاعات ارتباطی کامل به همراه <strong>بارکد اختصاصی صفحه /connect</strong> قرار گرفته تا تبدیل مخاطب به تماس و ثبت سفارش با بالاترین نرخ صورت گیرد.
+            </p>
+          </div>
+
+          <!-- Specs Table -->
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-2">
+            <div class="p-3 bg-white dark:bg-[#12191d] rounded-xl border border-stone-200 dark:border-stone-800">
+              <span class="text-[10px] font-mono text-stone-400 block">قطع چاپ</span>
+              <span class="text-xs font-bold text-slate-900 dark:text-white font-mono">A4 (297×210 mm)</span>
+            </div>
+            <div class="p-3 bg-white dark:bg-[#12191d] rounded-xl border border-stone-200 dark:border-stone-800">
+              <span class="text-[10px] font-mono text-stone-400 block">کیفیت خروجی</span>
+              <span class="text-xs font-bold text-emerald-600 dark:text-[#00d2b5] font-mono">300 DPI Ultra HD</span>
+            </div>
+            <div class="p-3 bg-white dark:bg-[#12191d] rounded-xl border border-stone-200 dark:border-stone-800">
+              <span class="text-[10px] font-mono text-stone-400 block">تعداد لایه‌ها</span>
+              <span class="text-xs font-bold text-slate-900 dark:text-white font-mono">۶ صفحه / ۲ لت تا</span>
+            </div>
+            <div class="p-3 bg-white dark:bg-[#12191d] rounded-xl border border-stone-200 dark:border-stone-800">
+              <span class="text-[10px] font-mono text-stone-400 block">تایپوگرافی</span>
+              <span class="text-xs font-bold text-slate-900 dark:text-white font-sans">وزیرمتن + Space</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="lg:col-span-6">
+          <div class="bg-stone-900 p-4 rounded-2xl border border-stone-800 shadow-2xl overflow-hidden group">
+            <img
+              src="/branding/novand-brochure-showcase-dark.png"
+              alt="موکاپ نمایشی بروشور تبلیغاتی نُوند"
+              class="w-full h-auto rounded-xl shadow-lg transition-transform duration-500 group-hover:scale-[1.02]"
+              loading="lazy"
+            />
+            <div class="p-3 text-center text-xs font-mono text-stone-400">
+              Showcase Presentation Mockup (1920×1080)
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Complete Download Hub -->
+  <section id="downloads" class="py-16 bg-white dark:bg-[#0d1417] no-print">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-2xl mx-auto mb-12">
+        <span class="text-xs font-mono text-[#008f7a] dark:text-[#00d2b5] uppercase tracking-widest block mb-2">
+          READY-TO-PRINT MASTER REPOSITORY
+        </span>
+        <h2 class="text-2xl sm:text-4xl font-extrabold text-slate-900 dark:text-white font-sans">
+          مرکز دریافت دارایی‌های چاپی با کیفیت ۳۰۰ DPI
+        </h2>
+        <p class="text-xs sm:text-sm text-stone-600 dark:text-stone-400 mt-2">
+          تمامی فایل‌های وکتور بدون افت کیفیت و فایل‌های رستر با رزولوشن چاپخانه آماده دانلود مستقیم هستند.
+        </p>
+      </div>
+
+      <!-- Asset Links Table Card -->
+      <div class="bg-stone-50 dark:bg-[#12191d] border border-stone-200 dark:border-[#1f2d35] rounded-2xl p-6 shadow-sm">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          
+          <!-- Column 1: Dark Theme Assets -->
+          <div class="space-y-3">
+            <div class="flex items-center gap-2 pb-2 border-b border-stone-200 dark:border-stone-800">
+              <span class="w-3 h-3 rounded-full bg-slate-900 border border-white/20"></span>
+              <h3 class="text-sm font-bold text-slate-900 dark:text-white font-sans">دارایی‌های پوسته تیره (Dark Theme)</h3>
+            </div>
+            
+            <div class="space-y-2 text-xs font-mono">
+              <div class="flex items-center justify-between p-2.5 rounded-lg bg-white dark:bg-[#0d1417] border border-stone-200/80 dark:border-stone-800">
+                <span class="text-slate-800 dark:text-stone-300 font-sans">شیت ۱ (بیرون: ۵ - ۶ - ۱)</span>
+                <div class="flex items-center gap-2">
+                  <a href="/branding/novand-brochure-spread-outside-dark.svg" download class="text-[#008f7a] dark:text-[#00d2b5] hover:underline">SVG</a>
+                  <span>·</span>
+                  <a href="/branding/novand-brochure-spread-outside-dark.png" download class="text-emerald-600 dark:text-emerald-400 font-bold hover:underline">300DPI PNG</a>
+                </div>
+              </div>
+
+              <div class="flex items-center justify-between p-2.5 rounded-lg bg-white dark:bg-[#0d1417] border border-stone-200/80 dark:border-stone-800">
+                <span class="text-slate-800 dark:text-stone-300 font-sans">شیت ۲ (داخل: ۴ - ۳ - ۲)</span>
+                <div class="flex items-center gap-2">
+                  <a href="/branding/novand-brochure-spread-inside-dark.svg" download class="text-[#008f7a] dark:text-[#00d2b5] hover:underline">SVG</a>
+                  <span>·</span>
+                  <a href="/branding/novand-brochure-spread-inside-dark.png" download class="text-emerald-600 dark:text-emerald-400 font-bold hover:underline">300DPI PNG</a>
+                </div>
+              </div>
+
+              <div class="flex items-center justify-between p-2.5 rounded-lg bg-white dark:bg-[#0d1417] border border-stone-200/80 dark:border-stone-800">
+                <span class="text-slate-800 dark:text-stone-300 font-sans">تصویر موکاپ پرزنتیشن</span>
+                <div class="flex items-center gap-2">
+                  <a href="/branding/novand-brochure-showcase-dark.svg" download class="text-[#008f7a] dark:text-[#00d2b5] hover:underline">SVG</a>
+                  <span>·</span>
+                  <a href="/branding/novand-brochure-showcase-dark.png" download class="text-emerald-600 dark:text-emerald-400 font-bold hover:underline">1080p PNG</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Column 2: Light Theme Assets -->
+          <div class="space-y-3">
+            <div class="flex items-center gap-2 pb-2 border-b border-stone-200 dark:border-stone-800">
+              <span class="w-3 h-3 rounded-full bg-white border border-stone-300"></span>
+              <h3 class="text-sm font-bold text-slate-900 dark:text-white font-sans">دارایی‌های پوسته روشن (Light Theme)</h3>
+            </div>
+            
+            <div class="space-y-2 text-xs font-mono">
+              <div class="flex items-center justify-between p-2.5 rounded-lg bg-white dark:bg-[#0d1417] border border-stone-200/80 dark:border-stone-800">
+                <span class="text-slate-800 dark:text-stone-300 font-sans">شیت ۱ (بیرون: ۵ - ۶ - ۱)</span>
+                <div class="flex items-center gap-2">
+                  <a href="/branding/novand-brochure-spread-outside-light.svg" download class="text-[#008f7a] dark:text-[#00d2b5] hover:underline">SVG</a>
+                  <span>·</span>
+                  <a href="/branding/novand-brochure-spread-outside-light.png" download class="text-emerald-600 dark:text-emerald-400 font-bold hover:underline">300DPI PNG</a>
+                </div>
+              </div>
+
+              <div class="flex items-center justify-between p-2.5 rounded-lg bg-white dark:bg-[#0d1417] border border-stone-200/80 dark:border-stone-800">
+                <span class="text-slate-800 dark:text-stone-300 font-sans">شیت ۲ (داخل: ۴ - ۳ - ۲)</span>
+                <div class="flex items-center gap-2">
+                  <a href="/branding/novand-brochure-spread-inside-light.svg" download class="text-[#008f7a] dark:text-[#00d2b5] hover:underline">SVG</a>
+                  <span>·</span>
+                  <a href="/branding/novand-brochure-spread-inside-light.png" download class="text-emerald-600 dark:text-emerald-400 font-bold hover:underline">300DPI PNG</a>
+                </div>
+              </div>
+
+              <div class="flex items-center justify-between p-2.5 rounded-lg bg-white dark:bg-[#0d1417] border border-stone-200/80 dark:border-stone-800">
+                <span class="text-slate-800 dark:text-stone-300 font-sans">تصویر موکاپ پرزنتیشن</span>
+                <div class="flex items-center gap-2">
+                  <a href="/branding/novand-brochure-showcase-light.svg" download class="text-[#008f7a] dark:text-[#00d2b5] hover:underline">SVG</a>
+                  <span>·</span>
+                  <a href="/branding/novand-brochure-showcase-light.png" download class="text-emerald-600 dark:text-emerald-400 font-bold hover:underline">1080p PNG</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Master Archive CTA -->
+        <div class="mt-6 pt-6 border-t border-stone-200 dark:border-stone-800 flex flex-col sm:flex-row items-center justify-between gap-4">
+          <div>
+            <span class="text-sm font-bold text-slate-900 dark:text-white font-sans block">
+              دانلود بسته جامع هویت بصری و بروشورهای نُـوَند
+            </span>
+            <span class="text-xs text-stone-500 font-mono">
+              novand-brand-assets.zip (شامل ۸۵ فایل وکتور و رستر)
+            </span>
+          </div>
+          <a
+            href="/branding/novand-brand-assets.zip"
+            download
+            class="px-6 py-3 bg-[#008f7a] hover:bg-[#007362] dark:bg-[#00d2b5] dark:hover:bg-[#00bda3] text-white dark:text-[#0d1417] font-bold text-xs font-sans rounded-lg transition-colors shadow-sm"
+          >
+            دانلود کل بسته دارایی‌ها (.ZIP 33 MB)
+          </a>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- PRINT ONLY ENGINE (Activated on window.print()) -->
+  <div class="hidden print-only">
+    <!-- Sheet 1 Outside -->
+    <div class="brochure-print-sheet">
+      <img src="/branding/novand-brochure-spread-outside-light.png" class="w-full h-full object-contain" />
+    </div>
+    <!-- Sheet 2 Inside -->
+    <div class="brochure-print-sheet">
+      <img src="/branding/novand-brochure-spread-inside-light.png" class="w-full h-full object-contain" />
+    </div>
+  </div>
+
+  <!-- Dynamic Theme & Tab Switcher Script -->
+  <script is:inline>
+    (function() {
+      var currentTheme = 'dark';
+      var currentTab = 'outside';
+
+      var btnDark = document.getElementById('btn-brochure-dark');
+      var btnLight = document.getElementById('btn-brochure-light');
+      var btnTabOutside = document.getElementById('btn-tab-outside');
+      var btnTabInside = document.getElementById('btn-tab-inside');
+
+      var viewOutside = document.getElementById('view-spread-outside');
+      var viewInside = document.getElementById('view-spread-inside');
+
+      var imgOutside = document.getElementById('img-spread-outside');
+      var imgInside = document.getElementById('img-spread-inside');
+      var linkOutsideSvg = document.getElementById('link-outside-svg');
+      var linkOutsidePng = document.getElementById('link-outside-png');
+      var linkInsideSvg = document.getElementById('link-inside-svg');
+      var linkInsidePng = document.getElementById('link-inside-png');
+
+      var panelImgs = document.querySelectorAll('.panel-preview-img');
+
+      function updateTheme(theme) {
+        currentTheme = theme;
+        if (theme === 'dark') {
+          btnDark.className = 'brochure-theme-btn flex-1 sm:flex-none px-4 py-2 rounded-lg text-xs font-bold font-sans transition-all cursor-pointer bg-slate-900 text-white dark:bg-[#00d2b5] dark:text-[#0d1417] shadow-sm';
+          btnLight.className = 'brochure-theme-btn flex-1 sm:flex-none px-4 py-2 rounded-lg text-xs font-bold font-sans transition-all cursor-pointer bg-stone-100 hover:bg-stone-200 dark:bg-[#1a252b] dark:hover:bg-[#223139] text-stone-700 dark:text-stone-300';
+        } else {
+          btnLight.className = 'brochure-theme-btn flex-1 sm:flex-none px-4 py-2 rounded-lg text-xs font-bold font-sans transition-all cursor-pointer bg-slate-900 text-white dark:bg-[#00d2b5] dark:text-[#0d1417] shadow-sm';
+          btnDark.className = 'brochure-theme-btn flex-1 sm:flex-none px-4 py-2 rounded-lg text-xs font-bold font-sans transition-all cursor-pointer bg-stone-100 hover:bg-stone-200 dark:bg-[#1a252b] dark:hover:bg-[#223139] text-stone-700 dark:text-stone-300';
+        }
+
+        // Update Spread Images & Links
+        imgOutside.src = '/branding/novand-brochure-spread-outside-' + theme + '.png';
+        imgInside.src = '/branding/novand-brochure-spread-inside-' + theme + '.png';
+
+        linkOutsideSvg.href = '/branding/novand-brochure-spread-outside-' + theme + '.svg';
+        linkOutsidePng.href = '/branding/novand-brochure-spread-outside-' + theme + '.png';
+        linkInsideSvg.href = '/branding/novand-brochure-spread-inside-' + theme + '.svg';
+        linkInsidePng.href = '/branding/novand-brochure-spread-inside-' + theme + '.png';
+
+        // Update Page Grid Previews
+        panelImgs.forEach(function(img) {
+          var p = img.getAttribute('data-page');
+          img.src = '/branding/novand-brochure-' + theme + '-p' + p + '.png';
+        });
+      }
+
+      function updateTab(tab) {
+        currentTab = tab;
+        if (tab === 'outside') {
+          viewOutside.classList.remove('hidden');
+          viewInside.classList.add('hidden');
+          btnTabOutside.className = 'brochure-spread-tab flex-1 sm:flex-none px-4 py-2 rounded-lg text-xs font-bold font-sans transition-all cursor-pointer bg-[#008f7a] dark:bg-[#10b981] text-white dark:text-[#0d1417]';
+          btnTabInside.className = 'brochure-spread-tab flex-1 sm:flex-none px-4 py-2 rounded-lg text-xs font-bold font-sans transition-all cursor-pointer bg-stone-100 hover:bg-stone-200 dark:bg-[#1a252b] dark:hover:bg-[#223139] text-stone-700 dark:text-stone-300';
+        } else {
+          viewInside.classList.remove('hidden');
+          viewOutside.classList.add('hidden');
+          btnTabInside.className = 'brochure-spread-tab flex-1 sm:flex-none px-4 py-2 rounded-lg text-xs font-bold font-sans transition-all cursor-pointer bg-[#008f7a] dark:bg-[#10b981] text-white dark:text-[#0d1417]';
+          btnTabOutside.className = 'brochure-spread-tab flex-1 sm:flex-none px-4 py-2 rounded-lg text-xs font-bold font-sans transition-all cursor-pointer bg-stone-100 hover:bg-stone-200 dark:bg-[#1a252b] dark:hover:bg-[#223139] text-stone-700 dark:text-stone-300';
+        }
+      }
+
+      if (btnDark) btnDark.addEventListener('click', function() { updateTheme('dark'); });
+      if (btnLight) btnLight.addEventListener('click', function() { updateTheme('light'); });
+      if (btnTabOutside) btnTabOutside.addEventListener('click', function() { updateTab('outside'); });
+      if (btnTabInside) btnTabInside.addEventListener('click', function() { updateTab('inside'); });
+    })();
+  </script>
+</BaseLayout>
