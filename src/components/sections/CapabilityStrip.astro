@@ -1,13 +1,25 @@
 ---
 const companyData = getCompanyData(Astro.url.pathname);
 import { getCompanyData } from "../../data/company";
+
+const capabilityIcons = [
+  "/icons/smart-home.svg",
+  "/icons/network-core.svg",
+  "/icons/voip-telephony.svg",
+  "/icons/virtualization.svg",
+  "/icons/cctv-surveillance.svg",
+  "/icons/hardware-chip.svg"
+];
 ---
 <section class="border-b border-[#15120e] bg-[#0f172a] text-[#f4f2f1] grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 capability-strip keep-dark">
   {companyData.capabilities.map((cap, i) => (
-    <div class="p-6 border-r border-b lg:border-b-0 border-white/10 flex flex-col justify-between h-28 sm:h-32 hover:bg-white/5 transition-colors group cursor-pointer">
-      <span class="text-[10px] uppercase font-mono tracking-[0.2em] text-[#00d2b5] group-hover:opacity-100 transition-opacity font-semibold">
-        0{i + 1}
-      </span>
+    <div class="p-5 border-r border-b lg:border-b-0 border-white/10 flex flex-col justify-between h-28 sm:h-32 hover:bg-white/5 transition-colors group cursor-pointer">
+      <div class="flex items-center justify-between">
+        <span class="text-[10px] uppercase font-mono tracking-[0.2em] text-[#00d2b5] group-hover:opacity-100 transition-opacity font-semibold">
+          0{i + 1}
+        </span>
+        <img src={capabilityIcons[i] || "/icons/network-core.svg"} alt="" class="w-4 h-4 object-contain opacity-60 group-hover:opacity-100 transition-opacity" />
+      </div>
       <span class="text-xs uppercase tracking-wider font-semibold text-[#f8fafc] group-hover:text-[#00d2b5] leading-snug transition-colors">
         {cap}
       </span>

@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" width="1920" height="1080" fill="none">
+  <style>
+    @keyframes circuitFlow {
+      0% { stroke-dashoffset: 1000; }
+      100% { stroke-dashoffset: 0; }
+    }
+    @keyframes beaconBlink {
+      0%, 100% { opacity: 0.2; transform: scale(0.8); }
+      50% { opacity: 1; transform: scale(1.2); }
+    }
+    .flow-stream-1 {
+      stroke: #00d2b5;
+      stroke-width: 2.5;
+      stroke-dasharray: 40 120;
+      animation: circuitFlow 8s linear infinite;
+    }
+    .flow-stream-2 {
+      stroke: #10b981;
+      stroke-width: 2.5;
+      stroke-dasharray: 60 140;
+      animation: circuitFlow 12s linear infinite reverse;
+    }
+    .beacon-pulse {
+      animation: beaconBlink 2.5s ease-in-out infinite;
+      transform-origin: center;
+    }
+  </style>
+  <rect width="1920" height="1080" fill="#0d1417"/>
+  
+  <!-- Subtle Isometric Traces -->
+  <g stroke="#141b1f" stroke-width="1.5">
+    <path d="M0 270 H1920"/>
+    <path d="M0 540 H1920"/>
+    <path d="M0 810 H1920"/>
+    <path d="M480 0 V1080"/>
+    <path d="M960 0 V1080"/>
+    <path d="M1440 0 V1080"/>
+  </g>
+
+  <!-- Flowing Highway Circuits -->
+  <path d="M0 360 L480 360 L720 540 L1200 540 L1440 360 L1920 360" stroke="#1e2c34" stroke-width="4"/>
+  <path d="M0 360 L480 360 L720 540 L1200 540 L1440 360 L1920 360" class="flow-stream-1"/>
+
+  <path d="M0 720 L360 720 L600 540 L1320 540 L1560 720 L1920 720" stroke="#1e2c34" stroke-width="4"/>
+  <path d="M0 720 L360 720 L600 540 L1320 540 L1560 720 L1920 720" class="flow-stream-2"/>
+
+  <!-- Glowing Strategic Nodes -->
+  <circle cx="480" cy="360" r="10" fill="#00d2b5" class="beacon-pulse"/>
+  <circle cx="720" cy="540" r="12" fill="#10b981" class="beacon-pulse" style="animation-delay: 1s;"/>
+  <circle cx="1200" cy="540" r="12" fill="#00d2b5" class="beacon-pulse" style="animation-delay: 0.5s;"/>
+  <circle cx="1440" cy="360" r="10" fill="#10b981" class="beacon-pulse" style="animation-delay: 1.8s;"/>
+
+  <!-- Ambient Novand Watermark -->
+  <g transform="translate(860, 480) scale(1.5)" opacity="0.12">
+    <path d="M50 18 L22 38 V68 H48" stroke="#ffffff" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" />
+    <path d="M50 18 L84 42" stroke="#ffffff" stroke-width="5" stroke-linecap="round" />
+  </g>
+</svg>

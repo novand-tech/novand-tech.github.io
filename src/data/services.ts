@@ -32,7 +32,7 @@ export interface ServiceCategory extends ServiceDetail {
 export const servicesDataFa: ServiceCategory[] = [
   {
     slug: "smart-homes-buildings",
-    heroImage: "/images/network-cabling.jpg",
+    heroImage: "/images/residential-smart-home.jpg",
     eyebrow: "اتوماسیون و یکپارچه‌سازی",
     title: "خانه‌ها و ساختمان‌های هوشمند",
     summary: "مهندسی و یکپارچه‌سازی پیشرفته اتوماسیون ساختمان برای فضاهای مسکونی، آموزشی و کشاورزی.",
@@ -120,7 +120,7 @@ export const servicesDataFa: ServiceCategory[] = [
   },
   {
     slug: "security-surveillance",
-    heroImage: "/images/audio-power.jpg",
+    heroImage: "/images/security-surveillance.jpg",
     eyebrow: "نظارت و کنترل تردد",
     title: "حفاظت فیزیکی و دوربین‌های مداربسته",
     summary: "نصب و راه‌اندازی سیستم‌های پیشرفته امنیتی، پایش تصویری هوشمند و راهکارهای جامع کنترل تردد.",
@@ -142,7 +142,7 @@ export const servicesDataFa: ServiceCategory[] = [
   },
   {
     slug: "audio-power",
-    heroImage: "/images/security-surveillance.jpg",
+    heroImage: "/images/audio-power.jpg",
     eyebrow: "صوت و توان مصرفی",
     title: "تجهیزات صوتی و منابع تغذیه اضطراری",
     summary: "طراحی آکوستیک، سیستم‌های صوتی تحت شبکه و مهندسی برق پشتیبان برای تضمین پایداری زیرساخت‌ها.",
@@ -189,7 +189,7 @@ export const servicesDataFa: ServiceCategory[] = [
 export const servicesDataEn: ServiceCategory[] = [
   {
     slug: "smart-homes-buildings",
-    heroImage: "/images/network-cabling.jpg",
+    heroImage: "/images/residential-smart-home.jpg",
     eyebrow: "Automation & Integration",
     title: "Smart Homes & Buildings",
     summary: "Advanced building automation engineering and integration for residential, educational, and agricultural spaces.",
@@ -277,7 +277,7 @@ export const servicesDataEn: ServiceCategory[] = [
   },
   {
     slug: "security-surveillance",
-    heroImage: "/images/audio-power.jpg",
+    heroImage: "/images/security-surveillance.jpg",
     eyebrow: "Surveillance & Access Control",
     title: "Physical Security & CCTV",
     summary: "Installation of advanced security systems, smart video monitoring, and comprehensive access control solutions.",
@@ -299,7 +299,7 @@ export const servicesDataEn: ServiceCategory[] = [
   },
   {
     slug: "audio-power",
-    heroImage: "/images/security-surveillance.jpg",
+    heroImage: "/images/audio-power.jpg",
     eyebrow: "Acoustics & Power",
     title: "Audio Systems & Critical Power",
     summary: "Acoustic design, IP audio systems, and backup electrical engineering to ensure infrastructure stability.",

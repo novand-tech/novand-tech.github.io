@@ -30,7 +30,6 @@ const imgResidential = getImageB64('residential-smart-home.jpg');
 const imgSecurity = getImageB64('security-surveillance.jpg');
 const imgCabling = getImageB64('network-cabling.jpg');
 const imgBusiness = getImageB64('business-office.jpg');
-const imgSpecialized = getImageB64('specialized-infrastructure.jpg');
 
 // 3. Novand vector emblem SVG generator
 function getNovandEmblemMarkup({ scale = 1.0, strokeCore = '#ffffff', glowId = 'grad', fillDot = '#0d1417' }) {
@@ -52,8 +51,7 @@ function getNovandEmblemMarkup({ scale = 1.0, strokeCore = '#ffffff', glowId = '
   `;
 }
 
-// 4. Panel generators: Each panel has standard dimensions W=1169, H=2480 (or inside a 3-panel A4 sheet 3508 x 2480)
-// To keep things modular and reusable, each panel renders into width=1160, height=2480.
+// 4. Shared Definitions
 function getSharedDefs(theme) {
   const isDark = theme === 'dark';
   const accentTurquoise = isDark ? '#00d2b5' : '#008775';
@@ -100,11 +98,11 @@ function getSharedDefs(theme) {
         <stop offset="50%" stop-color="${isDark ? '#23343d' : '#cbd5e1'}" stop-opacity="0.5" />
         <stop offset="100%" stop-color="${isDark ? '#23343d' : '#cbd5e1'}" stop-opacity="0.1" />
       </linearGradient>
-      <clipPath id="clip-p1-hero"><rect width="1020" height="780" rx="20" /></clipPath>
-      <clipPath id="clip-p2-hero"><rect width="1020" height="620" rx="16" /></clipPath>
-      <clipPath id="clip-p3-hero"><rect width="1020" height="620" rx="16" /></clipPath>
-      <clipPath id="clip-p4-hero"><rect width="1020" height="620" rx="16" /></clipPath>
-      <clipPath id="clip-p5-hero"><rect width="1020" height="520" rx="16" /></clipPath>
+      <clipPath id="clip-p1-hero"><rect width="1030" height="720" rx="16" /></clipPath>
+      <clipPath id="clip-p2-hero"><rect width="1030" height="520" rx="16" /></clipPath>
+      <clipPath id="clip-p3-hero"><rect width="1030" height="520" rx="16" /></clipPath>
+      <clipPath id="clip-p4-hero"><rect width="1030" height="520" rx="16" /></clipPath>
+      <clipPath id="clip-p5-hero"><rect width="1030" height="420" rx="16" /></clipPath>
     </defs>
   `;
 }
@@ -117,103 +115,103 @@ function renderPanel1Content(theme) {
   const textSecondary = isDark ? '#94a3b8' : '#475569';
   const accent = isDark ? '#00d2b5' : '#008775';
   const cardBg = isDark ? '#121a1f' : '#f8fafc';
-  const cardBorder = isDark ? '#1f2d35' : '#e2e8f0';
+  const cardBorder = isDark ? '#1e2c34' : '#e2e8f0';
   const strokeCore = isDark ? '#ffffff' : '#0f172a';
   const fillDot = isDark ? '#0b1013' : '#ffffff';
 
   return `
-    <!-- Header Badge -->
-    <g transform="translate(1080, 140)">
-      <rect x="-380" y="0" width="380" height="46" rx="23" fill="${cardBg}" stroke="${cardBorder}" stroke-width="2" />
-      <circle cx="-355" cy="23" r="6" fill="${accent}" />
-      <text x="-335" y="30" fill="${textSecondary}" class="space-bold" font-size="19" letter-spacing="2">OFFICIAL COMPANY PROFILE</text>
+    <!-- Header Indicator -->
+    <g transform="translate(1095, 140)">
+      <rect x="-380" y="0" width="380" height="46" rx="23" fill="${cardBg}" stroke="${cardBorder}" stroke-width="1.5" />
+      <circle cx="-355" cy="23" r="5" fill="${accent}" />
+      <text x="-335" y="30" fill="${textSecondary}" class="space-bold" font-size="17" letter-spacing="2">ENGINEERING PROFILE</text>
     </g>
 
     <!-- Logo & Brand Header -->
-    <g transform="translate(1080, 290)">
+    <g transform="translate(1095, 290)">
       <g transform="translate(-160, -80)">
         ${getNovandEmblemMarkup({ scale: 1.8, strokeCore, glowId: `brochure-grad-${theme}`, fillDot })}
       </g>
-      <text x="-210" y="0" fill="${textPrimary}" class="vazir-bold" font-size="88" text-anchor="end">نُـوَند</text>
+      <text x="-210" y="0" fill="${textPrimary}" class="vazir-bold" font-size="90" text-anchor="end">نُـوَند</text>
       <text x="-210" y="62" fill="${accent}" class="space-bold" font-size="34" letter-spacing="9" text-anchor="end">NOVAND</text>
     </g>
 
     <!-- Main Slogan & Subtitles -->
-    <g transform="translate(1080, 520)">
-      <text x="0" y="0" fill="${textPrimary}" class="vazir-bold" font-size="46" text-anchor="end">راهکارهای جامع فناوری و مهندسی زیرساخت</text>
-      <text x="0" y="55" fill="${accent}" class="space-bold" font-size="21" letter-spacing="2" text-anchor="end">INTEGRATED TECHNOLOGY &amp; INFRASTRUCTURE</text>
-      <line x1="-1010" y1="95" x2="0" y2="95" stroke="url(#brochure-line-${theme})" stroke-width="3" />
+    <g transform="translate(1095, 520)">
+      <text x="0" y="0" fill="${textPrimary}" class="vazir-bold" font-size="44" text-anchor="end">راهکارهای یکپارچه فناوری و مهندسی زیرساخت</text>
+      <text x="0" y="55" fill="${accent}" class="space-bold" font-size="20" letter-spacing="2" text-anchor="end">INTEGRATED TECHNOLOGY &amp; INFRASTRUCTURE</text>
+      <line x1="-1030" y1="95" x2="0" y2="95" stroke="url(#brochure-line-${theme})" stroke-width="2.5" />
     </g>
 
     <!-- Hero Visual Stage -->
-    <g transform="translate(70, 680)">
-      <rect width="1020" height="780" rx="20" fill="${cardBg}" stroke="${cardBorder}" stroke-width="2" />
+    <g transform="translate(65, 680)">
+      <rect width="1030" height="720" rx="16" fill="${cardBg}" stroke="${cardBorder}" stroke-width="1.5" />
       <g clip-path="url(#clip-p1-hero)">
-        <image href="${imgHeroDatacenter}" width="1020" height="780" preserveAspectRatio="xMidYMid slice" opacity="${isDark ? '0.85' : '0.95'}" />
-        <rect width="1020" height="780" fill="${isDark ? 'rgba(11,16,19,0.35)' : 'rgba(0,0,0,0.1)'}" />
+        <image href="${imgHeroDatacenter}" width="1030" height="720" preserveAspectRatio="xMidYMid slice" opacity="${isDark ? '0.88' : '0.96'}" />
+        <rect width="1030" height="720" fill="${isDark ? 'rgba(11,16,19,0.35)' : 'rgba(0,0,0,0.08)'}" />
       </g>
-      <!-- Overlay Technical HUD -->
-      <rect x="30" y="30" width="310" height="50" rx="10" fill="${cardBg}" opacity="0.92" stroke="${accent}" stroke-width="1.5" />
-      <text x="50" y="62" fill="${accent}" class="space-bold" font-size="19" letter-spacing="1">ENGINEERED CONVERGENCE</text>
+      <!-- Sleek Minimal HUD Badge -->
+      <rect x="25" y="25" width="280" height="44" rx="8" fill="${cardBg}" opacity="0.92" stroke="${accent}" stroke-width="1.5" />
+      <text x="45" y="53" fill="${accent}" class="space-bold" font-size="17" letter-spacing="1">ENTERPRISE CONVERGENCE</text>
       
-      <rect x="30" y="690" width="960" height="60" rx="12" fill="${isDark ? '#0b1013' : '#ffffff'}" opacity="0.94" stroke="${cardBorder}" stroke-width="1.5" />
-      <text x="960" y="730" fill="${textPrimary}" class="vazir-bold" font-size="22" text-anchor="end">طراحی، تأمین تجهیزات، اجرا و پشتیبانی تخصصی</text>
-      <text x="60" y="728" fill="${accent}" class="space-bold" font-size="18" text-anchor="start">SMART · CCTV · NETWORK · VOIP</text>
+      <rect x="25" y="645" width="980" height="52" rx="10" fill="${isDark ? '#0b1013' : '#ffffff'}" opacity="0.94" stroke="${cardBorder}" stroke-width="1.5" />
+      <text x="980" y="679" fill="${textPrimary}" class="vazir-bold" font-size="21" text-anchor="end">طراحی، تأمین تجهیزات اصلی، اجرا و پشتیبانی تخصصی</text>
+      <text x="50" y="678" fill="${accent}" class="space-bold" font-size="17" text-anchor="start">SMART · CCTV · NETWORK · VOIP</text>
     </g>
 
-    <!-- Core 4 Pillars Badges -->
-    <g transform="translate(1080, 1550)">
+    <!-- Core 4 Pillars Grid (Clean, Modern, Minimal) -->
+    <g transform="translate(1095, 1490)">
       <!-- Pillar 1 -->
       <g transform="translate(0, 0)">
-        <rect x="-485" y="0" width="485" height="150" rx="16" fill="${cardBg}" stroke="${cardBorder}" stroke-width="2" />
-        <circle cx="-50" cy="50" r="28" fill="${isDark ? '#1a272f' : '#e0f2fe'}" />
-        <text x="-50" y="58" fill="${accent}" class="vazir-bold" font-size="24" text-anchor="middle">۰۱</text>
-        <text x="-95" y="48" fill="${textPrimary}" class="vazir-bold" font-size="28" text-anchor="end">خانه‌ها و ساختمان‌های هوشمند</text>
-        <text x="-95" y="80" fill="${accent}" class="space-bold" font-size="17" text-anchor="end">Smart Homes &amp; Automation</text>
-        <text x="-95" y="118" fill="${textSecondary}" class="vazir-reg" font-size="20" text-anchor="end">کنترل هوشمند روشنایی، تهویه و BMS</text>
+        <rect x="-495" y="0" width="495" height="175" rx="14" fill="${cardBg}" stroke="${cardBorder}" stroke-width="1.5" />
+        <circle cx="-50" cy="50" r="24" fill="${isDark ? '#1a272f' : '#e0f2fe'}" />
+        <text x="-50" y="58" fill="${accent}" class="vazir-bold" font-size="22" text-anchor="middle">۰۱</text>
+        <text x="-90" y="48" fill="${textPrimary}" class="vazir-bold" font-size="27" text-anchor="end">خانه‌ها و مجتمع‌های هوشمند</text>
+        <text x="-90" y="82" fill="${accent}" class="space-bold" font-size="16" text-anchor="end">Smart Buildings &amp; Automation</text>
+        <text x="-90" y="122" fill="${textSecondary}" class="vazir-reg" font-size="19" text-anchor="end">کنترل هوشمند روشنایی، تهویه مطبوع و پروتکل‌های KNX</text>
       </g>
 
       <!-- Pillar 2 -->
-      <g transform="translate(-525, 0)">
-        <rect x="-485" y="0" width="485" height="150" rx="16" fill="${cardBg}" stroke="${cardBorder}" stroke-width="2" />
-        <circle cx="-50" cy="50" r="28" fill="${isDark ? '#1a272f' : '#e0f2fe'}" />
-        <text x="-50" y="58" fill="${accent}" class="vazir-bold" font-size="24" text-anchor="middle">۰۲</text>
-        <text x="-95" y="48" fill="${textPrimary}" class="vazir-bold" font-size="28" text-anchor="end">سیستم‌های نظارتی و CCTV</text>
-        <text x="-95" y="80" fill="${accent}" class="space-bold" font-size="17" text-anchor="end">CCTV &amp; Physical Security</text>
-        <text x="-95" y="118" fill="${textSecondary}" class="vazir-reg" font-size="20" text-anchor="end">دوربین‌های IP، هوش مصنوعی و اتاق مانیتورینگ</text>
+      <g transform="translate(-535, 0)">
+        <rect x="-495" y="0" width="495" height="175" rx="14" fill="${cardBg}" stroke="${cardBorder}" stroke-width="1.5" />
+        <circle cx="-50" cy="50" r="24" fill="${isDark ? '#1a272f' : '#e0f2fe'}" />
+        <text x="-50" y="58" fill="${accent}" class="vazir-bold" font-size="22" text-anchor="middle">۰۲</text>
+        <text x="-90" y="48" fill="${textPrimary}" class="vazir-bold" font-size="27" text-anchor="end">سیستم‌های نظارتی و CCTV</text>
+        <text x="-90" y="82" fill="${accent}" class="space-bold" font-size="16" text-anchor="end">AI CCTV &amp; Physical Security</text>
+        <text x="-90" y="122" fill="${textSecondary}" class="vazir-reg" font-size="19" text-anchor="end">دوربین‌های IP 4K، هوش مصنوعی لبه و اتاق‌های مانیتورینگ</text>
       </g>
 
       <!-- Pillar 3 -->
-      <g transform="translate(0, 185)">
-        <rect x="-485" y="0" width="485" height="150" rx="16" fill="${cardBg}" stroke="${cardBorder}" stroke-width="2" />
-        <circle cx="-50" cy="50" r="28" fill="${isDark ? '#1a272f' : '#e0f2fe'}" />
-        <text x="-50" y="58" fill="${accent}" class="vazir-bold" font-size="24" text-anchor="middle">۰۳</text>
-        <text x="-95" y="48" fill="${textPrimary}" class="vazir-bold" font-size="28" text-anchor="end">زیرساخت شبکه و خدمات IT</text>
-        <text x="-95" y="80" fill="${accent}" class="space-bold" font-size="17" text-anchor="end">Network Infrastructure</text>
-        <text x="-95" y="118" fill="${textSecondary}" class="vazir-reg" font-size="20" text-anchor="end">کابل‌کشی ساخت‌یافته، سوئیچینگ سیسکو و امنیت</text>
+      <g transform="translate(0, 205)">
+        <rect x="-495" y="0" width="495" height="175" rx="14" fill="${cardBg}" stroke="${cardBorder}" stroke-width="1.5" />
+        <circle cx="-50" cy="50" r="24" fill="${isDark ? '#1a272f' : '#e0f2fe'}" />
+        <text x="-50" y="58" fill="${accent}" class="vazir-bold" font-size="22" text-anchor="middle">۰۳</text>
+        <text x="-90" y="48" fill="${textPrimary}" class="vazir-bold" font-size="27" text-anchor="end">زیرساخت شبکه و خدمات IT</text>
+        <text x="-90" y="82" fill="${accent}" class="space-bold" font-size="16" text-anchor="end">Enterprise Network Infrastructure</text>
+        <text x="-90" y="122" fill="${textSecondary}" class="vazir-reg" font-size="19" text-anchor="end">کابل‌کشی ساخت‌یافته مس، سوئیچینگ سیسکو و فایروال</text>
       </g>
 
       <!-- Pillar 4 -->
-      <g transform="translate(-525, 185)">
-        <rect x="-485" y="0" width="485" height="150" rx="16" fill="${cardBg}" stroke="${cardBorder}" stroke-width="2" />
-        <circle cx="-50" cy="50" r="28" fill="${isDark ? '#1a272f' : '#e0f2fe'}" />
-        <text x="-50" y="58" fill="${accent}" class="vazir-bold" font-size="24" text-anchor="middle">۰۴</text>
-        <text x="-95" y="48" fill="${textPrimary}" class="vazir-bold" font-size="28" text-anchor="end">فیبر نوری و مراکز تلفن VoIP</text>
-        <text x="-95" y="80" fill="${accent}" class="space-bold" font-size="17" text-anchor="end">Fiber Optics &amp; VoIP</text>
-        <text x="-95" y="118" fill="${textSecondary}" class="vazir-reg" font-size="20" text-anchor="end">لینک‌های FTTH، سیپ‌ترانک و مدیریت سرورها</text>
+      <g transform="translate(-535, 205)">
+        <rect x="-495" y="0" width="495" height="175" rx="14" fill="${cardBg}" stroke="${cardBorder}" stroke-width="1.5" />
+        <circle cx="-50" cy="50" r="24" fill="${accent}" />
+        <text x="-50" y="58" fill="${isDark ? '#0d1417' : '#ffffff'}" class="vazir-bold" font-size="22" text-anchor="middle">۰۴</text>
+        <text x="-90" y="48" fill="${textPrimary}" class="vazir-bold" font-size="27" text-anchor="end">فیبر نوری و مراکز تلفن VoIP</text>
+        <text x="-90" y="82" fill="${accent}" class="space-bold" font-size="16" text-anchor="end">Fiber Optics &amp; Unified VoIP</text>
+        <text x="-90" y="122" fill="${textSecondary}" class="vazir-reg" font-size="19" text-anchor="end">لینک‌های FTTH، سیپ‌ترانک، مجازی‌سازی و تله‌متری توان</text>
       </g>
     </g>
 
     <!-- Bottom Footer Bar -->
-    <g transform="translate(70, 2220)">
-      <rect width="1020" height="110" rx="18" fill="${cardBg}" stroke="${cardBorder}" stroke-width="2" />
-      <text x="970" y="65" fill="${textPrimary}" class="vazir-bold" font-size="24" text-anchor="end">پرتال رسمی و معرفی راهکارها</text>
-      <text x="50" y="68" fill="${accent}" class="space-bold" font-size="29" letter-spacing="2" text-anchor="start">novand-tech.com</text>
+    <g transform="translate(65, 2220)">
+      <rect width="1030" height="105" rx="14" fill="${cardBg}" stroke="${cardBorder}" stroke-width="1.5" />
+      <text x="980" y="62" fill="${textPrimary}" class="vazir-bold" font-size="23" text-anchor="end">پرتال رسمی و معرفی راهکارها</text>
+      <text x="50" y="65" fill="${accent}" class="space-bold" font-size="28" letter-spacing="2" text-anchor="start">novand-tech.com</text>
     </g>
   `;
 }
 
-// PAGE 2: BUSINESS INTRODUCTION & SMART HOMES
+// PAGE 2: SMART LIVING, EDUCATIONAL TECH & AUTOMATION
 function renderPanel2Content(theme) {
   const isDark = theme === 'dark';
   const textPrimary = isDark ? '#ffffff' : '#0f172a';
@@ -221,106 +219,113 @@ function renderPanel2Content(theme) {
   const textBody = isDark ? '#cbd5e1' : '#334155';
   const accent = isDark ? '#00d2b5' : '#008775';
   const cardBg = isDark ? '#121a1f' : '#f8fafc';
-  const cardBorder = isDark ? '#1f2d35' : '#e2e8f0';
+  const cardBorder = isDark ? '#1e2c34' : '#e2e8f0';
 
   return `
     <!-- Top Header -->
-    <g transform="translate(1080, 140)">
-      <text x="0" y="0" fill="${accent}" class="space-bold" font-size="22" letter-spacing="3" text-anchor="end">02 // ABOUT &amp; SMART BUILDINGS</text>
-      <text x="0" y="55" fill="${textPrimary}" class="vazir-bold" font-size="44" text-anchor="end">معرفی نُـوَند و خانه‌های هوشمند</text>
-      <text x="0" y="100" fill="${textSecondary}" class="vazir-reg" font-size="22" text-anchor="end">همگرایی مهندسی، معماری مدرن و اتوماسیون یکپارچه</text>
-      <line x1="-1010" y1="135" x2="0" y2="135" stroke="url(#brochure-line-${theme})" stroke-width="2.5" />
-    </g>
-
-    <!-- Intro Lead Card -->
-    <g transform="translate(70, 320)">
-      <rect width="1020" height="270" rx="18" fill="${cardBg}" stroke="${cardBorder}" stroke-width="2" />
-      <rect x="996" y="24" width="6" height="222" rx="3" fill="url(#brochure-grad-${theme})" />
-      <text x="960" y="68" fill="${textPrimary}" class="vazir-bold" font-size="26" text-anchor="end">نُـوَند؛ شریک مهندسی فناوری یکپارچه</text>
-      <text x="960" y="116" fill="${textBody}" class="vazir-reg" font-size="21" text-anchor="end">کسب‌وکارهای مدرن، مراکز آموزشی، اداری و فضاهای مسکونی امروزی به همگرایی</text>
-      <text x="960" y="156" fill="${textBody}" class="vazir-reg" font-size="21" text-anchor="end">بی‌نقص شبکه‌های داده، امنیت فیزیکی، اتوماسیون محیطی و سرورها وابسته هستند.</text>
-      <text x="960" y="196" fill="${textBody}" class="vazir-reg" font-size="21" text-anchor="end">هنگامی که این حوزه‌ها جزیره‌ای مهندسی شوند، هزینه‌ها و خطاها افزایش می‌یابد؛</text>
-      <text x="960" y="236" fill="${accent}" class="vazir-bold" font-size="21" text-anchor="end">نُـوَند این ارکان را در قالب سامانه‌ای استاندارد و یکدست پیاده‌سازی می‌کند.</text>
+    <g transform="translate(1095, 140)">
+      <text x="0" y="0" fill="${accent}" class="space-bold" font-size="21" letter-spacing="3" text-anchor="end">02 // SMART AUTOMATION &amp; SPACES</text>
+      <text x="0" y="55" fill="${textPrimary}" class="vazir-bold" font-size="44" text-anchor="end">هوشمندسازی ساختمان، مدارس و اتوماسیون</text>
+      <text x="0" y="98" fill="${textSecondary}" class="vazir-reg" font-size="21" text-anchor="end">همگرایی معماری مدرن، اتوماسیون یکپارچه و بسترهای آموزشی</text>
+      <line x1="-1030" y1="135" x2="0" y2="135" stroke="url(#brochure-line-${theme})" stroke-width="2.5" />
     </g>
 
     <!-- Image Stage -->
-    <g transform="translate(70, 630)">
-      <rect width="1020" height="620" rx="16" fill="${cardBg}" stroke="${cardBorder}" stroke-width="2" />
+    <g transform="translate(65, 310)">
+      <rect width="1030" height="520" rx="16" fill="${cardBg}" stroke="${cardBorder}" stroke-width="1.5" />
       <g clip-path="url(#clip-p2-hero)">
-        <image href="${imgResidential}" width="1020" height="620" preserveAspectRatio="xMidYMid slice" />
+        <image href="${imgResidential}" width="1030" height="520" preserveAspectRatio="xMidYMid slice" />
       </g>
-      <rect x="25" y="545" width="970" height="50" rx="10" fill="${isDark ? '#0b1013' : '#ffffff'}" opacity="0.94" stroke="${cardBorder}" stroke-width="1.5" />
-      <text x="965" y="578" fill="${textPrimary}" class="vazir-bold" font-size="20" text-anchor="end">اتوماسیون لوکس و پنهان‌سازی تجهیزات در هماهنگی با طراحی معماری</text>
-      <text x="50" y="578" fill="${accent}" class="space-bold" font-size="16" text-anchor="start">RESIDENTIAL &amp; BMS</text>
+      <rect x="25" y="450" width="980" height="46" rx="8" fill="${isDark ? '#0b1013' : '#ffffff'}" opacity="0.94" stroke="${cardBorder}" stroke-width="1.5" />
+      <text x="965" y="480" fill="${textPrimary}" class="vazir-bold" font-size="19" text-anchor="end">اتوماسیون لوکس و پنهان‌سازی تجهیزات در هماهنگی کامل با طراحی معماری</text>
+      <text x="45" y="480" fill="${accent}" class="space-bold" font-size="15" text-anchor="start">SMART SPACES &amp; BMS</text>
     </g>
 
-    <!-- Core Focus: Smart Homes & Buildings -->
-    <g transform="translate(70, 1300)">
-      <rect width="1020" height="520" rx="18" fill="${cardBg}" stroke="${cardBorder}" stroke-width="2" />
-      <text x="970" y="55" fill="${textPrimary}" class="vazir-bold" font-size="28" text-anchor="end">اتوماسیون ساختمان، روشنایی و تهویه (Smart Homes &amp; BMS)</text>
-      <text x="970" y="90" fill="${accent}" class="space-bold" font-size="17" text-anchor="end">INTELLIGENT LIVING &amp; FACILITY AUTOMATION</text>
-      
-      <!-- Feature 1 -->
-      <g transform="translate(0, 125)">
-        <circle cx="975" cy="20" r="10" fill="${accent}" />
-        <text x="945" y="26" fill="${textPrimary}" class="vazir-bold" font-size="22" text-anchor="end">کنترل هوشمند روشنایی، تهویه (HVAC) و پرده‌های برقی</text>
-        <text x="945" y="60" fill="${textBody}" class="vazir-reg" font-size="19" text-anchor="end">مدیریت سناریوهای روشنایی، سرمایش و گرمایش بر اساس حضور و دمای محیط جهت صرفه‌جویی انرژی.</text>
+    <!-- Card 1: Smart Homes & Buildings -->
+    <g transform="translate(65, 870)">
+      <rect width="1030" height="480" rx="16" fill="${cardBg}" stroke="${cardBorder}" stroke-width="1.5" />
+      <text x="980" y="52" fill="${textPrimary}" class="vazir-bold" font-size="27" text-anchor="end">اتوماسیون ساختمان، روشنایی و تهویه (Smart Homes &amp; BMS)</text>
+      <text x="980" y="85" fill="${accent}" class="space-bold" font-size="16" text-anchor="end">INTELLIGENT LIVING &amp; FACILITY AUTOMATION</text>
+
+      <g transform="translate(0, 115)">
+        <circle cx="985" cy="18" r="8" fill="${accent}" />
+        <text x="960" y="24" fill="${textPrimary}" class="vazir-bold" font-size="21" text-anchor="end">کنترل هوشمند روشنایی تطبیقی، تهویه مطبوع (HVAC) و پرده‌های برقی</text>
+        <text x="960" y="56" fill="${textBody}" class="vazir-reg" font-size="18" text-anchor="end">مدیریت سناریوهای روشنایی، سرمایش و گرمایش بر پایه حضور افراد و سنجش دمای محیط جهت کاهش مصرف انرژی.</text>
       </g>
 
-      <!-- Feature 2 -->
-      <g transform="translate(0, 220)">
-        <circle cx="975" cy="20" r="10" fill="${accent}" />
-        <text x="945" y="26" fill="${textPrimary}" class="vazir-bold" font-size="22" text-anchor="end">پروتکل‌های استاندارد جهانی (KNX, Zigbee, Modbus)</text>
-        <text x="945" y="60" fill="${textBody}" class="vazir-reg" font-size="19" text-anchor="end">معماری باز و مستقل از برند بدون وابستگی انحصاری با قابلیت اتصال به تجهیزات برتر دنیا.</text>
+      <g transform="translate(0, 200)">
+        <circle cx="985" cy="18" r="8" fill="${accent}" />
+        <text x="960" y="24" fill="${textPrimary}" class="vazir-bold" font-size="21" text-anchor="end">پروتکل‌های استاندارد جهانی (KNX, Zigbee, Modbus)</text>
+        <text x="960" y="56" fill="${textBody}" class="vazir-reg" font-size="18" text-anchor="end">معماری باز و بدون وابستگی انحصاری به برندها با قابلیت یکپارچه‌سازی با برترین برندهای تجهیزات هوشمند جهان.</text>
       </g>
 
-      <!-- Feature 3 -->
-      <g transform="translate(0, 315)">
-        <circle cx="975" cy="20" r="10" fill="${accent}" />
-        <text x="945" y="26" fill="${textPrimary}" class="vazir-bold" font-size="22" text-anchor="end">سیستم‌های صوتی چندناحیه‌ای (Multi-Zone Audio)</text>
-        <text x="945" y="60" fill="${textBody}" class="vazir-reg" font-size="19" text-anchor="end">پخش موزیک اختصاصی و مدیریت استریم در زون‌های مختلف ساختمان به صورت وایرلس و تحت شبکه.</text>
+      <g transform="translate(0, 285)">
+        <circle cx="985" cy="18" r="8" fill="${accent}" />
+        <text x="960" y="24" fill="${textPrimary}" class="vazir-bold" font-size="21" text-anchor="end">سیستم‌های صوتی چندناحیه‌ای (Multi-Zone Audio)</text>
+        <text x="960" y="56" fill="${textBody}" class="vazir-reg" font-size="18" text-anchor="end">پخش موسیقی اختصاصی و مدیریت استریم در زون‌های مختلف ساختمان به شکل بی‌سیم و تحت شبکه یکپارچه.</text>
       </g>
 
-      <!-- Feature 4 -->
-      <g transform="translate(0, 410)">
-        <circle cx="975" cy="20" r="10" fill="${accent}" />
-        <text x="945" y="26" fill="${textPrimary}" class="vazir-bold" font-size="22" text-anchor="end">کنترل امن از راه دور و اپلیکیشن‌های موبایل</text>
-        <text x="945" y="60" fill="${textBody}" class="vazir-reg" font-size="19" text-anchor="end">داشبوردهای مدیریتی روی تبلت‌های دیواری و گوشی‌های هوشمند با رمزنگاری پیشرفته داده‌ها.</text>
+      <g transform="translate(0, 370)">
+        <circle cx="985" cy="18" r="8" fill="${accent}" />
+        <text x="960" y="24" fill="${textPrimary}" class="vazir-bold" font-size="21" text-anchor="end">داشبوردهای مدیریتی روی تاچ‌پنل‌های دیواری و کنترل امن از راه دور</text>
+        <text x="960" y="56" fill="${textBody}" class="vazir-reg" font-size="18" text-anchor="end">نظارت و مدیریت کامل وضعیت فضا بر روی تبلت‌های دیواری و اپلیکیشن موبایل با رمزنگاری پیشرفته داده‌ها.</text>
       </g>
     </g>
 
-    <!-- Secondary Focus: Educational & Greenhouse -->
-    <g transform="translate(70, 1860)">
-      <rect width="1020" height="320" rx="18" fill="${cardBg}" stroke="${cardBorder}" stroke-width="2" />
-      <text x="970" y="52" fill="${textPrimary}" class="vazir-bold" font-size="26" text-anchor="end">اتوماسیون مراکز آموزشی، مدارس و گلخانه‌های صنعتی</text>
-      
-      <g transform="translate(0, 85)">
-        <rect x="525" y="0" width="460" height="200" rx="12" fill="${isDark ? '#0b1013' : '#ffffff'}" stroke="${cardBorder}" stroke-width="1.5" />
-        <text x="955" y="42" fill="${accent}" class="vazir-bold" font-size="21" text-anchor="end">مدارس هوشمند و کلاس‌های تعاملی</text>
-        <text x="955" y="78" fill="${textBody}" class="vazir-reg" font-size="18" text-anchor="end">• تخته‌های هوشمند و نمایشگرهای لمسی</text>
-        <text x="955" y="112" fill="${textBody}" class="vazir-reg" font-size="18" text-anchor="end">• سیستم‌های صوتی پیجینگ دوطرفه</text>
-        <text x="955" y="146" fill="${textBody}" class="vazir-reg" font-size="18" text-anchor="end">• شبکه وایرلس امن کلاسی با تفکیک دسترسی</text>
+    <!-- Card 2: Smart Schools & Educational Tech -->
+    <g transform="translate(65, 1380)">
+      <rect width="1030" height="420" rx="16" fill="${cardBg}" stroke="${cardBorder}" stroke-width="1.5" />
+      <text x="980" y="52" fill="${textPrimary}" class="vazir-bold" font-size="27" text-anchor="end">تجهیز و هوشمندسازی مدارس و مراکز آموزشی (Smart Schools)</text>
+      <text x="980" y="85" fill="${accent}" class="space-bold" font-size="16" text-anchor="end">INTERACTIVE CLASSROOMS &amp; EDUCATIONAL INFRASTRUCTURE</text>
+
+      <g transform="translate(0, 115)">
+        <circle cx="985" cy="18" r="8" fill="${accent}" />
+        <text x="960" y="24" fill="${textPrimary}" class="vazir-bold" font-size="21" text-anchor="end">نمایشگرهای لمسی تعاملی و بردهای هوشمند آموزشی</text>
+        <text x="960" y="56" fill="${textBody}" class="vazir-reg" font-size="18" text-anchor="end">تجهیز کلاس‌ها به پنل‌های لمسی با قابلیت نوشتن دیجیتال، اتصال بی‌سیم به تبلت اساتید و نمایش همزمان چندرسانه‌ای.</text>
       </g>
 
-      <g transform="translate(0, 85)">
-        <rect x="35" y="0" width="460" height="200" rx="12" fill="${isDark ? '#0b1013' : '#ffffff'}" stroke="${cardBorder}" stroke-width="1.5" />
-        <text x="465" y="42" fill="${accent}" class="vazir-bold" font-size="21" text-anchor="end">پایش محیطی و گلخانه صنعتی</text>
-        <text x="465" y="78" fill="${textBody}" class="vazir-reg" font-size="18" text-anchor="end">• سنسورهای رطوبت، دما و دی‌اکسیدکربن</text>
-        <text x="465" y="112" fill="${textBody}" class="vazir-reg" font-size="18" text-anchor="end">• اتوماسیون آبیاری و تهویه هوشمند</text>
-        <text x="465" y="146" fill="${textBody}" class="vazir-reg" font-size="18" text-anchor="end">• داشبورد هشدار و مانیتورینگ آنلاین ۲۴ ساعته</text>
+      <g transform="translate(0, 205)">
+        <circle cx="985" cy="18" r="8" fill="${accent}" />
+        <text x="960" y="24" fill="${textPrimary}" class="vazir-bold" font-size="21" text-anchor="end">سیستم صوتی پیجینگ هوشمند، فراخوان کلاسی و زنگ خودکار</text>
+        <text x="960" y="56" fill="${textBody}" class="vazir-reg" font-size="18" text-anchor="end">زمان‌بندی هوشمند پخش آلارم، زنگ مدارس و پیام‌های صوتی مستقل در زون‌های کلاسی، راهروها و حیاط مدرسه.</text>
+      </g>
+
+      <g transform="translate(0, 295)">
+        <circle cx="985" cy="18" r="8" fill="${accent}" />
+        <text x="960" y="24" fill="${textPrimary}" class="vazir-bold" font-size="21" text-anchor="end">بستر امن ارتباطات کلاسی، حضور و غیاب دیجیتال و شبکه وایرلس پرسرعت</text>
+        <text x="960" y="56" fill="${textBody}" class="vazir-reg" font-size="18" text-anchor="end">پیکربندی شبکه وای‌فای امن با دسترسی تفکیک‌شده برای کادر آموزشی و دانش‌آموزان به همراه ثبت اتوماتیک حضور/غیاب.</text>
+      </g>
+    </g>
+
+    <!-- Card 3: Environmental & Industrial Automation -->
+    <g transform="translate(65, 1830)">
+      <rect width="1030" height="360" rx="16" fill="${cardBg}" stroke="${cardBorder}" stroke-width="1.5" />
+      <text x="980" y="52" fill="${textPrimary}" class="vazir-bold" font-size="26" text-anchor="end">اتوماسیون صنعتی، گلخانه‌ها و پایش محیطی (Environmental IoT)</text>
+      <text x="980" y="85" fill="${accent}" class="space-bold" font-size="16" text-anchor="end">PRECISION SENSING &amp; ENVIRONMENTAL TELEMETRY</text>
+
+      <g transform="translate(0, 115)">
+        <circle cx="985" cy="18" r="8" fill="${accent}" />
+        <text x="960" y="24" fill="${textPrimary}" class="vazir-bold" font-size="21" text-anchor="end">پایش سنسوری بلادرنگ دما، رطوبت، گازها و روشنایی محیطی</text>
+        <text x="960" y="56" fill="${textBody}" class="vazir-reg" font-size="18" text-anchor="end">استقرار حسگرهای دقیق صنعتی در مراکز داده، انبارها و فضاهای حساس با ارسال اخطارهای خودکار پیامکی و آنلاین.</text>
+      </g>
+
+      <g transform="translate(0, 215)">
+        <circle cx="985" cy="18" r="8" fill="${accent}" />
+        <text x="960" y="24" fill="${textPrimary}" class="vazir-bold" font-size="21" text-anchor="end">اتوماسیون دقیق گلخانه‌ها، آبیاری خودکار و تهویه کنترل‌شده</text>
+        <text x="960" y="56" fill="${textBody}" class="vazir-reg" font-size="18" text-anchor="end">تنظیم خودکار فن‌ها، پدهای خنک‌کننده، روشنایی مصنوعی و پمپ‌های آبیاری متناسب با جدول زیستی محصول.</text>
       </g>
     </g>
 
     <!-- Page Footer Indicator -->
-    <g transform="translate(70, 2240)">
-      <line x1="0" y1="0" x2="1020" y2="0" stroke="${cardBorder}" stroke-width="2" />
-      <text x="1020" y="45" fill="${textSecondary}" class="vazir-reg" font-size="18" text-anchor="end">نُـوَند · دفترچه رسمی خدمات مهندسی</text>
-      <text x="0" y="45" fill="${accent}" class="space-bold" font-size="20" text-anchor="start">PAGE // 02</text>
+    <g transform="translate(65, 2240)">
+      <line x1="0" y1="0" x2="1030" y2="0" stroke="${cardBorder}" stroke-width="1.5" />
+      <text x="1030" y="45" fill="${textSecondary}" class="vazir-reg" font-size="18" text-anchor="end">نُـوَند · دفترچه رسمی خدمات مهندسی</text>
+      <text x="0" y="45" fill="${accent}" class="space-bold" font-size="19" text-anchor="start">PAGE // 02</text>
     </g>
   `;
 }
 
-// PAGE 3: CCTV & NETWORK INFRASTRUCTURE
+// PAGE 3: AI CCTV, SECURITY & HARDWARE ENGINEERING
 function renderPanel3Content(theme) {
   const isDark = theme === 'dark';
   const textPrimary = isDark ? '#ffffff' : '#0f172a';
@@ -328,100 +333,100 @@ function renderPanel3Content(theme) {
   const textBody = isDark ? '#cbd5e1' : '#334155';
   const accent = isDark ? '#00d2b5' : '#008775';
   const cardBg = isDark ? '#121a1f' : '#f8fafc';
-  const cardBorder = isDark ? '#1f2d35' : '#e2e8f0';
+  const cardBorder = isDark ? '#1e2c34' : '#e2e8f0';
 
   return `
     <!-- Top Header -->
-    <g transform="translate(1080, 140)">
-      <text x="0" y="0" fill="${accent}" class="space-bold" font-size="22" letter-spacing="3" text-anchor="end">03 // SECURITY &amp; DATA NETWORKS</text>
-      <text x="0" y="55" fill="${textPrimary}" class="vazir-bold" font-size="44" text-anchor="end">نظارت تصویری و زیرساخت شبکه</text>
-      <text x="0" y="100" fill="${textSecondary}" class="vazir-reg" font-size="22" text-anchor="end">حفاظت پیرامونی هوشمند و بستر ارتباطی فوق‌سریع سازمانی</text>
-      <line x1="-1010" y1="135" x2="0" y2="135" stroke="url(#brochure-line-${theme})" stroke-width="2.5" />
+    <g transform="translate(1095, 140)">
+      <text x="0" y="0" fill="${accent}" class="space-bold" font-size="21" letter-spacing="3" text-anchor="end">03 // SECURITY SYSTEMS &amp; HARDWARE</text>
+      <text x="0" y="55" fill="${textPrimary}" class="vazir-bold" font-size="44" text-anchor="end">نظارت تصویری هوشمند و خدمات تخصصی سخت‌افزار</text>
+      <text x="0" y="98" fill="${textSecondary}" class="vazir-reg" font-size="21" text-anchor="end">حفاظت پیرامونی لبه هوش مصنوعی، مانیتورینگ متمرکز و عیب‌یابی بردهای الکترونیکی</text>
+      <line x1="-1030" y1="135" x2="0" y2="135" stroke="url(#brochure-line-${theme})" stroke-width="2.5" />
     </g>
 
     <!-- Image Stage -->
-    <g transform="translate(70, 310)">
-      <rect width="1020" height="620" rx="16" fill="${cardBg}" stroke="${cardBorder}" stroke-width="2" />
+    <g transform="translate(65, 310)">
+      <rect width="1030" height="520" rx="16" fill="${cardBg}" stroke="${cardBorder}" stroke-width="1.5" />
       <g clip-path="url(#clip-p3-hero)">
-        <image href="${imgSecurity}" width="1020" height="620" preserveAspectRatio="xMidYMid slice" />
+        <image href="${imgSecurity}" width="1030" height="520" preserveAspectRatio="xMidYMid slice" />
       </g>
-      <rect x="25" y="545" width="970" height="50" rx="10" fill="${isDark ? '#0b1013' : '#ffffff'}" opacity="0.94" stroke="${cardBorder}" stroke-width="1.5" />
-      <text x="965" y="578" fill="${textPrimary}" class="vazir-bold" font-size="20" text-anchor="end">دوربین‌های مداربسته هوش مصنوعی، اتاق‌های کنترل و مانیتورینگ متمرکز</text>
-      <text x="50" y="578" fill="${accent}" class="space-bold" font-size="16" text-anchor="start">AI CCTV &amp; MONITORING</text>
+      <rect x="25" y="450" width="980" height="46" rx="8" fill="${isDark ? '#0b1013' : '#ffffff'}" opacity="0.94" stroke="${cardBorder}" stroke-width="1.5" />
+      <text x="965" y="480" fill="${textPrimary}" class="vazir-bold" font-size="19" text-anchor="end">دوربین‌های مداربسته هوش مصنوعی، اتاق‌های کنترل و مانیتورینگ متمرکز سازمانی</text>
+      <text x="45" y="480" fill="${accent}" class="space-bold" font-size="15" text-anchor="start">AI CCTV &amp; MONITORING</text>
     </g>
 
-    <!-- Core Focus 1: CCTV & Physical Security -->
-    <g transform="translate(70, 970)">
-      <rect width="1020" height="580" rx="18" fill="${cardBg}" stroke="${cardBorder}" stroke-width="2" />
-      <text x="970" y="52" fill="${textPrimary}" class="vazir-bold" font-size="28" text-anchor="end">سیستم‌های نظارت تصویری و امنیت فیزیکی (CCTV &amp; Surveillance)</text>
-      <text x="970" y="86" fill="${accent}" class="space-bold" font-size="17" text-anchor="end">INTELLIGENT SURVEILLANCE &amp; PERIMETER PROTECTION</text>
+    <!-- Card 1: AI CCTV & Surveillance -->
+    <g transform="translate(65, 870)">
+      <rect width="1030" height="580" rx="16" fill="${cardBg}" stroke="${cardBorder}" stroke-width="1.5" />
+      <text x="980" y="52" fill="${textPrimary}" class="vazir-bold" font-size="27" text-anchor="end">سیستم‌های نظارت تصویری و حفاظت پیرامونی (AI CCTV &amp; Security)</text>
+      <text x="980" y="85" fill="${accent}" class="space-bold" font-size="16" text-anchor="end">INTELLIGENT SURVEILLANCE &amp; PERIMETER PROTECTION</text>
 
-      <g transform="translate(0, 120)">
-        <circle cx="975" cy="18" r="9" fill="${accent}" />
-        <text x="945" y="24" fill="${textPrimary}" class="vazir-bold" font-size="22" text-anchor="end">دوربین‌های تحت شبکه (IP CCTV) با تحلیل هوشمند تصاویر</text>
-        <text x="945" y="56" fill="${textBody}" class="vazir-reg" font-size="19" text-anchor="end">رزولوشن‌های 4K، تشخیص چهره، پلاک‌خوان هوشمند (LPR) و اعلام ورود غیرمجاز با پردازش در لبه.</text>
+      <g transform="translate(0, 115)">
+        <circle cx="985" cy="18" r="8" fill="${accent}" />
+        <text x="960" y="24" fill="${textPrimary}" class="vazir-bold" font-size="21" text-anchor="end">دوربین‌های تحت شبکه (IP CCTV) با تحلیل هوشمند تصاویر در لبه</text>
+        <text x="960" y="56" fill="${textBody}" class="vazir-reg" font-size="18" text-anchor="end">رزولوشن‌های 4K، تشخیص چهره، پلاک‌خوان هوشمند (LPR) و خطوط فرضی هشدار با دید در شب رنگی فوق‌پیشرفته.</text>
       </g>
 
       <g transform="translate(0, 215)">
-        <circle cx="975" cy="18" r="9" fill="${accent}" />
-        <text x="945" y="24" fill="${textPrimary}" class="vazir-bold" font-size="22" text-anchor="end">سرورهای ذخیره‌سازی NVR/VMS و اتاق‌های مانیتورینگ</text>
-        <text x="945" y="56" fill="${textBody}" class="vazir-reg" font-size="19" text-anchor="end">طراحی اتاق‌های کنترل، پیاده‌سازی ویدئو وال (Video Walls) و مدیریت دسترسی چندسطحی نگهبانی.</text>
+        <circle cx="985" cy="18" r="8" fill="${accent}" />
+        <text x="960" y="24" fill="${textPrimary}" class="vazir-bold" font-size="21" text-anchor="end">سرورهای ذخیره‌سازی NVR/VMS و اتاق‌های مانیتورینگ متمرکز</text>
+        <text x="960" y="56" fill="${textBody}" class="vazir-reg" font-size="18" text-anchor="end">طراحی اتاق‌های کنترل، پیاده‌سازی دیوارهای ویدئویی (Video Walls) و مدیریت سطوح دسترسی نگهبانی و حراست.</text>
       </g>
 
-      <g transform="translate(0, 310)">
-        <circle cx="975" cy="18" r="9" fill="${accent}" />
-        <text x="945" y="24" fill="${textPrimary}" class="vazir-bold" font-size="22" text-anchor="end">کنترل تردد بیومتریک و اعلام حریق و سرقت</text>
-        <text x="945" y="56" fill="${textBody}" class="vazir-reg" font-size="19" text-anchor="end">قفل‌های مغناطیسی، گیت‌های تردد، سنسورهای اعلام سرقت پیرامونی و یکپارچه‌سازی با سامانه اعلان حریق.</text>
+      <g transform="translate(0, 315)">
+        <circle cx="985" cy="18" r="8" fill="${accent}" />
+        <text x="960" y="24" fill="${textPrimary}" class="vazir-bold" font-size="21" text-anchor="end">سامانه‌های کنترل تردد بیومتریک و اعلام حریق و سرقت</text>
+        <text x="960" y="56" fill="${textBody}" class="vazir-reg" font-size="18" text-anchor="end">قفل‌های مغناطیسی، گیت‌های تردد پرسنل با کارت، اثر انگشت و چهره و یکپارچه‌سازی با سامانه اعلام سرقت و حریق.</text>
       </g>
 
-      <g transform="translate(0, 405)">
-        <circle cx="975" cy="18" r="9" fill="${accent}" />
-        <text x="945" y="24" fill="${textPrimary}" class="vazir-bold" font-size="22" text-anchor="end">انتقال تصویر پایدار بدون قطعی و کاملاً امن</text>
-        <text x="945" y="56" fill="${textBody}" class="vazir-reg" font-size="19" text-anchor="end">مشاهده مستقیم تصاویر بر روی گوشی و تبلت با پروتکل‌های امن P2P و IP استاتیک بدون نشت اطلاعات.</text>
+      <g transform="translate(0, 415)">
+        <circle cx="985" cy="18" r="8" fill="${accent}" />
+        <text x="960" y="24" fill="${textPrimary}" class="vazir-bold" font-size="21" text-anchor="end">انتقال تصویر پایدار، بدون قطعی و کاملاً امن</text>
+        <text x="960" y="56" fill="${textBody}" class="vazir-reg" font-size="18" text-anchor="end">مشاهده مستقیم تصاویر دوربین‌ها روی گوشی و تبلت با پروتکل‌های امن اختصاصی بدون قطعی و نشت داده.</text>
       </g>
     </g>
 
-    <!-- Core Focus 2: Network Infrastructure -->
-    <g transform="translate(70, 1590)">
-      <rect width="1020" height="580" rx="18" fill="${cardBg}" stroke="${cardBorder}" stroke-width="2" />
-      <text x="970" y="52" fill="${textPrimary}" class="vazir-bold" font-size="28" text-anchor="end">زیرساخت شبکه پسیو و اکتیو (Network Infrastructure)</text>
-      <text x="970" y="86" fill="${accent}" class="space-bold" font-size="17" text-anchor="end">STRUCTURED CABLING &amp; ENTERPRISE ACTIVE NETWORKING</text>
+    <!-- Card 2: Hardware Repair & Maintenance -->
+    <g transform="translate(65, 1490)">
+      <rect width="1030" height="700" rx="16" fill="${cardBg}" stroke="${cardBorder}" stroke-width="1.5" />
+      <text x="980" y="52" fill="${textPrimary}" class="vazir-bold" font-size="27" text-anchor="end">تعمیرات تخصصی و سرویس سخت‌افزار (Hardware Repair &amp; Maintenance)</text>
+      <text x="980" y="85" fill="${accent}" class="space-bold" font-size="16" text-anchor="end">COMPONENT-LEVEL DIAGNOSTICS &amp; WORKSTATION SERVICING</text>
 
-      <g transform="translate(0, 120)">
-        <circle cx="975" cy="18" r="9" fill="${accent}" />
-        <text x="945" y="24" fill="${textPrimary}" class="vazir-bold" font-size="22" text-anchor="end">کابل‌کشی ساخت‌یافته مس (Cat6A / Cat7) و آرایش رک</text>
-        <text x="945" y="56" fill="${textBody}" class="vazir-reg" font-size="19" text-anchor="end">نصب استاندارد ترانکینگ، پچ‌پنل، برچسب‌گذاری مهندسی و ارائه تست فلوک معتبر برای تمامی نودها.</text>
+      <g transform="translate(0, 115)">
+        <circle cx="985" cy="18" r="8" fill="${accent}" />
+        <text x="960" y="24" fill="${textPrimary}" class="vazir-bold" font-size="21" text-anchor="end">عیب‌یابی فوق‌تخصصی و تعمیر بردهای الکترونیکی در سطح کامپوننت</text>
+        <text x="960" y="56" fill="${textBody}" class="vazir-reg" font-size="18" text-anchor="end">بررسی دقیق المان‌های مدار، لحیم‌کاری میکروسکوپی (Micro-Soldering)، تعویض چیپ‌های BGA و احیای بردهای آسیب‌دیده.</text>
       </g>
 
-      <g transform="translate(0, 215)">
-        <circle cx="975" cy="18" r="9" fill="${accent}" />
-        <text x="945" y="24" fill="${textPrimary}" class="vazir-bold" font-size="22" text-anchor="end">تجهیزات اکتیو سازمانی (Cisco &amp; MikroTik)</text>
-        <text x="945" y="56" fill="${textBody}" class="vazir-reg" font-size="19" text-anchor="end">پیکربندی سوئیچ‌های مدیریتی لایه ۲ و ۳، روترهای مرزی، توزیع بار (Load Balancing) و تجمیع خطوط اینترنت.</text>
+      <g transform="translate(0, 220)">
+        <circle cx="985" cy="18" r="8" fill="${accent}" />
+        <text x="960" y="24" fill="${textPrimary}" class="vazir-bold" font-size="21" text-anchor="end">تعمیر، بازسازی و سرویس دوره‌ای سوئیچ‌های شبکه، روترها و سرورها</text>
+        <text x="960" y="56" fill="${textBody}" class="vazir-reg" font-size="18" text-anchor="end">تعمیر منابع تغذیه (Power Supplies)، فن‌ها، ماژول‌های شبکه و مادربردهای سرورهای HP و سوئیچ‌های سازمانی سیسکو.</text>
       </g>
 
-      <g transform="translate(0, 310)">
-        <circle cx="975" cy="18" r="9" fill="${accent}" />
-        <text x="945" y="24" fill="${textPrimary}" class="vazir-bold" font-size="22" text-anchor="end">امنیت شبکه، فایروال و اتصال امن شعب (Site-to-Site VPN)</text>
-        <text x="945" y="56" fill="${textBody}" class="vazir-reg" font-size="19" text-anchor="end">ایزوله‌سازی ترافیک با VLAN، فایروال‌های سخت‌افزاری و برقراری ارتباط دفاتر راه دور با پایداری کامل.</text>
+      <g transform="translate(0, 325)">
+        <circle cx="985" cy="18" r="8" fill="${accent}" />
+        <text x="960" y="24" fill="${textPrimary}" class="vazir-bold" font-size="21" text-anchor="end">سرویس تخصصی و ارتقای کامپیوترها، ورک‌استیشن‌ها و لپ‌تاپ‌های اداری</text>
+        <text x="960" y="56" fill="${textBody}" class="vazir-reg" font-size="18" text-anchor="end">ارتقای رم، حافظه‌های پرسرعت NVMe SSD، بهبود خنک‌کنندگی و سرویس دوره‌ای سخت‌افزارهای دفتری و سازمانی.</text>
       </g>
 
-      <g transform="translate(0, 405)">
-        <circle cx="975" cy="18" r="9" fill="${accent}" />
-        <text x="945" y="24" fill="${textPrimary}" class="vazir-bold" font-size="22" text-anchor="end">وای‌فای سازمانی با رومینگ یکپارچه و بدون نقطه کور</text>
-        <text x="945" y="56" fill="${textBody}" class="vazir-reg" font-size="19" text-anchor="end">پوشش سراسری در طبقات با مدیریت کنترلر متمرکز و قابلیت جابجایی آزاد کاربران (Seamless Roaming).</text>
+      <g transform="translate(0, 430)">
+        <circle cx="985" cy="18" r="8" fill="${accent}" />
+        <text x="960" y="24" fill="${textPrimary}" class="vazir-bold" font-size="21" text-anchor="end">تأمین قطعات یدکی اورجینال و خدمات پشتیبانی فنی در محل کارفرما</text>
+        <text x="960" y="56" fill="${textBody}" class="vazir-reg" font-size="18" text-anchor="end">تأمین بدون واسطه قطعات سخت‌افزاری اصلی با ضمانت، تست‌های استرس‌بار قطعات و اعزام کارشناس فنی جهت تعمیرات در محل.</text>
       </g>
     </g>
 
     <!-- Page Footer Indicator -->
-    <g transform="translate(70, 2240)">
-      <line x1="0" y1="0" x2="1020" y2="0" stroke="${cardBorder}" stroke-width="2" />
-      <text x="1020" y="45" fill="${textSecondary}" class="vazir-reg" font-size="18" text-anchor="end">نُـوَند · دفترچه رسمی خدمات مهندسی</text>
-      <text x="0" y="45" fill="${accent}" class="space-bold" font-size="20" text-anchor="start">PAGE // 03</text>
+    <g transform="translate(65, 2240)">
+      <line x1="0" y1="0" x2="1030" y2="0" stroke="${cardBorder}" stroke-width="1.5" />
+      <text x="1030" y="45" fill="${textSecondary}" class="vazir-reg" font-size="18" text-anchor="end">نُـوَند · دفترچه رسمی خدمات مهندسی</text>
+      <text x="0" y="45" fill="${accent}" class="space-bold" font-size="19" text-anchor="start">PAGE // 03</text>
     </g>
   `;
 }
 
-// PAGE 4: FIBER OPTIC & VOIP CENTERS + SERVERS
+// PAGE 4: NETWORKS, FIBER OPTICS, VOIP & BATTERY TELEMETRY
 function renderPanel4Content(theme) {
   const isDark = theme === 'dark';
   const textPrimary = isDark ? '#ffffff' : '#0f172a';
@@ -429,107 +434,107 @@ function renderPanel4Content(theme) {
   const textBody = isDark ? '#cbd5e1' : '#334155';
   const accent = isDark ? '#00d2b5' : '#008775';
   const cardBg = isDark ? '#121a1f' : '#f8fafc';
-  const cardBorder = isDark ? '#1f2d35' : '#e2e8f0';
+  const cardBorder = isDark ? '#1e2c34' : '#e2e8f0';
 
   return `
     <!-- Top Header -->
-    <g transform="translate(1080, 140)">
-      <text x="0" y="0" fill="${accent}" class="space-bold" font-size="22" letter-spacing="3" text-anchor="end">04 // FIBER OPTIC, VOIP &amp; SERVERS</text>
-      <text x="0" y="55" fill="${textPrimary}" class="vazir-bold" font-size="44" text-anchor="end">فیبر نوری، VoIP و پلتفرم‌های سرور</text>
-      <text x="0" y="100" fill="${textSecondary}" class="vazir-reg" font-size="22" text-anchor="end">پهنای‌باند نوری، ارتباطات صوتی یکپارچه و تاب‌آوری مراکز داده</text>
-      <line x1="-1010" y1="135" x2="0" y2="135" stroke="url(#brochure-line-${theme})" stroke-width="2.5" />
+    <g transform="translate(1095, 140)">
+      <text x="0" y="0" fill="${accent}" class="space-bold" font-size="21" letter-spacing="3" text-anchor="end">04 // NETWORKS, OPTICS &amp; POWER FABRIC</text>
+      <text x="0" y="55" fill="${textPrimary}" class="vazir-bold" font-size="44" text-anchor="end">زیرساخت شبکه، فیبر نوری، ویپ و تاب‌آوری انرژی</text>
+      <text x="0" y="98" fill="${textSecondary}" class="vazir-reg" font-size="21" text-anchor="end">کابل‌کشی ساخت‌یافته، فیبر نوری، تلفن ابری و پایش تله‌متری باتری</text>
+      <line x1="-1030" y1="135" x2="0" y2="135" stroke="url(#brochure-line-${theme})" stroke-width="2.5" />
     </g>
 
     <!-- Image Stage -->
-    <g transform="translate(70, 310)">
-      <rect width="1020" height="620" rx="16" fill="${cardBg}" stroke="${cardBorder}" stroke-width="2" />
+    <g transform="translate(65, 310)">
+      <rect width="1030" height="520" rx="16" fill="${cardBg}" stroke="${cardBorder}" stroke-width="1.5" />
       <g clip-path="url(#clip-p4-hero)">
-        <image href="${imgCabling}" width="1020" height="620" preserveAspectRatio="xMidYMid slice" />
+        <image href="${imgCabling}" width="1030" height="520" preserveAspectRatio="xMidYMid slice" />
       </g>
-      <rect x="25" y="545" width="970" height="50" rx="10" fill="${isDark ? '#0b1013' : '#ffffff'}" opacity="0.94" stroke="${cardBorder}" stroke-width="1.5" />
-      <text x="965" y="578" fill="${textPrimary}" class="vazir-bold" font-size="20" text-anchor="end">کابل‌کشی فیبر نوری FTTH، پچ‌پنل‌های نوری و کلاسترهای مجازی‌سازی سرور</text>
-      <text x="50" y="578" fill="${accent}" class="space-bold" font-size="16" text-anchor="start">OPTICAL &amp; VOIP FABRIC</text>
+      <rect x="25" y="450" width="980" height="46" rx="8" fill="${isDark ? '#0b1013' : '#ffffff'}" opacity="0.94" stroke="${cardBorder}" stroke-width="1.5" />
+      <text x="965" y="480" fill="${textPrimary}" class="vazir-bold" font-size="19" text-anchor="end">کابل‌کشی فیبر نوری FTTH، پچ‌پنل‌های نوری و کلاسترهای پردازشی سرور</text>
+      <text x="45" y="480" fill="${accent}" class="space-bold" font-size="15" text-anchor="start">OPTICAL &amp; DATA FABRIC</text>
     </g>
 
-    <!-- Pillar 1: Fiber Optics FTTH -->
-    <g transform="translate(70, 970)">
-      <rect width="1020" height="390" rx="18" fill="${cardBg}" stroke="${cardBorder}" stroke-width="2" />
-      <text x="970" y="52" fill="${textPrimary}" class="vazir-bold" font-size="26" text-anchor="end">زیرساخت‌های فیبر نوری (FTTH / FTTB Fiber Optics)</text>
-      <text x="970" y="85" fill="${accent}" class="space-bold" font-size="16" text-anchor="end">HIGH-SPEED GIGABIT BACKBONES &amp; CABLING</text>
+    <!-- Card 1: Network Infrastructure -->
+    <g transform="translate(65, 870)">
+      <rect width="1030" height="440" rx="16" fill="${cardBg}" stroke="${cardBorder}" stroke-width="1.5" />
+      <text x="980" y="52" fill="${textPrimary}" class="vazir-bold" font-size="26" text-anchor="end">زیرساخت شبکه پسیو و اکتیو (Enterprise Network Infrastructure)</text>
+      <text x="980" y="85" fill="${accent}" class="space-bold" font-size="16" text-anchor="end">STRUCTURED CABLING, CISCO &amp; MIKROTIK ROUTING</text>
 
       <g transform="translate(0, 115)">
-        <circle cx="975" cy="18" r="9" fill="${accent}" />
-        <text x="945" y="24" fill="${textPrimary}" class="vazir-bold" font-size="21" text-anchor="end">اجرای پروژه‌های فیبر نوری تا واحد (FTTH) و ساختمان (FTTB)</text>
-        <text x="945" y="54" fill="${textBody}" class="vazir-reg" font-size="18" text-anchor="end">مسیرسازی تخصصی فیبر نوری، فیوژن با دستگاه‌های ژاپنی اتوماتیک و تست سلامت تارها با دستگاه OTDR.</text>
+        <circle cx="985" cy="18" r="8" fill="${accent}" />
+        <text x="960" y="24" fill="${textPrimary}" class="vazir-bold" font-size="21" text-anchor="end">کابل‌کشی ساخت‌یافته استاندارد مس (Cat6A / Cat7) و آزمون فلوک</text>
+        <text x="960" y="56" fill="${textBody}" class="vazir-reg" font-size="18" text-anchor="end">نصب ترانکینگ استاندارد، پچ‌پنل، برچسب‌گذاری مهندسی، آرایش رک و ارائه سرتیفیکیت معتبر تست فلوک نودها.</text>
       </g>
 
-      <g transform="translate(0, 205)">
-        <circle cx="975" cy="18" r="9" fill="${accent}" />
-        <text x="945" y="24" fill="${textPrimary}" class="vazir-bold" font-size="21" text-anchor="end">بک‌بون‌های ارتباطی نوری میان ساختمان‌ها و رک‌های اصلی</text>
-        <text x="945" y="54" fill="${textBody}" class="vazir-reg" font-size="18" text-anchor="end">انتقال ترافیک با سرعت‌های 10G/40G بدون تداخل الکترومغناطیسی با بالاترین مصونیت در برابر نویز محیطی.</text>
+      <g transform="translate(0, 215)">
+        <circle cx="985" cy="18" r="8" fill="${accent}" />
+        <text x="960" y="24" fill="${textPrimary}" class="vazir-bold" font-size="21" text-anchor="end">پیکربندی تجهیزات اکتیو سازمانی (Cisco &amp; MikroTik)</text>
+        <text x="960" y="56" fill="${textBody}" class="vazir-reg" font-size="18" text-anchor="end">سوئیچ‌های مدیریتی لایه ۲ و ۳، روترهای مرزی، توزیع بار اینترنت (Load Balancing) و برقراری Site-to-Site VPN.</text>
       </g>
 
-      <g transform="translate(0, 295)">
-        <circle cx="975" cy="18" r="9" fill="${accent}" />
-        <text x="945" y="24" fill="${textPrimary}" class="vazir-bold" font-size="21" text-anchor="end">تجهیزات انتهایی نوری OLT، ONT و پچ‌کوردهای زره‌دار</text>
-        <text x="945" y="54" fill="${textBody}" class="vazir-reg" font-size="18" text-anchor="end">تأمین و کانفیگ کامل تجهیزات پسیو و اکتیو نوری برای مجتمع‌های مسکونی، برج‌ها و شهرک‌های اداری.</text>
-      </g>
-    </g>
-
-    <!-- Pillar 2: VoIP Systems -->
-    <g transform="translate(70, 1390)">
-      <rect width="1020" height="420" rx="18" fill="${cardBg}" stroke="${cardBorder}" stroke-width="2" />
-      <text x="970" y="52" fill="${textPrimary}" class="vazir-bold" font-size="26" text-anchor="end">مراکز تلفن ویپ سازمانی (VoIP &amp; Unified Communications)</text>
-      <text x="970" y="85" fill="${accent}" class="space-bold" font-size="16" text-anchor="end">ENTERPRISE TELEPHONY, SIP TRUNKS &amp; IVR</text>
-
-      <g transform="translate(0, 115)">
-        <circle cx="975" cy="18" r="9" fill="${accent}" />
-        <text x="945" y="24" fill="${textPrimary}" class="vazir-bold" font-size="21" text-anchor="end">راه‌اندازی سرورهای تلفنی VoIP (ایزابل، الستیکس و FreePBX)</text>
-        <text x="945" y="54" fill="${textBody}" class="vazir-reg" font-size="18" text-anchor="end">مهاجرت از خطوط قدیمی آنالوگ به سیستم‌های مدرن تحت شبکه با کاهش چشمگیر هزینه‌های مکالمات سازمانی.</text>
-      </g>
-
-      <g transform="translate(0, 205)">
-        <circle cx="975" cy="18" r="9" fill="${accent}" />
-        <text x="945" y="24" fill="${textPrimary}" class="vazir-bold" font-size="21" text-anchor="end">اتصال خطوط سیپ‌ترانک مخابرات (SIP Trunk) و منشی هوشمند</text>
-        <text x="945" y="54" fill="${textBody}" class="vazir-reg" font-size="18" text-anchor="end">پاسخگویی به ده‌ها تماس همزمان، منشی تلفنی چندسطحی (IVR)، صف‌های پاسخگویی و گزارش‌گیری پیشرفته.</text>
-      </g>
-
-      <g transform="translate(0, 295)">
-        <circle cx="975" cy="18" r="9" fill="${accent}" />
-        <text x="945" y="24" fill="${textPrimary}" class="vazir-bold" font-size="21" text-anchor="end">تلفن‌های تحت شبکه رومیزی، هدست‌ها و داخلی روی موبایل</text>
-        <text x="945" y="54" fill="${textBody}" class="vazir-reg" font-size="18" text-anchor="end">امکان پاسخگویی به داخلی سازمانی در هر نقطه از دنیا از طریق نرم‌افزارهای امن موبایل و لپ‌تاپ.</text>
+      <g transform="translate(0, 315)">
+        <circle cx="985" cy="18" r="8" fill="${accent}" />
+        <text x="960" y="24" fill="${textPrimary}" class="vazir-bold" font-size="21" text-anchor="end">امنیت شبکه با تفکیک VLAN و وای‌فای سازمانی با رومینگ سراسری</text>
+        <text x="960" y="56" fill="${textBody}" class="vazir-reg" font-size="18" text-anchor="end">ایزوله‌سازی ترافیک مالی، اداری و مهمان، فایروال‌های سخت‌افزاری و پوشش اکسس‌پوینت‌ها با رومینگ یکپارچه.</text>
       </g>
     </g>
 
-    <!-- Pillar 3: Servers & UPS -->
-    <g transform="translate(70, 1840)">
-      <rect width="1020" height="340" rx="18" fill="${cardBg}" stroke="${cardBorder}" stroke-width="2" />
-      <text x="970" y="52" fill="${textPrimary}" class="vazir-bold" font-size="26" text-anchor="end">مدیریت سرور، مجازی‌سازی و برق اضطراری (UPS)</text>
-      <text x="970" y="85" fill="${accent}" class="space-bold" font-size="16" text-anchor="end">SERVER VIRTUALIZATION &amp; POWER RESILIENCY</text>
+    <!-- Card 2: Fiber Optics & VoIP -->
+    <g transform="translate(65, 1345)">
+      <rect width="1030" height="420" rx="16" fill="${cardBg}" stroke="${cardBorder}" stroke-width="1.5" />
+      <text x="980" y="52" fill="${textPrimary}" class="vazir-bold" font-size="26" text-anchor="end">زیرساخت فیبر نوری و مراکز تلفن ویپ (Fiber Optics &amp; Enterprise VoIP)</text>
+      <text x="980" y="85" fill="${accent}" class="space-bold" font-size="16" text-anchor="end">FTTH FIBER BACKBONES &amp; UNIFIED TELEPHONY</text>
 
       <g transform="translate(0, 115)">
-        <circle cx="975" cy="18" r="9" fill="${accent}" />
-        <text x="945" y="24" fill="${textPrimary}" class="vazir-bold" font-size="21" text-anchor="end">پیکربندی سرورهای HP ProLiant و مجازی‌سازی VMware ESXi</text>
-        <text x="945" y="54" fill="${textBody}" class="vazir-reg" font-size="18" text-anchor="end">بهینه‌سازی منابع سخت‌افزاری، استقرار ماشین‌های مجازی، سیستم‌های اکتیودایرکتوری و بکاپ‌گیری Veeam.</text>
+        <circle cx="985" cy="18" r="8" fill="${accent}" />
+        <text x="960" y="24" fill="${textPrimary}" class="vazir-bold" font-size="21" text-anchor="end">اجرای لینک‌های فیبر نوری FTTH و FTTB با فیوژن دقیق و تست OTDR</text>
+        <text x="960" y="56" fill="${textBody}" class="vazir-reg" font-size="18" text-anchor="end">مسیرسازی تخصصی فیبر نوری، سربندی پچ‌پنل‌ها و تضمین ارتباطات پرسرعت 10G/40G بین طبقات و ساختمان‌ها.</text>
       </g>
 
-      <g transform="translate(0, 205)">
-        <circle cx="975" cy="18" r="9" fill="${accent}" />
-        <text x="945" y="24" fill="${textPrimary}" class="vazir-bold" font-size="21" text-anchor="end">منابع برق اضطراری (UPS) و پایش شرایط محیطی اتاق سرور</text>
-        <text x="945" y="54" fill="${textBody}" class="vazir-reg" font-size="18" text-anchor="end">محاسبه دقیق توان مصرفی، نصب یو‌پی‌اس‌های صنعتی آنلاین و حسگرهای دما جهت پیشگیری از صدمات خاموشی.</text>
+      <g transform="translate(0, 215)">
+        <circle cx="985" cy="18" r="8" fill="${accent}" />
+        <text x="960" y="24" fill="${textPrimary}" class="vazir-bold" font-size="21" text-anchor="end">راه‌اندازی سرورهای تلفنی VoIP و اتصال خطوط سیپ‌ترانک مخابرات</text>
+        <text x="960" y="56" fill="${textBody}" class="vazir-reg" font-size="18" text-anchor="end">راه‌اندازی سرورهای مبتنی بر ایزابل و استریسک، خطوط مخابراتی پرظرفیت SIP Trunk و منشی تلفنی هوشمند (IVR).</text>
+      </g>
+
+      <g transform="translate(0, 315)">
+        <circle cx="985" cy="18" r="8" fill="${accent}" />
+        <text x="960" y="24" fill="${textPrimary}" class="vazir-bold" font-size="21" text-anchor="end">داخلی‌های تلفن روی موبایل و تجهیز سالن‌های جلسات به ویدئوکنفرانس</text>
+        <text x="960" y="56" fill="${textBody}" class="vazir-reg" font-size="18" text-anchor="end">پاسخگویی به تماس‌های سازمان در هر نقطه از دنیا، ضبط هوشمند مکالمات و صف‌های مدیریت ارتباط با مشتریان.</text>
+      </g>
+    </g>
+
+    <!-- Card 3: Servers, Power & Battery Telemetry -->
+    <g transform="translate(65, 1795)">
+      <rect width="1030" height="395" rx="16" fill="${cardBg}" stroke="${cardBorder}" stroke-width="1.5" />
+      <text x="980" y="52" fill="${textPrimary}" class="vazir-bold" font-size="26" text-anchor="end">سرورها، پایش سلامت باتری و سامانه‌های تغذیه (Virtualization &amp; Battery Telemetry)</text>
+      <text x="980" y="85" fill="${accent}" class="space-bold" font-size="16" text-anchor="end">SERVER VIRTUALIZATION &amp; REAL-TIME BATTERY HEALTH MONITORING</text>
+
+      <g transform="translate(0, 115)">
+        <circle cx="985" cy="18" r="8" fill="${accent}" />
+        <text x="960" y="24" fill="${textPrimary}" class="vazir-bold" font-size="21" text-anchor="end">پیکربندی سرورهای HP ProLiant و مجازی‌سازی منابع با VMware ESXi</text>
+        <text x="960" y="56" fill="${textBody}" class="vazir-reg" font-size="18" text-anchor="end">بهینه‌سازی منابع سخت‌افزاری، استقرار ماشین‌های مجازی، سرویس‌های اکتیودایرکتوری و بکاپ‌گیری خودکار با Veeam.</text>
+      </g>
+
+      <g transform="translate(0, 215)">
+        <circle cx="985" cy="18" r="8" fill="${accent}" />
+        <text x="960" y="24" fill="${textPrimary}" class="vazir-bold" font-size="21" text-anchor="end">پایش برخط سلامت باتری‌ها (Battery Health Telemetry) و یوپی‌اس‌های صنعتی</text>
+        <text x="960" y="56" fill="${textBody}" class="vazir-reg" font-size="18" text-anchor="end">محاسبه توان اضطراری، پایش لحظه‌ای مقاومت داخلی و ولتاژ سلول‌ها و پیشگیری از خاموشی ناگهانی دیتاسنترها.</text>
       </g>
     </g>
 
     <!-- Page Footer Indicator -->
-    <g transform="translate(70, 2240)">
-      <line x1="0" y1="0" x2="1020" y2="0" stroke="${cardBorder}" stroke-width="2" />
-      <text x="1020" y="45" fill="${textSecondary}" class="vazir-reg" font-size="18" text-anchor="end">نُـوَند · دفترچه رسمی خدمات مهندسی</text>
-      <text x="0" y="45" fill="${accent}" class="space-bold" font-size="20" text-anchor="start">PAGE // 04</text>
+    <g transform="translate(65, 2240)">
+      <line x1="0" y1="0" x2="1030" y2="0" stroke="${cardBorder}" stroke-width="1.5" />
+      <text x="1030" y="45" fill="${textSecondary}" class="vazir-reg" font-size="18" text-anchor="end">نُـوَند · دفترچه رسمی خدمات مهندسی</text>
+      <text x="0" y="45" fill="${accent}" class="space-bold" font-size="19" text-anchor="start">PAGE // 04</text>
     </g>
   `;
 }
 
-// PAGE 5: 4-STEP SERVICE MODEL (مدل خدمات ۴ مرحله‌ای نُوَند)
+// PAGE 5: 4-STEP SERVICE MODEL, SOURCING & SOFTWARE WORKFLOWS
 function renderPanel5Content(theme) {
   const isDark = theme === 'dark';
   const textPrimary = isDark ? '#ffffff' : '#0f172a';
@@ -537,258 +542,259 @@ function renderPanel5Content(theme) {
   const textBody = isDark ? '#cbd5e1' : '#334155';
   const accent = isDark ? '#00d2b5' : '#008775';
   const cardBg = isDark ? '#121a1f' : '#f8fafc';
-  const cardBorder = isDark ? '#1f2d35' : '#e2e8f0';
+  const cardBorder = isDark ? '#1e2c34' : '#e2e8f0';
 
   return `
     <!-- Top Header -->
-    <g transform="translate(1080, 140)">
-      <text x="0" y="0" fill="${accent}" class="space-bold" font-size="22" letter-spacing="3" text-anchor="end">05 // 4-STEP SOLUTION PROCESS</text>
-      <text x="0" y="55" fill="${textPrimary}" class="vazir-bold" font-size="44" text-anchor="end">مدل فرآیند خدمات ۴ مرحله‌ای نُـوَند</text>
-      <text x="0" y="100" fill="${textSecondary}" class="vazir-reg" font-size="22" text-anchor="end">از تحلیل و تأمین تا اجرا و پشتیبانی مادام‌العمر</text>
-      <line x1="-1010" y1="135" x2="0" y2="135" stroke="url(#brochure-line-${theme})" stroke-width="2.5" />
+    <g transform="translate(1095, 140)">
+      <text x="0" y="0" fill="${accent}" class="space-bold" font-size="21" letter-spacing="3" text-anchor="end">05 // 4-STEP LIFECYCLE &amp; PROCUREMENT</text>
+      <text x="0" y="55" fill="${textPrimary}" class="vazir-bold" font-size="44" text-anchor="end">فرآیند ۴ مرحله‌ای خدمات و تأمین قطعات</text>
+      <text x="0" y="98" fill="${textSecondary}" class="vazir-reg" font-size="21" text-anchor="end">از ارزیابی و تأمین مستقیم تا استقرار دقیق، توسعه نرم‌افزار و پشتیبانی</text>
+      <line x1="-1030" y1="135" x2="0" y2="135" stroke="url(#brochure-line-${theme})" stroke-width="2.5" />
     </g>
 
-    <!-- Visual Banner -->
-    <g transform="translate(70, 310)">
-      <rect width="1020" height="340" rx="16" fill="${cardBg}" stroke="${cardBorder}" stroke-width="2" />
+    <!-- Visual Banner / Lead -->
+    <g transform="translate(65, 310)">
+      <rect width="1030" height="260" rx="16" fill="${cardBg}" stroke="${cardBorder}" stroke-width="1.5" />
       <g clip-path="url(#clip-p5-hero)">
-        <image href="${imgBusiness}" width="1020" height="340" preserveAspectRatio="xMidYMid slice" opacity="${isDark ? '0.75' : '0.9'}" />
-        <rect width="1020" height="340" fill="${isDark ? 'rgba(11,16,19,0.55)' : 'rgba(255,255,255,0.2)'}" />
+        <image href="${imgBusiness}" width="1030" height="260" preserveAspectRatio="xMidYMid slice" opacity="${isDark ? '0.7' : '0.88'}" />
+        <rect width="1030" height="260" fill="${isDark ? 'rgba(11,16,19,0.6)' : 'rgba(255,255,255,0.25)'}" />
       </g>
-      <rect x="40" y="40" width="940" height="260" rx="14" fill="${cardBg}" opacity="0.95" stroke="${cardBorder}" stroke-width="1.5" />
-      <text x="940" y="95" fill="${textPrimary}" class="vazir-bold" font-size="28" text-anchor="end">چرخه مهندسی بدون شکاف؛ پاسخگویی تک‌منبعی</text>
-      <text x="940" y="145" fill="${textBody}" class="vazir-reg" font-size="21" text-anchor="end">ما مسئولیت تمام فازهای پروژه را بر عهده می‌گیریم. عدم نیاز به ارتباط با پیمانکاران متعدد</text>
-      <text x="940" y="185" fill="${textBody}" class="vazir-reg" font-size="21" text-anchor="end">باعث سرعت بالا، کاهش هزینه‌ها و تضمین تطابق کامل استانداردها می‌شود.</text>
-      <text x="940" y="240" fill="${accent}" class="space-bold" font-size="20" text-anchor="end">AUDIT · SUPPLY · IMPLEMENT · SUPPORT</text>
+      <rect x="35" y="30" width="960" height="200" rx="12" fill="${cardBg}" opacity="0.95" stroke="${cardBorder}" stroke-width="1.5" />
+      <text x="955" y="75" fill="${textPrimary}" class="vazir-bold" font-size="27" text-anchor="end">چرخه مهندسی یکپارچه و بدون شکاف؛ پاسخگویی تک‌منبعی</text>
+      <text x="955" y="118" fill="${textBody}" class="vazir-reg" font-size="20" text-anchor="end">ما مسئولیت تمام فازهای پروژه را بر عهده می‌گیریم؛ حذف واسطه‌ها و ارتباط مستقیم با یک تیم فنی</text>
+      <text x="955" y="152" fill="${textBody}" class="vazir-reg" font-size="20" text-anchor="end">باعث سرعت بالا در اجرا، کاهش چشمگیر هزینه‌ها و تضمین تطابق کامل استانداردها می‌شود.</text>
+      <text x="955" y="200" fill="${accent}" class="space-bold" font-size="18" text-anchor="end">AUDIT · SUPPLY &amp; BOM · DEPLOYMENT · SLA SUPPORT</text>
     </g>
 
+    <!-- 4 Steps Flow (Numbered, Minimal, Impactful) -->
     <!-- Step 1: مشاوره -->
-    <g transform="translate(70, 680)">
-      <rect width="1020" height="350" rx="18" fill="${cardBg}" stroke="${cardBorder}" stroke-width="2" />
-      <rect x="910" y="30" width="80" height="80" rx="16" fill="${isDark ? '#19252c' : '#e0f2fe'}" stroke="${accent}" stroke-width="2" />
-      <text x="950" y="85" fill="${accent}" class="vazir-bold" font-size="44" text-anchor="middle">۰۱</text>
+    <g transform="translate(65, 600)">
+      <rect width="1030" height="310" rx="16" fill="${cardBg}" stroke="${cardBorder}" stroke-width="1.5" />
+      <rect x="925" y="25" width="70" height="70" rx="14" fill="${isDark ? '#19252c' : '#e0f2fe'}" stroke="${accent}" stroke-width="1.5" />
+      <text x="960" y="72" fill="${accent}" class="vazir-bold" font-size="38" text-anchor="middle">۰۱</text>
       
-      <text x="880" y="65" fill="${textPrimary}" class="vazir-bold" font-size="30" text-anchor="end">مشاوره و تحلیل نیازها (Consultation &amp; Audit)</text>
-      <text x="880" y="100" fill="${accent}" class="space-bold" font-size="18" text-anchor="end">COMPREHENSIVE DISCOVERY &amp; SITE ASSESSMENT</text>
+      <text x="895" y="55" fill="${textPrimary}" class="vazir-bold" font-size="28" text-anchor="end">مشاوره و تحلیل نیازها (Consultation &amp; Audit)</text>
+      <text x="895" y="88" fill="${accent}" class="space-bold" font-size="16" text-anchor="end">COMPREHENSIVE DISCOVERY &amp; SITE ASSESSMENT</text>
       
-      <text x="960" y="160" fill="${textBody}" class="vazir-reg" font-size="20" text-anchor="end">بازدید حضوری از محل پروژه، تحلیل محدودیت‌های فیزیکی، ممیزی کابل‌کشی و برآورد پهنای‌باند مصرفی.</text>
-      <text x="960" y="195" fill="${textBody}" class="vazir-reg" font-size="20" text-anchor="end">جلسات تخصصی با کارفرما جهت شفاف‌سازی نیازمندی‌ها و جلوگیری از هزینه‌های غیرضروری بعدی.</text>
+      <text x="970" y="145" fill="${textBody}" class="vazir-reg" font-size="19" text-anchor="end">بازدید میدانی از پروژه، ممیزی مسیرهای کابل‌کشی و تحلیل پهنای باند مصرفی و بار الکتریکی تجهیزات.</text>
+      <text x="970" y="180" fill="${textBody}" class="vazir-reg" font-size="19" text-anchor="end">جلسات تخصصی با کارفرما جهت شفاف‌سازی نیازمندی‌ها، اولویت‌بندی اجرایی و جلوگیری از هزینه‌های اضافی.</text>
       
-      <rect x="30" y="235" width="960" height="85" rx="12" fill="${isDark ? '#0b1013' : '#ffffff'}" stroke="${cardBorder}" stroke-width="1.5" />
-      <text x="950" y="285" fill="${accent}" class="vazir-bold" font-size="19" text-anchor="end">دستاوردهای این مرحله:</text>
-      <text x="730" y="285" fill="${textPrimary}" class="vazir-reg" font-size="19" text-anchor="end">گزارش ممیزی فنی سایت · تحلیل الزامات امنیتی · طرح اقتصادی بهینه</text>
+      <rect x="25" y="215" width="980" height="70" rx="10" fill="${isDark ? '#0b1013' : '#ffffff'}" stroke="${cardBorder}" stroke-width="1.5" />
+      <text x="965" y="258" fill="${accent}" class="vazir-bold" font-size="18" text-anchor="end">دستاوردهای این مرحله:</text>
+      <text x="750" y="258" fill="${textPrimary}" class="vazir-reg" font-size="18" text-anchor="end">گزارش ممیزی فنی سایت · تحلیل بار و نیازمندی‌ها · برآورد اقتصادی بهینه</text>
     </g>
 
-    <!-- Step 2: تأمین تجهیزات -->
-    <g transform="translate(70, 1060)">
-      <rect width="1020" height="350" rx="18" fill="${cardBg}" stroke="${cardBorder}" stroke-width="2" />
-      <rect x="910" y="30" width="80" height="80" rx="16" fill="${isDark ? '#19252c' : '#e0f2fe'}" stroke="${accent}" stroke-width="2" />
-      <text x="950" y="85" fill="${accent}" class="vazir-bold" font-size="44" text-anchor="middle">۰۲</text>
+    <!-- Step 2: تأمین تجهیزات و BOM -->
+    <g transform="translate(65, 935)">
+      <rect width="1030" height="310" rx="16" fill="${cardBg}" stroke="${cardBorder}" stroke-width="1.5" />
+      <rect x="925" y="25" width="70" height="70" rx="14" fill="${isDark ? '#19252c' : '#e0f2fe'}" stroke="${accent}" stroke-width="1.5" />
+      <text x="960" y="72" fill="${accent}" class="vazir-bold" font-size="38" text-anchor="middle">۰۲</text>
       
-      <text x="880" y="65" fill="${textPrimary}" class="vazir-bold" font-size="30" text-anchor="end">تأمین تجهیزات اصلی و تخصصی (Equipment Supply)</text>
-      <text x="880" y="100" fill="${accent}" class="space-bold" font-size="18" text-anchor="end">DIRECT SOURCING &amp; GENUINE HARDWARE PROCUREMENT</text>
+      <text x="895" y="55" fill="${textPrimary}" class="vazir-bold" font-size="28" text-anchor="end">تأمین تجهیزات اصلی و ساختار شکست اقلام (Sourcing &amp; BOM)</text>
+      <text x="895" y="88" fill="${accent}" class="space-bold" font-size="16" text-anchor="end">DIRECT SOURCING &amp; BILL OF MATERIALS ENGINEERING</text>
       
-      <text x="960" y="160" fill="${textBody}" class="vazir-reg" font-size="20" text-anchor="end">تأمین بدون واسطه قطعات اصلی از معتبرترین برندهای جهانی (Cisco, MikroTik, Dahua, Hikvision, HP, Nexans).</text>
-      <text x="960" y="195" fill="${textBody}" class="vazir-reg" font-size="20" text-anchor="end">ارائه ضمانت‌نامه کتبی اصالت تجهیزات و گارانتی رسمی، متناسب با بودجه تعریف‌شده کارفرما.</text>
+      <text x="970" y="145" fill="${textBody}" class="vazir-reg" font-size="19" text-anchor="end">تأمین مستقیم و بدون واسطه تجهیزات اصلی از معتبرترین برندهای بین‌المللی (Cisco, MikroTik, HP, Nexans).</text>
+      <text x="970" y="180" fill="${textBody}" class="vazir-reg" font-size="19" text-anchor="end">ارائه لیست تفصیلی مهندسی خرید (BOM) همراه با ضمانت‌نامه کتبی اصالت کالا و گارانتی رسمی تعویض.</text>
       
-      <rect x="30" y="235" width="960" height="85" rx="12" fill="${isDark ? '#0b1013' : '#ffffff'}" stroke="${cardBorder}" stroke-width="1.5" />
-      <text x="950" y="285" fill="${accent}" class="vazir-bold" font-size="19" text-anchor="end">دستاوردهای این مرحله:</text>
-      <text x="730" y="285" fill="${textPrimary}" class="vazir-reg" font-size="19" text-anchor="end">لیست مهندسی قطعات (BOM) · تضمین اصالت ۱۰۰٪ کالا · قیمت رقابتی</text>
+      <rect x="25" y="215" width="980" height="70" rx="10" fill="${isDark ? '#0b1013' : '#ffffff'}" stroke="${cardBorder}" stroke-width="1.5" />
+      <text x="965" y="258" fill="${accent}" class="vazir-bold" font-size="18" text-anchor="end">دستاوردهای این مرحله:</text>
+      <text x="750" y="258" fill="${textPrimary}" class="vazir-reg" font-size="18" text-anchor="end">ساختار شکست اقلام (BOM) · تضمین اصالت ۱۰۰٪ کالا · قیمت رقابتی</text>
     </g>
 
     <!-- Step 3: اجرا و پیاده‌سازی -->
-    <g transform="translate(70, 1440)">
-      <rect width="1020" height="350" rx="18" fill="${cardBg}" stroke="${cardBorder}" stroke-width="2" />
-      <rect x="910" y="30" width="80" height="80" rx="16" fill="${isDark ? '#19252c' : '#e0f2fe'}" stroke="${accent}" stroke-width="2" />
-      <text x="950" y="85" fill="${accent}" class="vazir-bold" font-size="44" text-anchor="middle">۰۳</text>
+    <g transform="translate(65, 1270)">
+      <rect width="1030" height="310" rx="16" fill="${cardBg}" stroke="${cardBorder}" stroke-width="1.5" />
+      <rect x="925" y="25" width="70" height="70" rx="14" fill="${isDark ? '#19252c' : '#e0f2fe'}" stroke="${accent}" stroke-width="1.5" />
+      <text x="960" y="72" fill="${accent}" class="vazir-bold" font-size="38" text-anchor="middle">۰۳</text>
       
-      <text x="880" y="65" fill="${textPrimary}" class="vazir-bold" font-size="30" text-anchor="end">اجرا و پیاده‌سازی استاندارد (Implementation)</text>
-      <text x="880" y="100" fill="${accent}" class="space-bold" font-size="18" text-anchor="end">STANDARD COMMISSIONING &amp; FIELD DEPLOYMENT</text>
+      <text x="895" y="55" fill="${textPrimary}" class="vazir-bold" font-size="28" text-anchor="end">اجرا و پیاده‌سازی استاندارد (Deployment &amp; Commissioning)</text>
+      <text x="895" y="88" fill="${accent}" class="space-bold" font-size="16" text-anchor="end">STANDARD COMMISSIONING &amp; FIELD IMPLEMENTATION</text>
       
-      <text x="960" y="160" fill="${textBody}" class="vazir-reg" font-size="20" text-anchor="end">کابل‌کشی اصولی، ترانکینگ، فیوژن فیبر نوری، آرایش دقیق رک‌ها و استقرار سرورها و سوئیچ‌ها.</text>
-      <text x="960" y="195" fill="${textBody}" class="vazir-reg" font-size="20" text-anchor="end">کانفیگ تخصصی نرم‌افزاری، امن‌سازی فریم‌ورها، اعمال پالیسی‌های شبکه و انجام تست‌های زیر بار نهایی.</text>
+      <text x="970" y="145" fill="${textBody}" class="vazir-reg" font-size="19" text-anchor="end">کابل‌کشی ساخت‌یافته، فیوژن فیبر نوری، آرایش دقیق رک‌ها و استقرار سرورها بر اساس مستندات مهندسی.</text>
+      <text x="970" y="180" fill="${textBody}" class="vazir-reg" font-size="19" text-anchor="end">کانفیگ تخصصی سوئیچ‌ها، فایروال‌ها و سامانه‌های حفاظتی، امن‌سازی فریم‌ورها و تست‌های زیر بار نهایی.</text>
       
-      <rect x="30" y="235" width="960" height="85" rx="12" fill="${isDark ? '#0b1013' : '#ffffff'}" stroke="${cardBorder}" stroke-width="1.5" />
-      <text x="950" y="285" fill="${accent}" class="vazir-bold" font-size="19" text-anchor="end">دستاوردهای این مرحله:</text>
-      <text x="730" y="285" fill="${textPrimary}" class="vazir-reg" font-size="19" text-anchor="end">تست فلوک کابل‌کشی · نقشه‌های دقیق As-Built · صورت‌جلسه تست تحویل</text>
+      <rect x="25" y="215" width="980" height="70" rx="10" fill="${isDark ? '#0b1013' : '#ffffff'}" stroke="${cardBorder}" stroke-width="1.5" />
+      <text x="965" y="258" fill="${accent}" class="vazir-bold" font-size="18" text-anchor="end">دستاوردهای این مرحله:</text>
+      <text x="750" y="258" fill="${textPrimary}" class="vazir-reg" font-size="18" text-anchor="end">تست فلوک معتبر کابل‌کشی · نقشه‌های دقیق As-Built · آزمون عملیاتی تحویل</text>
     </g>
 
     <!-- Step 4: پشتیبانی و نگهداری -->
-    <g transform="translate(70, 1820)">
-      <rect width="1020" height="350" rx="18" fill="${cardBg}" stroke="${cardBorder}" stroke-width="2" />
-      <rect x="910" y="30" width="80" height="80" rx="16" fill="${isDark ? '#19252c' : '#e0f2fe'}" stroke="${accent}" stroke-width="2" />
-      <text x="950" y="85" fill="${accent}" class="vazir-bold" font-size="44" text-anchor="middle">۰۴</text>
+    <g transform="translate(65, 1605)">
+      <rect width="1030" height="310" rx="16" fill="${cardBg}" stroke="${cardBorder}" stroke-width="1.5" />
+      <rect x="925" y="25" width="70" height="70" rx="14" fill="${isDark ? '#19252c' : '#e0f2fe'}" stroke="${accent}" stroke-width="1.5" />
+      <text x="960" y="72" fill="${accent}" class="vazir-bold" font-size="38" text-anchor="middle">۰۴</text>
       
-      <text x="880" y="65" fill="${textPrimary}" class="vazir-bold" font-size="30" text-anchor="end">پشتیبانی و نگهداری مستمر (Ongoing Support &amp; SLA)</text>
-      <text x="880" y="100" fill="${accent}" class="space-bold" font-size="18" text-anchor="end">PROACTIVE MONITORING &amp; SLA-BACKED RESPONSE</text>
+      <text x="895" y="55" fill="${textPrimary}" class="vazir-bold" font-size="28" text-anchor="end">پشتیبانی و نگهداری مستمر (Ongoing Support &amp; SLA)</text>
+      <text x="895" y="88" fill="${accent}" class="space-bold" font-size="16" text-anchor="end">PROACTIVE MONITORING &amp; SLA-BACKED RESPONSE</text>
       
-      <text x="960" y="160" fill="${textBody}" class="vazir-reg" font-size="20" text-anchor="end">پایش دوره‌ای سلامت سرورها، به‌روزرسانی مداوم فریم‌ورها، بکاپ‌گیری و رفع اشکال فوری به صورت حضوری و آنلاین.</text>
-      <text x="960" y="195" fill="${textBody}" class="vazir-reg" font-size="20" text-anchor="end">پاسخگویی سریع به حوادث طبق توافق‌نامه سطح خدمات (SLA) جهت حفظ پایداری دائمی سازمان.</text>
+      <text x="970" y="145" fill="${textBody}" class="vazir-reg" font-size="19" text-anchor="end">پایش دوره‌ای تجهیزات، عیب‌یابی فوری حضوری و آنلاین، به‌روزرسانی مداوم فریم‌ورها و بکاپ‌گیری منظم.</text>
+      <text x="970" y="180" fill="${textBody}" class="vazir-reg" font-size="19" text-anchor="end">پاسخگویی سریع بر پایه توافق‌نامه سطح خدمات (SLA) جهت اطمینان از تاب‌آوری و کارکرد ۲۴ ساعته سیستم‌ها.</text>
       
-      <rect x="30" y="235" width="960" height="85" rx="12" fill="${isDark ? '#0b1013' : '#ffffff'}" stroke="${cardBorder}" stroke-width="1.5" />
-      <text x="950" y="285" fill="${accent}" class="vazir-bold" font-size="19" text-anchor="end">دستاوردهای این مرحله:</text>
-      <text x="730" y="285" fill="${textPrimary}" class="vazir-reg" font-size="19" text-anchor="end">پاسخگویی سریع مبتنی بر SLA · مانیتورینگ پیشگیرانه · آرامش خاطر کارفرما</text>
+      <rect x="25" y="215" width="980" height="70" rx="10" fill="${isDark ? '#0b1013' : '#ffffff'}" stroke="${cardBorder}" stroke-width="1.5" />
+      <text x="965" y="258" fill="${accent}" class="vazir-bold" font-size="18" text-anchor="end">دستاوردهای این مرحله:</text>
+      <text x="750" y="258" fill="${textPrimary}" class="vazir-reg" font-size="18" text-anchor="end">پاسخگویی سریع بر اساس SLA · مانیتورینگ پیشگیرانه · آرامش خاطر کارفرما</text>
+    </g>
+
+    <!-- Supplementary: Software, Web & AI Workflows -->
+    <g transform="translate(65, 1940)">
+      <rect width="1030" height="260" rx="16" fill="${cardBg}" stroke="${cardBorder}" stroke-width="1.5" />
+      <text x="980" y="48" fill="${textPrimary}" class="vazir-bold" font-size="24" text-anchor="end">توسعه نرم‌افزار، پرتال‌های سازمانی و گردش‌کارهای هوش مصنوعی (Software &amp; AI Workflows)</text>
+      <text x="980" y="80" fill="${accent}" class="space-bold" font-size="15" text-anchor="end">ENTERPRISE WEB PLATFORMS, LINUX SYSTEMS &amp; AI-ASSISTED AUTOMATION</text>
+      
+      <g transform="translate(0, 105)">
+        <circle cx="985" cy="16" r="7" fill="${accent}" />
+        <text x="965" y="22" fill="${textBody}" class="vazir-reg" font-size="18" text-anchor="end">استقرار و پیکربندی سیستم‌عامل‌های سرور (Linux Enterprise / Windows Server) و راهکارهای ذخیره‌سازی داده.</text>
+      </g>
+      <g transform="translate(0, 150)">
+        <circle cx="985" cy="16" r="7" fill="${accent}" />
+        <text x="965" y="22" fill="${textBody}" class="vazir-reg" font-size="18" text-anchor="end">طراحی و توسعه پرتال‌های تحت وب سازمانی و یکپارچه‌سازی سامانه‌ها از طریق وب‌سرویس و رابط‌های برنامه‌نویسی API.</text>
+      </g>
+      <g transform="translate(0, 195)">
+        <circle cx="985" cy="16" r="7" fill="${accent}" />
+        <text x="965" y="22" fill="${textBody}" class="vazir-reg" font-size="18" text-anchor="end">بهینه‌سازی و اتوماسیون فرآیندهای داخلی سازمان‌ها با استفاده از ابزارهای مدرن و گردش‌کارهای هوش مصنوعی.</text>
+      </g>
     </g>
 
     <!-- Page Footer Indicator -->
-    <g transform="translate(70, 2240)">
-      <line x1="0" y1="0" x2="1020" y2="0" stroke="${cardBorder}" stroke-width="2" />
-      <text x="1020" y="45" fill="${textSecondary}" class="vazir-reg" font-size="18" text-anchor="end">نُـوَند · دفترچه رسمی خدمات مهندسی</text>
-      <text x="0" y="45" fill="${accent}" class="space-bold" font-size="20" text-anchor="start">PAGE // 05</text>
+    <g transform="translate(65, 2240)">
+      <line x1="0" y1="0" x2="1030" y2="0" stroke="${cardBorder}" stroke-width="1.5" />
+      <text x="1030" y="45" fill="${textSecondary}" class="vazir-reg" font-size="18" text-anchor="end">نُـوَند · دفترچه رسمی خدمات مهندسی</text>
+      <text x="0" y="45" fill="${accent}" class="space-bold" font-size="19" text-anchor="start">PAGE // 05</text>
     </g>
   `;
 }
 
-// PAGE 6: BACK COVER (جلد پشت بروشور و راه‌های ارتباطی)
+// PAGE 6: BACK COVER (جلد پشت بروشور و راه‌های ارتباطی - Minimalist & Modern)
 function renderPanel6Content(theme, qrInnerSvg) {
   const isDark = theme === 'dark';
   const textPrimary = isDark ? '#ffffff' : '#0f172a';
   const textSecondary = isDark ? '#94a3b8' : '#475569';
-  const textBody = isDark ? '#cbd5e1' : '#334155';
   const accent = isDark ? '#00d2b5' : '#008775';
   const cardBg = isDark ? '#121a1f' : '#f8fafc';
-  const cardBorder = isDark ? '#1f2d35' : '#e2e8f0';
+  const cardBorder = isDark ? '#1e2c34' : '#e2e8f0';
   const strokeCore = isDark ? '#ffffff' : '#0f172a';
   const fillDot = isDark ? '#0b1013' : '#ffffff';
 
   return `
     <!-- Top Header -->
-    <g transform="translate(1080, 140)">
-      <text x="0" y="0" fill="${accent}" class="space-bold" font-size="22" letter-spacing="3" text-anchor="end">06 // CONTACT &amp; CONSULTATION</text>
+    <g transform="translate(1095, 140)">
+      <text x="0" y="0" fill="${accent}" class="space-bold" font-size="21" letter-spacing="3" text-anchor="end">06 // DIRECT CONTACT &amp; INQUIRIES</text>
       <text x="0" y="55" fill="${textPrimary}" class="vazir-bold" font-size="44" text-anchor="end">ارتباط مستقیم و شروع پروژه</text>
-      <text x="0" y="100" fill="${textSecondary}" class="vazir-reg" font-size="22" text-anchor="end">مشاوره تخصصی حضوری، بازدید از محل و استعلام قیمت</text>
-      <line x1="-1010" y1="135" x2="0" y2="135" stroke="url(#brochure-line-${theme})" stroke-width="2.5" />
+      <text x="0" y="98" fill="${textSecondary}" class="vazir-reg" font-size="21" text-anchor="end">مشاوره تخصصی حضوری، بازدید از محل و استعلام قیمت تجهیزات</text>
+      <line x1="-1030" y1="135" x2="0" y2="135" stroke="url(#brochure-line-${theme})" stroke-width="2.5" />
     </g>
 
-    <!-- Company Lockup Card -->
-    <g transform="translate(70, 310)">
-      <rect width="1020" height="210" rx="18" fill="${cardBg}" stroke="${cardBorder}" stroke-width="2" />
-      <g transform="translate(970, 45)">
+    <!-- Company Lockup Card (Modern, Minimal) -->
+    <g transform="translate(65, 310)">
+      <rect width="1030" height="210" rx="16" fill="${cardBg}" stroke="${cardBorder}" stroke-width="1.5" />
+      <g transform="translate(980, 45)">
         ${getNovandEmblemMarkup({ scale: 1.25, strokeCore, glowId: `brochure-grad-${theme}`, fillDot })}
       </g>
-      <text x="815" y="85" fill="${textPrimary}" class="vazir-bold" font-size="40" text-anchor="end">نُـوَند | NOVAND</text>
-      <text x="815" y="125" fill="${accent}" class="vazir-bold" font-size="21" text-anchor="end">راهکارهای جامع فناوری، هوشمندسازی، نظارت تصویری و شبکه</text>
-      <text x="815" y="165" fill="${textSecondary}" class="space-bold" font-size="17" letter-spacing="1" text-anchor="end">ENGINEERING SYSTEMS &amp; INFRASTRUCTURE INTEGRATION</text>
+      <text x="825" y="85" fill="${textPrimary}" class="vazir-bold" font-size="40" text-anchor="end">نُـوَند | NOVAND</text>
+      <text x="825" y="125" fill="${accent}" class="vazir-bold" font-size="22" text-anchor="end">راهکارهای جامع فناوری، هوشمندسازی، نظارت تصویری و شبکه</text>
+      <text x="825" y="165" fill="${textSecondary}" class="space-bold" font-size="16" letter-spacing="1" text-anchor="end">ENGINEERING SYSTEMS &amp; INFRASTRUCTURE INTEGRATION</text>
     </g>
 
-    <!-- Contact Details Card -->
-    <g transform="translate(70, 560)">
-      <rect width="1020" height="780" rx="18" fill="${cardBg}" stroke="${cardBorder}" stroke-width="2" />
+    <!-- Contact Details Card (Exclusively Mahmoud Ahmadi, Clean & Elegant) -->
+    <g transform="translate(65, 560)">
+      <rect width="1030" height="660" rx="16" fill="${cardBg}" stroke="${cardBorder}" stroke-width="1.5" />
       
       <!-- Primary Phone (Mahmoud Ahmadi) -->
       <g transform="translate(0, 50)">
-        <rect x="910" y="0" width="70" height="70" rx="16" fill="${isDark ? '#1a272f' : '#e0f2fe'}" stroke="${cardBorder}" stroke-width="1.5" />
-        <!-- Phone icon -->
-        <path d="M952 28v5a3 3 0 0 1-3.27 3 29.7 29.7 0 0 1-13-4.6 29.2 29.2 0 0 1-9-9 29.7 29.7 0 0 1-4.6-13A3 3 0 0 1 925 6h5a3 3 0 0 1 3 2.6 19.3 19.3 0 0 0 1 4.2 3 3 0 0 1-.7 3.2l-1.9 1.9a24 24 0 0 0 9 9l1.9-1.9a3 3 0 0 1 3.2-.7 19.3 19.3 0 0 0 4.2 1 3 3 0 0 1 2.6 3z" fill="${accent}" />
+        <rect x="920" y="0" width="70" height="70" rx="14" fill="${isDark ? '#1a272f' : '#e0f2fe'}" stroke="${cardBorder}" stroke-width="1.5" />
+        <path d="M962 28v5a3 3 0 0 1-3.27 3 29.7 29.7 0 0 1-13-4.6 29.2 29.2 0 0 1-9-9 29.7 29.7 0 0 1-4.6-13A3 3 0 0 1 935 6h5a3 3 0 0 1 3 2.6 19.3 19.3 0 0 0 1 4.2 3 3 0 0 1-.7 3.2l-1.9 1.9a24 24 0 0 0 9 9l1.9-1.9a3 3 0 0 1 3.2-.7 19.3 19.3 0 0 0 4.2 1 3 3 0 0 1 2.6 3z" fill="${accent}" />
         
-        <text x="880" y="32" fill="${textSecondary}" class="vazir-reg" font-size="19" text-anchor="end">مدیر فنی و مشاوره مهندسی:</text>
-        <text x="880" y="64" fill="${textPrimary}" class="vazir-bold" font-size="26" text-anchor="end">مهندس محمود احمدی</text>
-        <text x="60" y="48" fill="${accent}" class="space-bold" font-size="34" letter-spacing="2" text-anchor="start">0912 932 1550</text>
+        <text x="890" y="32" fill="${textSecondary}" class="vazir-reg" font-size="20" text-anchor="end">مدیر فنی و مشاوره مهندسی:</text>
+        <text x="890" y="65" fill="${textPrimary}" class="vazir-bold" font-size="28" text-anchor="end">مهندس محمود احمدی</text>
+        <text x="50" y="52" fill="${accent}" class="space-bold" font-size="38" letter-spacing="2" text-anchor="start">0912 932 1550</text>
       </g>
-      <line x1="60" y1="160" x2="960" y2="160" stroke="${cardBorder}" stroke-width="1.5" />
-
-      <!-- Secondary Phone (Hesamoddin Ashari) -->
-      <g transform="translate(0, 195)">
-        <rect x="910" y="0" width="70" height="70" rx="16" fill="${isDark ? '#1a272f' : '#e0f2fe'}" stroke="${cardBorder}" stroke-width="1.5" />
-        <path d="M952 28v5a3 3 0 0 1-3.27 3 29.7 29.7 0 0 1-13-4.6 29.2 29.2 0 0 1-9-9 29.7 29.7 0 0 1-4.6-13A3 3 0 0 1 925 6h5a3 3 0 0 1 3 2.6 19.3 19.3 0 0 0 1 4.2 3 3 0 0 1-.7 3.2l-1.9 1.9a24 24 0 0 0 9 9l1.9-1.9a3 3 0 0 1 3.2-.7 19.3 19.3 0 0 0 4.2 1 3 3 0 0 1 2.6 3z" fill="${accent}" />
-        
-        <text x="880" y="32" fill="${textSecondary}" class="vazir-reg" font-size="19" text-anchor="end">هماهنگی پروژه‌ها و پشتیبانی:</text>
-        <text x="880" y="64" fill="${textPrimary}" class="vazir-bold" font-size="26" text-anchor="end">حسام‌الدین اشعری</text>
-        <text x="60" y="48" fill="${textPrimary}" class="space-bold" font-size="34" letter-spacing="2" text-anchor="start">0919 691 8758</text>
-      </g>
-      <line x1="60" y1="305" x2="960" y2="305" stroke="${cardBorder}" stroke-width="1.5" />
+      <line x1="50" y1="160" x2="980" y2="160" stroke="${cardBorder}" stroke-width="1.5" />
 
       <!-- Instagram -->
-      <g transform="translate(0, 340)">
-        <rect x="910" y="0" width="70" height="70" rx="16" fill="${isDark ? '#1a272f' : '#e0f2fe'}" stroke="${cardBorder}" stroke-width="1.5" />
-        <!-- Instagram icon -->
-        <rect x="930" y="20" width="30" height="30" rx="8" fill="none" stroke="${accent}" stroke-width="3" />
-        <circle cx="945" cy="35" r="7" fill="none" stroke="${accent}" stroke-width="3" />
-        <circle cx="953" cy="27" r="1.5" fill="${accent}" />
+      <g transform="translate(0, 200)">
+        <rect x="920" y="0" width="70" height="70" rx="14" fill="${isDark ? '#1a272f' : '#e0f2fe'}" stroke="${cardBorder}" stroke-width="1.5" />
+        <rect x="940" y="20" width="30" height="30" rx="8" fill="none" stroke="${accent}" stroke-width="2.5" />
+        <circle cx="955" cy="35" r="7" fill="none" stroke="${accent}" stroke-width="2.5" />
+        <circle cx="963" cy="27" r="1.5" fill="${accent}" />
 
-        <text x="880" y="32" fill="${textSecondary}" class="vazir-reg" font-size="19" text-anchor="end">صفحه رسمی اینستاگرام:</text>
-        <text x="880" y="64" fill="${textPrimary}" class="vazir-bold" font-size="24" text-anchor="end">نمونه پروژه‌های اجرایی، آموزش‌ها و ویدیوها</text>
-        <text x="60" y="48" fill="${accent}" class="space-bold" font-size="30" letter-spacing="1" text-anchor="start">@novand_tech</text>
+        <text x="890" y="32" fill="${textSecondary}" class="vazir-reg" font-size="20" text-anchor="end">صفحه رسمی اینستاگرام:</text>
+        <text x="890" y="65" fill="${textPrimary}" class="vazir-bold" font-size="25" text-anchor="end">نمونه پروژه‌های اجرایی، آموزش‌ها و ویدیوها</text>
+        <text x="50" y="52" fill="${accent}" class="space-bold" font-size="32" letter-spacing="1" text-anchor="start">@novand_tech</text>
       </g>
-      <line x1="60" y1="450" x2="960" y2="450" stroke="${cardBorder}" stroke-width="1.5" />
+      <line x1="50" y1="310" x2="980" y2="310" stroke="${cardBorder}" stroke-width="1.5" />
 
       <!-- Email -->
-      <g transform="translate(0, 485)">
-        <rect x="910" y="0" width="70" height="70" rx="16" fill="${isDark ? '#1a272f' : '#e0f2fe'}" stroke="${cardBorder}" stroke-width="1.5" />
-        <!-- Mail icon -->
-        <rect x="928" y="24" width="34" height="24" rx="4" fill="none" stroke="${accent}" stroke-width="3" />
-        <path d="M928 27l17 11 17-11" fill="none" stroke="${accent}" stroke-width="3" stroke-linecap="round" />
+      <g transform="translate(0, 350)">
+        <rect x="920" y="0" width="70" height="70" rx="14" fill="${isDark ? '#1a272f' : '#e0f2fe'}" stroke="${cardBorder}" stroke-width="1.5" />
+        <rect x="938" y="24" width="34" height="24" rx="4" fill="none" stroke="${accent}" stroke-width="2.5" />
+        <path d="M938 27l17 11 17-11" fill="none" stroke="${accent}" stroke-width="2.5" stroke-linecap="round" />
 
-        <text x="880" y="32" fill="${textSecondary}" class="vazir-reg" font-size="19" text-anchor="end">مکاتبات رسمی و ارسال نقشه‌ها:</text>
-        <text x="880" y="64" fill="${textPrimary}" class="vazir-bold" font-size="24" text-anchor="end">دریافت استعلام قیمت و اسناد مناقصه</text>
-        <text x="60" y="48" fill="${textPrimary}" class="space-bold" font-size="26" letter-spacing="1" text-anchor="start">novand.info@gmail.com</text>
+        <text x="890" y="32" fill="${textSecondary}" class="vazir-reg" font-size="20" text-anchor="end">مکاتبات رسمی و ارسال نقشه‌ها:</text>
+        <text x="890" y="65" fill="${textPrimary}" class="vazir-bold" font-size="25" text-anchor="end">دریافت استعلام قیمت و اسناد مناقصه</text>
+        <text x="50" y="52" fill="${textPrimary}" class="space-bold" font-size="27" letter-spacing="1" text-anchor="start">novand.info@gmail.com</text>
       </g>
-      <line x1="60" y1="595" x2="960" y2="595" stroke="${cardBorder}" stroke-width="1.5" />
+      <line x1="50" y1="460" x2="980" y2="460" stroke="${cardBorder}" stroke-width="1.5" />
 
       <!-- Address -->
-      <g transform="translate(0, 630)">
-        <rect x="910" y="0" width="70" height="70" rx="16" fill="${isDark ? '#1a272f' : '#e0f2fe'}" stroke="${cardBorder}" stroke-width="1.5" />
-        <!-- Pin icon -->
-        <path d="M945 18c-7.7 0-14 6.3-14 14 0 10.5 14 26 14 26s14-15.5 14-26c0-7.7-6.3-14-14-14zm0 19a5 5 0 1 1 0-10 5 5 0 0 1 0 10z" fill="${accent}" />
+      <g transform="translate(0, 500)">
+        <rect x="920" y="0" width="70" height="70" rx="14" fill="${isDark ? '#1a272f' : '#e0f2fe'}" stroke="${cardBorder}" stroke-width="1.5" />
+        <path d="M955 18c-7.7 0-14 6.3-14 14 0 10.5 14 26 14 26s14-15.5 14-26c0-7.7-6.3-14-14-14zm0 19a5 5 0 1 1 0-10 5 5 0 0 1 0 10z" fill="${accent}" />
 
-        <text x="880" y="30" fill="${textSecondary}" class="vazir-reg" font-size="19" text-anchor="end">نشانی دفتر مرکزی نُـوَند:</text>
-        <text x="880" y="62" fill="${textPrimary}" class="vazir-bold" font-size="22" text-anchor="end">تهران، سعادت‌آباد، بلوار مدیریت، خیابان علامه طباطبایی جنوبی</text>
-        <text x="880" y="94" fill="${textPrimary}" class="vazir-bold" font-size="22" text-anchor="end">بیست‌وچهارم غربی، پلاک ۲۶، واحد ۱۷</text>
+        <text x="890" y="30" fill="${textSecondary}" class="vazir-reg" font-size="20" text-anchor="end">نشانی دفتر مرکزی نُـوَند:</text>
+        <text x="890" y="64" fill="${textPrimary}" class="vazir-bold" font-size="23" text-anchor="end">تهران، سعادت‌آباد، بلوار مدیریت، خیابان علامه طباطبایی جنوبی</text>
+        <text x="890" y="96" fill="${textPrimary}" class="vazir-bold" font-size="23" text-anchor="end">بیست‌وچهارم غربی، پلاک ۲۶، واحد ۱۷</text>
       </g>
     </g>
 
-    <!-- Prominent QR Code Section -->
-    <g transform="translate(70, 1380)">
-      <rect width="1020" height="480" rx="20" fill="${cardBg}" stroke="${cardBorder}" stroke-width="2" />
+    <!-- Modern Minimalist QR Code Section (No clutter, No unnecessary tutorials) -->
+    <g transform="translate(65, 1260)">
+      <rect width="1030" height="600" rx="16" fill="${cardBg}" stroke="${cardBorder}" stroke-width="1.5" />
       
-      <!-- QR Box Left -->
-      <g transform="translate(60, 45)">
-        <rect width="390" height="390" rx="16" fill="#ffffff" stroke="${accent}" stroke-width="3" />
-        <svg x="25" y="25" width="340" height="340" viewBox="0 0 31 31" shape-rendering="crispEdges">
+      <!-- Clean Minimal QR Tile (Pure white, subtle accent border) -->
+      <g transform="translate(340, 50)">
+        <rect width="350" height="350" rx="16" fill="#ffffff" stroke="${accent}" stroke-width="2" />
+        <svg x="20" y="20" width="310" height="310" viewBox="0 0 31 31" shape-rendering="crispEdges">
           ${qrInnerSvg}
         </svg>
       </g>
 
-      <!-- Text Callout Right -->
-      <g transform="translate(500, 60)">
-        <rect x="0" y="0" width="460" height="42" rx="10" fill="${isDark ? '#19252c' : '#e0f2fe'}" stroke="${accent}" stroke-width="1.5" />
-        <text x="440" y="28" fill="${accent}" class="space-bold" font-size="18" letter-spacing="1" text-anchor="end">SCAN TO CONNECT // DIGITAL CARD</text>
-        
-        <text x="460" y="90" fill="${textPrimary}" class="vazir-bold" font-size="30" text-anchor="end">اسکن سریع برای دسترسی آنی</text>
-        <text x="460" y="135" fill="${textBody}" class="vazir-reg" font-size="20" text-anchor="end">با اسکن بارکد روبه‌رو از طریق دوربین گوشی:</text>
-        <text x="460" y="180" fill="${textBody}" class="vazir-reg" font-size="19" text-anchor="end">• ذخیره مستقیم کارت ویزیت در مخاطبین تلفن</text>
-        <text x="460" y="220" fill="${textBody}" class="vazir-reg" font-size="19" text-anchor="end">• مسیریابی آسان به مقصد شرکت در نشان، بلد و گوگل</text>
-        <text x="460" y="260" fill="${textBody}" class="vazir-reg" font-size="19" text-anchor="end">• شروع گفت‌وگوی مستقیم در واتس‌اپ و تلگرام</text>
-        <text x="460" y="300" fill="${textBody}" class="vazir-reg" font-size="19" text-anchor="end">• مشاهده سوابق پروژه‌ها و پورتفولیوی آنلاین</text>
-
-        <rect x="0" y="335" width="460" height="50" rx="10" fill="${isDark ? '#0b1013' : '#ffffff'}" stroke="${cardBorder}" stroke-width="1.5" />
-        <text x="440" y="368" fill="${accent}" class="space-bold" font-size="20" text-anchor="end">novand-tech.com/card</text>
+      <!-- Minimal, High-Aesthetic Labeling (Eliminates all cluttered instructions) -->
+      <g transform="translate(515, 455)">
+        <text x="0" y="0" fill="${textPrimary}" class="vazir-bold" font-size="30" text-anchor="middle">اسکن کارت ویزیت دیجیتال و دسترسی سریع</text>
+        <text x="0" y="42" fill="${accent}" class="space-bold" font-size="20" letter-spacing="3" text-anchor="middle">DIGITAL BUSINESS CARD &amp; DIRECT CONNECT</text>
+        <text x="0" y="90" fill="${textSecondary}" class="space-bold" font-size="25" letter-spacing="2" text-anchor="middle">novand-tech.com/card</text>
       </g>
     </g>
 
     <!-- Bottom CTA Bar -->
-    <g transform="translate(70, 1900)">
-      <rect width="1020" height="280" rx="18" fill="url(#brochure-grad-${theme})" opacity="${isDark ? '0.15' : '0.12'}" stroke="${accent}" stroke-width="2" />
-      <text x="960" y="70" fill="${textPrimary}" class="vazir-bold" font-size="34" text-anchor="end">آماده‌اید پروژه بعدی خود را مهندسی کنیم؟</text>
-      <text x="960" y="125" fill="${textBody}" class="vazir-reg" font-size="22" text-anchor="end">جهت تعیین وقت بازدید کارشناسی رایگان از محل و بررسی نقشه‌های معماری،</text>
-      <text x="960" y="170" fill="${textBody}" class="vazir-reg" font-size="22" text-anchor="end">هم‌اکنون با شماره مستقیم <tspan fill="${accent}" class="space-bold" font-weight="bold">0912 932 1550</tspan> تماس حاصل فرمایید.</text>
-      <text x="960" y="235" fill="${accent}" class="space-bold" font-size="22" letter-spacing="1" text-anchor="end">NOVAND ENGINEERING · SAADAT ABAD, TEHRAN</text>
+    <g transform="translate(65, 1900)">
+      <rect width="1030" height="300" rx="16" fill="${isDark ? '#080d0f' : '#f1f5f9'}" stroke="${cardBorder}" stroke-width="1.5" />
+      <g transform="translate(515, 60)">
+        <text x="0" y="0" fill="${textPrimary}" class="vazir-bold" font-size="32" text-anchor="middle">پروژه بعدی خود را با استانداردهای نُـوَند مهندسی کنید</text>
+        <text x="0" y="45" fill="${textSecondary}" class="vazir-reg" font-size="21" text-anchor="middle">از مشاوره اولیه و ارزیابی سایت تا تأمین قطعات اورجینال، اجرای دقیق و پشتیبانی دائمی</text>
+      </g>
+
+      <g transform="translate(515, 175)">
+        <rect x="-320" y="0" width="640" height="65" rx="12" fill="url(#brochure-grad-${theme})" />
+        <text x="0" y="42" fill="${isDark ? '#0d1417' : '#ffffff'}" class="vazir-bold" font-size="25" text-anchor="middle">تماس با مدیر فنی: 09129321550</text>
+      </g>
     </g>
 
     <!-- Page Footer Indicator -->
-    <g transform="translate(70, 2240)">
-      <line x1="0" y1="0" x2="1020" y2="0" stroke="${cardBorder}" stroke-width="2" />
-      <text x="1020" y="45" fill="${textSecondary}" class="vazir-reg" font-size="18" text-anchor="end">نُـوَند · دفترچه رسمی خدمات مهندسی</text>
-      <text x="0" y="45" fill="${accent}" class="space-bold" font-size="20" text-anchor="start">PAGE // 06 (BACK COVER)</text>
+    <g transform="translate(65, 2240)">
+      <line x1="0" y1="0" x2="1030" y2="0" stroke="${cardBorder}" stroke-width="1.5" />
+      <text x="1030" y="45" fill="${textSecondary}" class="vazir-reg" font-size="18" text-anchor="end">نُـوَند · دفترچه رسمی خدمات مهندسی</text>
+      <text x="0" y="45" fill="${accent}" class="space-bold" font-size="19" text-anchor="start">PAGE // 06 · BACK COVER</text>
     </g>
   `;
 }
 
-// 6. Generate Standalone 1-Page SVG (Dimensions: 1169 x 2480)
+// 6. Generate Individual Page SVG (Dimensions: 1169 x 2480 = A4 1/3 panel at 300 DPI)
 function generatePageSvg({ pageNumber, theme, qrInnerSvg }) {
   const isDark = theme === 'dark';
-  const bgCanvas = isDark ? '#0b1013' : '#ffffff';
-  const borderMargin = isDark ? '#1a242a' : '#e2e8f0';
+  const bgCanvas = isDark ? '#090e10' : '#ffffff';
+  const borderMargin = isDark ? '#141c21' : '#f1f5f9';
 
   let contentMarkup = '';
   switch (pageNumber) {
@@ -814,7 +820,7 @@ function generatePageSvg({ pageNumber, theme, qrInnerSvg }) {
 // Inside Spread: Panel 4 (Left), Panel 3 (Center), Panel 2 (Right)
 function generateSpreadSvg({ spreadType, theme, qrInnerSvg }) {
   const isDark = theme === 'dark';
-  const bgCanvas = isDark ? '#0b1013' : '#ffffff';
+  const bgCanvas = isDark ? '#090e10' : '#ffffff';
   const foldColor = isDark ? '#23343d' : '#cbd5e1';
 
   let leftContent = '';

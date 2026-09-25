@@ -9,6 +9,15 @@ interface Props {
 const { solution } = Astro.props;
 const isEn = Astro.url.pathname.startsWith("/en");
 
+const solutionIconMap: Record<string, string> = {
+  "residential": "/icons/smart-home.svg",
+  "business": "/icons/network-core.svg",
+  "education": "/icons/datacenter-rack.svg",
+  "healthcare-hospitality": "/icons/critical-power.svg",
+  "specialized-facilities": "/icons/iot-telemetry.svg"
+};
+const iconSrc = solutionIconMap[solution.slug] || '/icons/smart-home.svg';
+
 const cardBg = 'bg-[#15120e] border-[#15120e] text-[#f4f2f1] hover:border-[#f4f2f1]/30';
 const titleColor = 'text-[#f4f2f1] group-hover:text-[#00d2b5] transition-colors';
 const descColor = 'text-[#f4f2f1]/65 font-light';
@@ -17,11 +26,16 @@ const eyebrowColor = 'text-[#00d2b5] font-semibold';
 ---
 <article class={`group relative border transition-all duration-300 flex flex-col justify-between p-6 sm:p-8 ${cardBg}`}>
   <div>
-    <!-- Eyebrow -->
+    <!-- Eyebrow with Domain Icon -->
     <div class={`flex items-center justify-between border-b ${dividerColor} pb-3 mb-4`}>
-      <span class={`text-[10px] font-mono uppercase tracking-[0.2em] ${eyebrowColor}`}>
-        {solution.eyebrow}
-      </span>
+      <div class="flex items-center gap-2.5">
+        <div class="w-7 h-7 rounded-xs bg-[#0d1417] border border-[#1a2327] p-1 flex items-center justify-center group-hover:border-[#00d2b5]/50 transition-colors shrink-0">
+          <img src={iconSrc} alt="" class="w-4 h-4 object-contain" />
+        </div>
+        <span class={`text-[10px] font-mono uppercase tracking-[0.2em] ${eyebrowColor}`}>
+          {solution.eyebrow}
+        </span>
+      </div>
       <span class="text-[10px] font-mono opacity-40 text-[#f4f2f1] group-hover:text-[#f4f2f1] transition-colors">{isEn ? "ENV // ARCH" : "محیط // معماری"}</span>
     </div>
 

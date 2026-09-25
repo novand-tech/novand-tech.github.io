@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200" fill="none">
+      <style>
+        @keyframes circuitPulse {
+          0%, 100% { stroke: #00d2b5; filter: drop-shadow(0 0 3px #00d2b5); }
+          50% { stroke: #10b981; filter: drop-shadow(0 0 10px #10b981); }
+        }
+        .pulsing-circuit { animation: circuitPulse 3s ease-in-out infinite; }
+      </style>
+      <rect width="200" height="200" rx="30" fill="#0d1417" stroke="#1a2327" stroke-width="2"/>
+      <g transform="translate(50, 45)">
+        <path d="M50 18 L22 38 V68 H48" class="pulsing-circuit" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" />
+        <path d="M50 18 L84 42" class="pulsing-circuit" stroke-width="6" stroke-linecap="round" />
+        <rect x="45" y="38" width="10" height="10" fill="#00d2b5" rx="1.5" />
+        <circle cx="84" cy="42" r="7" fill="#10b981" />
+        <circle cx="22" cy="38" r="6" fill="#00d2b5" />
+        <circle cx="22" cy="68" r="6" fill="#00d2b5" />
+      </g>
+    </svg>

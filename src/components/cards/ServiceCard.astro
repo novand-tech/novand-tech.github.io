@@ -9,14 +9,30 @@ interface Props {
 const { service, index = 0 } = Astro.props;
 const isEn = Astro.url.pathname.startsWith("/en");
 const paddedNumber = String(index + 1).padStart(2, '0');
+
+const iconMap: Record<string, string> = {
+  "smart-homes-buildings": "/icons/smart-home.svg",
+  "network-infrastructure": "/icons/network-core.svg",
+  "enterprise-services": "/icons/voip-telephony.svg",
+  "infrastructure-administration": "/icons/virtualization.svg",
+  "security-surveillance": "/icons/cctv-surveillance.svg",
+  "audio-power": "/icons/critical-power.svg",
+  "hardware-support": "/icons/hardware-chip.svg"
+};
+const iconSrc = iconMap[service.slug] || '/icons/network-core.svg';
 ---
 <article class="group relative bg-[#0d1417] border border-[#15120e] hover:border-[#f4f2f1]/30 transition-all duration-300 flex flex-col justify-between p-6 sm:p-8">
   <div>
-    <!-- Technical Index & Eyebrow -->
-    <div class="flex items-baseline justify-between border-b border-[#15120e] pb-4 mb-5">
-      <span class="text-xs font-mono text-[#00d2b5] font-semibold">
-        SYS // {paddedNumber}
-      </span>
+    <!-- Technical Index & Eyebrow with Domain Icon -->
+    <div class="flex items-center justify-between border-b border-[#15120e] pb-4 mb-5">
+      <div class="flex items-center gap-3">
+        <div class="w-8 h-8 rounded-xs bg-[#141210] border border-[#1a2327] p-1 flex items-center justify-center group-hover:border-[#00d2b5]/50 transition-colors shrink-0">
+          <img src={iconSrc} alt="" class="w-5 h-5 object-contain" />
+        </div>
+        <span class="text-xs font-mono text-[#00d2b5] font-semibold">
+          SYS // {paddedNumber}
+        </span>
+      </div>
       <span class="text-[10px] uppercase font-mono tracking-[0.2em] text-[#f4f2f1]/50 group-hover:text-[#f4f2f1] transition-colors">
         {service.eyebrow}
       </span>

@@ -311,11 +311,17 @@ describe('Novand Engineering Site - Diagnostics & Unit Tests', () => {
       const content = fs.readFileSync(dataFilePath, 'utf-8');
       assert.ok(content.includes('brochureData'), 'Must export brochureData');
       assert.ok(content.includes('0912 932 1550'), 'Must contain required phone number');
+      assert.ok(!content.includes('0919 691 8758'), 'Must NOT contain 0919 691 8758 on brochure');
       assert.ok(content.includes('سعادت‌آباد'), 'Must contain required office address in Saadat Abad');
       assert.ok(content.includes('مشاوره'), 'Must include 4-step process step: مشاوره');
       assert.ok(content.includes('تأمین تجهیزات') || content.includes('تامین تجهیزات'), 'Must include 4-step process step: تامین تجهیزات');
       assert.ok(content.includes('اجرا'), 'Must include 4-step process step: اجرا');
       assert.ok(content.includes('پشتیبانی'), 'Must include 4-step process step: پشتیبانی');
+      assert.ok(content.includes('باتری') || content.includes('تله‌متری'), 'Must include battery telemetry services');
+      assert.ok(content.includes('سخت‌افزار') || content.includes('تعمیرات'), 'Must include hardware repair services');
+      assert.ok(content.includes('مدارس') || content.includes('آموزشی'), 'Must include smart educational services');
+      assert.ok(content.includes('نرم‌افزار') || content.includes('هوش مصنوعی'), 'Must include software/AI services');
+      assert.ok(content.includes('BOM'), 'Must include BOM engineering');
     });
 
     test('All 18 generated brochure print and showcase assets exist in public/branding', () => {
@@ -353,6 +359,14 @@ describe('Novand Engineering Site - Diagnostics & Unit Tests', () => {
         const stat = fs.statSync(fullPath);
         assert.ok(stat.size > 1000, `Asset ${file} should have meaningful size, found ${stat.size} bytes`);
       }
+
+      // Verify that phone 0919 691 8758 is not in brochure SVGs
+      const p6DarkSvg = fs.readFileSync(path.join(brandingDir, 'novand-brochure-dark-p6.svg'), 'utf-8');
+      const p6LightSvg = fs.readFileSync(path.join(brandingDir, 'novand-brochure-light-p6.svg'), 'utf-8');
+      assert.ok(p6DarkSvg.includes('0912 932 1550'), 'Dark P6 must include Mahmoud Ahmadi phone');
+      assert.ok(p6LightSvg.includes('0912 932 1550'), 'Light P6 must include Mahmoud Ahmadi phone');
+      assert.ok(!p6DarkSvg.includes('0919 691 8758'), 'Dark P6 must NOT contain 0919');
+      assert.ok(!p6LightSvg.includes('0919 691 8758'), 'Light P6 must NOT contain 0919');
     });
 
     test('Brochure dedicated pages exist in both Persian and English', () => {

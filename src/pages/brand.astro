@@ -342,6 +342,27 @@ import NovandLogo from '@/components/ui/NovandLogo.astro';
           >
             بروشور و کاتالوگ ۶ صفحه‌ای A4
           </button>
+          <button 
+            type="button" 
+            data-filter="stickers" 
+            class="filter-btn px-3 py-1.5 bg-[#141b1f] hover:bg-[#00d2b5] hover:text-[#0d1417] text-[#00d2b5] font-bold rounded-sm border border-[#00d2b5]/40 cursor-pointer transition-all"
+          >
+            نشان‌ها و استیکرهای مهندسی
+          </button>
+          <button 
+            type="button" 
+            data-filter="animations" 
+            class="filter-btn px-3 py-1.5 bg-[#141b1f] hover:bg-[#00d2b5] hover:text-[#0d1417] text-[#00d2b5] font-bold rounded-sm border border-[#00d2b5]/40 cursor-pointer transition-all"
+          >
+            انیمیشن‌ها و گرافیک‌های زنده
+          </button>
+          <button 
+            type="button" 
+            data-filter="icons" 
+            class="filter-btn px-3 py-1.5 bg-[#141b1f] hover:bg-[#00d2b5] hover:text-[#0d1417] text-[#00d2b5] font-bold rounded-sm border border-[#00d2b5]/40 cursor-pointer transition-all"
+          >
+            آیکون‌های تخصصی سیستم
+          </button>
         </div>
       </div>
 
@@ -1664,6 +1685,428 @@ import NovandLogo from '@/components/ui/NovandLogo.astro';
           </div>
         </div>
 
+        <!-- Asset 26: استیکر نشان رسمی گواهی مهندسی نُوَند -->
+        <div class="asset-card group bg-[#141b1f] border border-[#1a2327] rounded-sm overflow-hidden flex flex-col justify-between" data-category="stickers badge lockup">
+          <div>
+            <div class="h-60 bg-[#090e10] p-6 flex items-center justify-center border-b border-[#15120e] relative dark-preview">
+              <img 
+                src="/stickers/novand-certified-engineering.svg" 
+                alt="Novand Certified Engineering Seal" 
+                class="max-h-48 max-w-[85%] object-contain transition-transform duration-300 group-hover:scale-105"
+                loading="lazy"
+              />
+              <span class="absolute top-2.5 right-2.5 px-2 py-0.5 bg-[#0d1417] text-[10px] font-mono text-[#00d2b5] border border-[#1a2327] rounded">
+                گواهی مهندسی
+              </span>
+            </div>
+            <div class="p-5">
+              <div class="flex items-center justify-between mb-2">
+                <h3 class="text-sm font-bold text-white font-sans uppercase">مهر گواهی مهندسی نُوَند</h3>
+                <span class="text-[10px] font-mono text-[#f4f2f1]/50">800×800 300DPI</span>
+              </div>
+              <p class="text-xs text-[#f4f2f1]/70 leading-relaxed font-light mb-4 font-vazirmatn" dir="rtl">
+                استیکر و مهر تضمین سیستم‌های ۱۰۰٪ قطعی، بدون خطای زیرساخت و منطبق بر استانداردهای مهندسی سیستم‌های همگرا.
+              </p>
+              <div class="flex items-center gap-2 text-[10px] font-mono text-[#00d2b5]">
+                <span>Vector SVG</span> • <span>Ultra PNG</span>
+              </div>
+            </div>
+          </div>
+          <div class="p-4 bg-[#0d1417] border-t border-[#15120e] flex items-center gap-2">
+            <a 
+              href="/stickers/novand-certified-engineering.svg" 
+              download 
+              class="flex-1 text-center py-2 bg-[#141b1f] hover:bg-[#00d2b5] hover:text-[#0d1417] text-[#f4f2f1] text-xs font-mono font-medium rounded-sm border border-[#1a2327] transition-all"
+            >
+              SVG (وکتور)
+            </a>
+            <a 
+              href="/stickers/novand-certified-engineering.png" 
+              download 
+              class="flex-1 text-center py-2 bg-[#141b1f] hover:bg-[#1a2327] text-[#f4f2f1]/80 hover:text-white text-xs font-mono font-medium rounded-sm border border-[#1a2327] transition-all"
+            >
+              PNG (رستر 800p)
+            </a>
+          </div>
+        </div>
+
+        <!-- Asset 27: استیکر پایداری پنج‌نه (99.999% SLA) -->
+        <div class="asset-card group bg-[#141b1f] border border-[#1a2327] rounded-sm overflow-hidden flex flex-col justify-between" data-category="stickers badge">
+          <div>
+            <div class="h-60 bg-[#090e10] p-6 flex items-center justify-center border-b border-[#15120e] relative dark-preview">
+              <img 
+                src="/stickers/high-availability-99999.svg" 
+                alt="High Availability 99.999% Seal" 
+                class="max-h-48 max-w-[85%] object-contain transition-transform duration-300 group-hover:scale-105"
+                loading="lazy"
+              />
+              <span class="absolute top-2.5 right-2.5 px-2 py-0.5 bg-[#0d1417] text-[10px] font-mono text-[#10b981] border border-[#1a2327] rounded">
+                پایداری SLA
+              </span>
+            </div>
+            <div class="p-5">
+              <div class="flex items-center justify-between mb-2">
+                <h3 class="text-sm font-bold text-white font-sans uppercase">مهر پایداری پنج‌نه (99.999%)</h3>
+                <span class="text-[10px] font-mono text-[#10b981]">800×800 300DPI</span>
+              </div>
+              <p class="text-xs text-[#f4f2f1]/70 leading-relaxed font-light mb-4 font-vazirmatn" dir="rtl">
+                استیکر مهندسی تضمین پایداری مستمر، معماری Failover دیتاسنتر و تاب‌آوری تجهیزات در شرایط بحرانی.
+              </p>
+              <div class="flex items-center gap-2 text-[10px] font-mono text-[#10b981]">
+                <span>Vector SVG</span> • <span>Ultra PNG</span>
+              </div>
+            </div>
+          </div>
+          <div class="p-4 bg-[#0d1417] border-t border-[#15120e] flex items-center gap-2">
+            <a 
+              href="/stickers/high-availability-99999.svg" 
+              download 
+              class="flex-1 text-center py-2 bg-[#141b1f] hover:bg-[#10b981] hover:text-[#0d1417] text-[#f4f2f1] text-xs font-mono font-medium rounded-sm border border-[#1a2327] transition-all"
+            >
+              SVG (وکتور)
+            </a>
+            <a 
+              href="/stickers/high-availability-99999.png" 
+              download 
+              class="flex-1 text-center py-2 bg-[#141b1f] hover:bg-[#1a2327] text-[#f4f2f1]/80 hover:text-white text-xs font-mono font-medium rounded-sm border border-[#1a2327] transition-all"
+            >
+              PNG (رستر 800p)
+            </a>
+          </div>
+        </div>
+
+        <!-- Asset 28: استیکر فیبر نوری و TIA-568-D -->
+        <div class="asset-card group bg-[#141b1f] border border-[#1a2327] rounded-sm overflow-hidden flex flex-col justify-between" data-category="stickers badge">
+          <div>
+            <div class="h-60 bg-[#090e10] p-6 flex items-center justify-center border-b border-[#15120e] relative dark-preview">
+              <img 
+                src="/stickers/optical-fiber-standard.svg" 
+                alt="Optical Fiber Standard TIA-568-D Seal" 
+                class="max-h-48 max-w-[85%] object-contain transition-transform duration-300 group-hover:scale-105"
+                loading="lazy"
+              />
+              <span class="absolute top-2.5 right-2.5 px-2 py-0.5 bg-[#0d1417] text-[10px] font-mono text-[#00d2b5] border border-[#1a2327] rounded">
+                استاندارد TIA-568-D
+              </span>
+            </div>
+            <div class="p-5">
+              <div class="flex items-center justify-between mb-2">
+                <h3 class="text-sm font-bold text-white font-sans uppercase">مهر استاندارد فیبر نوری FTTH</h3>
+                <span class="text-[10px] font-mono text-[#f4f2f1]/50">800×800 300DPI</span>
+              </div>
+              <p class="text-xs text-[#f4f2f1]/70 leading-relaxed font-light mb-4 font-vazirmatn" dir="rtl">
+                گواهی کابل‌کشی ساخت‌یافته و زیرساخت ارتباطی گیگابیتی و تست‌شده با دستگاه‌های عیب‌یاب نوری OTDR.
+              </p>
+              <div class="flex items-center gap-2 text-[10px] font-mono text-[#00d2b5]">
+                <span>Vector SVG</span> • <span>Ultra PNG</span>
+              </div>
+            </div>
+          </div>
+          <div class="p-4 bg-[#0d1417] border-t border-[#15120e] flex items-center gap-2">
+            <a 
+              href="/stickers/optical-fiber-standard.svg" 
+              download 
+              class="flex-1 text-center py-2 bg-[#141b1f] hover:bg-[#00d2b5] hover:text-[#0d1417] text-[#f4f2f1] text-xs font-mono font-medium rounded-sm border border-[#1a2327] transition-all"
+            >
+              SVG (وکتور)
+            </a>
+            <a 
+              href="/stickers/optical-fiber-standard.png" 
+              download 
+              class="flex-1 text-center py-2 bg-[#141b1f] hover:bg-[#1a2327] text-[#f4f2f1]/80 hover:text-white text-xs font-mono font-medium rounded-sm border border-[#1a2327] transition-all"
+            >
+              PNG (رستر 800p)
+            </a>
+          </div>
+        </div>
+
+        <!-- Asset 29: استیکر شبکه اکتیو سیسکو و میکروتیک -->
+        <div class="asset-card group bg-[#141b1f] border border-[#1a2327] rounded-sm overflow-hidden flex flex-col justify-between" data-category="stickers badge">
+          <div>
+            <div class="h-60 bg-[#090e10] p-6 flex items-center justify-center border-b border-[#15120e] relative dark-preview">
+              <img 
+                src="/stickers/cisco-mikrotik-seal.svg" 
+                alt="Cisco and MikroTik CCNA Seal" 
+                class="max-h-48 max-w-[85%] object-contain transition-transform duration-300 group-hover:scale-105"
+                loading="lazy"
+              />
+              <span class="absolute top-2.5 right-2.5 px-2 py-0.5 bg-[#0d1417] text-[10px] font-mono text-[#00d2b5] border border-[#1a2327] rounded">
+                CCNA سازمانی
+              </span>
+            </div>
+            <div class="p-5">
+              <div class="flex items-center justify-between mb-2">
+                <h3 class="text-sm font-bold text-white font-sans uppercase">نشان سوئیچینگ و روتینگ سازمانی</h3>
+                <span class="text-[10px] font-mono text-[#f4f2f1]/50">800×800 300DPI</span>
+              </div>
+              <p class="text-xs text-[#f4f2f1]/70 leading-relaxed font-light mb-4 font-vazirmatn" dir="rtl">
+                تأییدیه مهندسی شبکه‌های سازمانی، سگمنت‌بندی VLAN و کنترل امنیتی دسترسی با سخت‌افزارهای سیسکو و میکروتیک.
+              </p>
+              <div class="flex items-center gap-2 text-[10px] font-mono text-[#00d2b5]">
+                <span>Vector SVG</span> • <span>Ultra PNG</span>
+              </div>
+            </div>
+          </div>
+          <div class="p-4 bg-[#0d1417] border-t border-[#15120e] flex items-center gap-2">
+            <a 
+              href="/stickers/cisco-mikrotik-seal.svg" 
+              download 
+              class="flex-1 text-center py-2 bg-[#141b1f] hover:bg-[#00d2b5] hover:text-[#0d1417] text-[#f4f2f1] text-xs font-mono font-medium rounded-sm border border-[#1a2327] transition-all"
+            >
+              SVG (وکتور)
+            </a>
+            <a 
+              href="/stickers/cisco-mikrotik-seal.png" 
+              download 
+              class="flex-1 text-center py-2 bg-[#141b1f] hover:bg-[#1a2327] text-[#f4f2f1]/80 hover:text-white text-xs font-mono font-medium rounded-sm border border-[#1a2327] transition-all"
+            >
+              PNG (رستر 800p)
+            </a>
+          </div>
+        </div>
+
+        <!-- Asset 30: انیمیشن جریان بسته‌های شبکه (Live Packet Flow) -->
+        <div class="asset-card group bg-[#141b1f] border border-[#1a2327] rounded-sm overflow-hidden flex flex-col justify-between" data-category="animations motion">
+          <div>
+            <div class="h-60 bg-[#090e10] p-4 flex items-center justify-center border-b border-[#15120e] relative dark-preview">
+              <img 
+                src="/animations/network-packet-flow.svg" 
+                alt="Network Packet Flow Animation" 
+                class="max-h-52 w-full object-contain"
+                loading="lazy"
+              />
+              <span class="absolute top-2.5 right-2.5 px-2 py-0.5 bg-[#0d1417] text-[10px] font-mono text-[#00d2b5] border border-[#1a2327] rounded">
+                انیمیشن زنده SVG
+              </span>
+            </div>
+            <div class="p-5">
+              <div class="flex items-center justify-between mb-2">
+                <h3 class="text-sm font-bold text-white font-sans uppercase">جریان ترافیک شبکه (Live Flow)</h3>
+                <span class="text-[10px] font-mono text-[#00d2b5]">800×400 Animated</span>
+              </div>
+              <p class="text-xs text-[#f4f2f1]/70 leading-relaxed font-light mb-4 font-vazirmatn" dir="rtl">
+                انیمیشن پویا از مسیر بسته‌های داده مابین روترهای لبه، سوئیچ‌های کاتالیست، هاست‌های مجازی و استوریج SAN.
+              </p>
+              <div class="flex items-center gap-2 text-[10px] font-mono text-[#00d2b5]">
+                <span>CSS Keyframes</span> • <span>Lightweight Vector</span>
+              </div>
+            </div>
+          </div>
+          <div class="p-4 bg-[#0d1417] border-t border-[#15120e] flex items-center gap-2">
+            <a 
+              href="/animations/network-packet-flow.svg" 
+              download 
+              class="w-full text-center py-2 bg-[#141b1f] hover:bg-[#00d2b5] hover:text-[#0d1417] text-[#f4f2f1] text-xs font-mono font-medium rounded-sm border border-[#1a2327] transition-all"
+            >
+              دانلود انیمیشن SVG
+            </a>
+          </div>
+        </div>
+
+        <!-- Asset 31: انیمیشن تله‌متری رک دیتاسنتر (Server Rack Status) -->
+        <div class="asset-card group bg-[#141b1f] border border-[#1a2327] rounded-sm overflow-hidden flex flex-col justify-between" data-category="animations motion">
+          <div>
+            <div class="h-60 bg-[#090e10] p-4 flex items-center justify-center border-b border-[#15120e] relative dark-preview">
+              <img 
+                src="/animations/server-rack-telemetry.svg" 
+                alt="Server Rack Telemetry Animation" 
+                class="max-h-52 w-full object-contain"
+                loading="lazy"
+              />
+              <span class="absolute top-2.5 right-2.5 px-2 py-0.5 bg-[#0d1417] text-[10px] font-mono text-[#10b981] border border-[#1a2327] rounded">
+                تله‌متری رک
+              </span>
+            </div>
+            <div class="p-5">
+              <div class="flex items-center justify-between mb-2">
+                <h3 class="text-sm font-bold text-white font-sans uppercase">پایش و تله‌متری رک ۴۲ یونیت</h3>
+                <span class="text-[10px] font-mono text-[#10b981]">600×500 Animated</span>
+              </div>
+              <p class="text-xs text-[#f4f2f1]/70 leading-relaxed font-light mb-4 font-vazirmatn" dir="rtl">
+                گرافیک متحرک با ال‌ای‌دی‌های اکتیو، مانیتورینگ بلادرنگ درجه حرارت، ولتاژ ورودی و پهنای‌باند عبوری فیبر.
+              </p>
+              <div class="flex items-center gap-2 text-[10px] font-mono text-[#10b981]">
+                <span>CSS Keyframes</span> • <span>Telemetry HUD</span>
+              </div>
+            </div>
+          </div>
+          <div class="p-4 bg-[#0d1417] border-t border-[#15120e] flex items-center gap-2">
+            <a 
+              href="/animations/server-rack-telemetry.svg" 
+              download 
+              class="w-full text-center py-2 bg-[#141b1f] hover:bg-[#10b981] hover:text-[#0d1417] text-[#f4f2f1] text-xs font-mono font-medium rounded-sm border border-[#1a2327] transition-all"
+            >
+              دانلود انیمیشن SVG
+            </a>
+          </div>
+        </div>
+
+        <!-- Asset 32: انیمیشن رادار نظارتی CCTV (Radar Sweep) -->
+        <div class="asset-card group bg-[#141b1f] border border-[#1a2327] rounded-sm overflow-hidden flex flex-col justify-between" data-category="animations motion">
+          <div>
+            <div class="h-60 bg-[#090e10] p-4 flex items-center justify-center border-b border-[#15120e] relative dark-preview">
+              <img 
+                src="/animations/radar-surveillance-sweep.svg" 
+                alt="Radar Surveillance Sweep Animation" 
+                class="max-h-52 w-full object-contain"
+                loading="lazy"
+              />
+              <span class="absolute top-2.5 right-2.5 px-2 py-0.5 bg-[#0d1417] text-[10px] font-mono text-[#00d2b5] border border-[#1a2327] rounded">
+                پویش رادار ۳۶۰°
+              </span>
+            </div>
+            <div class="p-5">
+              <div class="flex items-center justify-between mb-2">
+                <h3 class="text-sm font-bold text-white font-sans uppercase">رادار پویش امنیتی دوربین‌ها</h3>
+                <span class="text-[10px] font-mono text-[#00d2b5]">500×500 Animated</span>
+              </div>
+              <p class="text-xs text-[#f4f2f1]/70 leading-relaxed font-light mb-4 font-vazirmatn" dir="rtl">
+                انیمیشن پرتو چرخان رادار اتاق‌های کنترل و مانیتورینگ Situation Rooms با ردیابی تارگت‌های حفاظتی.
+              </p>
+              <div class="flex items-center gap-2 text-[10px] font-mono text-[#00d2b5]">
+                <span>CSS Rotation</span> • <span>Radar Sweep</span>
+              </div>
+            </div>
+          </div>
+          <div class="p-4 bg-[#0d1417] border-t border-[#15120e] flex items-center gap-2">
+            <a 
+              href="/animations/radar-surveillance-sweep.svg" 
+              download 
+              class="w-full text-center py-2 bg-[#141b1f] hover:bg-[#00d2b5] hover:text-[#0d1417] text-[#f4f2f1] text-xs font-mono font-medium rounded-sm border border-[#1a2327] transition-all"
+            >
+              دانلود انیمیشن SVG
+            </a>
+          </div>
+        </div>
+
+        <!-- Asset 33: انیمیشن شبکه هوشمند ساختمان (Smart Building Mesh) -->
+        <div class="asset-card group bg-[#141b1f] border border-[#1a2327] rounded-sm overflow-hidden flex flex-col justify-between" data-category="animations motion">
+          <div>
+            <div class="h-60 bg-[#090e10] p-4 flex items-center justify-center border-b border-[#15120e] relative dark-preview">
+              <img 
+                src="/animations/smart-building-nodes.svg" 
+                alt="Smart Building Nodes Mesh" 
+                class="max-h-52 w-full object-contain"
+                loading="lazy"
+              />
+              <span class="absolute top-2.5 right-2.5 px-2 py-0.5 bg-[#0d1417] text-[10px] font-mono text-[#00d2b5] border border-[#1a2327] rounded">
+                مش ایزومتریک
+              </span>
+            </div>
+            <div class="p-5">
+              <div class="flex items-center justify-between mb-2">
+                <h3 class="text-sm font-bold text-white font-sans uppercase">شماتیک ایزومتریک ساختمان هوشمند</h3>
+                <span class="text-[10px] font-mono text-[#00d2b5]">700×450 Animated</span>
+              </div>
+              <p class="text-xs text-[#f4f2f1]/70 leading-relaxed font-light mb-4 font-vazirmatn" dir="rtl">
+                طرح ایزومتریک سه‌طبقه اتوماسیون با گره‌های فعال تهویه مطبوع، سیستم روشنایی DALI-2 و کنترل تردد.
+              </p>
+              <div class="flex items-center gap-2 text-[10px] font-mono text-[#00d2b5]">
+                <span>Isometric Vector</span> • <span>IoT Nodes</span>
+              </div>
+            </div>
+          </div>
+          <div class="p-4 bg-[#0d1417] border-t border-[#15120e] flex items-center gap-2">
+            <a 
+              href="/animations/smart-building-nodes.svg" 
+              download 
+              class="w-full text-center py-2 bg-[#141b1f] hover:bg-[#00d2b5] hover:text-[#0d1417] text-[#f4f2f1] text-xs font-mono font-medium rounded-sm border border-[#1a2327] transition-all"
+            >
+              دانلود انیمیشن SVG
+            </a>
+          </div>
+        </div>
+
+        <!-- Asset 34: موشن ویدئوگرافیک شریان‌های دیتاسنتر (1080p Video Loop) -->
+        <div class="asset-card group bg-[#141b1f] border border-[#1a2327] rounded-sm overflow-hidden flex flex-col justify-between" data-category="animations motion">
+          <div>
+            <div class="h-60 bg-[#090e10] p-4 flex items-center justify-center border-b border-[#15120e] relative dark-preview">
+              <img 
+                src="/videos/datacenter-circuit-stream.svg" 
+                alt="Datacenter Circuit Stream Motion Graphic" 
+                class="max-h-52 w-full object-contain"
+                loading="lazy"
+              />
+              <span class="absolute top-2.5 right-2.5 px-2 py-0.5 bg-[#0d1417] text-[10px] font-mono text-[#00d2b5] border border-[#1a2327] rounded">
+                موشن لوپ 1080p
+              </span>
+            </div>
+            <div class="p-5">
+              <div class="flex items-center justify-between mb-2">
+                <h3 class="text-sm font-bold text-white font-sans uppercase">لوپ متحرک بزرگراه مداری دیتاسنتر</h3>
+                <span class="text-[10px] font-mono text-[#00d2b5]">1920×1080 Motion Loop</span>
+              </div>
+              <p class="text-xs text-[#f4f2f1]/70 leading-relaxed font-light mb-4 font-vazirmatn" dir="rtl">
+                پس‌زمینه موشن گرافیک پویا با خطوط نوری متحرک شتاب‌دار جهت استفاده در پس‌زمینه‌ها و مانیتورهای صنعتی.
+              </p>
+              <div class="flex items-center gap-2 text-[10px] font-mono text-[#00d2b5]">
+                <span>1080p Vector Motion</span> • <span>Seamless Loop</span>
+              </div>
+            </div>
+          </div>
+          <div class="p-4 bg-[#0d1417] border-t border-[#15120e] flex items-center gap-2">
+            <a 
+              href="/videos/datacenter-circuit-stream.svg" 
+              download 
+              class="w-full text-center py-2 bg-[#141b1f] hover:bg-[#00d2b5] hover:text-[#0d1417] text-[#f4f2f1] text-xs font-mono font-medium rounded-sm border border-[#1a2327] transition-all"
+            >
+              دانلود موشن گرافیک SVG
+            </a>
+          </div>
+        </div>
+
+        <!-- Asset 35: مجموعه آیکون‌های مهندسی ۱۲ گانه سیستم نُوَند -->
+        <div class="asset-card group bg-[#141b1f] border border-[#1a2327] rounded-sm overflow-hidden flex flex-col justify-between" data-category="icons">
+          <div>
+            <div class="h-60 bg-[#090e10] p-4 flex items-center justify-center border-b border-[#15120e] relative dark-preview">
+              <div class="grid grid-cols-4 gap-3 p-2 bg-[#0d1417] rounded-sm border border-[#1a2327]">
+                <img src="/icons/smart-home.svg" alt="Smart Home" class="w-8 h-8 object-contain" />
+                <img src="/icons/network-core.svg" alt="Network Core" class="w-8 h-8 object-contain" />
+                <img src="/icons/enterprise-server.svg" alt="Server" class="w-8 h-8 object-contain" />
+                <img src="/icons/virtualization.svg" alt="Virtualization" class="w-8 h-8 object-contain" />
+                <img src="/icons/cctv-surveillance.svg" alt="CCTV" class="w-8 h-8 object-contain" />
+                <img src="/icons/critical-power.svg" alt="Power" class="w-8 h-8 object-contain" />
+                <img src="/icons/hardware-chip.svg" alt="Hardware" class="w-8 h-8 object-contain" />
+                <img src="/icons/fiber-optic.svg" alt="Fiber" class="w-8 h-8 object-contain" />
+                <img src="/icons/cyber-security.svg" alt="Security" class="w-8 h-8 object-contain" />
+                <img src="/icons/voip-telephony.svg" alt="VoIP" class="w-8 h-8 object-contain" />
+                <img src="/icons/iot-telemetry.svg" alt="IoT" class="w-8 h-8 object-contain" />
+                <img src="/icons/datacenter-rack.svg" alt="Rack" class="w-8 h-8 object-contain" />
+              </div>
+              <span class="absolute top-2.5 right-2.5 px-2 py-0.5 bg-[#0d1417] text-[10px] font-mono text-[#00d2b5] border border-[#1a2327] rounded">
+                ۱۲ آیکون مهندسی
+              </span>
+            </div>
+            <div class="p-5">
+              <div class="flex items-center justify-between mb-2">
+                <h3 class="text-sm font-bold text-white font-sans uppercase">مجموعه آیکون‌های مهندسی سیستم نُوَند</h3>
+                <span class="text-[10px] font-mono text-[#00d2b5]">12 Icons · SVG/PNG</span>
+              </div>
+              <p class="text-xs text-[#f4f2f1]/70 leading-relaxed font-light mb-4 font-vazirmatn" dir="rtl">
+                مجموعه نمادهای مهندسی دقیق با پس‌زمینه فنی کالیبره‌شده برای شبکه، سرور، نظارت تصویری، صوت، برق و اتوماسیون.
+              </p>
+              <div class="flex items-center gap-2 text-[10px] font-mono text-[#00d2b5]">
+                <span>48×48 Vector</span> • <span>256px Raster</span>
+              </div>
+            </div>
+          </div>
+          <div class="p-4 bg-[#0d1417] border-t border-[#15120e] flex items-center gap-2">
+            <a 
+              href="/icons/network-core.svg" 
+              download 
+              class="flex-1 text-center py-2 bg-[#141b1f] hover:bg-[#00d2b5] hover:text-[#0d1417] text-[#f4f2f1] text-xs font-mono font-medium rounded-sm border border-[#1a2327] transition-all"
+            >
+              نمونه SVG
+            </a>
+            <a 
+              href="/branding/novand-brand-assets.zip" 
+              download 
+              class="flex-1 text-center py-2 bg-[#141b1f] hover:bg-[#1a2327] text-[#f4f2f1]/80 hover:text-white text-xs font-mono font-medium rounded-sm border border-[#1a2327] transition-all"
+            >
+              دانلود پکیج کامل (.ZIP)
+            </a>
+          </div>
+        </div>
       </div>
 
     </div>

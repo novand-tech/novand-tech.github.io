@@ -89,8 +89,17 @@ import { getCompanyData } from "../../data/company";
             <div class="absolute inset-0 bg-gradient-to-t from-[#0d1417] via-transparent to-[#0d1417]/30"></div>
             
             <!-- Coordinate HUD Overlay -->
-            <div class="absolute top-4 left-4 text-[10px] font-mono text-[#00d2b5] bg-[#0d1417]/90 px-2.5 py-1 border border-[#00d2b5]/30 tracking-widest">
+            <div class="absolute top-4 left-4 text-[10px] font-mono text-[#00d2b5] bg-[#0d1417]/90 px-2.5 py-1 border border-[#00d2b5]/30 tracking-widest z-10">
               {isEn ? 'PHYSICAL LAYER // RACK-01' : 'لایه فیزیکی // RACK-01'}
+            </div>
+
+            <!-- Certified Engineering Seal Overlay -->
+            <div class="absolute top-3 right-3 z-10">
+              <img 
+                src="/stickers/novand-certified-engineering.svg" 
+                alt="Novand Certified Engineering" 
+                class="w-12 h-12 object-contain drop-shadow-[0_0_8px_rgba(0,210,181,0.35)] opacity-90 hover:opacity-100 transition-opacity" 
+              />
             </div>
 
             <div class="absolute bottom-4 left-4 right-4 bg-[#0d1417]/95 border border-[#15120e] p-4 text-xs font-mono text-[#f4f2f1] backdrop-blur-xs">
