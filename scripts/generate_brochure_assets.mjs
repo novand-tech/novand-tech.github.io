@@ -5,7 +5,7 @@ import QRCode from 'qrcode';
 import { Resvg } from '@resvg/resvg-js';
 
 const CARD_URL = 'https://novand-tech.com/card';
-const OUTPUT_DIR = path.join(process.cwd(), 'public', 'branding');
+const OUTPUT_DIR = path.join(process.cwd(), 'public', 'brochure');
 const IMAGES_DIR = path.join(process.cwd(), 'public', 'images');
 const FONTS_DIR = path.join(process.cwd(), 'public', 'fonts');
 
@@ -1030,17 +1030,17 @@ async function main() {
     console.log(`Saved Showcase Mockup SVG & PNG: ${mockupId} (${(mockupPngBuffer.length / 1024).toFixed(1)} KB)`);
   }
 
-  // 4. Update the novand-brand-assets.zip archive
-  console.log('\nUpdating novand-brand-assets.zip to include all new brochure assets...');
-  const pyScriptPath = path.join(process.cwd(), 'scripts', 'zip_branding.py');
+  // 4. Creating the novand-brochure-assets.zip archive
+  console.log('\nCreating novand-brochure-assets.zip to include all new brochure assets...');
+  const pyScriptPath = path.join(process.cwd(), 'scripts', 'zip_brochure.py');
   fs.writeFileSync(pyScriptPath, `import zipfile, os
-branding_dir = "${OUTPUT_DIR}"
-zip_path = os.path.join(branding_dir, "novand-brand-assets.zip")
-files = [f for f in os.listdir(branding_dir) if f != "novand-brand-assets.zip" and not f.startswith('.')]
+brochure_dir = "${OUTPUT_DIR}"
+zip_path = os.path.join(brochure_dir, "novand-brochure-assets.zip")
+files = [f for f in os.listdir(brochure_dir) if f != "novand-brochure-assets.zip" and not f.startswith('.')]
 files.sort()
 with zipfile.ZipFile(zip_path, 'w', zipfile.ZIP_DEFLATED) as zipf:
     for file in files:
-        full_path = os.path.join(branding_dir, file)
+        full_path = os.path.join(brochure_dir, file)
         zipf.write(full_path, arcname=file)
 print(f"Archive updated with {len(files)} files, size: {os.path.getsize(zip_path)} bytes")
 `, 'utf-8');

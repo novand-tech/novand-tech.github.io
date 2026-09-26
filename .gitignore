@@ -10,3 +10,6 @@ dev.json
 settings.json
 types.d.ts
 package-lock.json
+public/brochure/novand-brochure-assets.zip
+public/brochure/*.svg
+src/pages/brochure.astro
