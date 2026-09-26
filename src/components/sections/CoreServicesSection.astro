@@ -1,11 +1,11 @@
 ---
-const isEn = Astro.url.pathname.startsWith("/en");
-const servicesData = getServicesData(Astro.url.pathname);
 import SectionHeading from '../ui/SectionHeading.astro';
 import ServiceCard from '../cards/ServiceCard.astro';
 import Button from '../ui/Button.astro';
 import { getServicesData } from "../../data/services";
 
+const isEn = Astro.url.pathname.startsWith("/en");
+const servicesData = getServicesData(Astro.url.pathname);
 const allServices = servicesData;
 ---
 <section class="bg-[#141210] text-[#f4f2f1] py-20 sm:py-28 border-b border-[#15120e]">

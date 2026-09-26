@@ -57,15 +57,15 @@
     - `smart-building-nodes.svg` (Three-tier isometric intelligent building mesh)
   - `/public/videos/`: Motion graphics and looping animated backdrops:
     - `datacenter-circuit-stream.svg` (1920x1080 seamless optical highway motion loop)
-  - `/public/branding/`: Corporate logos, business cards, brochure assets, social banners, and press kits.
+  - `/public/branding/`: Corporate logos, business cards, social banners, and press kits.
     - `novand-emblem-animated.svg` (Pulsing vector brand mark)
     - `novand-social-card-square.svg` & `.png` (1080x1080 official social media graphic)
-    - `novand-brand-assets.zip` (Complete archive including logos, business cards, brochures, stickers, and icons)
+    - `novand-brand-assets.zip` (Complete archive including logos, business cards, stickers, and icons)
 - **Asset Integrity Rules**:
   - All referenced images in data files (`services.ts`, `solutions.ts`, `projects.ts`, `adLandingData.ts`, `brochureData.ts`) MUST exist on disk in `public/`.
   - Imagery must be tailored, crisp, modern, and aligned with industrial-grade technical engineering (no generic clip art or blurry placeholders).
   - Zero broken images: all `<img>` tags must include `referrerPolicy="no-referrer"` and styled fallback containers.
-  - Brand guidelines pages (`/brand` and `/en/brand`) feature dynamic category filters for all assets: `all`, `lockup`, `badge`, `mono`, `social`, `persian`, `light`, `cards`, `brochure`, `stickers`, `animations`, `icons`.
+  - Brand guidelines pages (`/brand` and `/en/brand`) feature dynamic category filters for all assets (execpt brochure assets, because of their too much size): `all`, `lockup`, `badge`, `mono`, `social`, `persian`, `light`, `cards`, `stickers`, `animations`, `icons`.
 
 ## 5. Frontend Design Constitution (Anti-Slop Discipline)
 - **Zero-Pill Rule**: Never wrap static metadata (categories, tags, dates) in rounded pill badges or colored capsules. Use clean unboxed text separated by `·` or `/`.

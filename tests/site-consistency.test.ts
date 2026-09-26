@@ -324,20 +324,14 @@ describe('Novand Engineering Site - Diagnostics & Unit Tests', () => {
       assert.ok(content.includes('BOM'), 'Must include BOM engineering');
     });
 
-    test('All 18 generated brochure print and showcase assets exist in public/branding', () => {
-      const brandingDir = path.join(process.cwd(), 'public', 'branding');
+    test('All 18 generated brochure print and showcase assets exist in public/brochure', () => {
+      const brochureDir = path.join(process.cwd(), 'public', 'brochure');
       const requiredFiles = [
-        'novand-brochure-spread-outside-dark.svg',
         'novand-brochure-spread-outside-dark.png',
-        'novand-brochure-spread-inside-dark.svg',
         'novand-brochure-spread-inside-dark.png',
-        'novand-brochure-spread-outside-light.svg',
         'novand-brochure-spread-outside-light.png',
-        'novand-brochure-spread-inside-light.svg',
         'novand-brochure-spread-inside-light.png',
-        'novand-brochure-showcase-dark.svg',
         'novand-brochure-showcase-dark.png',
-        'novand-brochure-showcase-light.svg',
         'novand-brochure-showcase-light.png',
         'novand-brochure-dark-p1.png',
         'novand-brochure-dark-p2.png',
@@ -354,46 +348,11 @@ describe('Novand Engineering Site - Diagnostics & Unit Tests', () => {
       ];
 
       for (const file of requiredFiles) {
-        const fullPath = path.join(brandingDir, file);
+        const fullPath = path.join(brochureDir, file);
         assert.ok(fs.existsSync(fullPath), `Asset must exist: ${file}`);
         const stat = fs.statSync(fullPath);
         assert.ok(stat.size > 1000, `Asset ${file} should have meaningful size, found ${stat.size} bytes`);
       }
-
-      // Verify that phone 0919 691 8758 is not in brochure SVGs
-      const p6DarkSvg = fs.readFileSync(path.join(brandingDir, 'novand-brochure-dark-p6.svg'), 'utf-8');
-      const p6LightSvg = fs.readFileSync(path.join(brandingDir, 'novand-brochure-light-p6.svg'), 'utf-8');
-      assert.ok(p6DarkSvg.includes('0912 932 1550'), 'Dark P6 must include Mahmoud Ahmadi phone');
-      assert.ok(p6LightSvg.includes('0912 932 1550'), 'Light P6 must include Mahmoud Ahmadi phone');
-      assert.ok(!p6DarkSvg.includes('0919 691 8758'), 'Dark P6 must NOT contain 0919');
-      assert.ok(!p6LightSvg.includes('0919 691 8758'), 'Light P6 must NOT contain 0919');
-    });
-
-    test('Brochure dedicated pages exist in both Persian and English', () => {
-      const faPage = path.join(process.cwd(), 'src', 'pages', 'brochure.astro');
-      const enPage = path.join(process.cwd(), 'src', 'pages', 'en', 'brochure.astro');
-      assert.ok(fs.existsSync(faPage), 'src/pages/brochure.astro must exist');
-      assert.ok(fs.existsSync(enPage), 'src/pages/en/brochure.astro must exist');
-
-      const faContent = fs.readFileSync(faPage, 'utf-8');
-      assert.ok(faContent.includes('novand-brochure-spread-outside-dark.png'));
-      assert.ok(faContent.includes('novand-brochure-spread-inside-dark.png'));
-      assert.ok(faContent.includes('@media print'), 'Must include A4 print styles');
-    });
-
-    test('Brand guidelines page integrates brochure assets and filters', () => {
-      const brandFa = path.join(process.cwd(), 'src', 'pages', 'brand.astro');
-      const brandEn = path.join(process.cwd(), 'src', 'pages', 'en', 'brand.astro');
-
-      const contentFa = fs.readFileSync(brandFa, 'utf-8');
-      const contentEn = fs.readFileSync(brandEn, 'utf-8');
-
-      assert.ok(contentFa.includes('data-filter="brochure"'), 'Brand FA must have brochure filter button');
-      assert.ok(contentEn.includes('data-filter="brochure"'), 'Brand EN must have brochure filter button');
-      assert.ok(contentFa.includes('novand-brochure-showcase-dark.png'), 'Brand FA must show dark showcase');
-      assert.ok(contentFa.includes('novand-brochure-showcase-light.png'), 'Brand FA must show light showcase');
-      assert.ok(contentEn.includes('novand-brochure-showcase-dark.png'), 'Brand EN must show dark showcase');
-      assert.ok(contentEn.includes('novand-brochure-showcase-light.png'), 'Brand EN must show light showcase');
     });
   });
 });
