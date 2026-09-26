@@ -6,9 +6,7 @@ coverage/
 *.log
 .env*
 !.env.example
-dev.json
-settings.json
-types.d.ts
+.astro/
 package-lock.json
 public/brochure/novand-brochure-assets.zip
 public/brochure/*.svg
