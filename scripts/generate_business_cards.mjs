@@ -63,7 +63,7 @@ function generateBusinessCardSvg({
   const qrTileBg = '#ffffff';
   const qrTileBorder = isDark ? '#00d2b5' : '#008775';
 
-  return `<svg width="1050" height="600" viewBox="0 0 1050 600" fill="none" xmlns="http://www.w3.org/2000/svg" direction="rtl">
+  return `<svg width="1063" height="709" viewBox="0 0 1063 709" fill="none" xmlns="http://www.w3.org/2000/svg" direction="rtl">
   <defs>
     <style>
       @font-face {
@@ -109,88 +109,87 @@ function generateBusinessCardSvg({
   </defs>
 
   <!-- Base Card Canvas with Clean Print Margins -->
-  <rect width="1050" height="600" fill="${bgCanvas}" />
-  <rect x="21" y="21" width="1008" height="558" rx="14" fill="${bgCanvas}" stroke="${borderCard}" stroke-width="1.5" />
+  <rect width="1063" height="709" fill="${bgCanvas}" />
 
   <!-- ============================================================== -->
   <!-- TOP BRAND HEADER: Logo + Brand Name + Core Engineering Focus   -->
   <!-- ============================================================== -->
   <g id="brand-header">
     <!-- Emblem -->
-    <g transform="translate(885, 28)">
+    <g transform="translate(895, 28)">
       ${getNovandEmblemMarkup({ scale: 1.35, strokeCore, glowId: `card-grad-${theme}`, fillDot })}
     </g>
 
     <!-- Brand Typography & Subtitle -->
-    <text x="885" y="90" fill="${textPrimary}" class="font-vazir-bold" font-family="Vazirmatn, sans-serif" font-weight="700" font-size="44" text-anchor="end">نُـوَند</text>
-    <text x="765" y="85" fill="${accentTurquoise}" class="font-space-bold" font-family="Space Grotesk, sans-serif" font-weight="900" font-size="19" letter-spacing="4.5" text-anchor="end">NOVAND</text>
-    <text x="885" y="125" fill="${accentTurquoise}" class="font-vazir-bold" font-family="Vazirmatn, sans-serif" font-weight="700" font-size="17" text-anchor="end">هوشمندسازی خانه  ·  سیستم‌های امنیتی و نظارت تصویری  ·  زیرساخت شبکه</text>
+    <text x="885" y="105" fill="${textPrimary}" class="font-vazir-bold" font-family="Vazirmatn, sans-serif" font-weight="700" font-size="44" text-anchor="end">نُـوَند</text>
+    <text x="765" y="100" fill="${accentTurquoise}" class="font-space-bold" font-family="Space Grotesk, sans-serif" font-weight="900" font-size="19" letter-spacing="4.5" text-anchor="end">NOVAND</text>
+    <text x="885" y="145" fill="${accentTurquoise}" class="font-vazir-bold" font-family="Vazirmatn, sans-serif" font-weight="700" font-size="17" text-anchor="end">هوشمندسازی خانه  ·  سیستم‌های امنیتی و نظارت تصویری  ·  زیرساخت شبکه</text>
 
     <!-- Left Header Callout -->
-    <text x="72" y="85" fill="${textPrimary}" class="font-vazir-bold" font-family="Vazirmatn, sans-serif" font-weight="700" font-size="20" text-anchor="start">مهندسی سیستم‌ها و فناوری نُـوَند</text>
-    <text x="65" y="125" fill="${accentTurquoise}" class="font-space-bold" font-family="Space Grotesk, sans-serif" font-weight="700" font-size="15" letter-spacing="1.2" text-anchor="start">SMART HOMES · CCTV · NETWORKS</text>
+    <text x="72" y="100" fill="${textPrimary}" class="font-vazir-bold" font-family="Vazirmatn, sans-serif" font-weight="700" font-size="20" text-anchor="start">مهندسی سیستم‌ها و فناوری نُـوَند</text>
+    <text x="65" y="145" fill="${accentTurquoise}" class="font-space-bold" font-family="Space Grotesk, sans-serif" font-weight="700" font-size="15" letter-spacing="1.2" text-anchor="start">SMART HOMES · CCTV · NETWORKS</text>
   </g>
 
   <!-- Clean Separation Line -->
-  <line x1="55" y1="114" x2="995" y2="114" stroke="url(#divider-grad-${theme})" stroke-width="1.5" />
+  <line x1="56.5" y1="150" x2="1001.5" y2="150" stroke="url(#divider-grad-${theme})" stroke-width="1.5" />
 
   <!-- ============================================================== -->
   <!-- RIGHT REGION: Personal Identity & Direct Contact Information   -->
   <!-- ============================================================== -->
   <g id="person-identity">
-    <text x="990" y="196" fill="${textPrimary}" class="font-vazir-bold" font-family="Vazirmatn, sans-serif" font-weight="700" font-size="38" text-anchor="end">${name}</text>
-    <rect x="890" y="215" width="100" height="3" rx="1.5" fill="url(#card-grad-${theme})" />
+    <text x="990" y="220" fill="${textPrimary}" class="font-vazir-bold" font-family="Vazirmatn, sans-serif" font-weight="700" font-size="40" text-anchor="end">${name}</text>
+    <rect x="890" y="240" width="100" height="3" rx="1.5" fill="url(#card-grad-${theme})" />
   </g>
 
   <!-- Contact Rows (Phone, Website, Instagram, Address) -->
   <g id="contact-list">
     <!-- Row 1: Phone (English numerals with Space Grotesk) -->
-    <g transform="translate(0, 238)">
-      <rect x="952" y="0" width="38" height="38" rx="9" fill="${iconBadgeBg}" stroke="${iconBadgeBorder}" stroke-width="1.2" />
-      <g transform="translate(959, 7)" stroke="${accentTurquoise}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none">
+    <g transform="translate(0, 268)">
+      <rect x="940" y="0" width="45" height="45" rx="9" fill="${iconBadgeBg}" stroke="${iconBadgeBorder}" stroke-width="1.2" />
+      <g transform="translate(947, 6.85), scale(1.3)" stroke="${accentTurquoise}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none">
         <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
       </g>
-      <text x="932" y="27" fill="${textPrimary}" class="font-space-bold" font-family="Space Grotesk, sans-serif" font-weight="700" font-size="25" letter-spacing="1.2" text-anchor="end">${phone}</text>
+      <text x="910" y="30" fill="${textPrimary}" class="font-space-bold" font-family="Space Grotesk, sans-serif" font-weight="700" font-size="26" letter-spacing="1.2" text-anchor="end">${phone}</text>
     </g>
 
     <!-- Row 2: Website (Direct domain) -->
-    <g transform="translate(0, 292)">
-      <rect x="952" y="0" width="38" height="38" rx="9" fill="${iconBadgeBg}" stroke="${iconBadgeBorder}" stroke-width="1.2" />
-      <g transform="translate(959, 7)" stroke="${accentTurquoise}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none">
+    <g transform="translate(0, 338.5)">
+      <rect x="940" y="0" width="45" height="45" rx="9" fill="${iconBadgeBg}" stroke="${iconBadgeBorder}" stroke-width="1.2" />
+      <g transform="translate(947, 6.85), scale(1.3)" stroke="${accentTurquoise}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none">
         <circle cx="12" cy="12" r="10"/>
         <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/>
         <path d="M2 12h20"/>
       </g>
-      <text x="932" y="26" fill="${textPrimary}" class="font-space-bold" font-family="Space Grotesk, sans-serif" font-weight="700" font-size="25" letter-spacing="1" text-anchor="end">novand-tech.com</text>
+      <text x="910" y="28" fill="${textPrimary}" class="font-space-bold" font-family="Space Grotesk, sans-serif" font-weight="700" font-size="26" letter-spacing="1" text-anchor="end">novand-tech.com</text>
     </g>
 
     <!-- Row 3: Instagram -->
-    <g transform="translate(0, 346)">
-      <rect x="952" y="0" width="38" height="38" rx="9" fill="${iconBadgeBg}" stroke="${iconBadgeBorder}" stroke-width="1.2" />
-      <g transform="translate(959, 7)" stroke="${accentTurquoise}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none">
+    <g transform="translate(0, 409)">
+      <rect x="940" y="0" width="45" height="45" rx="9" fill="${iconBadgeBg}" stroke="${iconBadgeBorder}" stroke-width="1.2" />
+      <g transform="translate(947, 6.85), scale(1.3)" stroke="${accentTurquoise}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none">
         <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
         <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
         <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
       </g>
-      <text x="932" y="26" fill="${accentTurquoise}" class="font-space-bold" font-family="Space Grotesk, sans-serif" font-weight="700" font-size="25" letter-spacing="0.5" text-anchor="end">@novand_tech</text>
+      <text x="910" y="28" fill="${accentTurquoise}" class="font-space-bold" font-family="Space Grotesk, sans-serif" font-weight="700" font-size="26" letter-spacing="0.5" text-anchor="end">@novand_tech</text>
     </g>
 
     <!-- Row 4: Location Address -->
-    <g transform="translate(0, 404)">
-      <rect x="952" y="0" width="38" height="38" rx="9" fill="${iconBadgeBg}" stroke="${iconBadgeBorder}" stroke-width="1.2" />
-      <g transform="translate(959, 7)" stroke="${accentTurquoise}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none">
+    <g transform="translate(0, 480)">
+      <rect x="940" y="0" width="45" height="45" rx="9" fill="${iconBadgeBg}" stroke="${iconBadgeBorder}" stroke-width="1.2" />
+      <g transform="translate(947, 6.85), scale(1.3)" stroke="${accentTurquoise}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none">
         <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/>
         <circle cx="12" cy="10" r="3"/>
       </g>
-      <text x="932" y="10" fill="${textPrimary}" class="font-vazir-reg" font-family="Vazirmatn, sans-serif" font-weight="700" font-size="22" text-anchor="end">،تهران، سعادت‌آباد، بلوار مدیریت، خیابان علامه طباطبایی جنوبی</text>
-      <text x="932" y="40" fill="${textPrimary}" class="font-vazir-reg" font-family="Vazirmatn, sans-serif" font-weight="700" font-size="22" text-anchor="end">بیست‌وچهارم غربی، پلاک ۲۶، واحد ۱۷</text>
+      <text x="910" y="7" fill="${textPrimary}" class="font-vazir-reg" font-family="Vazirmatn, sans-serif" font-weight="700" font-size="23" text-anchor="end">،تهران، سعادت‌آباد، بلوار مدیریت، خیابان علامه طباطبایی جنوبی</text>
+      <text x="910" y="43" fill="${textPrimary}" class="font-vazir-reg" font-family="Vazirmatn, sans-serif" font-weight="700" font-size="23" text-anchor="end">بیست‌وچهارم غربی، پلاک ۲۶، واحد ۱۷</text>
     </g>
   </g>
 
   <!-- ============================================================== -->
   <!-- LEFT REGION: Clean Scannable QR Code (No tutorial/text clutter)-->
   <!-- ============================================================== -->
-  <g id="qr-code-section" transform="translate(110, 196)">
+  <g id="qr-code-section" transform="translate(85, 250)">
     <rect x="0" y="0" width="220" height="220" rx="14" fill="${qrTileBg}" stroke="${qrTileBorder}" stroke-width="1.8" />
     <svg x="15" y="15" width="190" height="190" viewBox="0 0 31 31" shape-rendering="crispEdges">
       ${qrInnerSvg}
@@ -200,32 +199,32 @@ function generateBusinessCardSvg({
   <!-- ============================================================== -->
   <!-- BOTTOM ARCHITECTURAL DOCK: Compact & Minimal Core Services     -->
   <!-- ============================================================== -->
-  <g id="services-dock" transform="translate(55, 475)">
-    <rect x="0" y="0" width="940" height="70" rx="10" fill="${dockBg}" stroke="${dockBorder}" stroke-width="1.2" />
+  <g id="services-dock" transform="translate(56.5, 565)">
+    <rect x="0" y="0" width="950" height="85" rx="10" fill="${dockBg}" stroke="${dockBorder}" stroke-width="1.2" />
     
     <!-- Item 1 (Right): VoIP & Fiber -->
     <g transform="translate(0, 0)">
-      <text x="927" y="38" fill="${textPrimary}" class="font-vazir-bold" font-family="Vazirmatn, sans-serif" font-weight="700" font-size="19" text-anchor="end">و فیبر نوری VoIP مرکز تلفن</text>
+      <text x="937" y="45" fill="${textPrimary}" class="font-vazir-bold" font-family="Vazirmatn, sans-serif" font-weight="700" font-size="19" text-anchor="end">و فیبر نوری VoIP مرکز تلفن</text>
     </g>
 
 
     <!-- Item 2 (Center-Right): Hardware & Software -->
     <g transform="translate(0, 0)">
-      <circle cx="705" cy="35" r="3.5" fill="${accentTurquoise}" />
-      <text x="665" y="38" fill="${textPrimary}" class="font-vazir-bold" font-family="Vazirmatn, sans-serif" font-weight="700" font-size="19" text-anchor="end">سخت‌افزار و نرم‌افزار</text>
+      <circle cx="712.5" cy="43" r="4" fill="${accentTurquoise}" />
+      <text x="665" y="45" fill="${textPrimary}" class="font-vazir-bold" font-family="Vazirmatn, sans-serif" font-weight="700" font-size="19" text-anchor="end">سخت‌افزار و نرم‌افزار</text>
     </g>
 
 
     <!-- Item 3 (Center-Left): Audio & Video -->
     <g transform="translate(0, 0)">
-      <circle cx="470" cy="35" r="3.5" fill="${accentTurquoise}" />
-      <text x="410" y="38" fill="${textPrimary}" class="font-vazir-bold" font-family="Vazirmatn, sans-serif" font-weight="700" font-size="19" text-anchor="end">صوت و تصویر</text>
+      <circle cx="475" cy="43" r="4" fill="${accentTurquoise}" />
+      <text x="410" y="45" fill="${textPrimary}" class="font-vazir-bold" font-family="Vazirmatn, sans-serif" font-weight="700" font-size="19" text-anchor="end">صوت و تصویر</text>
     </g>
 
     <!-- Item 4 (Left): UPS & Power -->
     <g transform="translate(0, 0)">
-      <circle cx="235" cy="35" r="3.5" fill="${accentTurquoise}" />
-      <text x="170" y="38" fill="${textPrimary}" class="font-vazir-bold" font-family="Vazirmatn, sans-serif" font-weight="700" font-size="19" text-anchor="end">UPS برق و</text>
+      <circle cx="237.5" cy="43" r="4" fill="${accentTurquoise}" />
+      <text x="160" y="45" fill="${textPrimary}" class="font-vazir-bold" font-family="Vazirmatn, sans-serif" font-weight="700" font-size="19" text-anchor="end">UPS برق و</text>
     </g>
 
   </g>
@@ -246,7 +245,7 @@ function generateBusinessCardBackSvg({ theme = 'dark' }) {
   const strokeCore = isDark ? '#f8fafc' : '#0f172a';
   const fillDot = isDark ? '#0b1013' : '#ffffff';
 
-  return `<svg width="1050" height="600" viewBox="0 0 1050 600" fill="none" xmlns="http://www.w3.org/2000/svg" direction="rtl">
+  return `<svg width="1063" height="709" viewBox="0 0 1063 709" fill="none" xmlns="http://www.w3.org/2000/svg" direction="rtl">
   <defs>
     <style>
       @font-face {
@@ -286,30 +285,29 @@ function generateBusinessCardBackSvg({ theme = 'dark' }) {
   </defs>
 
   <!-- Base Canvas -->
-  <rect width="1050" height="600" fill="${bgCanvas}" />
-  <rect x="21" y="21" width="1008" height="558" rx="14" fill="${bgCanvas}" stroke="${borderCard}" stroke-width="1.5" />
-
+  <rect width="1063" height="709" fill="${bgCanvas}" />
+  
   <!-- Center Novand Emblem -->
-  <g transform="translate(515, 150)">
-    <g transform="translate(-110, -110)">
-      ${getNovandEmblemMarkup({ scale: 2.3, strokeCore, glowId: `back-accent-grad-${theme}`, fillDot })}
+  <g transform="translate(520, 180)">
+    <g transform="translate(-130, -130)">
+      ${getNovandEmblemMarkup({ scale: 2.7, strokeCore, glowId: `back-accent-grad-${theme}`, fillDot })}
     </g>
   </g>
 
   <!-- Corporate Typography Lockup -->
-  <g transform="translate(525, 330)">
-    <text x="0" y="0" fill="${textPrimary}" class="font-vazir-bold" font-family="Vazirmatn, sans-serif" font-weight="700" font-size="56" text-anchor="middle">نُـوَند</text>
-    <text x="0" y="40" fill="${accentTurquoise}" class="font-space-bold" font-family="Space Grotesk, sans-serif" font-weight="700" font-size="20" letter-spacing="7" text-anchor="middle">NOVAND</text>
+  <g transform="translate(531.5, 400)">
+    <text x="0" y="-5" fill="${textPrimary}" class="font-vazir-bold" font-family="Vazirmatn, sans-serif" font-weight="700" font-size="60" text-anchor="middle">نُـوَند</text>
+    <text x="0" y="40" fill="${accentTurquoise}" class="font-space-bold" font-family="Space Grotesk, sans-serif" font-weight="700" font-size="25" letter-spacing="7" text-anchor="middle">NOVAND</text>
     
     <line x1="-160" y1="62" x2="160" y2="62" stroke="url(#back-accent-grad-${theme})" stroke-width="2.5" stroke-linecap="round" />
 
-    <text x="0" y="102" fill="${textPrimary}" class="font-vazir-bold" font-family="Vazirmatn, sans-serif" font-weight="700" font-size="28" text-anchor="middle">هوشمندسازی خانه  ·  سیستم‌های امنیتی و نظارت تصویری  ·  زیرساخت شبکه</text>
-    <text x="0" y="140" fill="${textSecondary}" class="font-vazir-reg" font-family="Vazirmatn, sans-serif" font-weight="700" font-size="24" text-anchor="middle">مشاوره،  تامین تجهیزات،  طراحی، پیاده‌سازی و پشتیبانی فنی پروژه‌ها</text>
+    <text x="0" y="120" fill="${textPrimary}" class="font-vazir-bold" font-family="Vazirmatn, sans-serif" font-weight="700" font-size="30" text-anchor="middle">هوشمندسازی خانه  ·  سیستم‌های امنیتی و نظارت تصویری  ·  زیرساخت شبکه</text>
+    <text x="0" y="160" fill="${textSecondary}" class="font-vazir-reg" font-family="Vazirmatn, sans-serif" font-weight="700" font-size="25" text-anchor="middle">مشاوره،  تامین تجهیزات،  طراحی، پیاده‌سازی و پشتیبانی فنی پروژه‌ها</text>
   </g>
 
   <!-- Bottom Website Bar (Homepage Only) -->
-  <g transform="translate(525, 530)">
-    <text x="0" y="0" fill="${accentTurquoise}" class="font-space-bold" font-family="Space Grotesk, sans-serif" font-weight="700" font-size="26" letter-spacing="2.5" text-anchor="middle">novand-tech.com</text>
+  <g transform="translate(531.5, 640)">
+    <text x="0" y="0" fill="${accentTurquoise}" class="font-space-bold" font-family="Space Grotesk, sans-serif" font-weight="700" font-size="30" letter-spacing="2.5" text-anchor="middle">novand-tech.com</text>
   </g>
 
 </svg>`;
@@ -403,7 +401,7 @@ async function main() {
     const resvg = new Resvg(svgContent, {
       fitTo: {
         mode: 'width',
-        value: 1050,
+        value: 1060,
       },
       font: {
         loadSystemFonts: false,
