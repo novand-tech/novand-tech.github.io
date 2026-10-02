@@ -1,0 +1,726 @@
+---
+import { novandInvoiceData } from '../data/invoiceData';
+import '../styles/global.css';
+
+const { seller, buyer, terms, bankInfo, sampleItems, emptyItemRowCount } = novandInvoiceData;
+
+// Format numbers with thousands separators
+const formatNum = (n: number | string | '') => {
+  if (typeof n !== 'number') return '';
+  return new Intl.NumberFormat('fa-IR').format(n);
+};
+---
+
+<!doctype html>
+<html lang="fa" dir="rtl" class="font-vazirmatn bg-slate-100 text-slate-900">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>قالب رسمی پیش‌فاکتور مهندسی نُوَند | دانلود اکسل و برگه چاپ A4</title>
+    <meta name="description" content="قالب خام و استاندارد پیش‌فاکتور و صورتحساب رسمی شرکت مهندسی نُوَند. همراه با فایل اکسل (.xlsx) با فرمول‌های محاسباتی آماده، گرید مهندسی و تنظیمات چاپ استاندارد A4." />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <style is:global>
+      @page {
+        size: A4 portrait;
+        margin: 6mm;
+      }
+      @media print {
+        body {
+          background-color: #ffffff !important;
+          color: #0f172a !important;
+          margin: 0 !important;
+          padding: 0 !important;
+          -webkit-print-color-adjust: exact !important;
+          print-color-adjust: exact !important;
+        }
+        .no-print {
+          display: none !important;
+        }
+        .invoice-sheet {
+          box-shadow: none !important;
+          border: 1px solid #94a3b8 !important;
+          width: 100% !important;
+          max-width: 100% !important;
+          margin: 0 !important;
+          padding: 8mm !important;
+        }
+        .page-break-avoid {
+          break-inside: avoid !important;
+          page-break-inside: avoid !important;
+        }
+      }
+      .cell-input:focus {
+        outline: 2px solid #008f7a;
+        background-color: #f0fdfa;
+      }
+    </style>
+  </head>
+  <body class="min-h-screen text-slate-900 bg-slate-100 selection:bg-teal-500 selection:text-white">
+    <!-- Top Action & Customization Toolbar (Screen Only) -->
+    <header class="no-print sticky top-0 z-50 bg-[#0f172a] text-white border-b border-slate-700 shadow-md">
+      <div class="max-w-6xl mx-auto px-4 py-3 flex flex-wrap items-center justify-between gap-4">
+        <!-- Logo & Title -->
+        <div class="flex items-center gap-3">
+          <a href="/" class="flex items-center gap-2 text-white hover:text-teal-400 transition-colors">
+            <img src="/branding/novand-logo-horizontal-persian-light.svg" alt="Novand Logo" class="h-7 w-auto" />
+          </a>
+          <span class="text-slate-500 hidden sm:inline">|</span>
+          <div>
+            <h1 class="text-sm font-bold text-slate-100 flex items-center gap-2">
+              قالب رسمی پیش‌فاکتور و صورتحساب مهندسی
+              <span class="text-[10px] font-normal px-2 py-0.5 rounded bg-teal-500/20 text-teal-300 border border-teal-500/30">نگارش خام و آماده اکسل</span>
+            </h1>
+            <p class="text-xs text-slate-400 hidden md:block">سازگار با اصول طراحی نُوَند و آماده استفاده در نرم‌افزار مایکروسافت اکسل</p>
+          </div>
+        </div>
+
+        <!-- Action Controls -->
+        <div class="flex flex-wrap items-center gap-2 text-xs">
+          <!-- Direct Excel Download -->
+          <a
+            href="/templates/novand-invoice-template.xlsx"
+            download="novand-invoice-template.xlsx"
+            class="inline-flex items-center gap-1.5 bg-emerald-600 hover:bg-emerald-500 text-white font-bold px-3 py-1.5 rounded transition-all shadow hover:shadow-emerald-600/30"
+            title="دانلود مستقیم فایل اکسل با فرمول‌های محاسباتی و نمای راست‌به‌چپ"
+          >
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+            </svg>
+            دانلود فایل اکسل (.xlsx)
+          </a>
+
+          <!-- Print / PDF -->
+          <button
+            onclick="window.print()"
+            class="inline-flex items-center gap-1.5 bg-teal-600 hover:bg-teal-500 text-white font-bold px-3 py-1.5 rounded transition-all shadow hover:shadow-teal-600/30 cursor-pointer"
+            title="چاپ یا ذخیره به صورت PDF استاندارد A4"
+          >
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z" />
+            </svg>
+            چاپ / ذخیره PDF
+          </button>
+
+          <!-- Raw vs Filled Toggle -->
+          <button
+            id="toggle-mode-btn"
+            class="inline-flex items-center gap-1 bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-600 px-2.5 py-1.5 rounded transition-colors cursor-pointer"
+            title="تغییر بین برگه خام و خالی یا نمونه پرشده با تجهیزات نُوَند"
+          >
+            <span id="mode-text">نمایش: برگه خام (خالی)</span>
+          </button>
+
+          <!-- Proforma vs Tax Invoice Toggle -->
+          <button
+            id="toggle-type-btn"
+            class="inline-flex items-center gap-1 bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-600 px-2.5 py-1.5 rounded transition-colors cursor-pointer"
+            title="تغییر عنوان بین پیش‌فاکتور و صورتحساب رسمی"
+          >
+            <span id="type-text">نوع: پیش‌فاکتور</span>
+          </button>
+
+          <!-- Back to main site -->
+          <a
+            href="/"
+            class="text-slate-400 hover:text-white px-2 py-1.5 transition-colors"
+          >
+            صفحه اصلی سایت
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Container -->
+    <main class="py-6 px-2 sm:px-4 flex flex-col items-center justify-center">
+      <!-- Sheet Hint (Screen Only) -->
+      <div class="no-print max-w-4xl w-full mb-4 bg-teal-50 border border-teal-200 rounded-lg p-3 text-xs text-teal-900 flex items-center justify-between gap-2">
+        <div class="flex items-center gap-2">
+          <svg class="w-5 h-5 text-teal-600 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+          </svg>
+          <span>
+            <strong>پیش‌نمایش زنده برگه A4:</strong> شما می‌توانید سلول‌های این پیش‌فاکتور را مستقیماً روی مرورگر کلیک و ویرایش کنید، یا نسخه کامل اکسل آن را با فرمول‌های آماده از دکمه بالا دانلود نمایید.
+          </span>
+        </div>
+        <button id="enable-edit-btn" class="shrink-0 bg-teal-700 text-white px-2.5 py-1 rounded hover:bg-teal-800 transition-colors cursor-pointer font-bold">
+          ویرایش دستی برگه
+        </button>
+      </div>
+
+      <!-- The A4 Sheet Canvas -->
+      <article
+        id="invoice-document"
+        class="invoice-sheet relative bg-white w-full max-w-[210mm] min-h-[297mm] shadow-xl border border-slate-300 p-6 sm:p-8 text-slate-900 flex flex-col justify-between"
+      >
+        <!-- Subtle Vector Emblem Watermark in Center -->
+        <div class="absolute inset-0 flex items-center justify-center pointer-events-none opacity-[0.025] overflow-hidden select-none">
+          <img src="/stickers/novand-certified-engineering.svg" alt="" class="w-[500px] h-[500px]" />
+        </div>
+
+        <div class="relative z-10 flex flex-col gap-4">
+          <!-- 1. Header Zone: Brand Lockup, Document Title, Metadata Box -->
+          <div class="border-b-2 border-slate-900 pb-3">
+            <!-- Top Accent Line -->
+            <div class="h-1.5 w-full bg-[#008f7a] rounded-t mb-3"></div>
+
+            <div class="grid grid-cols-12 items-center gap-2">
+              <!-- Right: Novand Official Brand Lockup -->
+              <div class="col-span-12 sm:col-span-4 flex flex-col justify-center">
+                <div class="flex items-center gap-2 mb-1">
+                  <img
+                    src="/branding/novand-logo-horizontal-persian.svg"
+                    alt="شرکت مهندسی نُوَند"
+                    class="h-9 w-auto object-contain"
+                  />
+                </div>
+                <p class="text-[11px] font-bold text-[#008f7a]">
+                  راهکارهای جامع فناوری و زیرساخت
+                </p>
+                <p class="text-[9px] text-slate-500 leading-tight">
+                  شبکه‌های کامپیوتری · فیبر نوری · مجازی‌سازی · امنیت فیزیکی و هوشمندسازی
+                </p>
+              </div>
+
+              <!-- Center: Formal Title -->
+              <div class="col-span-12 sm:col-span-5 text-center my-2 sm:my-0">
+                <h2 id="invoice-main-title" class="text-xl sm:text-2xl font-black text-slate-900 tracking-tight">
+                  پیش‌فاکتور فروش کالا و خدمات
+                </h2>
+                <p class="text-[10px] text-slate-500 mt-0.5">
+                  سامانه رسمی برآورد مالی و مهندسی تجهیزات شرکت نُوَند
+                </p>
+                <div class="inline-block mt-1 text-[9px] font-semibold text-slate-700 bg-slate-100 border border-slate-200 px-2 py-0.5 rounded">
+                  کلیه مبالغ به <span id="currency-badge">ریال</span> می‌باشد
+                </div>
+              </div>
+
+              <!-- Left: Document Tracking Metadata Box -->
+              <div class="col-span-12 sm:col-span-3">
+                <div class="border border-slate-300 rounded bg-slate-50 p-2 text-[10px] space-y-1">
+                  <div class="flex justify-between items-center">
+                    <span class="text-slate-500 font-medium">شماره:</span>
+                    <span id="doc-number" class="font-mono font-bold text-slate-900 editable-field" contenteditable="false">NV-1403-_____</span>
+                  </div>
+                  <div class="flex justify-between items-center">
+                    <span class="text-slate-500 font-medium">تاریخ صدور:</span>
+                    <span id="doc-date" class="font-mono font-semibold text-slate-900 editable-field" contenteditable="false">۱۴۰۳/____/____</span>
+                  </div>
+                  <div class="flex justify-between items-center">
+                    <span class="text-slate-500 font-medium">پیوست:</span>
+                    <span id="doc-attachment" class="text-slate-800 editable-field" contenteditable="false">ندارد</span>
+                  </div>
+                  <div class="flex justify-between items-center text-[#008f7a] font-bold border-t border-slate-200 pt-1">
+                    <span>اعتبار:</span>
+                    <span>۷ روز کاری</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 2. Parties Matrix: Seller (Novand) & Buyer (Client) -->
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-2 text-[10px]">
+            <!-- Seller Box -->
+            <div class="border border-slate-300 rounded overflow-hidden">
+              <div class="bg-slate-900 text-white font-bold px-3 py-1 text-center">
+                مشخصات فروشنده (مجری / شرکت نُوَند)
+              </div>
+              <div class="p-2 space-y-1 bg-slate-50/50">
+                <div class="flex">
+                  <span class="font-bold text-slate-700 w-20 shrink-0">نام حقوقی:</span>
+                  <span class="font-bold text-slate-900">{seller.legalName}</span>
+                </div>
+                <div class="grid grid-cols-3 gap-1">
+                  <div>
+                    <span class="text-slate-500">شناسه ملی:</span>
+                    <span class="font-mono text-slate-800">{seller.nationalId}</span>
+                  </div>
+                  <div>
+                    <span class="text-slate-500">شماره ثبت:</span>
+                    <span class="font-mono text-slate-800">{seller.registrationNumber}</span>
+                  </div>
+                  <div>
+                    <span class="text-slate-500">کد اقتصادی:</span>
+                    <span class="font-mono text-slate-800">{seller.economicCode}</span>
+                  </div>
+                </div>
+                <div class="flex">
+                  <span class="text-slate-500 w-20 shrink-0">نشانی دفتر:</span>
+                  <span class="text-slate-800">{seller.address}</span>
+                </div>
+                <div class="flex flex-wrap gap-x-4 gap-y-0.5 text-slate-700 border-t border-slate-200 pt-1">
+                  <div>
+                    <span class="text-slate-500">تلفن:</span>
+                    <span class="font-mono" dir="ltr">{seller.mobile}</span>
+                  </div>
+                  <div>
+                    <span class="text-slate-500">ایمیل:</span>
+                    <span class="font-mono">{seller.email}</span>
+                  </div>
+                  <div>
+                    <span class="text-slate-500">وب‌سایت:</span>
+                    <span class="font-mono text-[#008f7a] font-bold">{seller.website}</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Buyer Box -->
+            <div class="border border-slate-300 rounded overflow-hidden">
+              <div class="bg-slate-900 text-white font-bold px-3 py-1 text-center">
+                مشخصات خریدار (کارفرما / متقاضی)
+              </div>
+              <div class="p-2 space-y-1 bg-white">
+                <div class="flex">
+                  <span class="font-bold text-slate-700 w-20 shrink-0">نام خریدار:</span>
+                  <span id="buyer-name" class="font-bold text-slate-900 flex-1 border-b border-dotted border-slate-300 editable-field" contenteditable="false">
+                    ....................................................................................
+                  </span>
+                </div>
+                <div class="grid grid-cols-2 gap-1">
+                  <div class="flex">
+                    <span class="text-slate-500 w-20 shrink-0">شناسه/کد ملی:</span>
+                    <span id="buyer-national" class="font-mono flex-1 border-b border-dotted border-slate-300 editable-field" contenteditable="false">
+                      ........................
+                    </span>
+                  </div>
+                  <div class="flex">
+                    <span class="text-slate-500 w-16 shrink-0">کد اقتصادی:</span>
+                    <span id="buyer-economic" class="font-mono flex-1 border-b border-dotted border-slate-300 editable-field" contenteditable="false">
+                      ........................
+                    </span>
+                  </div>
+                </div>
+                <div class="flex">
+                  <span class="text-slate-500 w-20 shrink-0">نشانی کامل:</span>
+                  <span id="buyer-address" class="flex-1 border-b border-dotted border-slate-300 editable-field" contenteditable="false">
+                    ........................................................................................................................
+                  </span>
+                </div>
+                <div class="grid grid-cols-3 gap-1 border-t border-slate-200 pt-1">
+                  <div class="flex">
+                    <span class="text-slate-500">تلفن:</span>
+                    <span id="buyer-phone" class="font-mono flex-1 border-b border-dotted border-slate-300 editable-field" contenteditable="false">
+                      ................
+                    </span>
+                  </div>
+                  <div class="flex">
+                    <span class="text-slate-500">کد پستی:</span>
+                    <span id="buyer-postal" class="font-mono flex-1 border-b border-dotted border-slate-300 editable-field" contenteditable="false">
+                      ................
+                    </span>
+                  </div>
+                  <div class="flex">
+                    <span class="text-slate-500">شهر/استان:</span>
+                    <span id="buyer-city" class="flex-1 border-b border-dotted border-slate-300 editable-field" contenteditable="false">
+                      ................
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 3. Items & Services Table (BOM / Specifications Grid) -->
+          <div class="border border-slate-300 rounded overflow-hidden">
+            <div class="overflow-x-auto">
+              <table class="w-full text-right border-collapse text-[9.5px]">
+                <thead>
+                  <tr class="bg-slate-900 text-white font-bold text-center">
+                    <th class="py-1.5 px-1 border border-slate-700 w-7">ردیف</th>
+                    <th class="py-1.5 px-1 border border-slate-700 w-16">کد کالا / خدمت</th>
+                    <th class="py-1.5 px-2 border border-slate-700 text-right">شرح کالا یا خدمات فنی و مهندسی</th>
+                    <th class="py-1.5 px-1 border border-slate-700 w-10">تعداد</th>
+                    <th class="py-1.5 px-1 border border-slate-700 w-12">واحد</th>
+                    <th class="py-1.5 px-1.5 border border-slate-700 w-24">مبلغ واحد (<span class="currency-label">ریال</span>)</th>
+                    <th class="py-1.5 px-1.5 border border-slate-700 w-24">مبلغ کل (<span class="currency-label">ریال</span>)</th>
+                    <th class="py-1.5 px-1 border border-slate-700 w-16">تخفیف</th>
+                    <th class="py-1.5 px-1.5 border border-slate-700 w-24">مبلغ پس از تخفیف</th>
+                    <th class="py-1.5 px-1 border border-slate-700 w-16">ارزش افزوده (۱۰٪)</th>
+                    <th class="py-1.5 px-1.5 border border-slate-700 w-24">مبلغ نهایی (<span class="currency-label">ریال</span>)</th>
+                  </tr>
+                </thead>
+                <tbody id="invoice-items-body">
+                  <!-- Generated by client script or SSR default (Raw empty 12 rows) -->
+                  {Array.from({ length: emptyItemRowCount }).map((_, idx) => (
+                    <tr class={idx % 2 === 0 ? "bg-white" : "bg-slate-50"}>
+                      <td class="py-1.5 px-1 border border-slate-200 text-center font-mono text-slate-500 font-bold">
+                        {idx + 1}
+                      </td>
+                      <td class="py-1.5 px-1 border border-slate-200 text-center font-mono text-slate-600 editable-cell" contenteditable="false"></td>
+                      <td class="py-1.5 px-2 border border-slate-200 text-slate-800 editable-cell" contenteditable="false"></td>
+                      <td class="py-1.5 px-1 border border-slate-200 text-center font-mono editable-cell qty-col" contenteditable="false"></td>
+                      <td class="py-1.5 px-1 border border-slate-200 text-center editable-cell" contenteditable="false"></td>
+                      <td class="py-1.5 px-1.5 border border-slate-200 text-left font-mono editable-cell price-col" contenteditable="false" dir="ltr"></td>
+                      <td class="py-1.5 px-1.5 border border-slate-200 text-left font-mono total-col" dir="ltr"></td>
+                      <td class="py-1.5 px-1 border border-slate-200 text-left font-mono editable-cell disc-col" contenteditable="false" dir="ltr"></td>
+                      <td class="py-1.5 px-1.5 border border-slate-200 text-left font-mono net-col" dir="ltr"></td>
+                      <td class="py-1.5 px-1 border border-slate-200 text-left font-mono vat-col" dir="ltr"></td>
+                      <td class="py-1.5 px-1.5 border border-slate-200 text-left font-mono font-bold row-final-col" dir="ltr"></td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- 4. Financial Calculations & Summary -->
+          <div class="grid grid-cols-12 gap-2 text-[10px] page-break-avoid">
+            <!-- Left: Terms & Banking Coordinates (Cols 1-7) -->
+            <div class="col-span-12 sm:col-span-7 border border-slate-300 rounded overflow-hidden flex flex-col justify-between">
+              <div>
+                <div class="bg-slate-900 text-white font-bold px-3 py-1 flex items-center justify-between">
+                  <span>شرایط، ضوابط و مشخصات فنی قرارداد</span>
+                  <span class="text-[9px] text-teal-300 font-normal">استاندارد مهندسی نُوَند</span>
+                </div>
+                <div class="p-2 space-y-1 text-slate-700 bg-slate-50/50 text-[9px] leading-relaxed">
+                  {terms.map((t) => (
+                    <p>{t}</p>
+                  ))}
+                </div>
+              </div>
+
+              <!-- Bank Coordinates Strip -->
+              <div class="border-t border-slate-300 bg-teal-50/60 p-2 text-[9px]">
+                <div class="font-bold text-teal-900 mb-0.5">مشخصات حساب بانکی جهت واریز پیش‌پرداخت:</div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-2 gap-y-0.5 text-slate-800">
+                  <div>
+                    <span class="text-slate-500">بانک:</span> {bankInfo.bankName}
+                  </div>
+                  <div>
+                    <span class="text-slate-500">شماره حساب:</span>
+                    <span class="font-mono font-bold">{bankInfo.accountNumber}</span>
+                  </div>
+                  <div>
+                    <span class="text-slate-500">شماره کارت:</span>
+                    <span class="font-mono">{bankInfo.cardNumber}</span>
+                  </div>
+                  <div>
+                    <span class="text-slate-500">به‌نام:</span> {bankInfo.beneficiary}
+                  </div>
+                  <div class="sm:col-span-2 flex items-center gap-1 font-mono font-bold text-teal-900">
+                    <span class="text-slate-600 font-sans">شماره شبا:</span>
+                    <span dir="ltr">{bankInfo.iban}</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Right: Financial Totals Box (Cols 8-12) -->
+            <div class="col-span-12 sm:col-span-5 border border-slate-300 rounded overflow-hidden flex flex-col justify-between">
+              <div class="divide-y divide-slate-200">
+                <div class="flex justify-between items-center p-1.5 bg-slate-50">
+                  <span class="text-slate-600 font-medium">جمع کل مبالغ اقلام:</span>
+                  <span id="sum-items-total" class="font-mono font-bold text-slate-900" dir="ltr">-</span>
+                </div>
+                <div class="flex justify-between items-center p-1.5 bg-white">
+                  <span class="text-slate-600 font-medium">جمع کل تخفیف:</span>
+                  <span id="sum-discount-total" class="font-mono text-slate-800" dir="ltr">-</span>
+                </div>
+                <div class="flex justify-between items-center p-1.5 bg-slate-50">
+                  <span class="text-slate-600 font-medium">مبلغ پس از کسر تخفیف:</span>
+                  <span id="sum-net-total" class="font-mono font-bold text-slate-900" dir="ltr">-</span>
+                </div>
+                <div class="flex justify-between items-center p-1.5 bg-white">
+                  <span class="text-slate-600 font-medium">مالیات و عوارض ارزش افزوده (۱۰٪):</span>
+                  <span id="sum-vat-total" class="font-mono text-slate-800" dir="ltr">-</span>
+                </div>
+                <div class="flex justify-between items-center p-2 bg-teal-50 border-t-2 border-teal-600">
+                  <span class="text-teal-950 font-black text-xs">مبلغ نهایی قابل پرداخت:</span>
+                  <div class="text-left font-mono font-black text-sm text-teal-900" dir="ltr">
+                    <span id="sum-grand-total">-</span>
+                    <span class="text-[9px] font-sans font-normal text-teal-700 currency-label mr-1">ریال</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Amount in words -->
+              <div class="p-2 bg-slate-100 border-t border-slate-200 text-[9px]">
+                <div class="text-slate-500 mb-0.5">مبلغ به حروف:</div>
+                <div id="sum-words" class="font-bold text-slate-900 border-b border-dotted border-slate-400 pb-0.5 editable-field" contenteditable="false">
+                  ........................................................................................................................
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 5. Formal Authorizations & Signatures -->
+          <div class="grid grid-cols-2 gap-4 text-[10px] page-break-avoid pt-2">
+            <!-- Buyer Signature -->
+            <div class="border border-slate-300 rounded p-2.5 flex flex-col justify-between h-28 bg-white">
+              <div>
+                <div class="font-bold text-slate-900 border-b border-slate-200 pb-1 mb-1">
+                  مهر و امضای خریدار / کارفرما:
+                </div>
+                <p class="text-[8.5px] text-slate-500">
+                  صحت مشخصات فنی، تعداد، مبالغ مندرج و شرایط پرداخت مورد تأیید است.
+                </p>
+              </div>
+              <div class="flex justify-between items-end text-[8.5px] text-slate-400">
+                <span>نام و سمت: ........................................</span>
+                <span>امضاء و مهر</span>
+              </div>
+            </div>
+
+            <!-- Seller Signature & Engineering Seal -->
+            <div class="border border-slate-300 rounded p-2.5 flex flex-col justify-between h-28 bg-white relative overflow-hidden">
+              <div class="flex items-start justify-between">
+                <div>
+                  <div class="font-bold text-slate-900 border-b border-slate-200 pb-1 mb-1">
+                    مهر و امضای فروشنده (شرکت مهندسی نُوَند):
+                  </div>
+                  <p class="text-[8.5px] text-slate-500">
+                    تضمین کیفیت مهندسی، اصالت تجهیزات و رعایت استانداردهای فنی
+                  </p>
+                </div>
+                <!-- Mini Seal Badge -->
+                <img
+                  src="/stickers/novand-certified-engineering.svg"
+                  alt="Certified Engineering"
+                  class="h-10 w-10 object-contain shrink-0 opacity-80"
+                />
+              </div>
+              <div class="flex justify-between items-end text-[8.5px] text-slate-400">
+                <span>کارشناس فروش: ........................................</span>
+                <span class="text-teal-700 font-bold">مهندسی نُوَند</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 6. Footer Baseline -->
+        <footer class="mt-4 pt-2 border-t border-slate-200 text-[8px] text-slate-500 text-center flex flex-wrap items-center justify-between gap-1">
+          <span>شرکت مهندسی نُوَند — پیشرو در یکپارچه‌سازی زیرساخت‌های فناوری اطلاعات و اتوماسیون هوشمند</span>
+          <span class="font-mono">Tehran HQ · +98 912 932 1550 · novand-tech.com</span>
+        </footer>
+      </article>
+
+      <!-- Excel Formula & Usage Guide (Screen Only) -->
+      <section class="no-print max-w-4xl w-full mt-8 bg-white border border-slate-200 rounded-xl p-6 shadow-sm">
+        <div class="flex items-center gap-3 border-b border-slate-200 pb-3 mb-4">
+          <div class="w-10 h-10 rounded-lg bg-emerald-50 text-emerald-700 flex items-center justify-center font-bold">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+            </svg>
+          </div>
+          <div>
+            <h3 class="text-base font-bold text-slate-900">راهنمای استفاده از قالب اکسل پیش‌فاکتور نُوَند</h3>
+            <p class="text-xs text-slate-500">نحوه درج داده‌ها در فایل اکسل خام و محاسبات خودکار فرمول‌ها</p>
+          </div>
+          <div class="mr-auto">
+            <a
+              href="/templates/novand-invoice-template.xlsx"
+              download="novand-invoice-template.xlsx"
+              class="inline-flex items-center gap-1.5 bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold px-3 py-2 rounded-lg transition-colors"
+            >
+              دانلود فایل اکسل خام
+            </a>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs">
+          <!-- Card 1 -->
+          <div class="bg-slate-50 border border-slate-200 rounded-lg p-3">
+            <div class="font-bold text-slate-900 mb-1 flex items-center gap-1.5 text-emerald-700">
+              <span>۱. نمای راست‌به‌چپ (RTL)</span>
+            </div>
+            <p class="text-slate-600 leading-relaxed">
+              فایل اکسل تولیدشده به‌صورت پیش‌فرض در حالت راست‌به‌چپ (Right-to-Left) طراحی شده تا ستون‌های فارسی و ردیف‌ها کاملاً متقارن و منظم در تمامی نسخه‌های اکسل نمایش یابند.
+            </p>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="bg-slate-50 border border-slate-200 rounded-lg p-3">
+            <div class="font-bold text-slate-900 mb-1 flex items-center gap-1.5 text-emerald-700">
+              <span>۲. فرمول‌های خودکار و بدون خطا</span>
+            </div>
+            <p class="text-slate-600 leading-relaxed">
+              ستون‌های مبلغ کل، مبلغ پس از تخفیف، ارزش افزوده ۱۰٪، و جمع نهایی با توابع <code class="bg-white px-1 py-0.5 rounded border border-slate-200">IF</code> فرمول‌نویسی شده‌اند تا در سطرهای خالی، مقادیر صفر یا خطا نمایش داده نشود.
+            </p>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="bg-slate-50 border border-slate-200 rounded-lg p-3">
+            <div class="font-bold text-slate-900 mb-1 flex items-center gap-1.5 text-emerald-700">
+              <span>۳. تنظیمات چاپ دقیق A4</span>
+            </div>
+            <p class="text-slate-600 leading-relaxed">
+              ابعاد سلول‌ها و حاشیه‌ها با مشخصه <code class="bg-white px-1 py-0.5 rounded border border-slate-200">Fit to 1 Page Wide</code> تنظیم گردیده تا خروجی پرینت یا ذخیره به PDF در قالب یک برگه استاندارد مهندسی تمیز چاپ گردد.
+            </p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Interactive Client Script -->
+    <script is:inline define:vars={{ sampleItems, emptyItemRowCount, buyer, seller }}>
+      (function() {
+        let isSampleMode = false;
+        let isOfficialInvoice = false;
+        let isToman = false;
+        let isEditEnabled = false;
+
+        const tbody = document.getElementById('invoice-items-body');
+        const toggleModeBtn = document.getElementById('toggle-mode-btn');
+        const modeText = document.getElementById('mode-text');
+        const toggleTypeBtn = document.getElementById('toggle-type-btn');
+        const typeText = document.getElementById('type-text');
+        const mainTitle = document.getElementById('invoice-main-title');
+        const enableEditBtn = document.getElementById('enable-edit-btn');
+        const docNumber = document.getElementById('doc-number');
+        const docDate = document.getElementById('doc-date');
+
+        const buyerName = document.getElementById('buyer-name');
+        const buyerNational = document.getElementById('buyer-national');
+        const buyerEconomic = document.getElementById('buyer-economic');
+        const buyerAddress = document.getElementById('buyer-address');
+        const buyerPhone = document.getElementById('buyer-phone');
+        const buyerPostal = document.getElementById('buyer-postal');
+        const buyerCity = document.getElementById('buyer-city');
+
+        const sumItemsTotal = document.getElementById('sum-items-total');
+        const sumDiscountTotal = document.getElementById('sum-discount-total');
+        const sumNetTotal = document.getElementById('sum-net-total');
+        const sumVatTotal = document.getElementById('sum-vat-total');
+        const sumGrandTotal = document.getElementById('sum-grand-total');
+        const sumWords = document.getElementById('sum-words');
+
+        function formatNumber(num) {
+          if (!num || isNaN(num)) return '-';
+          return new Intl.NumberFormat('fa-IR').format(Math.round(num));
+        }
+
+        function renderRows() {
+          tbody.innerHTML = '';
+          const count = isSampleMode ? Math.max(sampleItems.length, emptyItemRowCount) : emptyItemRowCount;
+          
+          let totalItemsAmount = 0;
+          let totalDiscountAmount = 0;
+          let totalNetAmount = 0;
+          let totalVatAmount = 0;
+          let totalGrandAmount = 0;
+
+          for (let i = 0; i < count; i++) {
+            const tr = document.createElement('tr');
+            tr.className = i % 2 === 0 ? 'bg-white' : 'bg-slate-50';
+
+            const item = isSampleMode && i < sampleItems.length ? sampleItems[i] : null;
+            
+            let rowTotal = 0;
+            let rowDiscount = 0;
+            let rowNet = 0;
+            let rowVat = 0;
+            let rowFinal = 0;
+
+            if (item) {
+              const qty = item.quantity || 0;
+              const price = item.unitPrice || 0;
+              rowDiscount = item.discount || 0;
+              rowTotal = qty * price;
+              rowNet = Math.max(0, rowTotal - rowDiscount);
+              rowVat = Math.round(rowNet * 0.10);
+              rowFinal = rowNet + rowVat;
+
+              totalItemsAmount += rowTotal;
+              totalDiscountAmount += rowDiscount;
+              totalNetAmount += rowNet;
+              totalVatAmount += rowVat;
+              totalGrandAmount += rowFinal;
+            }
+
+            tr.innerHTML = `
+              <td class="py-1.5 px-1 border border-slate-200 text-center font-mono text-slate-500 font-bold">${i + 1}</td>
+              <td class="py-1.5 px-1 border border-slate-200 text-center font-mono text-slate-700 editable-cell" contenteditable="${isEditEnabled}">${item ? item.code : ''}</td>
+              <td class="py-1.5 px-2 border border-slate-200 text-slate-800 editable-cell" contenteditable="${isEditEnabled}">${item ? item.description : ''}</td>
+              <td class="py-1.5 px-1 border border-slate-200 text-center font-mono editable-cell qty-col" contenteditable="${isEditEnabled}">${item ? item.quantity : ''}</td>
+              <td class="py-1.5 px-1 border border-slate-200 text-center editable-cell" contenteditable="${isEditEnabled}">${item ? item.unit : ''}</td>
+              <td class="py-1.5 px-1.5 border border-slate-200 text-left font-mono editable-cell price-col" contenteditable="${isEditEnabled}" dir="ltr">${item ? formatNumber(item.unitPrice) : ''}</td>
+              <td class="py-1.5 px-1.5 border border-slate-200 text-left font-mono total-col" dir="ltr">${item ? formatNumber(rowTotal) : ''}</td>
+              <td class="py-1.5 px-1 border border-slate-200 text-left font-mono editable-cell disc-col" contenteditable="${isEditEnabled}" dir="ltr">${item && rowDiscount > 0 ? formatNumber(rowDiscount) : ''}</td>
+              <td class="py-1.5 px-1.5 border border-slate-200 text-left font-mono net-col" dir="ltr">${item ? formatNumber(rowNet) : ''}</td>
+              <td class="py-1.5 px-1 border border-slate-200 text-left font-mono vat-col" dir="ltr">${item ? formatNumber(rowVat) : ''}</td>
+              <td class="py-1.5 px-1.5 border border-slate-200 text-left font-mono font-bold row-final-col" dir="ltr">${item ? formatNumber(rowFinal) : ''}</td>
+            `;
+
+            tbody.appendChild(tr);
+          }
+
+          if (isSampleMode) {
+            sumItemsTotal.textContent = formatNumber(totalItemsAmount);
+            sumDiscountTotal.textContent = formatNumber(totalDiscountAmount);
+            sumNetTotal.textContent = formatNumber(totalNetAmount);
+            sumVatTotal.textContent = formatNumber(totalVatAmount);
+            sumGrandTotal.textContent = formatNumber(totalGrandAmount);
+            sumWords.textContent = 'سه میلیارد و شصت و شش میلیون و صد و پنجاه هزار ریال تمام';
+
+            docNumber.textContent = 'NV-1403-8821';
+            docDate.textContent = '۱۴۰۳/۰۸/۱۵';
+
+            buyerName.textContent = buyer.legalName;
+            buyerNational.textContent = buyer.nationalId;
+            buyerEconomic.textContent = buyer.economicCode;
+            buyerAddress.textContent = buyer.address;
+            buyerPhone.textContent = buyer.phone;
+            buyerPostal.textContent = buyer.postalCode;
+            buyerCity.textContent = buyer.provinceCity;
+          } else {
+            sumItemsTotal.textContent = '-';
+            sumDiscountTotal.textContent = '-';
+            sumNetTotal.textContent = '-';
+            sumVatTotal.textContent = '-';
+            sumGrandTotal.textContent = '-';
+            sumWords.textContent = '........................................................................................................................';
+
+            docNumber.textContent = 'NV-1403-_____';
+            docDate.textContent = '۱۴۰۳/____/____';
+
+            buyerName.textContent = '....................................................................................';
+            buyerNational.textContent = '........................';
+            buyerEconomic.textContent = '........................';
+            buyerAddress.textContent = '........................................................................................................................';
+            buyerPhone.textContent = '................';
+            buyerPostal.textContent = '................';
+            buyerCity.textContent = '................';
+          }
+        }
+
+        // Toggle Sample Mode
+        toggleModeBtn.addEventListener('click', () => {
+          isSampleMode = !isSampleMode;
+          modeText.textContent = isSampleMode ? 'نمایش: نمونه پر شده' : 'نمایش: برگه خام (خالی)';
+          toggleModeBtn.classList.toggle('border-teal-400', isSampleMode);
+          renderRows();
+        });
+
+        // Toggle Document Type (Proforma vs Official Tax Invoice)
+        toggleTypeBtn.addEventListener('click', () => {
+          isOfficialInvoice = !isOfficialInvoice;
+          typeText.textContent = isOfficialInvoice ? 'نوع: صورتحساب رسمی' : 'نوع: پیش‌فاکتور';
+          mainTitle.textContent = isOfficialInvoice ? 'صورتحساب رسمی فروش کالا و خدمات' : 'پیش‌فاکتور فروش کالا و خدمات';
+        });
+
+        // Toggle In-Browser Live Editing
+        enableEditBtn.addEventListener('click', () => {
+          isEditEnabled = !isEditEnabled;
+          enableEditBtn.textContent = isEditEnabled ? 'ذخیره تغییرات و خروج' : 'ویرایش دستی برگه';
+          enableEditBtn.classList.toggle('bg-amber-600', isEditEnabled);
+          enableEditBtn.classList.toggle('hover:bg-amber-700', isEditEnabled);
+
+          const editables = document.querySelectorAll('.editable-field, .editable-cell');
+          editables.forEach(el => {
+            el.setAttribute('contenteditable', isEditEnabled ? 'true' : 'false');
+            if (isEditEnabled) {
+              el.classList.add('cell-input');
+            } else {
+              el.classList.remove('cell-input');
+            }
+          });
+        });
+
+        // Initial render
+        renderRows();
+      })();
+    </script>
+  </body>
+</html>

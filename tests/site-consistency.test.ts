@@ -355,4 +355,46 @@ describe('Novand Engineering Site - Diagnostics & Unit Tests', () => {
       }
     });
   });
+
+  describe('9. Persian Invoice & Excel Template (.xlsx) Architecture', () => {
+    test('invoiceData.ts exists, exports seller info, buyer structure and sample BOM items', () => {
+      const dataFilePath = path.join(process.cwd(), 'src', 'data', 'invoiceData.ts');
+      assert.ok(fs.existsSync(dataFilePath), 'invoiceData.ts must exist');
+      const content = fs.readFileSync(dataFilePath, 'utf-8');
+      assert.ok(content.includes('novandInvoiceData'), 'Must export novandInvoiceData');
+      assert.ok(content.includes('پیش‌فاکتور فروش کالا و خدمات'), 'Must include Persian invoice title');
+      assert.ok(content.includes('۰۹۱۲۹۳۲۱۵۵۰'), 'Must contain Novand phone number');
+      assert.ok(content.includes('سعادت‌آباد'), 'Must contain Saadat Abad address');
+      assert.ok(content.includes('بانک ملت'), 'Must contain banking information');
+      assert.ok(content.includes('IR680120000000001234567890'), 'Must contain IBAN');
+    });
+
+    test('Generated Excel template (.xlsx) exists in public/templates and public/downloads with valid size', () => {
+      const templatePath = path.join(process.cwd(), 'public', 'templates', 'novand-invoice-template.xlsx');
+      const downloadPath = path.join(process.cwd(), 'public', 'downloads', 'novand-invoice-template.xlsx');
+      assert.ok(fs.existsSync(templatePath), 'public/templates/novand-invoice-template.xlsx must exist');
+      assert.ok(fs.existsSync(downloadPath), 'public/downloads/novand-invoice-template.xlsx must exist');
+
+      const statTemplate = fs.statSync(templatePath);
+      const statDownload = fs.statSync(downloadPath);
+      assert.ok(statTemplate.size > 5000, `Template xlsx size should be > 5KB, found ${statTemplate.size} bytes`);
+      assert.ok(statDownload.size > 5000, `Download xlsx size should be > 5KB, found ${statDownload.size} bytes`);
+    });
+
+    test('Invoice pages exist in both Persian (/invoice) and English (/en/invoice) with print & excel actions', () => {
+      const faPagePath = path.join(process.cwd(), 'src', 'pages', 'invoice.astro');
+      const enPagePath = path.join(process.cwd(), 'src', 'pages', 'en', 'invoice.astro');
+      assert.ok(fs.existsSync(faPagePath), 'src/pages/invoice.astro must exist');
+      assert.ok(fs.existsSync(enPagePath), 'src/pages/en/invoice.astro must exist');
+
+      const faContent = fs.readFileSync(faPagePath, 'utf-8');
+      assert.ok(faContent.includes('novand-invoice-template.xlsx'), 'FA page must link to Excel download');
+      assert.ok(faContent.includes('window.print()'), 'FA page must include print action');
+      assert.ok(faContent.includes('novand-logo-horizontal-persian.svg'), 'FA page must use brand logo');
+
+      const enContent = fs.readFileSync(enPagePath, 'utf-8');
+      assert.ok(enContent.includes('novand-invoice-template.xlsx'), 'EN page must link to Excel download');
+      assert.ok(enContent.includes('/invoice'), 'EN page must link to Persian invoice');
+    });
+  });
 });

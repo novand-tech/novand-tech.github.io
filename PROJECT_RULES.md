@@ -73,3 +73,12 @@
 - **Single-Line Controls**: All buttons, nav links, and tabs must be single-line with `whitespace-nowrap`.
 - **Top Bar Contract**: Exactly 3 zones: Brand title, 4-6 nav links, 1-2 primary actions.
 - **Diagnostic Testing**: `npm test` runs comprehensive automated checks against bilingual symmetry, slug validity, file existence, and layout rules. Must always pass before committing any changes.
+
+## 6. Persian Commercial Invoice & Excel Sheet Architecture (.xlsx)
+- **Design Philosophy**: Standard Iranian commercial and statutory tax invoice layout merged with Novand's high-tech engineering brand identity.
+- **Palette**: Dark Jet `#0F172A`, Signal Teal `#008F7A`, Light Teal Accent `#E6F7F5`, Soft Slate `#F8FAFC`, Hairline Border `#CBD5E1`.
+- **Core Assets**:
+  - `src/data/invoiceData.ts`: Single source of truth for seller specifications, legal identifiers (National ID, Economic Code, Registration No., Postal Code), bank accounts (Mellat Bank IBAN), terms & conditions, and sample BOM rows.
+  - `public/templates/novand-invoice-template.xlsx` and `public/downloads/novand-invoice-template.xlsx`: Production-grade Microsoft Excel spreadsheet featuring native Right-to-Left (RTL) views, A4 portrait fit-to-1-page print settings, thousand separators (`#,##0`), and error-safe `IF` formulas for Row Total, Discount, 10% VAT, and Final Sums.
+  - `scripts/generate_invoice_excel.ts`: Automated reproducible generator using `exceljs`.
+  - `/invoice` & `/en/invoice`: Interactive high-precision A4 sheet canvas with live in-browser cell editing (`contenteditable`), toggles between raw/filled and proforma/official tax invoice, direct `.xlsx` download, and `@media print` A4 styling.

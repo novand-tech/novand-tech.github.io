@@ -1,0 +1,170 @@
+---
+import { novandInvoiceData } from '../../data/invoiceData';
+import '../../styles/global.css';
+
+const { seller, terms, bankInfo, sampleItems } = novandInvoiceData;
+---
+
+<!doctype html>
+<html lang="en" dir="ltr" class="bg-slate-100 text-slate-900">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Novand Official Persian Invoice & Quotation Sheet | Excel (.xlsx) & A4 Print</title>
+    <meta name="description" content="Official raw Persian invoice sheet and engineering bill of materials (BOM) quotation template for Novand. Includes downloadable Excel workbook (.xlsx) with pre-configured formulas." />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <style is:global>
+      @page {
+        size: A4 portrait;
+        margin: 6mm;
+      }
+      @media print {
+        body {
+          background-color: #ffffff !important;
+          color: #0f172a !important;
+          margin: 0 !important;
+          padding: 0 !important;
+          -webkit-print-color-adjust: exact !important;
+          print-color-adjust: exact !important;
+        }
+        .no-print {
+          display: none !important;
+        }
+        .invoice-sheet {
+          box-shadow: none !important;
+          border: 1px solid #94a3b8 !important;
+          width: 100% !important;
+          max-width: 100% !important;
+          margin: 0 !important;
+          padding: 8mm !important;
+        }
+      }
+    </style>
+  </head>
+  <body class="min-h-screen text-slate-900 bg-slate-100 selection:bg-teal-500 selection:text-white">
+    <!-- Top Action Bar -->
+    <header class="no-print sticky top-0 z-50 bg-[#0f172a] text-white border-b border-slate-700 shadow-md">
+      <div class="max-w-6xl mx-auto px-4 py-3 flex flex-wrap items-center justify-between gap-4">
+        <div class="flex items-center gap-3">
+          <a href="/en" class="flex items-center gap-2 text-white hover:text-teal-400 transition-colors">
+            <img src="/branding/novand-logo-horizontal-light.svg" alt="Novand" class="h-7 w-auto" />
+          </a>
+          <span class="text-slate-500 hidden sm:inline">|</span>
+          <div>
+            <h1 class="text-sm font-bold text-slate-100 flex items-center gap-2">
+              Official Persian Invoice & Quotation Sheet
+              <span class="text-[10px] font-normal px-2 py-0.5 rounded bg-teal-500/20 text-teal-300 border border-teal-500/30">Excel Template Ready</span>
+            </h1>
+            <p class="text-xs text-slate-400 hidden md:block">Engineered to Novand brand guidelines, featuring auto-calculating Excel formulas</p>
+          </div>
+        </div>
+
+        <div class="flex flex-wrap items-center gap-2 text-xs">
+          <!-- Direct Excel Download -->
+          <a
+            href="/templates/novand-invoice-template.xlsx"
+            download="novand-invoice-template.xlsx"
+            class="inline-flex items-center gap-1.5 bg-emerald-600 hover:bg-emerald-500 text-white font-bold px-3 py-1.5 rounded transition-all shadow hover:shadow-emerald-600/30"
+          >
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+            </svg>
+            Download Excel Template (.xlsx)
+          </a>
+
+          <!-- Persian View -->
+          <a
+            href="/invoice"
+            class="inline-flex items-center gap-1.5 bg-teal-600 hover:bg-teal-500 text-white font-bold px-3 py-1.5 rounded transition-all shadow hover:shadow-teal-600/30"
+          >
+            مشاهده نسخه اصلی فارسی
+          </a>
+
+          <!-- Print / PDF -->
+          <button
+            onclick="window.print()"
+            class="inline-flex items-center gap-1.5 bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-600 px-2.5 py-1.5 rounded transition-colors cursor-pointer"
+          >
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z" />
+            </svg>
+            Print / PDF
+          </button>
+
+          <!-- Back to home -->
+          <a href="/en" class="text-slate-400 hover:text-white px-2 py-1.5 transition-colors">
+            Main Site
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <main class="py-8 px-4 flex flex-col items-center justify-center max-w-5xl mx-auto">
+      <div class="w-full mb-6 bg-white border border-slate-200 rounded-xl p-6 shadow-sm">
+        <div class="flex items-center justify-between gap-4 border-b border-slate-200 pb-4 mb-4">
+          <div>
+            <h2 class="text-lg font-bold text-slate-900">Novand Persian Commercial Invoice & Bill of Materials (BOM)</h2>
+            <p class="text-xs text-slate-500 mt-1">Official raw template designed for Excel spreadsheet integration and high-precision A4 printing.</p>
+          </div>
+          <div class="flex items-center gap-2">
+            <a
+              href="/invoice"
+              class="bg-slate-900 text-white text-xs font-semibold px-4 py-2 rounded-lg hover:bg-slate-800 transition-colors"
+            >
+              صفحه پیش‌نمایش تعاملی فارسی
+            </a>
+            <a
+              href="/templates/novand-invoice-template.xlsx"
+              download="novand-invoice-template.xlsx"
+              class="bg-emerald-600 text-white text-xs font-semibold px-4 py-2 rounded-lg hover:bg-emerald-500 transition-colors flex items-center gap-1.5"
+            >
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+              </svg>
+              Download Excel File
+            </a>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs text-slate-600">
+          <div class="p-3 bg-slate-50 rounded-lg border border-slate-200">
+            <div class="font-bold text-slate-900 mb-1">Right-To-Left (RTL) Excel Native</div>
+            <p>Formatted natively with Right-to-Left sheet views for Microsoft Excel, LibreOffice, and Google Sheets compatibility.</p>
+          </div>
+          <div class="p-3 bg-slate-50 rounded-lg border border-slate-200">
+            <div class="font-bold text-slate-900 mb-1">Pre-built Formulas</div>
+            <p>Includes intelligent conditional formulas that compute Row Totals, Discounts, 10% VAT, and Grand Totals without visual errors on blank rows.</p>
+          </div>
+          <div class="p-3 bg-slate-50 rounded-lg border border-slate-200">
+            <div class="font-bold text-slate-900 mb-1">Standard Iranian Tax & Commercial Format</div>
+            <p>Complies with Iranian statutory commercial invoice formats, featuring dual party details, national IDs, and formal terms of warranty.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Preview iframe or card linking to Persian interactive sheet -->
+      <div class="w-full flex justify-center">
+        <a
+          href="/invoice"
+          class="group block w-full max-w-4xl bg-white border border-slate-300 rounded-xl p-8 text-center shadow-lg hover:border-teal-500 transition-all cursor-pointer"
+        >
+          <div class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-teal-50 text-teal-600 mb-4 group-hover:scale-110 transition-transform">
+            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+            </svg>
+          </div>
+          <h3 class="text-xl font-bold text-slate-900 group-hover:text-teal-700 transition-colors">
+            مشاهده و چاپ مستقیم پیش‌فاکتور فارسی (Open Interactive Persian Invoice Sheet)
+          </h3>
+          <p class="text-sm text-slate-500 max-w-lg mx-auto mt-2">
+            Click to open the full interactive Persian sheet canvas with live in-browser cell editing, raw/filled toggles, and A4 print layout.
+          </p>
+          <span class="inline-block mt-4 text-xs font-bold text-teal-700 bg-teal-50 border border-teal-200 px-4 py-2 rounded-lg">
+            ورود به صفحه پیش‌فاکتور فارسی &larr;
+          </span>
+        </a>
+      </div>
+    </main>
+  </body>
+</html>
