@@ -45,7 +45,7 @@ import { getCompanyData } from "../../data/company";
           <a href={isEn ? "/en/projects" : "/projects"} class="inline-flex items-center gap-3 group px-2 py-3">
             <div class="w-10 h-[1px] bg-[#f4f2f1] group-hover:w-14 transition-all"></div>
             <span class="text-[10px] uppercase tracking-widest font-bold text-[#f4f2f1]">
-              {isEn ? 'Portfolios →' : 'پورتفولیو ←'}
+              {isEn ? 'Portfolios →' : 'نمونه‌کارها ←'}
             </span>
           </a>
         </div>
@@ -54,15 +54,15 @@ import { getCompanyData } from "../../data/company";
         <div class="pt-8 border-t border-[#15120e] grid grid-cols-3 gap-6 text-left">
           <div>
             <span class="block text-2xl sm:text-3xl font-mono font-light text-[#f4f2f1]">100%</span>
-            <span class="text-[10px] font-mono uppercase tracking-widest text-[#f4f2f1]/50 block mt-1">{isEn ? 'Deterministic Cabling' : 'کابل‌کشی پایدار'}</span>
+            <span class="text-[10px] font-mono uppercase tracking-widest text-[#f4f2f1]/50 block mt-1">{isEn ? 'Integration of Engineering' : 'یکپارچگی مهندسی'}</span>
           </div>
           <div>
             <span class="block text-2xl sm:text-3xl font-mono font-light text-[#f4f2f1]">{isEn ? 'Zero' : 'صفر'}</span>
-            <span class="text-[10px] font-mono uppercase tracking-widest text-[#f4f2f1]/50 block mt-1">{isEn ? 'Cloud Lock-In' : 'وابستگی ابری'}</span>
+            <span class="text-[10px] font-mono uppercase tracking-widest text-[#f4f2f1]/50 block mt-1">{isEn ? 'External Dependency' : 'وابستگی فنی خارجی'}</span>
           </div>
           <div>
-            <span class="block text-2xl sm:text-3xl font-mono font-light text-[#f4f2f1]">{isEn ? 'Open' : 'باز'}</span>
-            <span class="text-[10px] font-mono uppercase tracking-widest text-[#f4f2f1]/50 block mt-1">{isEn ? 'Standard Buses' : 'گذرگاه‌های استاندارد'}</span>
+            <span class="block text-2xl sm:text-3xl font-mono font-light text-[#f4f2f1]">{isEn ? 'Constant' : 'دائمی'}</span>
+            <span class="text-[10px] font-mono uppercase tracking-widest text-[#f4f2f1]/50 block mt-1">{isEn ? 'Support Services' : 'خدمات پشتیبانی'}</span>
           </div>
         </div>
 
@@ -79,7 +79,7 @@ import { getCompanyData } from "../../data/company";
           <!-- Image frame -->
           <div class="relative aspect-4/5 overflow-hidden bg-[#141210]">
             <img 
-              src="/images/hero-datacenter.jpg" 
+              src="/images/legacy-backup/hero-datacenter.jpg" 
               alt="High-density enterprise fiber optic and server infrastructure enclosure" 
               class="w-full h-full object-cover"
               loading="eager"
@@ -95,11 +95,11 @@ import { getCompanyData } from "../../data/company";
 
             <div class="absolute bottom-4 left-4 right-4 bg-[#0d1417]/95 border border-[#15120e] p-4 text-xs font-mono text-[#f4f2f1] backdrop-blur-xs">
               <div class="flex items-center justify-between border-b border-[#15120e] pb-2 mb-2 text-[10px] uppercase tracking-[0.15em] text-[#00d2b5]">
-                <span>{isEn ? 'SPECIFICATION STANDARDS' : 'استانداردهای مشخصات'}</span>
-                <span class="text-[9px] px-1.5 py-0.5 bg-[#00d2b5] text-[#0d1417] font-semibold">{isEn ? 'STATUS: OPERATIONAL' : 'وضعیت: عملیاتی'}</span>
+                <span>{isEn ? 'IMPLEMENTATION OF VARIOUS TECHNICAL STANDARDS' : 'پیاده‌سازی استانداردهای متنوع فنی'}</span>
+                <span class="text-[9px] px-1.5 py-0.5 bg-[#00d2b5] text-[#0d1417] font-semibold">{isEn ? 'OPERATIONAL INTEGRATION' : 'یکپارچگی عملیاتی'}</span>
               </div>
               <p class="text-[11px] text-[#f4f2f1]/70 leading-snug font-sans font-light">
-                TIA-568-D compliant Cat6A & single-mode fiber optical backbones with certified OTDR test verification.
+                {isEn ? 'EXECUTION OF ENGINEERING PROJECTS AND DESIGNING IT INFRASTRUCTURE' : 'اجرای طرح‌های مهندسی و طراحی زیرساخت فناوری'}
               </p>
             </div>
           </div>
