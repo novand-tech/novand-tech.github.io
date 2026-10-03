@@ -81,4 +81,3 @@
   - `src/data/invoiceData.ts`: Single source of truth for seller specifications, legal identifiers (National ID, Economic Code, Registration No., Postal Code), bank accounts (Mellat Bank IBAN), terms & conditions, and sample BOM rows.
   - `public/templates/novand-invoice-template.xlsx` and `public/downloads/novand-invoice-template.xlsx`: Production-grade Microsoft Excel spreadsheet featuring native Right-to-Left (RTL) views, A4 portrait fit-to-1-page print settings, thousand separators (`#,##0`), and error-safe `IF` formulas for Row Total, Discount, 10% VAT, and Final Sums.
   - `scripts/generate_invoice_excel.ts`: Automated reproducible generator using `exceljs`.
-  - `/invoice` & `/en/invoice`: Interactive high-precision A4 sheet canvas with live in-browser cell editing (`contenteditable`), toggles between raw/filled and proforma/official tax invoice, direct `.xlsx` download, and `@media print` A4 styling.

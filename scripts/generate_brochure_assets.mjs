@@ -267,7 +267,7 @@ function renderPanel2Content(theme) {
 
       <g transform="translate(0, 200)">
         <circle cx="985" cy="18" r="8" fill="${accent}" />
-        <text x="960" y="24" fill="${textPrimary}" class="vazir-bold" font-size="21" text-anchor="end">(KNX, Zigbee, Modbus) پروتکل‌های استاندارد جهانی</text>
+        <text x="960" y="24" fill="${textPrimary}" class="vazir-bold" font-size="21" text-anchor="end">(KNX, Zigbee, Modbus, LoRaWAN, Z-Wave) پروتکل‌های استاندارد جهانی</text>
         <text x="960" y="56" fill="${textBody}" class="vazir-reg" font-size="18" text-anchor="end">.معماری باز و بدون وابستگی انحصاری به برندها با قابلیت یکپارچه‌سازی با برترین برندهای تجهیزات هوشمند جهان</text>
       </g>
 
@@ -399,8 +399,8 @@ function renderPanel3Content(theme) {
 
       <g transform="translate(0, 315)">
         <circle cx="985" cy="18" r="8" fill="${accent}" />
-        <text x="960" y="24" fill="${textPrimary}" class="vazir-bold" font-size="21" text-anchor="end">سامانه‌های کنترل تردد بیومتریک و اعلام حریق و سرقت</text>
-        <text x="960" y="56" fill="${textBody}" class="vazir-reg" font-size="18" text-anchor="end">.قفل‌های مغناطیسی، گیت‌های تردد پرسنل با کارت، اثر انگشت و چهره و یکپارچه‌سازی با سامانه اعلام سرقت و حریق</text>
+        <text x="960" y="24" fill="${textPrimary}" class="vazir-bold" font-size="21" text-anchor="end">سامانه‌های دزدگیر و کنترل تردد بیومتریک و اعلام حریق و سرقت</text>
+        <text x="960" y="56" fill="${textBody}" class="vazir-reg" font-size="18" text-anchor="end">.قفل‌های مغناطیسی، گیت‌های تردد پرسنل با کارت، دزدگیر، اثر انگشت و چهره و یکپارچه‌سازی با سامانه اعلام سرقت و حریق</text>
       </g>
 
       <g transform="translate(0, 415)">
@@ -560,8 +560,8 @@ function renderPanel4Content(theme) {
 
       <g transform="translate(0, 215)">
         <circle cx="985" cy="18" r="8" fill="${accent}" />
-        <text x="960" y="24" fill="${textPrimary}" class="vazir-bold" font-size="21" text-anchor="end">پایش برخط سلامت باتری‌ها و یوپی‌اس‌های صنعتی</text>
-        <text x="960" y="56" fill="${textBody}" class="vazir-reg" font-size="18" text-anchor="end">محاسبه توان اضطراری، پایش لحظه‌ای مقاومت داخلی و ولتاژ سلول‌ها و پیشگیری از خاموشی ناگهانی دیتاسنترها</text>
+        <text x="960" y="24" fill="${textPrimary}" class="vazir-bold" font-size="21" text-anchor="end">های صنعتیUPS پایش برخط سلامت باتری‌ها و</text>
+        <text x="960" y="56" fill="${textBody}" class="vazir-reg" font-size="18" text-anchor="end">.محاسبه توان اضطراری، پایش لحظه‌ای مقاومت داخلی و ولتاژ سلول‌ها و پیشگیری از خاموشی ناگهانی دیتاسنترها</text>
       </g>
     </g>
 

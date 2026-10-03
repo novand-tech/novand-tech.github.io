@@ -11,3 +11,4 @@ package-lock.json
 public/brochure/novand-brochure-assets.zip
 public/brochure/*.svg
 src/pages/brochure.astro
+src/pages/invoice.astro
