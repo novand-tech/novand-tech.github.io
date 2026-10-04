@@ -381,20 +381,94 @@ describe('Novand Engineering Site - Diagnostics & Unit Tests', () => {
       assert.ok(statDownload.size > 5000, `Download xlsx size should be > 5KB, found ${statDownload.size} bytes`);
     });
 
-    test('Invoice pages exist in both Persian (/invoice) and English (/en/invoice) with print & excel actions', () => {
+    test('Invoice pages are removed from the public site and sitemap, and local generation script is available', () => {
       const faPagePath = path.join(process.cwd(), 'src', 'pages', 'invoice.astro');
       const enPagePath = path.join(process.cwd(), 'src', 'pages', 'en', 'invoice.astro');
-      assert.ok(fs.existsSync(faPagePath), 'src/pages/invoice.astro must exist');
-      assert.ok(fs.existsSync(enPagePath), 'src/pages/en/invoice.astro must exist');
+      assert.strictEqual(fs.existsSync(faPagePath), false, 'src/pages/invoice.astro must NOT exist on public website');
+      assert.strictEqual(fs.existsSync(enPagePath), false, 'src/pages/en/invoice.astro must NOT exist on public website');
 
-      const faContent = fs.readFileSync(faPagePath, 'utf-8');
-      assert.ok(faContent.includes('novand-invoice-template.xlsx'), 'FA page must link to Excel download');
-      assert.ok(faContent.includes('window.print()'), 'FA page must include print action');
-      assert.ok(faContent.includes('novand-logo-horizontal-persian.svg'), 'FA page must use brand logo');
+      // Verify sitemap does not expose invoice routes
+      const sitemapPath = path.join(process.cwd(), 'public', 'sitemap.xml');
+      const sitemapContent = fs.readFileSync(sitemapPath, 'utf-8');
+      assert.ok(!sitemapContent.includes('/invoice'), 'sitemap.xml must not expose /invoice');
+      assert.ok(!sitemapContent.includes('/en/invoice'), 'sitemap.xml must not expose /en/invoice');
 
-      const enContent = fs.readFileSync(enPagePath, 'utf-8');
-      assert.ok(enContent.includes('novand-invoice-template.xlsx'), 'EN page must link to Excel download');
-      assert.ok(enContent.includes('/invoice'), 'EN page must link to Persian invoice');
+      // Verify local generator script and npm command
+      const scriptPath = path.join(process.cwd(), 'scripts', 'generate_invoice_excel.ts');
+      assert.ok(fs.existsSync(scriptPath), 'scripts/generate_invoice_excel.ts must exist for local invoice generation');
+      const pkgPath = path.join(process.cwd(), 'package.json');
+      const pkg = JSON.parse(fs.readFileSync(pkgPath, 'utf-8'));
+      assert.ok(pkg.scripts && pkg.scripts['generate:invoice'], 'package.json must contain generate:invoice script');
+    });
+  });
+
+  describe('10. Blog System & Markdown Infrastructure Integrity', () => {
+    test('Markdown blog posts exist in both Persian and English with identical slugs', () => {
+      const faDir = path.join(process.cwd(), 'src', 'content', 'blog', 'fa');
+      const enDir = path.join(process.cwd(), 'src', 'content', 'blog', 'en');
+      assert.ok(fs.existsSync(faDir), 'FA blog directory must exist');
+      assert.ok(fs.existsSync(enDir), 'EN blog directory must exist');
+
+      const faFiles = fs.readdirSync(faDir).filter(f => f.endsWith('.md')).sort();
+      const enFiles = fs.readdirSync(enDir).filter(f => f.endsWith('.md')).sort();
+
+      assert.strictEqual(faFiles.length, 5, 'Expected 5 FA blog posts');
+      assert.strictEqual(enFiles.length, 5, 'Expected 5 EN blog posts');
+      assert.deepStrictEqual(faFiles, enFiles, 'Blog post filenames must match identically between FA and EN');
+    });
+
+    test('Every Markdown post has required frontmatter attributes and valid hero images', () => {
+      const dirs = [
+        path.join(process.cwd(), 'src', 'content', 'blog', 'fa'),
+        path.join(process.cwd(), 'src', 'content', 'blog', 'en')
+      ];
+
+      for (const dir of dirs) {
+        const files = fs.readdirSync(dir).filter(f => f.endsWith('.md'));
+        for (const file of files) {
+          const filePath = path.join(dir, file);
+          const content = fs.readFileSync(filePath, 'utf-8');
+
+          assert.ok(content.startsWith('---'), `Post ${file} must have frontmatter`);
+          assert.ok(content.includes('title:'), `Post ${file} must have title`);
+          assert.ok(content.includes('slug:'), `Post ${file} must have slug`);
+          assert.ok(content.includes('description:'), `Post ${file} must have description`);
+          assert.ok(content.includes('publishDate:'), `Post ${file} must have publishDate`);
+          assert.ok(content.includes('category:'), `Post ${file} must have category`);
+          assert.ok(content.includes('readingTime:'), `Post ${file} must have readingTime`);
+          assert.ok(content.includes('image:'), `Post ${file} must have image`);
+
+          const match = content.match(/image:\s*["']([^"']+)["']/);
+          assert.ok(match, `Could not parse image in ${file}`);
+          const imgRel = match[1].replace(/^\//, '');
+          const imgPath = path.join(process.cwd(), 'public', imgRel);
+          assert.ok(fs.existsSync(imgPath), `Hero image must exist on disk: ${imgPath}`);
+        }
+      }
+    });
+
+    test('Header contains Blog navigation link in both Persian and English', () => {
+      const headerPath = path.join(process.cwd(), 'src', 'components', 'layout', 'Header.astro');
+      const content = fs.readFileSync(headerPath, 'utf-8');
+      assert.ok(content.includes("'/blog'"), 'Header must link to Persian blog /blog');
+      assert.ok(content.includes("'/en/blog'"), 'Header must link to English blog /en/blog');
+      assert.ok(content.includes("'وبلاگ'"), 'Header must include Persian label وبلاگ');
+      assert.ok(content.includes("'Blog'"), 'Header must include English label Blog');
+    });
+
+    test('Footer contains Blog link in both Persian and English', () => {
+      const footerPath = path.join(process.cwd(), 'src', 'components', 'layout', 'Footer.astro');
+      const content = fs.readFileSync(footerPath, 'utf-8');
+      assert.ok(content.includes('/blog'), 'Footer must link to /blog');
+      assert.ok(content.includes('/en/blog'), 'Footer must link to /en/blog');
+    });
+
+    test('Sitemap contains blog index and article routes', () => {
+      const sitemapPath = path.join(process.cwd(), 'public', 'sitemap.xml');
+      const content = fs.readFileSync(sitemapPath, 'utf-8');
+      assert.ok(content.includes('https://novand-tech.com/blog'), 'Sitemap must include /blog');
+      assert.ok(content.includes('https://novand-tech.com/en/blog'), 'Sitemap must include /en/blog');
+      assert.ok(content.includes('ftth-gpon-design-guide'), 'Sitemap must include ftth-gpon-design-guide');
     });
   });
 });

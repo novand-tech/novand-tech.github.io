@@ -425,7 +425,7 @@ async function generateInvoiceExcel() {
         cVal.font = { name: FONT_FAMILY, size: 8.5, bold: true, color: { argb: 'FF' + COLOR_JET } };
         cVal.alignment = { horizontal: 'center', vertical: 'middle' };
       } else {
-        cVal.value = { formula: sr.formula };
+        cVal.value = { formula: sr.formula as string } as any;
         cVal.numFmt = '#,##0';
         cVal.font = { name: FONT_FAMILY, size: sr.isGrandTotal ? 12 : 9.5, bold: true, color: { argb: sr.isGrandTotal ? 'FF' + COLOR_JET : 'FF' + COLOR_JET } };
         cVal.alignment = { horizontal: 'right', vertical: 'middle' };
@@ -507,9 +507,29 @@ async function generateInvoiceExcel() {
   await workbook.xlsx.writeFile(outFilePath);
   fs.copyFileSync(outFilePath, dlFilePath);
 
-  console.log(`[OK] Generated Novand Persian Invoice Excel template:`);
+  // Local output support: write to invoices directory or user-specified path
+  const invoicesDir = path.join(rootDir, 'invoices');
+  if (!fs.existsSync(invoicesDir)) fs.mkdirSync(invoicesDir, { recursive: true });
+  const localDefaultPath = path.join(invoicesDir, 'novand-invoice-template.xlsx');
+  fs.copyFileSync(outFilePath, localDefaultPath);
+
+  const customArg = process.argv[2];
+  if (customArg && !customArg.startsWith('--')) {
+    const customOutPath = path.isAbsolute(customArg) ? customArg : path.resolve(rootDir, customArg);
+    const customDir = path.dirname(customOutPath);
+    if (!fs.existsSync(customDir)) fs.mkdirSync(customDir, { recursive: true });
+    fs.copyFileSync(outFilePath, customOutPath);
+    console.log(`[OK] Generated custom Persian Invoice Excel file:`);
+    console.log(` -> ${customOutPath}`);
+  }
+
+  console.log(`[OK] Generated Novand Persian Invoice Excel templates for local generation:`);
+  console.log(` -> ${localDefaultPath}`);
   console.log(` -> ${outFilePath}`);
   console.log(` -> ${dlFilePath}`);
+  console.log(`\nLocal Usage:`);
+  console.log(`  npm run generate:invoice`);
+  console.log(`  npm run generate:invoice -- ./invoices/client-quote.xlsx`);
 }
 
 generateInvoiceExcel().catch((err) => {

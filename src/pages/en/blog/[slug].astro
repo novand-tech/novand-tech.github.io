@@ -1,0 +1,329 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../../components/ui/Breadcrumbs.astro';
+import { getBlogPosts, type BlogPost } from '../../../data/blog';
+import { servicesDataEn } from '../../../data/services';
+
+export function getStaticPaths() {
+  const posts = getBlogPosts('en');
+  return posts.map((post) => ({
+    params: { slug: post.slug },
+    props: { post }
+  }));
+}
+
+interface Props {
+  post: BlogPost;
+}
+
+const { post } = Astro.props;
+const { Content } = post;
+
+const allPosts = getBlogPosts('en');
+const currentIndex = allPosts.findIndex((p) => p.slug === post.slug);
+const prevPost = currentIndex < allPosts.length - 1 ? allPosts[currentIndex + 1] : null;
+const nextPost = currentIndex > 0 ? allPosts[currentIndex - 1] : null;
+
+// Find related services objects
+const relatedServicesData = (post.relatedServices || [])
+  .map((slug) => servicesDataEn.find((s) => s.slug === slug))
+  .filter((s): s is NonNullable<typeof s> => Boolean(s));
+
+// Schema.org Article Structured Data
+const articleJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  "headline": post.title,
+  "description": post.description,
+  "image": [`https://novand-tech.com${post.image}`],
+  "datePublished": post.publishDate,
+  "dateModified": post.modifiedDate || post.publishDate,
+  "author": {
+    "@type": "Organization",
+    "name": "Novand Engineering",
+    "url": "https://novand-tech.com/en"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Novand Integrated Tech & Infrastructure",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://novand-tech.com/branding/novand-logo-horizontal-light.png"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": `https://novand-tech.com/en/blog/${post.slug}`
+  },
+  "keywords": post.tags.join(", ")
+};
+---
+
+<BaseLayout 
+  title={post.title}
+  description={post.description}
+  ogImage={post.image}
+  type="article"
+>
+  <!-- Schema.org Script -->
+  <script type="application/ld+json" is:inline set:html={JSON.stringify(articleJsonLd)} />
+
+  <!-- Reading Progress Bar -->
+  <div class="fixed top-0 left-0 right-0 h-1 bg-transparent z-[60] pointer-events-none">
+    <div id="reading-progress-bar" class="h-full bg-[#00d2b5] w-0 transition-all duration-150 ease-out shadow-[0_0_8px_rgba(0,210,181,0.8)]"></div>
+  </div>
+
+  <!-- Breadcrumbs -->
+  <div class="bg-[#141210] border-b border-[#15120e] py-3">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <Breadcrumbs 
+        items={[
+          { label: 'Blog', href: '/en/blog' },
+          { label: post.title }
+        ]} 
+      />
+    </div>
+  </div>
+
+  <!-- Article Header -->
+  <section class="bg-[#141210] text-[#f4f2f1] py-12 sm:py-16 border-b border-[#15120e] bg-grid-subtle">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-4xl">
+        <!-- Zero-Pill Clean Metadata with Typographic Separator -->
+        <div class="flex flex-wrap items-center gap-2 text-xs font-mono text-[#f4f2f1]/60 mb-4 font-medium">
+          <span class="text-[#008f7a] dark:text-[#00d2b5] font-semibold">{post.category}</span>
+          <span aria-hidden="true">·</span>
+          <time datetime={post.publishDate}>{post.publishDate}</time>
+          <span aria-hidden="true">·</span>
+          <span>{post.readingTime}</span>
+          {post.modifiedDate && (
+            <>
+              <span aria-hidden="true">·</span>
+              <span class="text-[#f4f2f1]/60">Updated: {post.modifiedDate}</span>
+            </>
+          )}
+        </div>
+
+        <h1 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-light tracking-tight text-[#f4f2f1] leading-tight" style="text-wrap: balance;">
+          {post.title}
+        </h1>
+
+        <p class="mt-4 text-base sm:text-lg text-[#f4f2f1]/70 leading-relaxed font-light">
+          {post.description}
+        </p>
+
+        <!-- Author attribution -->
+        <div class="mt-6 flex items-center gap-3 pt-6 border-t border-slate-200 dark:border-[#15120e]">
+          <div class="keep-dark w-10 h-10 rounded-full bg-slate-900 text-[#00d2b5] flex items-center justify-center font-bold text-sm border border-[#00d2b5]/30">
+            N
+          </div>
+          <div>
+            <div class="text-sm font-medium text-slate-900 dark:text-[#f4f2f1]">{post.author}</div>
+            <div class="text-xs text-slate-600 dark:text-[#f4f2f1]/60 font-mono">{post.authorRole || 'Novand Engineering & Research Department'}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <article class="min-h-screen pb-20">
+
+    <!-- Main Container: 2 Columns on Desktop (Content + Sidebar) -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10">
+        
+        <!-- Main Column (Prose & Materials) -->
+        <div class="lg:col-span-8">
+          <!-- Featured Image -->
+          <div class="mb-10 rounded-xl overflow-hidden border border-slate-200 dark:border-[#1e293b] bg-slate-100 dark:bg-[#141210] shadow-xs">
+            <img 
+              src={post.image} 
+              alt={post.imageAlt || post.title} 
+              referrerpolicy="no-referrer"
+              class="w-full h-auto max-h-[460px] object-cover"
+            />
+            {post.imageCaption && (
+              <div class="p-3 bg-slate-50 dark:bg-[#090e10] border-t border-slate-200 dark:border-white/5 text-xs text-slate-600 dark:text-[#f4f2f1]/60 font-mono text-center">
+                {post.imageCaption}
+              </div>
+            )}
+          </div>
+
+          <!-- Markdown Content Body -->
+          <div class="blog-prose leading-relaxed font-sans text-base">
+            {Content && <Content />}
+          </div>
+
+          <!-- Tags Bar -->
+          <div class="blog-tags-bar mt-10 pt-6 border-t border-slate-200 dark:border-white/10 flex flex-wrap items-center gap-2">
+            <span class="text-xs font-mono text-slate-600 dark:text-[#f4f2f1]/60 mr-2 font-medium">Topic Tags:</span>
+            {post.tags.map((tag) => (
+              <span class="blog-tag-chip text-xs font-mono px-2 py-1 bg-slate-100 dark:bg-white/5 text-slate-700 dark:text-[#f4f2f1]/70 border border-slate-200 dark:border-white/10 rounded-sm hover:text-[#008f7a] dark:hover:text-[#00d2b5] transition-colors">
+                #{tag}
+              </span>
+            ))}
+          </div>
+
+          <!-- Share & Copy Link Section -->
+          <div class="blog-share-box mt-8 p-4 bg-slate-100 dark:bg-[#0d1417] rounded-xl border border-slate-200 dark:border-white/10 flex flex-wrap items-center justify-between gap-4 shadow-2xs">
+            <div class="blog-share-label text-xs text-slate-700 dark:text-[#f4f2f1]/80 font-mono font-medium">
+              Share this engineering whitepaper:
+            </div>
+            <div class="flex items-center gap-2 text-xs">
+              <button 
+                id="copy-link-btn"
+                type="button"
+                class="blog-share-btn px-3 py-1.5 bg-white dark:bg-[#141210] text-slate-800 dark:text-[#f4f2f1] border border-slate-300 dark:border-white/10 rounded-md hover:border-[#008f7a] dark:hover:border-[#00d2b5] hover:text-[#008f7a] dark:hover:text-[#00d2b5] transition-colors flex items-center gap-1.5 cursor-pointer font-mono font-medium shadow-2xs"
+              >
+                <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
+                </svg>
+                <span id="copy-text">Copy Link</span>
+              </button>
+              <a 
+                href={`https://telegram.me/share/url?url=${encodeURIComponent(`https://novand-tech.com/en/blog/${post.slug}`)}&text=${encodeURIComponent(post.title)}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="blog-share-btn px-3 py-1.5 bg-white dark:bg-[#141210] text-slate-800 dark:text-[#f4f2f1] border border-slate-300 dark:border-white/10 rounded-md hover:border-[#008f7a] dark:hover:border-[#00d2b5] hover:text-[#008f7a] dark:hover:text-[#00d2b5] transition-colors font-medium shadow-2xs"
+                aria-label="Share on Telegram"
+              >
+                Telegram
+              </a>
+              <a 
+                href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(`https://novand-tech.com/en/blog/${post.slug}`)}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="blog-share-btn px-3 py-1.5 bg-white dark:bg-[#141210] text-slate-800 dark:text-[#f4f2f1] border border-slate-300 dark:border-white/10 rounded-md hover:border-[#008f7a] dark:hover:border-[#00d2b5] hover:text-[#008f7a] dark:hover:text-[#00d2b5] transition-colors font-medium shadow-2xs"
+                aria-label="Share on LinkedIn"
+              >
+                LinkedIn
+              </a>
+            </div>
+          </div>
+
+          <!-- Next / Prev Post Links -->
+          <nav aria-label="Article Navigation" class="mt-12 pt-8 border-t border-slate-200 dark:border-white/10 grid grid-cols-1 sm:grid-cols-2 gap-4">
+            {prevPost ? (
+              <a 
+                href={`/en/blog/${prevPost.slug}`}
+                class="blog-nav-card p-4 rounded-xl bg-white dark:bg-[#0d1417] border border-slate-200 dark:border-white/10 hover:border-[#008f7a]/50 dark:hover:border-[#00d2b5]/50 shadow-2xs hover:shadow-xs transition-all block text-left group"
+              >
+                <div class="blog-nav-label text-[11px] font-mono text-slate-500 dark:text-[#f4f2f1]/60 font-medium mb-1">
+                  &larr; Previous Guide
+                </div>
+                <div class="blog-nav-title text-sm font-bold text-slate-900 dark:text-[#f4f2f1] group-hover:text-[#008f7a] dark:group-hover:text-[#00d2b5] transition-colors line-clamp-1">
+                  {prevPost.title}
+                </div>
+              </a>
+            ) : <div />}
+
+            {nextPost ? (
+              <a 
+                href={`/en/blog/${nextPost.slug}`}
+                class="blog-nav-card p-4 rounded-xl bg-white dark:bg-[#0d1417] border border-slate-200 dark:border-white/10 hover:border-[#008f7a]/50 dark:hover:border-[#00d2b5]/50 shadow-2xs hover:shadow-xs transition-all block text-right group sm:col-start-2"
+              >
+                <div class="blog-nav-label text-[11px] font-mono text-slate-500 dark:text-[#f4f2f1]/60 font-medium mb-1">
+                  Next Guide &rarr;
+                </div>
+                <div class="blog-nav-title text-sm font-bold text-slate-900 dark:text-[#f4f2f1] group-hover:text-[#008f7a] dark:group-hover:text-[#00d2b5] transition-colors line-clamp-1">
+                  {nextPost.title}
+                </div>
+              </a>
+            ) : <div />}
+          </nav>
+        </div>
+
+        <!-- Sidebar (TOC, Related Services & Consultation) -->
+        <aside class="lg:col-span-4 space-y-8">
+          
+          <!-- Sticky Sidebar Block -->
+          <div class="lg:sticky lg:top-24 space-y-6">
+            
+            <!-- Related Engineering Services -->
+            {relatedServicesData.length > 0 && (
+              <div class="blog-sidebar-services p-5 bg-white dark:bg-[#0d1417] rounded-xl border border-slate-200 dark:border-white/10 shadow-xs">
+                <div class="blog-sidebar-label text-xs font-mono uppercase tracking-wider text-slate-600 dark:text-[#f4f2f1]/60 mb-3 font-semibold">
+                  Related Novand Services
+                </div>
+                <div class="space-y-3">
+                  {relatedServicesData.map((service) => (
+                    <a 
+                      href={`/en/services/${service.slug}`}
+                      class="blog-service-item block p-3 rounded-lg border border-slate-200 dark:border-white/5 hover:border-[#008f7a]/40 bg-slate-50 hover:bg-slate-100/80 dark:bg-[#141210] dark:hover:bg-[#15120e] transition-all group"
+                    >
+                      <h4 class="blog-service-title text-xs font-bold text-slate-900 dark:text-white group-hover:text-[#008f7a] dark:group-hover:text-[#00d2b5] transition-colors">
+                        {service.title}
+                      </h4>
+                      <p class="blog-service-summary text-[11px] text-slate-600 dark:text-[#f4f2f1]/60 mt-1 line-clamp-2">
+                        {service.summary}
+                      </p>
+                    </a>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            <!-- Engineering Consultation Card (Keep-Dark Protected) -->
+            <div class="keep-dark p-6 bg-slate-900 text-white rounded-xl border border-slate-800 shadow-md">
+              <div class="text-[11px] font-mono text-[#00d2b5] uppercase tracking-widest mb-2 font-semibold">
+                Technical Advisory & Design
+              </div>
+              <h4 class="text-base font-bold text-white mb-2 leading-snug">
+                Planning Mission-Critical Infrastructure?
+              </h4>
+              <p class="text-xs text-slate-300 leading-relaxed mb-4 font-light">
+                Novand's engineering team provides onsite surveys, BOM specifications, and commissioning validation.
+              </p>
+              <a 
+                href="/en/contact#consultation" 
+                class="block w-full py-2.5 px-4 text-center text-xs font-bold text-slate-900 bg-[#00d2b5] hover:bg-[#00d2b5]/90 rounded-lg transition-colors shadow-xs"
+              >
+                Schedule Consultation
+              </a>
+            </div>
+
+            <!-- Back to Blog Overview -->
+            <div class="text-center pt-2">
+              <a 
+                href="/en/blog" 
+                class="blog-back-link inline-flex items-center gap-1.5 text-xs text-slate-600 dark:text-[#f4f2f1]/70 hover:text-[#008f7a] dark:hover:text-[#00d2b5] transition-colors font-mono font-medium"
+              >
+                <span>&larr; Return to Knowledge Base</span>
+              </a>
+            </div>
+
+          </div>
+        </aside>
+
+      </div>
+    </div>
+  </article>
+
+  <!-- Reading Progress & Copy Script -->
+  <script is:inline>
+    window.addEventListener('scroll', () => {
+      const progressBar = document.getElementById('reading-progress-bar');
+      if (progressBar) {
+        const totalHeight = document.documentElement.scrollHeight - window.innerHeight;
+        const progress = totalHeight > 0 ? (window.scrollY / totalHeight) * 100 : 0;
+        progressBar.style.width = progress + '%';
+      }
+    });
+
+    const copyBtn = document.getElementById('copy-link-btn');
+    const copyText = document.getElementById('copy-text');
+    if (copyBtn && copyText) {
+      copyBtn.addEventListener('click', async () => {
+        try {
+          await navigator.clipboard.writeText(window.location.href);
+          copyText.textContent = 'Link Copied!';
+          setTimeout(() => {
+            copyText.textContent = 'Copy Link';
+          }, 2500);
+        } catch (e) {
+          copyText.textContent = 'Failed';
+        }
+      });
+    }
+  </script>
+</BaseLayout>

@@ -74,10 +74,49 @@
 - **Top Bar Contract**: Exactly 3 zones: Brand title, 4-6 nav links, 1-2 primary actions.
 - **Diagnostic Testing**: `npm test` runs comprehensive automated checks against bilingual symmetry, slug validity, file existence, and layout rules. Must always pass before committing any changes.
 
-## 6. Persian Commercial Invoice & Excel Sheet Architecture (.xlsx)
-- **Design Philosophy**: Standard Iranian commercial and statutory tax invoice layout merged with Novand's high-tech engineering brand identity.
+## 6. Persian Commercial Invoice & Local Excel Generator (.xlsx)
+- **Public Web Invariant**: Commercial invoice pages (`/invoice` and `/en/invoice`) are strictly removed and omitted from the public website to maintain internal commercial privacy. No invoice pages or public quoting routes are published or indexed in `sitemap.xml`.
+- **Local Generation Architecture**: Commercial quotation and bill of materials (BOM) Excel spreadsheets are generated locally and offline via Node/TypeScript CLI:
+  - Run `npm run generate:invoice` (or `tsx scripts/generate_invoice_excel.ts [outputPath]`).
+  - Outputs to `/invoices/novand-invoice-template.xlsx` (or specified custom path), alongside maintaining offline templates.
+- **Design Philosophy**: Standard Iranian statutory tax and commercial invoice layout merged with Novand's high-tech engineering brand identity.
 - **Palette**: Dark Jet `#0F172A`, Signal Teal `#008F7A`, Light Teal Accent `#E6F7F5`, Soft Slate `#F8FAFC`, Hairline Border `#CBD5E1`.
-- **Core Assets**:
+- **Core Components & Data**:
   - `src/data/invoiceData.ts`: Single source of truth for seller specifications, legal identifiers (National ID, Economic Code, Registration No., Postal Code), bank accounts (Mellat Bank IBAN), terms & conditions, and sample BOM rows.
-  - `public/templates/novand-invoice-template.xlsx` and `public/downloads/novand-invoice-template.xlsx`: Production-grade Microsoft Excel spreadsheet featuring native Right-to-Left (RTL) views, A4 portrait fit-to-1-page print settings, thousand separators (`#,##0`), and error-safe `IF` formulas for Row Total, Discount, 10% VAT, and Final Sums.
-  - `scripts/generate_invoice_excel.ts`: Automated reproducible generator using `exceljs`.
+  - `scripts/generate_invoice_excel.ts`: Automated reproducible generator using `exceljs`, featuring native Right-to-Left (RTL) views, A4 portrait fit-to-1-page print settings, thousand separators (`#,##0`), and error-safe `IF` formulas for Row Total, Discount, 10% VAT, and Final Sums.
+
+## 7. Blog Section, Technical Knowledge Base & Markdown Architecture
+- **Purpose**: Authoritative engineering blog and technical library for sharing whitepapers, network designs, configuration baselines, and field documentation.
+- **Routing & Bilingual Parity**:
+  - Persian Hub: `/blog` and individual posts: `/blog/[slug]`
+  - English Hub: `/en/blog` and individual posts: `/en/blog/[slug]`
+  - Header Navigation: 5 links maintained across both languages (Projects, Blog, About, Consulting, Contact).
+  - Footer Integration: Added under the Company section with bilingual labels.
+- **Markdown Source Files**:
+  - Persian posts stored in `src/content/blog/fa/*.md`
+  - English posts stored in `src/content/blog/en/*.md`
+  - Slugs must match 1:1 between Persian and English for cross-language consistency.
+- **Frontmatter Schema Requirements**:
+  - `title`: string (descriptive, clear engineering title)
+  - `slug`: string (URL-safe kebab-case identifier)
+  - `description`: string (compelling 1-2 sentence technical summary)
+  - `publishDate`: string (ISO `YYYY-MM-DD`)
+  - `author`: string (e.g. `واحد مهندسی زیرساخت نُوَند` / `Novand Optical Infrastructure Engineering Team`)
+  - `category`: string (domain category title)
+  - `categorySlug`: string (slug for interactive tab filtering)
+  - `readingTime`: string (e.g. `۸ دقیقه مطالعه` / `8 min read`)
+  - `image`: string (path to high-resolution asset in `/public/images/`)
+  - `tags`: string[] (technical keyword tags)
+  - `relatedServices`: string[] (valid service slugs connecting content to Novand core capabilities)
+- **Visual Design & Site Architecture Consistency**:
+  - Dedicated Breadcrumbs Bar: Integrated within `<div class="bg-[#141210] border-b border-[#15120e] py-3">` for seamless alignment with all other site pages (`/services`, `/projects`, etc.).
+  - Canonical Page Hero: Both `/blog` and `/blog/[slug]` use the canonical site hero `<section class="bg-[#141210] text-[#f4f2f1] py-16 sm:py-24 border-b border-[#15120e] bg-grid-subtle">` with high-contrast text (`text-[#f4f2f1]` title, `text-[#f4f2f1]/70` description) that dynamically converts to dark jet `#0f172a` and slate `#334155` on light canvas `#eef1f5`.
+  - Zero-Pill Metadata: Article cards and headers use clean unboxed text separated by `·` or `/`.
+  - Interactive Filter Tabs: Category selector uses segmented button controls (`<button>`) with dedicated `.filter-tab` and `.filter-tab.active` classes for crisp high-contrast state in both light and dark modes.
+  - Removal of Dedicated "Attached Learning Materials" Feature: No dedicated upload/download materials sections or cards in the blog index or posts. Any necessary technical downloads are integrated contextually when required.
+  - Single-Elevation Presence: Subtle border `border-slate-200 dark:border-[#1e293b]` without nested card traps.
+  - Typography: `.blog-prose` styling supports Vazirmatn for Persian, Space Grotesk for English, and JetBrains Mono for CLI code blocks, equations, and tables.
+  - Light Theme Strict Contrast: Light mode surfaces maintain WCAG AAA/AA contrast. Technical signal accents on light backgrounds strictly use `#008f7a` (contrast teal) rather than washed-out cyan `#00d2b5`. All metadata texts use `text-slate-600` or `text-slate-700` (avoiding low-contrast `text-slate-400` on light canvases).
+  - Dark-Surface Immunity (`keep-dark`): Any permanently dark component (such as the sidebar consultation card, code blocks, or image watermark badges) must include the `.keep-dark` class to prevent the global light theme conversion layer from forcing dark text on dark surfaces.
+  - Interactive Features: Real-time client-side search, category filtering, reading progress bar, and one-click copy URL.
+  - Blog Text Box & Contrast Enforcement: In light theme, all interactive and content text boxes (search input `.blog-search-field`, filter track `.blog-filter-bar`, share box `.blog-share-box`, navigation cards `.blog-nav-card`, sidebar related service items `.blog-service-item`, tag chips `.blog-tag-chip`, and prose blockquotes) maintain verified WCAG AAA/AA contrast. Placeholders strictly use `#64748b` (preventing white-on-white invisibility), and nested cards employ tinted surfaces (`#f8fafc`/`#e2e8f0`) to avoid white-on-white trap blending.

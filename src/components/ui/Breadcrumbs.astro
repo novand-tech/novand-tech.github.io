@@ -31,11 +31,11 @@ const separatorColors = 'text-slate-400 dark:text-[#f4f2f1]/40 font-bold';
           <span class={separatorColors} aria-hidden="true">/</span>
           {item.href && !isLast ? (
             <a href={item.href} class={`${textColors} transition-colors`}>
-              {!isEn && item.label === "Services" ? "خدمات" : (!isEn && item.label === "Solutions" ? "راهکارها" : (!isEn && item.label === "Projects" ? "پروژه‌ها" : (!isEn && item.label === "Brand" ? "هویت بصری" : item.label)))}
+              {!isEn && item.label === "Services" ? "خدمات" : (!isEn && item.label === "Solutions" ? "راهکارها" : (!isEn && item.label === "Projects" ? "پروژه‌ها" : (!isEn && item.label === "Brand" ? "هویت بصری" : (!isEn && item.label === "Blog" ? "وبلاگ" : item.label))))}
             </a>
           ) : (
             <span class={`${activeColors} font-semibold`} aria-current={isLast ? "page" : undefined}>
-              {!isEn && item.label === "Services" ? "خدمات" : (!isEn && item.label === "Solutions" ? "راهکارها" : (!isEn && item.label === "Projects" ? "پروژه‌ها" : (!isEn && item.label === "Brand" ? "هویت بصری" : item.label)))}
+              {!isEn && item.label === "Services" ? "خدمات" : (!isEn && item.label === "Solutions" ? "راهکارها" : (!isEn && item.label === "Projects" ? "پروژه‌ها" : (!isEn && item.label === "Brand" ? "هویت بصری" : (!isEn && item.label === "Blog" ? "وبلاگ" : item.label))))}
             </span>
           )}
         </li>

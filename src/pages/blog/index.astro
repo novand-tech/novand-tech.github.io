@@ -1,0 +1,218 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/ui/Breadcrumbs.astro';
+import BlogCard from '../../components/cards/BlogCard.astro';
+import { getBlogPosts, getBlogCategories } from '../../data/blog';
+
+const posts = getBlogPosts('fa');
+const categories = getBlogCategories('fa');
+const featuredPost = posts.find((p) => p.featured) || posts[0];
+const regularPosts = posts.filter((p) => p.slug !== featuredPost?.slug);
+
+const title = "وبلاگ تخصصی، مستندات مهندسی و پایگاه دانش";
+const description = "مجموعه مقالات آموزشی، راهنماهای طراحی زیرساخت، محاسبات پیوند فیبر نوری، استانداردهای برق اضطراری دیتاسنتر و الگوهای پیکربندی شبکه نُوَند.";
+---
+
+<BaseLayout 
+  title={title} 
+  description={description}
+  ogImage={featuredPost?.image || "/images/services/fiber-optics.jpg"}
+>
+  <!-- Breadcrumbs -->
+  <div class="bg-[#141210] border-b border-[#15120e] py-3">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <Breadcrumbs items={[{ label: 'وبلاگ' }]} />
+    </div>
+  </div>
+
+  <!-- Hero Section -->
+  <section class="bg-[#141210] text-[#f4f2f1] py-16 sm:py-24 border-b border-[#15120e] bg-grid-subtle">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl">
+        <div class="blog-hero-kicker inline-flex items-center gap-3 px-3.5 py-1 bg-white/10 dark:bg-[#0d1417] border border-slate-300 dark:border-[#15120e] text-slate-900 dark:text-[#f6f2ee] text-[10px] font-mono uppercase tracking-[0.25em] mb-4 rounded-xs">
+          <span class="w-1.5 h-1.5 bg-[#008f7a] dark:bg-[#00d2b5]"></span>
+          پایگاه دانش مهندسی و مستندات میدانی
+        </div>
+
+        <h1 class="text-3xl sm:text-5xl font-light tracking-tight leading-tight text-[#f4f2f1] mb-6">
+          دانش فنی، الگوهای اجرایی و استانداردهای زیرساخت
+        </h1>
+        
+        <p class="text-base sm:text-lg text-[#f4f2f1]/70 leading-relaxed font-light">
+          مجموعه مقالات تحلیلی، کدهای مرجع، چک‌لیست‌های آزمون و فرمول‌های محاسباتی تهیه‌شده توسط مهندسان زیرساخت، فیبر نوری، شبکه و اتوماسیون نُوَند.
+        </p>
+      </div>
+
+      <!-- Interactive Filter Controls & Live Search -->
+      <div class="mt-12 pt-8 border-t border-[#15120e] flex flex-col md:flex-row md:items-center justify-between gap-4">
+        
+        <!-- Category Filter Tabs (Segmented Button Control) -->
+        <div class="blog-filter-bar flex flex-wrap items-center gap-1.5 p-1 bg-slate-200/90 dark:bg-[#0d1417] rounded-lg border border-slate-300 dark:border-[#15120e]" id="category-filter-container">
+          <button 
+            type="button" 
+            data-filter="all" 
+            class="filter-tab active px-3.5 py-1.5 text-xs rounded-md cursor-pointer whitespace-nowrap"
+          >
+            همه مقالات ({posts.length})
+          </button>
+          {categories.map((cat) => (
+            <button 
+              type="button" 
+              data-filter={cat.slug} 
+              class="filter-tab px-3.5 py-1.5 text-xs rounded-md cursor-pointer whitespace-nowrap"
+            >
+              {cat.title} ({cat.count})
+            </button>
+          ))}
+        </div>
+
+        <!-- Live Search Field -->
+        <div class="relative w-full md:w-72">
+          <div class="blog-search-icon absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none text-slate-500 dark:text-[#f4f2f1]/50">
+            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="11" cy="11" r="8"></circle>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+          </div>
+          <input 
+            type="text" 
+            id="blog-search-input" 
+            placeholder="جستجو در مقالات و تگ‌ها..." 
+            class="blog-search-field w-full pr-9 pl-4 py-2 text-xs bg-white dark:bg-[#0d1417] border border-slate-300 dark:border-[#15120e] rounded-lg text-slate-900 dark:text-[#f4f2f1] placeholder:text-slate-500 dark:placeholder:text-[#f4f2f1]/40 focus:outline-none focus:border-[#008f7a] dark:focus:border-[#00d2b5] shadow-xs"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main Content Grid -->
+  <section class="bg-[#0d1417] text-[#f4f2f1] py-16 sm:py-20 border-b border-[#15120e]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Featured Article Spotlight -->
+      {featuredPost && (
+        <div class="mb-12" id="featured-post-wrapper" data-category={featuredPost.categorySlug} data-keywords={`${featuredPost.title} ${featuredPost.description} ${featuredPost.tags.join(' ')}`.toLowerCase()}>
+          <div class="flex items-center justify-between mb-4">
+            <span class="text-xs font-mono uppercase tracking-widest text-[#f6f2ee] opacity-80 font-bold">
+              مقاله منتخب مهندسی
+            </span>
+            <span class="text-xs text-[#008f7a] dark:text-[#00d2b5] font-semibold font-mono">
+              طرح‌ریزی و تحلیل تخصصی
+            </span>
+          </div>
+          <BlogCard post={featuredPost} featured={true} />
+        </div>
+      )}
+
+      <!-- Regular Posts Grid Header -->
+      <div class="mb-8 flex items-center justify-between">
+        <h2 class="text-xl sm:text-2xl font-light text-[#f4f2f1] tracking-tight">
+          آخرین مقالات و یادداشت‌های فنی
+        </h2>
+        <span class="text-xs text-[#f4f2f1]/60 font-mono font-medium" id="post-count-label">
+          نمایش {posts.length} مورد
+        </span>
+      </div>
+
+      <!-- Posts Container for filtering -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="posts-grid">
+        {regularPosts.map((post) => (
+          <div class="post-item" data-category={post.categorySlug} data-keywords={`${post.title} ${post.description} ${post.tags.join(' ')}`.toLowerCase()}>
+            <BlogCard post={post} />
+          </div>
+        ))}
+      </div>
+
+      <!-- Empty search result state -->
+      <div id="no-results-msg" class="hidden text-center py-16 px-4 bg-white dark:bg-[#141210] rounded-xl border border-dashed border-slate-300 dark:border-[#15120e] shadow-xs">
+        <svg class="w-12 h-12 mx-auto text-slate-400 dark:text-slate-500 mb-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+        </svg>
+        <h3 class="text-base font-bold text-slate-900 dark:text-[#f4f2f1]">مقاله‌ای با این مشخصات یافت نشد</h3>
+        <p class="text-xs text-slate-600 dark:text-[#f4f2f1]/70 mt-1">لطفاً عبارت دیگری را جستجو نمایید یا فیلتر دسته‌بندی را تغییر دهید.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Client-side Interactive Filter & Search Script -->
+  <script is:inline>
+    (function() {
+      const tabs = document.querySelectorAll('.filter-tab');
+      const searchInput = document.getElementById('blog-search-input');
+      const postItems = document.querySelectorAll('.post-item');
+      const featuredWrapper = document.getElementById('featured-post-wrapper');
+      const noResults = document.getElementById('no-results-msg');
+      const countLabel = document.getElementById('post-count-label');
+
+      let currentCategory = 'all';
+      let currentQuery = '';
+
+      function applyFilter() {
+        let visibleCount = 0;
+
+        // Check featured post
+        if (featuredWrapper) {
+          const cat = featuredWrapper.getAttribute('data-category');
+          const keywords = featuredWrapper.getAttribute('data-keywords') || '';
+          const matchCat = currentCategory === 'all' || cat === currentCategory;
+          const matchQuery = !currentQuery || keywords.includes(currentQuery);
+
+          if (matchCat && matchQuery) {
+            featuredWrapper.classList.remove('hidden');
+            visibleCount++;
+          } else {
+            featuredWrapper.classList.add('hidden');
+          }
+        }
+
+        // Check regular post items
+        postItems.forEach(item => {
+          const cat = item.getAttribute('data-category');
+          const keywords = item.getAttribute('data-keywords') || '';
+          const matchCat = currentCategory === 'all' || cat === currentCategory;
+          const matchQuery = !currentQuery || keywords.includes(currentQuery);
+
+          if (matchCat && matchQuery) {
+            item.classList.remove('hidden');
+            visibleCount++;
+          } else {
+            item.classList.add('hidden');
+          }
+        });
+
+        // Toggle empty message
+        if (noResults) {
+          if (visibleCount === 0) {
+            noResults.classList.remove('hidden');
+          } else {
+            noResults.classList.add('hidden');
+          }
+        }
+
+        // Update count label
+        if (countLabel) {
+          countLabel.textContent = `نمایش ${visibleCount} مورد`;
+        }
+      }
+
+      // Tab clicks
+      tabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+          tabs.forEach(t => t.classList.remove('active'));
+          tab.classList.add('active');
+          currentCategory = tab.getAttribute('data-filter') || 'all';
+          applyFilter();
+        });
+      });
+
+      // Search input
+      if (searchInput) {
+        searchInput.addEventListener('input', (e) => {
+          currentQuery = e.target.value.trim().toLowerCase();
+          applyFilter();
+        });
+      }
+    })();
+  </script>
+</BaseLayout>

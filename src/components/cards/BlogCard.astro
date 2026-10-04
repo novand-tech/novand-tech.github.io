@@ -1,0 +1,81 @@
+---
+import type { BlogPost } from '../../data/blog';
+
+interface Props {
+  post: BlogPost;
+  featured?: boolean;
+}
+
+const { post, featured = false } = Astro.props;
+const isEn = post.lang === 'en';
+const postUrl = isEn ? `/en/blog/${post.slug}` : `/blog/${post.slug}`;
+---
+
+<article 
+  class={`blog-card group flex flex-col bg-white dark:bg-[#141210] border border-slate-200 dark:border-[#1e293b] hover:border-[#008f7a]/40 dark:hover:border-[#00d2b5]/50 transition-all duration-300 rounded-lg overflow-hidden shadow-xs hover:shadow-md ${
+    featured ? 'md:col-span-2 md:grid md:grid-cols-12 md:gap-6' : ''
+  }`}
+>
+  <!-- Card Media Container -->
+  <div class={`relative overflow-hidden bg-slate-100 dark:bg-[#0d1417] ${featured ? 'md:col-span-7' : 'aspect-[16/10]'}`}>
+    <a href={postUrl} class="block h-full w-full overflow-hidden" tabindex="-1" aria-hidden="true">
+      <img 
+        src={post.image} 
+        alt={post.imageAlt || post.title} 
+        referrerpolicy="no-referrer"
+        loading="lazy"
+        class="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-105"
+      />
+    </a>
+    
+    <!-- Subtle technical tag watermark or signal dot in corner -->
+    <div class="keep-dark absolute top-3 right-3 rtl:right-auto rtl:left-3 flex items-center gap-1.5 px-2.5 py-1 bg-black/85 backdrop-blur-xs text-[11px] font-mono text-white rounded-xs border border-white/15 shadow-xs">
+      <span class="w-1.5 h-1.5 rounded-full bg-[#00d2b5] animate-pulse"></span>
+      <span class="text-white font-medium">{post.category}</span>
+    </div>
+  </div>
+
+  <!-- Card Body -->
+  <div class={`flex flex-col flex-1 p-5 md:p-6 ${featured ? 'md:col-span-5 md:justify-center' : ''}`}>
+    <!-- Zero-Pill Clean Metadata with Typographic Separator -->
+    <div class="flex flex-wrap items-center gap-2 text-xs font-mono text-slate-600 dark:text-[#f4f2f1]/60 mb-2.5 font-medium">
+      <time datetime={post.publishDate}>{post.publishDate}</time>
+      <span aria-hidden="true" class="text-slate-400 dark:text-[#f4f2f1]/40">·</span>
+      <span>{post.readingTime}</span>
+    </div>
+
+    <!-- Title -->
+    <h3 class={`blog-card-title font-bold tracking-tight text-slate-900 dark:text-[#f4f2f1] group-hover:text-[#008f7a] dark:group-hover:text-[#00d2b5] transition-colors leading-snug mb-3 ${
+      featured ? 'text-xl md:text-2xl' : 'text-lg'
+    }`} style="text-wrap: balance;">
+      <a href={postUrl} class="blog-card-title-link focus-visible:outline-2 focus-visible:outline-offset-2">
+        {post.title}
+      </a>
+    </h3>
+
+    <!-- Summary / Excerpt -->
+    <p class="blog-card-excerpt text-sm text-slate-700 dark:text-[#f4f2f1]/70 leading-relaxed mb-4 line-clamp-3 font-normal">
+      {post.description}
+    </p>
+
+    <!-- Footer of Card: Tags & Read Link -->
+    <div class="mt-auto pt-4 border-t border-slate-200 dark:border-white/5 flex items-center justify-between gap-2">
+      <!-- Unboxed subtle tags -->
+      <div class="flex items-center gap-1.5 text-xs font-mono text-slate-600 dark:text-[#f4f2f1]/60 truncate font-medium">
+        {post.tags.slice(0, 3).map((tag, idx) => (
+          <span class="text-slate-600 dark:text-[#f4f2f1]/60">#{tag}{idx < Math.min(post.tags.length, 3) - 1 ? ' ' : ''}</span>
+        ))}
+      </div>
+
+      <!-- Action Link -->
+      <a 
+        href={postUrl}
+        class="blog-card-cta inline-flex items-center gap-1 text-xs font-bold text-[#008f7a] dark:text-[#00d2b5] group-hover:underline whitespace-nowrap shrink-0"
+        aria-label={`${isEn ? 'Read article' : 'مطالعه مقاله'}: ${post.title}`}
+      >
+        <span>{isEn ? 'Read Guide' : 'مطالعه مستند'}</span>
+        <span class="rtl:rotate-180 transition-transform group-hover:translate-x-1 rtl:group-hover:-translate-x-1">&rarr;</span>
+      </a>
+    </div>
+  </div>
+</article>

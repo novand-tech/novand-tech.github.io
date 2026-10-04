@@ -35,11 +35,36 @@ function safeTailwind() {
   return plugins;
 }
 
+// Safe Vite client transform plugin to guard against ws being undefined in sandboxed iframes
+function safeViteClient() {
+  return {
+    name: 'safe-vite-client',
+    enforce: 'post',
+    transform(code, id) {
+      if (id && (id.includes('vite/dist/client/client.mjs') || id.includes('/@vite/client'))) {
+        return code
+          .replace(
+            'ws.send(JSON.stringify(data));',
+            'if (typeof ws !== "undefined" && ws && typeof ws.send === "function" && ws.readyState === ws.OPEN) { ws.send(JSON.stringify(data)); }'
+          )
+          .replace(
+            'wsTransport.send(data);',
+            'if (typeof wsTransport !== "undefined" && wsTransport && typeof wsTransport.send === "function") { try { wsTransport.send(data); } catch(e){} }'
+          );
+      }
+      return null;
+    },
+  };
+}
+
 export default defineConfig({
   site: 'https://novand-tech.com',
+  devToolbar: {
+    enabled: false,
+  },
   integrations: [react()],
   vite: {
-    plugins: [safeTailwind()],
+    plugins: [safeTailwind(), safeViteClient()],
   },
   server: {
     host: '0.0.0.0',

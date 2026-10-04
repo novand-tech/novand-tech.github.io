@@ -18,11 +18,13 @@ const targetLangUrl = currentPath.startsWith('/en')
 
 const navLinks = isEn ? [
   { label: 'Projects', href: '/en/projects' },
+  { label: 'Blog', href: '/en/blog' },
   { label: 'About', href: '/en/about' },
   { label: 'Consulting', href: '/en/consulting' },
   { label: 'Contact', href: '/en/contact' },
 ] : [
   { label: 'پروژه‌ها', href: '/projects' },
+  { label: 'وبلاگ', href: '/blog' },
   { label: 'درباره ما', href: '/about' },
   { label: 'مشاوره', href: '/consulting' },
   { label: 'تماس', href: '/contact' },
@@ -300,6 +302,7 @@ const navLinks = isEn ? [
 
       <div class="border-t border-[#15120e] pt-3 flex flex-col space-y-2">
         <a href={isEn ? "/en/projects" : "/projects"} class="text-sm font-medium text-[#f4f2f1]/80 hover:text-white py-1 px-2">{isEn ? 'Projects & Case Models' : 'پروژه‌ها و نمونه‌ها'}</a>
+        <a href={isEn ? "/en/blog" : "/blog"} class="text-sm font-medium text-[#f4f2f1]/80 hover:text-white py-1 px-2">{isEn ? 'Blog & Knowledge Base' : 'وبلاگ و مقالات آموزشی'}</a>
         <a href={isEn ? "/en/about" : "/about"} class="text-sm font-medium text-[#f4f2f1]/80 hover:text-white py-1 px-2">{isEn ? 'About & Methodology' : 'درباره و متدولوژی'}</a>
         <a href={isEn ? "/en/consulting" : "/consulting"} class="text-sm font-medium text-[#f4f2f1]/80 hover:text-white py-1 px-2">{isEn ? 'Equipment Advisory & Consulting' : 'مشاوره و تامین تجهیزات'}</a>
         <a href={isEn ? "/en/contact" : "/contact"} class="text-sm font-medium text-[#f4f2f1]/80 hover:text-white py-1 px-2">{isEn ? 'Contact & Operations' : 'تماس و عملیات'}</a>

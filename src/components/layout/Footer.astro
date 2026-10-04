@@ -63,6 +63,11 @@ const isEn = currentPath.startsWith("/en");
             </a>
           </li>
           <li>
+            <a href={isEn ? "/en/blog" : "/blog"} class="text-[#f4f2f1]/60 hover:text-[#00d2b5] transition-colors duration-200">
+              {isEn ? 'Engineering Blog & Guides' : 'وبلاگ و مستندات مهندسی'}
+            </a>
+          </li>
+          <li>
             <a href={isEn ? "/en/consulting" : "/consulting"} class="text-[#f4f2f1]/60 hover:text-[#00d2b5] transition-colors duration-200">
               {isEn ? 'Equipment Advisory' : 'مشاوره تجهیزات'}
             </a>
